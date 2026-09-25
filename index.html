@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Расстановка РИЦ · 25.09.2026 — превью</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/cyrillic-400-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/cyrillic-500-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/cyrillic-600-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/cyrillic-700-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/latin-400-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/latin-600-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/latin-700-normal.css">
+<style>
+/* ============ iOS DESIGN TOKENS ============ */
+:root{
+  --bg:#F2F2F7;
+  --card:#FFFFFF;
+  --card2:#F7F7FA;
+  --label:#000000;
+  --label2:rgba(60,60,67,.60);
+  --label3:rgba(60,60,67,.30);
+  --sep:rgba(60,60,67,.16);
+  --fill:rgba(118,118,128,.12);
+  --fill2:rgba(118,118,128,.08);
+  --press:rgba(0,0,0,.045);
+  --hdr:rgba(242,242,247,.82);
+  --tab:rgba(249,249,249,.86);
+  --blue:#007AFF; --green:#34C759; --orange:#FF9500; --pink:#FF2D55;
+  --red:#FF3B30; --yellow:#FFCC00; --indigo:#5856D6; --teal:#30B0C7; --purple:#AF52DE; --gray:#8E8E93;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.05);
+}
+[data-theme="dark"]{
+  --bg:#000000;
+  --card:#1C1C1E;
+  --card2:#232326;
+  --label:#FFFFFF;
+  --label2:rgba(235,235,245,.60);
+  --label3:rgba(235,235,245,.30);
+  --sep:rgba(84,84,88,.55);
+  --fill:rgba(118,118,128,.24);
+  --fill2:rgba(118,118,128,.16);
+  --press:rgba(255,255,255,.07);
+  --hdr:rgba(0,0,0,.72);
+  --tab:rgba(22,22,24,.86);
+  --blue:#0A84FF; --green:#30D158; --orange:#FF9F0A; --pink:#FF375F;
+  --red:#FF453A; --yellow:#FFD60A; --indigo:#5E5CE6; --teal:#64D2FF; --purple:#BF5AF2; --gray:#98989D;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 30px rgba(0,0,0,.45);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',Roboto,sans-serif;
+  background:#d9dbe3;
+  color:var(--label);
+  -webkit-font-smoothing:antialiased;
+  letter-spacing:-.011em;
+}
+[data-theme="dark"] body{background:#0b0b0f}
+body{background:radial-gradient(1200px 700px at 15% -10%,#e8ebf5 0%,#cfd3e0 45%,#b9bfd0 100%);}
+[data-theme="dark"] body{background:radial-gradient(1200px 700px at 15% -10%,#22222c 0%,#111116 50%,#07070a 100%);}
+
+/* ============ STAGE ============ */
+.stage{min-height:100dvh;display:flex;align-items:center;justify-content:center;gap:56px;padding:36px}
+.info{width:330px;flex-shrink:0}
+.info .badge{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--blue);
+  background:rgba(0,122,255,.10);padding:6px 12px;border-radius:100px;margin-bottom:18px}
+[data-theme="dark"] .info .badge{background:rgba(10,132,255,.16)}
+.info h2{font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:10px;color:#111}
+[data-theme="dark"] .info h2{color:#fff}
+.info p{font-size:14.5px;line-height:1.55;color:rgba(30,32,44,.62);margin-bottom:22px}
+[data-theme="dark"] .info p{color:rgba(235,235,245,.55)}
+.info-list{display:flex;flex-direction:column;gap:11px;margin-bottom:24px}
+.info-item{display:flex;gap:12px;align-items:center}
+.info-item .dot{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex-shrink:0;color:#fff}
+.info-item .txt b{display:block;font-size:13.5px;font-weight:600;color:#1a1a22}
+.info-item .txt span{font-size:12.5px;color:rgba(30,32,44,.55)}
+[data-theme="dark"] .info-item .txt b{color:#f2f2f7}
+[data-theme="dark"] .info-item .txt span{color:rgba(235,235,245,.5)}
+.info-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:0;cursor:pointer;font-family:inherit;font-size:13.5px;font-weight:600;padding:11px 18px;border-radius:100px;
+  background:#fff;color:#111;box-shadow:0 2px 10px rgba(0,0,0,.10);transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .2s}
+[data-theme="dark"] .btn{background:#232328;color:#f2f2f7;box-shadow:none}
+.btn:active{transform:scale(.95)}
+.btn.primary{background:var(--blue);color:#fff}
+
+/* ============ DEVICE ============ */
+.device{
+  width:393px;height:852px;flex-shrink:0;position:relative;border-radius:57px;padding:11px;
+  background:linear-gradient(160deg,#3a3a40,#0c0c10 40%,#26262c);
+  box-shadow:0 0 0 1.5px rgba(255,255,255,.14) inset,0 50px 90px -20px rgba(0,0,0,.55),0 12px 30px rgba(0,0,0,.28);
+}
+.device::before,.device::after{content:'';position:absolute;background:#2c2c32;border-radius:3px}
+.device::before{left:-3px;top:180px;width:3px;height:64px;box-shadow:0 -92px 0 #2c2c32,0 96px 0 #2c2c32}
+.device::after{right:-3px;top:230px;width:3px;height:96px}
+.screen{position:relative;width:100%;height:100%;border-radius:46px;overflow:hidden;background:var(--bg);
+  display:flex;flex-direction:column;isolation:isolate}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:118px;height:34px;background:#000;
+  border-radius:20px;z-index:60}
+.island::after{content:'';position:absolute;right:12px;top:11px;width:11px;height:11px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#1c2a3a,#05070c 70%);box-shadow:0 0 0 1px rgba(255,255,255,.06)}
+
+/* status bar */
+.statusbar{position:absolute;top:0;left:0;right:0;height:54px;z-index:55;display:flex;align-items:center;
+  justify-content:space-between;padding:14px 30px 0;pointer-events:none}
+.sb-time{font-size:15px;font-weight:600;letter-spacing:-.02em;color:var(--label)}
+.sb-icons{display:flex;align-items:center;gap:6px}
+
+/* scroll + header */
+.scroll{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding-bottom:104px;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.hdr{position:sticky;top:0;z-index:40;padding:56px 18px 10px;background:var(--hdr);
+  -webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px);
+  border-bottom:.5px solid transparent;transition:border-color .25s,padding .3s}
+.hdr.stuck{border-bottom-color:var(--sep);padding-top:52px;padding-bottom:8px}
+.hdr.stuck .big-title{font-size:22px}
+.hdr-top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.big-title{font-size:32px;font-weight:700;letter-spacing:-.035em;line-height:1.12;transition:font-size .28s cubic-bezier(.2,.8,.2,1)}
+.hdr-sub{font-size:12.5px;font-weight:500;color:var(--label2);margin-top:4px}
+.icon-btn{width:34px;height:34px;border-radius:50%;border:0;background:var(--fill);color:var(--blue);
+  display:grid;place-items:center;cursor:pointer;transition:transform .18s,background .2s;flex-shrink:0;margin-bottom:2px}
+.icon-btn:active{transform:scale(.88)}
+.hdr-extra{margin-top:12px}
+
+/* search */
+.searchbar{display:flex;align-items:center;gap:7px;background:var(--fill);border-radius:11px;padding:8px 10px;height:38px}
+.searchbar svg{flex-shrink:0;opacity:.45}
+.searchbar input{border:0;background:transparent;outline:0;font-family:inherit;font-size:16px;width:100%;color:var(--label)}
+.searchbar input::placeholder{color:var(--label2)}
+
+/* segmented control */
+.seg{position:relative;display:flex;background:var(--fill);border-radius:9px;padding:2px;gap:2px}
+.seg-thumb{position:absolute;top:2px;bottom:2px;border-radius:7.5px;background:#fff;
+  box-shadow:0 1px 3px rgba(0,0,0,.14),0 0 0 .5px rgba(0,0,0,.04);transition:transform .3s cubic-bezier(.3,1.2,.4,1),width .3s}
+[data-theme="dark"] .seg-thumb{background:#636366;box-shadow:none}
+.seg-btn{position:relative;z-index:2;flex:1;border:0;background:transparent;font-family:inherit;font-size:12.5px;font-weight:600;
+  color:var(--label);padding:6px 4px;cursor:pointer;border-radius:7.5px;transition:color .2s;white-space:nowrap}
+.seg-btn:not(.active){color:var(--label2)}
+
+/* chips */
+.chips{display:flex;gap:7px;overflow-x:auto;padding:2px 0 1px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;border:0;cursor:pointer;font-family:inherit;font-size:12.5px;font-weight:600;padding:6px 13px;border-radius:100px;
+  background:var(--card);color:var(--label2);box-shadow:0 0 0 .5px var(--sep);transition:transform .18s,background .2s,color .2s;
+  display:flex;align-items:center;gap:6px}
+.chip:active{transform:scale(.94)}
+.chip.on{background:var(--label);color:var(--bg)}
+.chip .cdot{width:7px;height:7px;border-radius:50%}
+
+/* view */
+.view{padding:6px 16px 0;animation:viewIn .38s cubic-bezier(.2,.85,.25,1)}
+@keyframes viewIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* grouped list */
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;padding:22px 6px 7px}
+.sec-h span:first-child{font-size:12.5px;font-weight:600;color:var(--label2);text-transform:uppercase;letter-spacing:.03em}
+.sec-h span:last-child{font-size:12.5px;font-weight:500;color:var(--label3)}
+.group{background:var(--card);border-radius:15px;overflow:hidden;box-shadow:0 0 0 .5px rgba(0,0,0,.03)}
+.row{display:flex;align-items:center;gap:12px;padding:11px 14px;position:relative;cursor:pointer;
+  transition:background .15s,transform .15s}
+.row:active{background:var(--press);transform:scale(.988)}
+.row+.row::before{content:'';position:absolute;top:0;left:var(--inset,14px);right:0;height:.5px;background:var(--sep)}
+.row .r-main{flex:1;min-width:0}
+.row .r-title{font-size:15.5px;font-weight:600;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .r-sub{font-size:12.5px;color:var(--label2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chev{flex-shrink:0;opacity:.28}
+
+/* avatar */
+.av{width:38px;height:38px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;font-size:15.5px;font-weight:600;
+  letter-spacing:-.02em;position:relative}
+.av.sm{width:30px;height:30px;font-size:12.5px}
+
+/* status dot */
+.sdot{width:9px;height:9px;border-radius:50%;flex-shrink:0;box-shadow:0 0 0 2.5px var(--card)}
+.pill{font-size:11px;font-weight:600;padding:3.5px 9px;border-radius:100px;white-space:nowrap;letter-spacing:-.01em}
+
+/* machine chip */
+.mchip{width:44px;height:38px;border-radius:10px;flex-shrink:0;display:grid;place-items:center;
+  font-size:14.5px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums;background:var(--fill)}
+
+/* hero */
+.hero{margin-top:14px;border-radius:20px;padding:18px;color:#fff;position:relative;overflow:hidden;
+  background:linear-gradient(140deg,#0A84FF 0%,#5E5CE6 58%,#AF52DE 130%);box-shadow:0 14px 30px -12px rgba(60,60,200,.6)}
+.hero::after{content:'';position:absolute;width:220px;height:220px;right:-70px;top:-100px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.28),transparent 68%)}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;position:relative;z-index:2}
+.hero-lbl{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;opacity:.72}
+.hero-title{font-size:21px;font-weight:700;letter-spacing:-.03em;margin-top:5px}
+.hero-sub{font-size:12.5px;opacity:.82;margin-top:3px;font-weight:500}
+.ring-wrap{position:relative;width:70px;height:70px;flex-shrink:0}
+.ring-wrap svg{transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:rgba(255,255,255,.26);stroke-width:6}
+.ring-fg{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset 1.1s cubic-bezier(.2,.8,.2,1)}
+.ring-txt{position:absolute;inset:0;display:grid;place-items:center;font-size:15px;font-weight:700;letter-spacing:-.03em}
+.hero-stats{display:flex;gap:8px;margin-top:16px;position:relative;z-index:2}
+.hero-stat{flex:1;background:rgba(255,255,255,.17);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  border-radius:13px;padding:9px 10px}
+.hero-stat b{display:block;font-size:18px;font-weight:700;letter-spacing:-.03em}
+.hero-stat span{font-size:10.5px;opacity:.82;font-weight:500}
+
+/* stat tiles */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.tile{background:var(--card);border-radius:16px;padding:14px;box-shadow:var(--shadow)}
+.tile .t-ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;margin-bottom:10px;color:#fff}
+.tile b{display:block;font-size:25px;font-weight:700;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.tile b i{font-style:normal;font-size:14px;color:var(--label3);font-weight:600}
+.tile span{display:block;font-size:11.5px;color:var(--label2);margin-top:5px;font-weight:500}
+
+/* progress bar */
+.bar{height:5px;border-radius:100px;background:var(--fill);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:100px;width:0;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+
+/* legend */
+.legend{display:flex;flex-direction:column;gap:0}
+.lg-row{display:flex;align-items:center;gap:10px;padding:8px 14px;font-size:13px;position:relative}
+.lg-row+.lg-row::before{content:'';position:absolute;top:0;left:14px;right:0;height:.5px;background:var(--sep)}
+.lg-sw{width:14px;height:14px;border-radius:4.5px;flex-shrink:0}
+.lg-row span{color:var(--label2)}
+.lg-row b{font-weight:600;color:var(--label)}
+
+/* schedule */
+.sched-card{background:var(--card);border-radius:16px;padding:14px 0 14px 0;overflow:hidden;box-shadow:var(--shadow)}
+.sched{overflow-x:auto;scrollbar-width:none}
+.sched::-webkit-scrollbar{display:none}
+.sched table{border-collapse:separate;border-spacing:0 3px;min-width:330px;width:100%}
+.sched th,.sched td{padding:0}
+.sched .day-h{font-size:10.5px;font-weight:600;color:var(--label2);text-align:center;padding-bottom:6px;line-height:1.3}
+.sched .day-h b{display:block;font-size:11.5px;color:var(--label);font-variant-numeric:tabular-nums}
+.sched .day-h.today b{color:var(--blue)}
+.sched .day-h.today{color:var(--blue)}
+.sched .nm{position:sticky;left:0;background:var(--card);z-index:2;padding:0 8px 0 14px;width:96px}
+.sched .nm div{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sched .nm small{font-size:10px;color:var(--label2);font-weight:500}
+.sched td.cell{padding:0 2px}
+.sc{height:32px;border-radius:9px;display:grid;place-items:center;font-size:11.5px;font-weight:700;color:#fff;
+  transition:transform .15s}
+.sc:active{transform:scale(.9)}
+.sc.today{box-shadow:0 0 0 2px var(--card),0 0 0 3.5px var(--blue)}
+.sc.mute{color:var(--label2)}
+
+/* task card */
+.tcard{background:var(--card);border-radius:16px;padding:14px;box-shadow:var(--shadow);margin-bottom:10px;cursor:pointer;
+  transition:transform .16s cubic-bezier(.2,.8,.2,1)}
+.tcard:active{transform:scale(.98)}
+.tcard-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.tcard h4{font-size:15px;font-weight:600;letter-spacing:-.02em;line-height:1.3}
+.tcard .tmeta{display:flex;align-items:center;gap:8px;margin-top:7px;flex-wrap:wrap}
+.tagz{font-size:11px;font-weight:600;padding:3px 8px;border-radius:7px;display:inline-flex;align-items:center;gap:5px}
+.tcard .tm{font-size:11.5px;color:var(--label2);font-weight:500;display:inline-flex;align-items:center;gap:4px}
+.tprog{display:flex;align-items:center;gap:10px;margin-top:12px}
+.tprog .bar{flex:1}
+.tprog b{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;min-width:34px;text-align:right}
+.prio{width:3px;border-radius:100px;align-self:stretch;min-height:34px}
+
+/* empty */
+.empty{text-align:center;padding:60px 30px;color:var(--label2)}
+.empty svg{opacity:.3;margin-bottom:14px}
+.empty p{font-size:14px;font-weight:500}
+
+/* tab bar */
+.tabbar{position:absolute;left:0;right:0;bottom:0;height:88px;z-index:50;display:flex;padding:0 6px 26px;
+  background:var(--tab);-webkit-backdrop-filter:saturate(180%) blur(24px);backdrop-filter:saturate(180%) blur(24px);
+  border-top:.5px solid var(--sep)}
+.tab{flex:1;border:0;background:transparent;cursor:pointer;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:3.5px;padding-top:9px;font-family:inherit;color:var(--label3);transition:transform .18s,color .22s}
+.tab span{font-size:9.5px;font-weight:600;letter-spacing:-.01em}
+.tab.on{color:var(--blue)}
+.tab:active{transform:scale(.88)}
+.tab .tico{position:relative}
+.tab .tbadge{position:absolute;top:-3px;right:-7px;min-width:15px;height:15px;border-radius:100px;background:var(--red);
+  color:#fff;font-size:9.5px;font-weight:700;display:grid;place-items:center;padding:0 4px;box-shadow:0 0 0 1.5px var(--tab)}
+
+/* fullscreen mode */
+body.fs .info{display:none}
+body.fs .stage{padding:0;gap:0}
+body.fs .device{width:100vw;height:100dvh;max-width:100vw;border-radius:0;padding:0;background:var(--bg);box-shadow:none}
+body.fs .device::before,body.fs .device::after,body.fs .island{display:none}
+body.fs .screen{border-radius:0}
+body.fs .statusbar{padding-top:10px;height:46px}
+body.fs .hdr{padding-top:52px}
+
+@media(max-width:1120px){
+  .stage{gap:32px;padding:24px}
+  .info{width:290px}
+}
+@media(max-width:900px){
+  .info{display:none}
+  .stage{padding:0}
+  .device{width:100vw;height:100dvh;max-width:100vw;border-radius:0;padding:0;background:var(--bg);box-shadow:none}
+  .device::before,.device::after,.island{display:none}
+  .screen{border-radius:0}
+  .statusbar{padding-top:8px;height:46px}
+  .hdr{padding-top:50px}
+}
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <aside class="info">
+    <div class="badge">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
+      Превью интерфейса · iOS
+    </div>
+    <h2>Расстановка РИЦ</h2>
+    <p>Сменное задание участка: помещения, оборудование, исполнители и график смен. Данные — «РАССТАНОВКА РИЦ 25.09.2026.xlsx».</p>
+    <div class="info-list" id="infoList"></div>
+    <div class="info-actions">
+      <button class="btn primary" id="fsBtn">На весь экран</button>
+      <button class="btn" id="themeBtn2">Тёмная тема</button>
+    </div>
+  </aside>
+
+  <div class="device" id="device">
+    <div class="screen">
+      <div class="island"></div>
+
+      <div class="statusbar">
+        <span class="sb-time">9:41</span>
+        <span class="sb-icons">
+          <svg width="18" height="12" viewBox="0 0 18 12" fill="var(--label)"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+          <svg width="17" height="12" viewBox="0 0 17 12" fill="var(--label)"><path d="M8.5 11.6 6.2 8.9a3.6 3.6 0 0 1 4.6 0l-2.3 2.7Z"/><path d="M8.5 6.3c-1.3 0-2.5.5-3.4 1.3L3.7 6.1A7.3 7.3 0 0 1 8.5 4.3c1.8 0 3.5.7 4.8 1.8l-1.4 1.5a5.3 5.3 0 0 0-3.4-1.3Z"/><path d="M8.5 2.1A10 10 0 0 0 2.2 4.3L.8 2.8A12 12 0 0 1 8.5.2c2.9 0 5.6 1 7.7 2.6l-1.4 1.5A10 10 0 0 0 8.5 2.1Z"/></svg>
+          <svg width="27" height="13" viewBox="0 0 27 13" fill="none"><rect x=".6" y=".6" width="22" height="11.8" rx="3.6" stroke="var(--label)" stroke-opacity=".35" stroke-width="1.1"/><rect x="2.3" y="2.3" width="17" height="8.4" rx="2.2" fill="var(--label)"/><path d="M24.4 4.4c1 .5 1.6 1.3 1.6 2.1s-.6 1.6-1.6 2.1V4.4Z" fill="var(--label)" fill-opacity=".4"/></svg>
+        </span>
+      </div>
+
+      <div class="scroll" id="scroll">
+        <header class="hdr" id="hdr">
+          <div class="hdr-top">
+            <div>
+              <h1 class="big-title" id="bigTitle">Обзор</h1>
+              <p class="hdr-sub" id="hdrSub">РИЦ · пт, 25 сентября 2026</p>
+            </div>
+            <button class="icon-btn" id="themeBtn" aria-label="Тема">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+            </button>
+          </div>
+          <div class="hdr-extra" id="hdrExtra"></div>
+        </header>
+        <main class="view" id="view"></main>
+      </div>
+
+      <nav class="tabbar" id="tabbar"></nav>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================= ДАННЫЕ ================= */
+const ICON = {
+  grid:'<path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/>',
+  users:'<path d="M16 20v-1.5a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4V20"/><circle cx="9" cy="7" r="3.4"/><path d="M22 20v-1.5a4 4 0 0 0-3-3.87M16.5 4.2a3.4 3.4 0 0 1 0 6.6"/>',
+  cpu:'<rect x="6" y="6" width="12" height="12" rx="2.4"/><path d="M10 2.5v3M14 2.5v3M10 18.5v3M14 18.5v3M2.5 10h3M2.5 14h3M18.5 10h3M18.5 14h3"/>',
+  cal:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  check:'<path d="M8 6h13M8 12h13M8 18h13M3.5 6.2l1.2 1.2 2-2.2M3.5 12.2l1.2 1.2 2-2.2M3.5 18.2l1.2 1.2 2-2.2"/>',
+  flame:'<path d="M12 22c4 0 7-2.7 7-6.5 0-3.2-2-5.3-3.4-7C14.2 6.7 13.4 4.7 13.6 2c-2.6 1.2-4.2 3.3-4.6 5.6-.3 1.7.2 3-.6 3.6-.6.5-1.4.2-1.9-.6-.5.9-.9 2-.9 3.4C5.6 19 8.4 22 12 22Z"/>',
+  zap:'<path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2Z"/>',
+  tag:'<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7.2-7.2A2 2 0 0 1 2.8 12V4.8A2 2 0 0 1 4.8 2.8H12a2 2 0 0 1 1.4.6l7.2 7.2a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.4"/>',
+  wrench:'<path d="M14.7 6.3a4.5 4.5 0 0 0 5.9 5.9l-8 8a3 3 0 1 1-4.2-4.2l8-8Z"/><path d="M14.7 6.3 17.4 3.6"/>',
+  disc:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.2"/>',
+  shield:'<path d="M12 22s8-3.4 8-9.4V5.6L12 2.6 4 5.6v7C4 18.6 12 22 12 22Z"/><path d="m9 12 2.2 2.2L15.4 10"/>',
+  box:'<path d="M21 8.4 12 3.6 3 8.4v7.2l9 4.8 9-4.8V8.4Z"/><path d="m3 8.4 9 4.8 9-4.8M12 21.6v-8.4"/>',
+  search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/>',
+  chev:'<path d="m9 5 7 7-7 7"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7.2V12l3.2 2"/>',
+  person:'<circle cx="12" cy="8" r="3.6"/><path d="M5 20a7 7 0 0 1 14 0"/>',
+  alert:'<path d="M12 3.5 2.6 20h18.8L12 3.5Z"/><path d="M12 10v4M12 17.2h.01"/>',
+  sun:'<circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/>'
+};
+const svg=(n,s=20,w=1.9)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${ICON[n]}</svg>`;
+
+const ZONES={
+  termo:{name:'Термическая обработка',short:'Термо',icon:'flame',c:'#FF9500'},
+  ero:{name:'Электроэрозия (ЭРО)',short:'ЭРО',icon:'zap',c:'#5856D6'},
+  mark:{name:'Маркировка',short:'Маркировка',icon:'tag',c:'#AF52DE'},
+  si:{name:'СИ · слесарный участок',short:'СИ',icon:'wrench',c:'#0A84FF'},
+  sishlif:{name:'СИ-шлиф',short:'СИ-шлиф',icon:'disc',c:'#30B0C7'},
+  tu:{name:'ТУ · заточной участок',short:'ТУ',icon:'disc',c:'#FF9F0A'},
+  otk:{name:'ОТК · контроль',short:'ОТК',icon:'shield',c:'#34C759'},
+  fchpu:{name:'ФЧПУ',short:'ФЧПУ',icon:'cpu',c:'#FF375F'},
+  tchpu:{name:'ТЧПУ',short:'ТЧПУ',icon:'cpu',c:'#5E5CE6'},
+  sklad:{name:'Склад металла · ЗУ',short:'Склад',icon:'box',c:'#8E8E93'}
+};
+
+const ST={
+  work:{l:'На смене',c:'#5856D6',m:'Р'},
+  rest:{l:'День отдыха',c:'#0A84FF',m:'В'},
+  vac:{l:'В отпуске',c:'#34C759',m:'О'},
+  sick:{l:'На больничном',c:'#FF9500',m:'Б'},
+  extra:{l:'На подработке',c:'#FF2D55',m:'П'},
+  trainee:{l:'Стажёр',c:'#FFCC00',m:'С'},
+  cross:{l:'Подработка с др. смены',c:'#FF3B30',m:'×'}
+};
+
+const PEOPLE=[
+  {id:1,n:'Арифулов',r:'Термист',z:'termo',m:[225,251,229],s:'work',sh:1,w:['work','work','work','work','work','rest','rest']},
+  {id:2,n:'Прямов',r:'Термист',z:'termo',m:[201],s:'work',sh:2,w:['work','rest','work','rest','work','rest','work']},
+  {id:3,n:'Багаутдинов',r:'Слесарь',z:'si',m:[203,204,205,227],s:'rest',sh:1,w:['work','work','rest','rest','rest','work','work']},
+  {id:4,n:'Герчи',r:'Шлифовщик',z:'sishlif',m:[247,234],s:'sick',sh:2,w:['work','work','sick','sick','sick','sick','sick']},
+  {id:5,n:'Сапогов',r:'Шлифовщик',z:'sishlif',m:[210,236],s:'work',sh:1,w:['work','work','work','work','work','rest','rest']},
+  {id:6,n:'Уфимцев',r:'Заточник',z:'tu',m:[228],s:'extra',sh:1,w:['work','work','work','work','extra','extra','rest']},
+  {id:7,n:'Широбоков',r:'Оператор ТЧПУ',z:'tchpu',m:[137,245],s:'cross',sh:2,w:['work','work','work','work','cross','work','rest']},
+  {id:8,n:'Свинин',r:'Контролёр ОТК',z:'otk',m:[202],s:'work',sh:1,w:['work','work','work','work','work','work','rest']},
+  {id:9,n:'Пережогина',r:'Кладовщик',z:'sklad',m:[],s:'vac',sh:1,w:['vac','vac','vac','vac','vac','vac','vac']},
+  {id:10,n:'Бабкин',r:'Оператор ЗУ / ТЧПУ',z:'tchpu',m:[138,139],s:'work',sh:2,w:['rest','work','work','work','work','rest','rest']},
+  {id:11,n:'Сопельцев',r:'Оператор ФЧПУ',z:'fchpu',m:[207,224],s:'work',sh:1,w:['work','work','rest','rest','work','work','work']},
+  {id:12,n:'Жалилов',r:'Оператор ФЧПУ · стажёр',z:'fchpu',m:[206,226],s:'trainee',sh:2,w:['trainee','trainee','trainee','trainee','trainee','rest','rest']}
+];
+
+const MST={run:{l:'В работе',c:'#34C759'},wait:{l:'Ожидает',c:'#FF9500'},maint:{l:'ТО / ремонт',c:'#8E8E93'},idle:{l:'Свободен',c:'#0A84FF'}};
+const MACHINES=[
+  {n:225,z:'termo',op:'Арифулов',s:'run',job:'Термообработка, партия РИЦ-225'},
+  {n:251,z:'termo',op:'Арифулов',s:'run',job:'Закалка ТВЧ, втулки'},
+  {n:229,z:'termo',op:'Прямов',s:'wait',job:'Ожидает загрузку партии'},
+  {n:201,z:'termo',op:'Прямов',s:'maint',job:'Плановое ТО печи'},
+  {n:246,z:'ero',op:'Арифулов',s:'run',job:'Прошивка матриц РИЦ-18'},
+  {n:233,z:'ero',op:'Арифулов',s:'run',job:'Вырезка пуансонов'},
+  {n:241,z:'ero',op:null,s:'idle',job:'Свободен, смена 2'},
+  {n:205,z:'si',op:'Багаутдинов',s:'wait',job:'Нет оператора (день отдыха)'},
+  {n:204,z:'si',op:null,s:'idle',job:'Свободен'},
+  {n:203,z:'si',op:'Багаутдинов',s:'run',job:'Слесарная доводка'},
+  {n:227,z:'si',op:'Багаутдинов',s:'run',job:'Сборка пакета РИЦ-14'},
+  {n:247,z:'sishlif',op:'Герчи',s:'wait',job:'Оператор на больничном'},
+  {n:234,z:'sishlif',op:'Герчи',s:'wait',job:'Оператор на больничном'},
+  {n:210,z:'sishlif',op:'Сапогов',s:'run',job:'Шлифовка пуансонов'},
+  {n:236,z:'sishlif',op:'Сапогов',s:'run',job:'Круглая шлифовка валов'},
+  {n:228,z:'tu',op:'Уфимцев',s:'run',job:'Заточка инструмента'},
+  {n:245,z:'tu',op:'Широбоков',s:'run',job:'Заточка пуансонов'},
+  {n:202,z:'otk',op:'Свинин',s:'run',job:'Контроль партии РИЦ-225'},
+  {n:207,z:'fchpu',op:'Сопельцев',s:'run',job:'Корпус РИЦ-14'},
+  {n:224,z:'fchpu',op:'Сопельцев',s:'run',job:'Плита нажимная'},
+  {n:206,z:'fchpu',op:'Жалилов',s:'run',job:'Обучение · плита опорная'},
+  {n:226,z:'fchpu',op:'Жалилов',s:'maint',job:'Замена инструмента, наладка'},
+  {n:135,z:'tchpu',op:null,s:'idle',job:'Свободен'},
+  {n:136,z:'tchpu',op:null,s:'idle',job:'Свободен'},
+  {n:137,z:'tchpu',op:'Широбоков',s:'run',job:'Вал РИЦ-19, черновая'},
+  {n:138,z:'tchpu',op:'Бабкин',s:'run',job:'Вал-шестерня'},
+  {n:139,z:'tchpu',op:'Бабкин',s:'run',job:'Втулка Д-40, партия 25 шт.'}
+];
+
+const TASKS=[
+  {id:'T-2041',t:'Термообработка партии валов',z:'termo',m:225,w:'Арифулов',q:40,d:26,due:'15:30',p:'high',s:'run'},
+  {id:'T-2043',t:'Корпус РИЦ-14 · фрезерная',z:'fchpu',m:207,w:'Сопельцев',q:8,d:7,due:'18:40',p:'high',s:'run'},
+  {id:'T-2047',t:'Контроль партии РИЦ-225',z:'otk',m:202,w:'Свинин',q:40,d:0,due:'19:30',p:'high',s:'wait'},
+  {id:'T-2046',t:'Шлифовка пуансонов',z:'sishlif',m:210,w:'Сапогов',q:30,d:28,due:'17:05',p:'mid',s:'run'},
+  {id:'T-2045',t:'Вал-шестерня · токарная',z:'tchpu',m:138,w:'Бабкин',q:25,d:11,due:'21:15',p:'mid',s:'run'},
+  {id:'T-2042',t:'Прошивка матриц РИЦ-18',z:'ero',m:246,w:'Арифулов',q:12,d:4,due:'22:00',p:'mid',s:'run'},
+  {id:'T-2049',t:'Выдача заготовок на ЗУ',z:'sklad',m:null,w:'Бабкин',q:18,d:9,due:'20:00',p:'mid',s:'run'},
+  {id:'T-2044',t:'Плита опорная · обучение стажёра',z:'fchpu',m:206,w:'Жалилов',q:4,d:1,due:'23:00',p:'low',s:'run'},
+  {id:'T-2051',t:'Слесарная доводка пуансонов',z:'si',m:203,w:'Багаутдинов',q:10,d:0,due:'—',p:'mid',s:'pause'},
+  {id:'T-2050',t:'Заточка инструмента · ТУ',z:'tu',m:228,w:'Уфимцев',q:15,d:15,due:'13:20',p:'low',s:'done'},
+  {id:'T-2048',t:'Маркировка партии РИЦ-19',z:'mark',m:null,w:'Арифулов',q:60,d:60,due:'14:10',p:'low',s:'done'}
+];
+const TST={run:{l:'В работе',c:'#0A84FF'},wait:{l:'Ожидает',c:'#FF9500'},done:{l:'Готово',c:'#34C759'},pause:{l:'Пауза',c:'#8E8E93'}};
+const PRIO={high:'#FF3B30',mid:'#FF9500',low:'#8E8E93'};
+const DAYS=[{d:'Пн',n:21},{d:'Вт',n:22},{d:'Ср',n:23},{d:'Чт',n:24},{d:'Пт',n:25},{d:'Сб',n:26},{d:'Вс',n:27}];
+
+/* ================= HELPERS ================= */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pct=(d,q)=>Math.round(d/q*100);
+const avColor=c=>{const d=document.documentElement.dataset.theme;return d==='dark'?hexA(c,.22):hexA(c,.13)};
+function hexA(h,a){const n=parseInt(h.slice(1),16);return`rgba(${n>>16&255},${n>>8&255},${n&255},${a})`}
+const initials=n=>n.slice(0,1).toUpperCase();
+const state={tab:'overview',q:'',filter:'all',shift:0,tfilter:'all',sel:null};
+
+/* ================= TABBAR ================= */
+const TABS=[
+  {id:'overview',l:'Обзор',i:'grid'},
+  {id:'people',l:'Люди',i:'users'},
+  {id:'machines',l:'Станки',i:'cpu'},
+  {id:'schedule',l:'График',i:'cal'},
+  {id:'tasks',l:'Задания',i:'check'}
+];
+function renderTabs(){
+  const active=TASKS.filter(t=>t.s==='run').length;
+  $('#tabbar').innerHTML=TABS.map(t=>`
+    <button class="tab ${state.tab===t.id?'on':''}" data-tab="${t.id}">
+      <span class="tico">${svg(t.i,23,1.85)}${t.id==='tasks'?`<span class="tbadge">${active}</span>`:''}</span>
+      <span>${t.l}</span>
+    </button>`).join('');
+  $('#tabbar').querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{
+    state.tab=b.dataset.tab;state.sel=null;renderTabs();render();$('#scroll').scrollTo({top:0,behavior:'smooth'});
+  });
+}
+
+/* ================= HEADER ================= */
+const TITLES={overview:'Обзор',people:'Работники',machines:'Оборудование',schedule:'График смен',tasks:'Задания'};
+function renderHeader(){
+  $('#bigTitle').textContent=TITLES[state.tab];
+  const extra=$('#hdrExtra');
+  if(state.tab==='people'){
+    extra.innerHTML=`
+      <div class="searchbar">${svg('search',16,2)}<input id="q" type="search" placeholder="Поиск: фамилия, станок, участок" value="${esc(state.q)}"></div>
+      <div class="chips" style="margin-top:10px">
+        <button class="chip ${state.filter==='all'?'on':''}" data-f="all">Все · ${PEOPLE.length}</button>
+        ${Object.entries(ST).map(([k,v])=>{const c=PEOPLE.filter(p=>p.s===k).length;return c?`<button class="chip ${state.filter===k?'on':''}" data-f="${k}"><span class="cdot" style="background:${v.c}"></span>${v.l} · ${c}</button>`:''}).join('')}
+      </div>`;
+    const qi=$('#q');qi.oninput=e=>{state.q=e.target.value;renderPeople();};
+    extra.querySelectorAll('[data-f]').forEach(c=>c.onclick=()=>{state.filter=c.dataset.f;renderHeader();renderPeople();});
+  } else if(state.tab==='machines'){
+    extra.innerHTML=`<div class="seg" data-seg="ms"><div class="seg-thumb"></div>
+      <button class="seg-btn ${state.mfilter!=='run'?'active':''}" data-m="all">Все</button>
+      <button class="seg-btn ${state.mfilter==='run'?'active':''}" data-m="run">В работе</button>
+      <button class="seg-btn ${state.mfilter==='wait'?'active':''}" data-m="wait">Ожидают</button>
+      <button class="seg-btn ${state.mfilter==='idle'?'active':''}" data-m="idle">Свободные</button></div>`;
+    bindSeg(extra.querySelector('[data-seg]'),b=>{state.mfilter=b.dataset.m;renderHeader();renderMachines();});
+  } else if(state.tab==='schedule'){
+    extra.innerHTML=`<div class="seg" data-seg="sh"><div class="seg-thumb"></div>
+      <button class="seg-btn ${state.shift===0?'active':''}" data-s="0">Все смены</button>
+      <button class="seg-btn ${state.shift===1?'active':''}" data-s="1">Смена 1</button>
+      <button class="seg-btn ${state.shift===2?'active':''}" data-s="2">Смена 2</button></div>`;
+    bindSeg(extra.querySelector('[data-seg]'),b=>{state.shift=+b.dataset.s;renderHeader();renderSchedule();});
+  } else if(state.tab==='tasks'){
+    extra.innerHTML=`<div class="seg" data-seg="tf"><div class="seg-thumb"></div>
+      <button class="seg-btn ${state.tfilter==='all'?'active':''}" data-t="all">Все</button>
+      <button class="seg-btn ${state.tfilter==='run'?'active':''}" data-t="run">В работе</button>
+      <button class="seg-btn ${state.tfilter==='wait'?'active':''}" data-t="wait">Ожидают</button>
+      <button class="seg-btn ${state.tfilter==='done'?'active':''}" data-t="done">Готово</button></div>`;
+    bindSeg(extra.querySelector('[data-seg]'),b=>{state.tfilter=b.dataset.t;renderHeader();renderTasks();});
+  } else extra.innerHTML='';
+}
+function bindSeg(seg,cb){
+  const btns=seg.querySelectorAll('.seg-btn'),th=seg.querySelector('.seg-thumb');
+  const move=b=>{th.style.width=b.offsetWidth+'px';th.style.transform=`translateX(${b.offsetLeft-2}px)`;};
+  const act=seg.querySelector('.active');if(act)requestAnimationFrame(()=>move(act));
+  btns.forEach(b=>b.onclick=()=>{btns.forEach(x=>x.classList.remove('active'));b.classList.add('active');move(b);cb(b);});
+}
+
+/* ================= VIEWS ================= */
+function render(){renderHeader();({overview:renderOverview,people:renderPeople,machines:renderMachines,schedule:renderSchedule,tasks:renderTasks})[state.tab]();}
+
+/* --- OVERVIEW --- */
+function renderOverview(){
+  const onShift=PEOPLE.filter(p=>['work','extra','cross','trainee'].includes(p.s)).length;
+  const run=MACHINES.filter(m=>m.s==='run').length;
+  const tRun=TASKS.filter(t=>t.s==='run').length;
+  const ready=Math.round(TASKS.reduce((a,t)=>a+t.d,0)/TASKS.reduce((a,t)=>a+t.q,0)*100);
+  const C=2*Math.PI*28, off=C*(1-ready/100);
+  const alerts=PEOPLE.filter(p=>['sick','vac'].includes(p.s));
+
+  $('#view').innerHTML=`
+  <div class="hero">
+    <div class="hero-top">
+      <div>
+        <div class="hero-lbl">Текущая смена</div>
+        <div class="hero-title">Смена 1 · 07:00–15:30</div>
+        <div class="hero-sub">Пятница, 25.09.2026 · мастер участка РИЦ</div>
+      </div>
+      <div class="ring-wrap">
+        <svg width="70" height="70" viewBox="0 0 70 70">
+          <circle class="ring-bg" cx="35" cy="35" r="28"/>
+          <circle class="ring-fg" cx="35" cy="35" r="28" stroke-dasharray="${C}" stroke-dashoffset="${C}"/>
+        </svg>
+        <div class="ring-txt">${ready}%</div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><b>${onShift}/${PEOPLE.length}</b><span>на смене</span></div>
+      <div class="hero-stat"><b>${run}/${MACHINES.length}</b><span>станков в работе</span></div>
+      <div class="hero-stat"><b>${tRun}</b><span>заданий в работе</span></div>
+    </div>
+  </div>
+
+  <div class="sec-h"><span>Участки смены</span><span>${Object.keys(ZONES).length} участков</span></div>
+  <div class="group">
+    ${Object.entries(ZONES).map(([k,z])=>{
+      const ppl=PEOPLE.filter(p=>p.z===k);
+      const mc=MACHINES.filter(m=>m.z===k);
+      const r=mc.filter(m=>m.s==='run').length;
+      return `<div class="row" style="--inset:56px" data-zone="${k}">
+        <div class="av" style="background:${avColor(z.c)};color:${z.c};border-radius:11px;width:34px;height:34px;font-size:15px">${svg(z.icon,17,2)}</div>
+        <div class="r-main">
+          <div class="r-title" style="font-size:14.5px">${z.name}</div>
+          <div class="r-sub">${ppl.length?ppl.map(p=>p.n).join(', '):'без исполнителя'}${mc.length?' · '+r+'/'+mc.length+' станков':''}</div>
+        </div>
+        <span class="chev">${svg('chev',15,2.4)}</span>
+      </div>`;
+    }).join('')}
+  </div>
+
+  <div class="sec-h"><span>Сводка</span><span>25.09.2026</span></div>
+  <div class="tiles">
+    ${tile('person','#5856D6',onShift,'/'+PEOPLE.length,'человек на смене')}
+    ${tile('cpu','#34C759',run,'/'+MACHINES.length,'единиц оборудования')}
+    ${tile('alert','#FF9500',alerts.length,'','отсутствуют (отпуск / б-л)')}
+    ${tile('check','#0A84FF',TASKS.filter(t=>t.s==='done').length,'/'+TASKS.length,'заданий закрыто')}
+  </div>
+
+  <div class="sec-h"><span>Отсутствуют на смене</span></div>
+  <div class="group">
+    ${alerts.map(p=>personRow(p)).join('')||'<div class="row"><div class="r-main"><div class="r-sub">Все на рабочих местах</div></div></div>'}
+  </div>
+
+  <div class="sec-h"><span>Ближайшие задания</span><span>по сроку</span></div>
+  ${TASKS.filter(t=>t.s==='run'||t.s==='wait').slice(0,3).map(taskCard).join('')}
+
+  <div class="sec-h"><span>Обозначения маркеров</span></div>
+  <div class="group legend">
+    ${Object.entries(ST).map(([k,v])=>`<div class="lg-row"><span class="lg-sw" style="background:${v.c}"></span><b>${v.l}</b></div>`).join('')}
+  </div>
+  <p style="font-size:11.5px;color:var(--label2);line-height:1.5;padding:10px 6px 4px">Цветовая маркировка соответствует исходному файлу расстановки. Задания и прогресс — демонстрационные данные для превью.</p>
+  `;
+  requestAnimationFrame(()=>{const r=document.querySelector('.ring-fg');if(r)r.style.strokeDashoffset=off;});
+  $('#view').querySelectorAll('[data-zone]').forEach(el=>el.onclick=()=>{state.tab='machines';state.mfilter='all';renderTabs();render();});
+}
+function tile(ic,c,v,sub,l){return `<div class="tile"><div class="t-ic" style="background:${c}">${svg(ic,16,2.1)}</div>
+  <b>${v}<i>${sub||''}</i></b><span>${l}</span></div>`}
+
+function personRow(p){
+  const z=ZONES[p.z],st=ST[p.s];
+  return `<div class="row" style="--inset:62px" data-p="${p.id}">
+    <div class="av" style="background:${avColor(z.c)};color:${z.c}">${initials(p.n)}
+      <span class="sdot" style="background:${st.c};position:absolute;right:-1px;bottom:-1px"></span></div>
+    <div class="r-main">
+      <div class="r-title">${esc(p.n)}</div>
+      <div class="r-sub">${esc(p.r)}${p.m.length?' · ст. '+p.m.join(', '):''}</div>
+    </div>
+    <span class="pill" style="background:${hexA(st.c,.14)};color:${st.c}">${st.l}</span>
+  </div>`;
+}
+function taskCard(t){
+  const z=ZONES[t.z],s=TST[t.s],pr=pct(t.d,t.q);
+  return `<div class="tcard" data-task="${t.id}">
+    <div class="tcard-top">
+      <div style="display:flex;gap:11px;flex:1;min-width:0">
+        <div class="prio" style="background:${PRIO[t.p]}"></div>
+        <div style="flex:1;min-width:0">
+          <h4>${esc(t.t)}</h4>
+          <div class="tmeta">
+            <span class="tagz" style="background:${hexA(z.c,.13)};color:${z.c}">${z.short}</span>
+            ${t.m?`<span class="tm">${svg('cpu',12,2.2)}ст. ${t.m}</span>`:''}
+            <span class="tm">${svg('person',12,2.2)}${esc(t.w)}</span>
+            <span class="tm">${svg('clock',12,2.2)}${t.due}</span>
+          </div>
+        </div>
+      </div>
+      <span class="pill" style="background:${hexA(s.c,.14)};color:${s.c}">${s.l}</span>
+    </div>
+    <div class="tprog">
+      <div class="bar"><i data-w="${pr}" style="background:${pr>=100?'#34C759':z.c}"></i></div>
+      <b>${t.d}/${t.q}</b>
+    </div>
+  </div>`;
+}
+
+/* --- PEOPLE --- */
+function renderPeople(){
+  const q=state.q.toLowerCase().trim();
+  let list=PEOPLE.filter(p=>{
+    if(state.filter!=='all'&&p.s!==state.filter)return false;
+    if(!q)return true;
+    const z=ZONES[p.z];
+    return (p.n+' '+p.r+' '+z.name+' '+z.short+' '+p.m.join(' ')).toLowerCase().includes(q);
+  });
+  const byShift=[1,2].map(s=>({s,p:list.filter(p=>p.sh===s)})).filter(g=>g.p.length);
+  const shName={1:'Смена 1 · 07:00–15:30',2:'Смена 2 · 15:30–00:00'};
+  $('#view').innerHTML=list.length?byShift.map(g=>`
+    <div class="sec-h"><span>${shName[g.s]}</span><span>${g.p.length} чел.</span></div>
+    <div class="group">${g.p.map(personRow).join('')}</div>`).join('')
+    :`<div class="empty">${svg('search',42,1.6)}<p>Ничего не найдено</p></div>`;
+  $('#view').querySelectorAll('[data-p]').forEach(el=>el.onclick=()=>openPerson(+el.dataset.p));
+}
+
+function openPerson(id){
+  const p=PEOPLE.find(x=>x.id===id),z=ZONES[p.z],st=ST[p.s];
+  const jobs=TASKS.filter(t=>t.w===p.n);
+  const mc=MACHINES.filter(m=>m.op===p.n);
+  $('#view').innerHTML=`
+    <div style="display:flex;flex-direction:column;align-items:center;padding:20px 0 6px">
+      <div class="av" style="width:74px;height:74px;font-size:30px;background:${avColor(z.c)};color:${z.c}">${initials(p.n)}</div>
+      <h3 style="font-size:22px;font-weight:700;letter-spacing:-.03em;margin-top:12px">${esc(p.n)}</h3>
+      <p style="font-size:13.5px;color:var(--label2);margin-top:3px">${esc(p.r)}</p>
+      <span class="pill" style="background:${hexA(st.c,.14)};color:${st.c};margin-top:10px;padding:5px 12px;font-size:12px">${st.l}</span>
+    </div>
+    <div class="tiles">
+      ${tile('cpu',z.c,mc.filter(m=>m.s==='run').length,'/'+mc.length,'закреплённых станков')}
+      ${tile('check','#34C759',jobs.filter(j=>j.s==='done').length,'/'+jobs.length,'заданий смены')}
+    </div>
+    <div class="sec-h"><span>Участок</span></div>
+    <div class="group">
+      <div class="row" style="--inset:56px">
+        <div class="av" style="background:${avColor(z.c)};color:${z.c};border-radius:11px;width:34px;height:34px">${svg(z.icon,17,2)}</div>
+        <div class="r-main"><div class="r-title" style="font-size:14.5px">${z.name}</div><div class="r-sub">${p.m.length?'Станки: '+p.m.join(', '):'Без закреплённого оборудования'}</div></div>
+      </div>
+    </div>
+    ${mc.length?`<div class="sec-h"><span>Оборудование</span></div><div class="group">${mc.map(machineRow).join('')}</div>`:''}
+    <div class="sec-h"><span>Задания</span><span>${jobs.length}</span></div>
+    ${jobs.length?jobs.map(taskCard).join(''):'<div class="group"><div class="row"><div class="r-main"><div class="r-sub">Заданий на смену не назначено</div></div></div></div>'}
+    <div class="sec-h"><span>Неделя 21–27.09</span></div>
+    <div class="sched-card">${schedTable([p])}</div>
+    <button class="btn primary" style="width:100%;margin:18px 0 4px" id="backP">Назад к списку</button>`;
+  animBars();
+  $('#backP').onclick=()=>renderPeople();
+}
+
+/* --- MACHINES --- */
+function machineRow(m){
+  const z=ZONES[m.z],s=MST[m.s];
+  return `<div class="row" style="--inset:66px">
+    <div class="mchip" style="background:${hexA(z.c,.13)};color:${z.c}">${m.n}</div>
+    <div class="r-main">
+      <div class="r-title" style="font-size:14.5px">${z.short} · ${esc(m.job)}</div>
+      <div class="r-sub">${m.op?svg('person',11,2.4)+' '+esc(m.op):'Свободен — нет исполнителя'}</div>
+    </div>
+    <span class="sdot" style="background:${s.c};box-shadow:none"></span>
+  </div>`;
+}
+function renderMachines(){
+  const f=state.mfilter||'all';
+  const list=MACHINES.filter(m=>f==='all'?true:m.s===f);
+  const groups=Object.keys(ZONES).map(k=>({k,z:ZONES[k],m:list.filter(x=>x.z===k)})).filter(g=>g.m.length);
+  const c={run:MACHINES.filter(m=>m.s==='run').length,wait:MACHINES.filter(m=>m.s==='wait').length,
+    maint:MACHINES.filter(m=>m.s==='maint').length,idle:MACHINES.filter(m=>m.s==='idle').length};
+  $('#view').innerHTML=`
+    <div class="tiles" style="margin-top:14px">
+      ${tile('cpu','#34C759',c.run,'','в работе')}
+      ${tile('alert','#FF9500',c.wait,'','ожидают / нет оператора')}
+      ${tile('wrench','#8E8E93',c.maint,'','ТО и ремонт')}
+      ${tile('box','#0A84FF',c.idle,'','свободны')}
+    </div>
+    ${groups.length?groups.map(g=>`
+      <div class="sec-h"><span>${g.z.name}</span><span>${g.m.length} ед.</span></div>
+      <div class="group">${g.m.map(machineRow).join('')}</div>`).join('')
+      :'<div class="empty">'+svg('cpu',42,1.6)+'<p>Нет оборудования в этой категории</p></div>'}
+    <p style="font-size:11.5px;color:var(--label2);line-height:1.5;padding:14px 6px 0">Всего на участке: ${MACHINES.length} единиц оборудования в ${Object.keys(ZONES).length} зонах.</p>`;
+}
+
+/* --- SCHEDULE --- */
+function schedTable(list){
+  return `<div class="sched"><table>
+    <thead><tr><th class="nm"></th>${DAYS.map((d,i)=>`<th class="day-h ${i===4?'today':''}">${d.d}<b>${d.n}</b></th>`).join('')}</tr></thead>
+    <tbody>${list.map(p=>{
+      const z=ZONES[p.z];
+      return `<tr>
+        <td class="nm"><div>${esc(p.n)}</div><small>${z.short} · см. ${p.sh}</small></td>
+        ${p.w.map((k,i)=>{const s=ST[k];return `<td class="cell"><div class="sc ${i===4?'today':''}" style="background:${hexA(s.c,i===4?1:.82)};color:${s.c==='#FFCC00'?'#3a2e00':'#fff'}" title="${s.l}">${s.m}</div></td>`}).join('')}
+      </tr>`}).join('')}
+    </tbody></table></div>`;
+}
+function renderSchedule(){
+  const list=state.shift?PEOPLE.filter(p=>p.sh===state.shift):PEOPLE;
+  const s1=PEOPLE.filter(p=>p.sh===1),s2=PEOPLE.filter(p=>p.sh===2);
+  const on=list.filter(p=>['work','extra','cross','trainee'].includes(p.s)).length;
+  $('#view').innerHTML=`
+    <div class="hero" style="background:linear-gradient(140deg,#1C1C1E 0%,#2C2C3A 55%,#3A3A52 130%);box-shadow:0 14px 30px -14px rgba(0,0,0,.5)">
+      <div class="hero-top">
+        <div>
+          <div class="hero-lbl">Неделя 21 – 27 сентября 2026</div>
+          <div class="hero-title">${on} из ${list.length} на рабочих местах</div>
+          <div class="hero-sub">Смена 1: 07:00–15:30 · Смена 2: 15:30–00:00</div>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>${s1.filter(p=>['work','extra','cross','trainee'].includes(p.s)).length}/${s1.length}</b><span>смена 1 сегодня</span></div>
+        <div class="hero-stat"><b>${s2.filter(p=>['work','extra','cross','trainee'].includes(p.s)).length}/${s2.length}</b><span>смена 2 сегодня</span></div>
+        <div class="hero-stat"><b>${PEOPLE.filter(p=>['sick','vac'].includes(p.s)).length}</b><span>отсутствуют</span></div>
+      </div>
+    </div>
+    <div class="sec-h"><span>График · ${state.shift?'смена '+state.shift:'обе смены'}</span><span>пт 25.09 выделено</span></div>
+    <div class="sched-card">${schedTable(list)}</div>
+    <div class="sec-h"><span>Обозначения</span></div>
+    <div class="group legend">
+      ${Object.entries(ST).map(([k,v])=>`<div class="lg-row">
+        <span class="lg-sw" style="background:${v.c};display:grid;place-items:center;color:#fff;font-size:9.5px;font-weight:700;border-radius:5px">${v.m}</span>
+        <b>${v.l}</b></div>`).join('')}
+    </div>
+    <div class="sec-h"><span>Загрузка участков по сменам</span></div>
+    <div class="group" style="padding:4px 0">
+      ${Object.entries(ZONES).map(([k,z])=>{
+        const a=s1.filter(p=>p.z===k).length,b=s2.filter(p=>p.z===k).length;
+        if(!a&&!b)return'';
+        const mx=Math.max(a,b,1);
+        return `<div class="row" style="--inset:14px;flex-direction:column;align-items:stretch;gap:8px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:13.5px;font-weight:600">${z.name}</span>
+            <span style="font-size:11.5px;color:var(--label2);font-weight:600">${a} / ${b}</span>
+          </div>
+          <div style="display:flex;gap:6px">
+            <div style="flex:1"><div class="bar"><i data-w="${a/mx*100}" style="background:${z.c}"></i></div></div>
+            <div style="flex:1"><div class="bar"><i data-w="${b/mx*100}" style="background:${hexA(z.c,.45)}"></i></div></div>
+          </div>
+        </div>`}).join('')}
+    </div>
+    <p style="font-size:11.5px;color:var(--label2);padding:10px 6px 0">Слева — смена 1, справа — смена 2. Красный маркер «×» — подработка с другой смены (оставил другой мастер).</p>`;
+  animBars();
+}
+
+/* --- TASKS --- */
+function renderTasks(){
+  const f=state.tfilter;
+  const list=TASKS.filter(t=>f==='all'?true:t.s===f);
+  const total=TASKS.reduce((a,t)=>a+t.q,0),done=TASKS.reduce((a,t)=>a+t.d,0);
+  $('#view').innerHTML=`
+    <div class="tiles" style="margin-top:14px">
+      ${tile('check','#0A84FF',TASKS.filter(t=>t.s==='run').length,'','в работе сейчас')}
+      ${tile('clock','#FF9500',TASKS.filter(t=>t.s==='wait').length,'','ожидают запуска')}
+      ${tile('grid','#34C759',TASKS.filter(t=>t.s==='done').length,'','закрыто за смену')}
+      ${tile('alert','#FF3B30',TASKS.filter(t=>t.p==='high'&&t.s!=='done').length,'','высокий приоритет')}
+    </div>
+    <div class="sec-h"><span>Задания смены</span><span>${done} / ${total} шт. · ${pct(done,total)}%</span></div>
+    <div class="bar" style="height:7px;margin-bottom:16px"><i data-w="${pct(done,total)}" style="background:linear-gradient(90deg,#0A84FF,#5E5CE6)"></i></div>
+    ${list.length?list.map(taskCard).join(''):'<div class="empty">'+svg('check',42,1.6)+'<p>Нет заданий в этой категории</p></div>'}
+    <p style="font-size:11.5px;color:var(--label2);line-height:1.5;padding:6px 6px 0">Состав заданий сформирован демонстрационно на основе расстановки людей и оборудования. Подключение к MES/1С — следующий шаг.</p>`;
+  animBars();
+  $('#view').querySelectorAll('[data-task]').forEach(el=>el.onclick=()=>openTask(el.dataset.task));
+}
+function openTask(id){
+  const t=TASKS.find(x=>x.id===id),z=ZONES[t.z],s=TST[t.s],p=PEOPLE.find(x=>x.n===t.w),pr=pct(t.d,t.q);
+  const m=MACHINES.find(x=>x.n===t.m);
+  $('#view').innerHTML=`
+    <div class="hero" style="background:linear-gradient(140deg,${z.c} 0%,${hexA(z.c,.85)} 60%,#5E5CE6 140%);margin-top:14px">
+      <div class="hero-lbl">${t.id} · ${z.name}</div>
+      <div class="hero-title" style="font-size:19px;margin-top:7px">${esc(t.t)}</div>
+      <div class="hero-sub">Срок: сегодня, ${t.due}</div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>${t.d}/${t.q}</b><span>штук готово</span></div>
+        <div class="hero-stat"><b>${pr}%</b><span>прогресс</span></div>
+        <div class="hero-stat"><b>${s.l}</b><span>статус</span></div>
+      </div>
+    </div>
+    <div class="sec-h"><span>Исполнитель</span></div>
+    <div class="group">${p?personRow(p):'<div class="row"><div class="r-main"><div class="r-sub">Не назначен</div></div></div>'}</div>
+    ${m?`<div class="sec-h"><span>Оборудование</span></div><div class="group">${machineRow(m)}</div>`:''}
+    <div class="sec-h"><span>Ход выполнения</span></div>
+    <div class="group" style="padding:6px 0">
+      ${[['Выдано в работу','07:15',1],['Первая деталь принята ОТК','09:40',t.d>0?1:0],['50% партии','12:20',pr>=50?1:0],['Закрытие задания',t.due,pr>=100?1:0]].map(([a,b,c])=>`
+        <div class="row" style="--inset:52px">
+          <div class="av sm" style="background:${c?hexA('#34C759',.16):'var(--fill)'};color:${c?'#34C759':'var(--label3)'};border-radius:50%">${c?svg('check',14,3):svg('clock',14,2.2)}</div>
+          <div class="r-main"><div class="r-title" style="font-size:14px;${c?'':'color:var(--label2);font-weight:500'}">${a}</div><div class="r-sub">${c?'выполнено':'ожидается'} · ${b}</div></div>
+        </div>`).join('')}
+    </div>
+    <button class="btn primary" style="width:100%;margin:18px 0 4px" id="backT">Назад к заданиям</button>`;
+  $('#backT').onclick=()=>renderTasks();
+}
+function animBars(){requestAnimationFrame(()=>document.querySelectorAll('.bar i[data-w]').forEach(b=>b.style.width=b.dataset.w+'%'));}
+
+/* ================= THEME / FS ================= */
+function setTheme(t){
+  document.documentElement.dataset.theme=t;
+  $('#themeBtn').innerHTML=t==='dark'?svg('sun',17,2):'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>';
+  $('#themeBtn2').textContent=t==='dark'?'Светлая тема':'Тёмная тема';
+  render();
+}
+$('#themeBtn').onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+$('#themeBtn2').onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+$('#fsBtn').onclick=()=>{document.body.classList.toggle('fs');$('#fsBtn').textContent=document.body.classList.contains('fs')?'Режим превью':'На весь экран';};
+if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)setTheme('dark');
+
+/* sticky header shadow */
+const sc=$('#scroll'),hdr=$('#hdr');
+sc.addEventListener('scroll',()=>hdr.classList.toggle('stuck',sc.scrollTop>4));
+
+/* side info list */
+$('#infoList').innerHTML=[
+  ['users','#5856D6','Работники','12 человек, статусы и станки'],
+  ['cpu','#34C759','Оборудование','27 единиц в 10 зонах'],
+  ['cal','#FF9500','График смен','неделя 21–27.09.2026'],
+  ['check','#0A84FF','Задания','прогресс и приоритеты']
+].map(([i,c,t,s])=>`<div class="info-item"><div class="dot" style="background:${c}">${svg(i,15,2.1)}</div>
+  <div class="txt"><b>${t}</b><span>${s}</span></div></div>`).join('');
+
+state.mfilter='all';
+renderTabs();render();
+</script>
+</body>
+</html>
