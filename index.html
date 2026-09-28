@@ -3,865 +3,1660 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Расстановка РИЦ · 25.09.2026 — превью</title>
+<title>РИЦ · Расстановка — сменное задание</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/cyrillic-400-normal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/cyrillic-500-normal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/cyrillic-600-normal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/cyrillic-700-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/cyrillic-800-normal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/latin-400-normal.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/latin-600-normal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/latin-700-normal.css">
 <style>
-/* ============ iOS DESIGN TOKENS ============ */
 :root{
-  --bg:#F2F2F7;
-  --card:#FFFFFF;
-  --card2:#F7F7FA;
-  --label:#000000;
-  --label2:rgba(60,60,67,.60);
-  --label3:rgba(60,60,67,.30);
-  --sep:rgba(60,60,67,.16);
-  --fill:rgba(118,118,128,.12);
-  --fill2:rgba(118,118,128,.08);
-  --press:rgba(0,0,0,.045);
-  --hdr:rgba(242,242,247,.82);
-  --tab:rgba(249,249,249,.86);
-  --blue:#007AFF; --green:#34C759; --orange:#FF9500; --pink:#FF2D55;
-  --red:#FF3B30; --yellow:#FFCC00; --indigo:#5856D6; --teal:#30B0C7; --purple:#AF52DE; --gray:#8E8E93;
-  --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.05);
+  --bg:#F2F2F7;--card:#fff;--card2:#F7F7FA;--label:#0B0B10;--label2:rgba(60,60,67,.62);--label3:rgba(60,60,67,.32);
+  --sep:rgba(60,60,67,.15);--fill:rgba(118,118,128,.12);--press:rgba(0,0,0,.05);
+  --hdr:rgba(242,242,247,.80);--tab:rgba(249,249,249,.88);--side:#FBFBFD;
+  --blue:#007AFF;--green:#34C759;--orange:#FF9500;--pink:#FF2D55;--red:#FF3B30;--yellow:#FFCC00;
+  --indigo:#5856D6;--teal:#30B0C7;--purple:#AF52DE;--gray:#8E8E93;
+  --sh:0 1px 2px rgba(0,0,0,.04),0 10px 28px -14px rgba(0,0,0,.18);
+  --page:#e7e9f1;
 }
-[data-theme="dark"]{
-  --bg:#000000;
-  --card:#1C1C1E;
-  --card2:#232326;
-  --label:#FFFFFF;
-  --label2:rgba(235,235,245,.60);
-  --label3:rgba(235,235,245,.30);
-  --sep:rgba(84,84,88,.55);
-  --fill:rgba(118,118,128,.24);
-  --fill2:rgba(118,118,128,.16);
-  --press:rgba(255,255,255,.07);
-  --hdr:rgba(0,0,0,.72);
-  --tab:rgba(22,22,24,.86);
-  --blue:#0A84FF; --green:#30D158; --orange:#FF9F0A; --pink:#FF375F;
-  --red:#FF453A; --yellow:#FFD60A; --indigo:#5E5CE6; --teal:#64D2FF; --purple:#BF5AF2; --gray:#98989D;
-  --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 30px rgba(0,0,0,.45);
+[data-theme=dark]{
+  --bg:#000;--card:#1C1C1E;--card2:#232326;--label:#fff;--label2:rgba(235,235,245,.6);--label3:rgba(235,235,245,.3);
+  --sep:rgba(84,84,88,.55);--fill:rgba(118,118,128,.24);--press:rgba(255,255,255,.08);
+  --hdr:rgba(0,0,0,.72);--tab:rgba(20,20,22,.88);--side:#0d0d11;
+  --blue:#0A84FF;--green:#30D158;--orange:#FF9F0A;--pink:#FF375F;--red:#FF453A;--yellow:#FFD60A;
+  --indigo:#5E5CE6;--teal:#64D2FF;--purple:#BF5AF2;--gray:#98989D;
+  --sh:0 1px 2px rgba(0,0,0,.6),0 14px 30px -16px rgba(0,0,0,.8);--page:#08080c;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%}
-body{
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',Roboto,sans-serif;
-  background:#d9dbe3;
-  color:var(--label);
-  -webkit-font-smoothing:antialiased;
-  letter-spacing:-.011em;
-}
-[data-theme="dark"] body{background:#0b0b0f}
-body{background:radial-gradient(1200px 700px at 15% -10%,#e8ebf5 0%,#cfd3e0 45%,#b9bfd0 100%);}
-[data-theme="dark"] body{background:radial-gradient(1200px 700px at 15% -10%,#22222c 0%,#111116 50%,#07070a 100%);}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;background:var(--page);color:var(--label);
+  -webkit-font-smoothing:antialiased;letter-spacing:-.012em;overflow:hidden}
+button{font-family:inherit}
+::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-thumb{background:var(--sep);border-radius:9px}
 
-/* ============ STAGE ============ */
-.stage{min-height:100dvh;display:flex;align-items:center;justify-content:center;gap:56px;padding:36px}
-.info{width:330px;flex-shrink:0}
-.info .badge{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--blue);
-  background:rgba(0,122,255,.10);padding:6px 12px;border-radius:100px;margin-bottom:18px}
-[data-theme="dark"] .info .badge{background:rgba(10,132,255,.16)}
-.info h2{font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:10px;color:#111}
-[data-theme="dark"] .info h2{color:#fff}
-.info p{font-size:14.5px;line-height:1.55;color:rgba(30,32,44,.62);margin-bottom:22px}
-[data-theme="dark"] .info p{color:rgba(235,235,245,.55)}
-.info-list{display:flex;flex-direction:column;gap:11px;margin-bottom:24px}
-.info-item{display:flex;gap:12px;align-items:center}
-.info-item .dot{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex-shrink:0;color:#fff}
-.info-item .txt b{display:block;font-size:13.5px;font-weight:600;color:#1a1a22}
-.info-item .txt span{font-size:12.5px;color:rgba(30,32,44,.55)}
-[data-theme="dark"] .info-item .txt b{color:#f2f2f7}
-[data-theme="dark"] .info-item .txt span{color:rgba(235,235,245,.5)}
-.info-actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn{border:0;cursor:pointer;font-family:inherit;font-size:13.5px;font-weight:600;padding:11px 18px;border-radius:100px;
-  background:#fff;color:#111;box-shadow:0 2px 10px rgba(0,0,0,.10);transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .2s}
-[data-theme="dark"] .btn{background:#232328;color:#f2f2f7;box-shadow:none}
-.btn:active{transform:scale(.95)}
-.btn.primary{background:var(--blue);color:#fff}
+#app{display:grid;grid-template-columns:250px minmax(0,1fr);height:100dvh}
+/* ===== SIDEBAR ===== */
+#sidebar{background:var(--side);border-right:.5px solid var(--sep);display:flex;flex-direction:column;padding:16px 12px;gap:14px;overflow:hidden}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 6px 8px}
+.brand .lg{width:34px;height:34px;border-radius:10px;background:linear-gradient(140deg,#0A84FF,#5E5CE6);display:grid;place-items:center;color:#fff;flex-shrink:0}
+.brand b{font-size:13.5px;font-weight:800;letter-spacing:-.03em;display:block}
+.brand span{font-size:11px;color:var(--label2);font-weight:500}
+#navDesk{display:flex;flex-direction:column;gap:2px;overflow-y:auto;flex:1}
+.nv{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:11px;border:0;background:transparent;cursor:pointer;
+  font-size:13.5px;font-weight:600;color:var(--label2);text-align:left;width:100%;transition:.18s;letter-spacing:-.02em}
+.nv:hover{background:var(--fill);color:var(--label)}
+.nv.on{background:var(--label);color:var(--bg)}
+.nv .bdg-n{margin-left:auto;font-size:10.5px;font-weight:800;background:var(--red);color:#fff;border-radius:100px;padding:1px 6px;min-width:18px;text-align:center}
+.nv.on .bdg-n{background:rgba(255,255,255,.28)}
+.sb-foot{display:flex;flex-direction:column;gap:8px}
+.vcard{background:var(--card);border-radius:14px;padding:12px;box-shadow:var(--sh)}
+.vcard .vr{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;margin-bottom:7px}
+.vcard p{font-size:10.5px;color:var(--label2);line-height:1.45}
+.tgl{display:flex;align-items:center;gap:9px;background:var(--card);border:0;border-radius:13px;padding:9px 12px;cursor:pointer;
+  box-shadow:var(--sh);font-size:12px;font-weight:600;color:var(--label);width:100%;text-align:left}
+.tgl .sw{margin-left:auto;width:40px;height:24px;border-radius:100px;background:var(--fill);position:relative;transition:.26s;flex-shrink:0}
+.tgl .sw::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;
+  box-shadow:0 1px 3px rgba(0,0,0,.25);transition:.26s cubic-bezier(.3,1.3,.4,1)}
+.tgl .sw.on{background:var(--green)}.tgl .sw.on::after{transform:translateX(16px)}
 
-/* ============ DEVICE ============ */
-.device{
-  width:393px;height:852px;flex-shrink:0;position:relative;border-radius:57px;padding:11px;
-  background:linear-gradient(160deg,#3a3a40,#0c0c10 40%,#26262c);
-  box-shadow:0 0 0 1.5px rgba(255,255,255,.14) inset,0 50px 90px -20px rgba(0,0,0,.55),0 12px 30px rgba(0,0,0,.28);
-}
-.device::before,.device::after{content:'';position:absolute;background:#2c2c32;border-radius:3px}
-.device::before{left:-3px;top:180px;width:3px;height:64px;box-shadow:0 -92px 0 #2c2c32,0 96px 0 #2c2c32}
-.device::after{right:-3px;top:230px;width:3px;height:96px}
-.screen{position:relative;width:100%;height:100%;border-radius:46px;overflow:hidden;background:var(--bg);
-  display:flex;flex-direction:column;isolation:isolate}
-.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:118px;height:34px;background:#000;
-  border-radius:20px;z-index:60}
-.island::after{content:'';position:absolute;right:12px;top:11px;width:11px;height:11px;border-radius:50%;
-  background:radial-gradient(circle at 35% 35%,#1c2a3a,#05070c 70%);box-shadow:0 0 0 1px rgba(255,255,255,.06)}
+/* ===== MAIN ===== */
+#main{display:flex;flex-direction:column;min-width:0;position:relative;background:var(--bg)}
+#topbar{position:relative;z-index:30;padding:14px 20px 11px;background:var(--hdr);
+  -webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px);border-bottom:.5px solid var(--sep);flex-shrink:0}
+.tb-row{display:flex;align-items:flex-end;justify-content:space-between;gap:14px}
+#ttl{font-size:27px;font-weight:800;letter-spacing:-.042em;line-height:1.1}
+#sub{font-size:12px;font-weight:500;color:var(--label2);margin-top:4px}
+.tb-r{display:flex;align-items:center;gap:8px}
+.uchip{display:flex;align-items:center;gap:8px;border:0;background:var(--card);border-radius:100px;padding:4px 11px 4px 4px;
+  cursor:pointer;box-shadow:var(--sh);transition:transform .18s}
+.uchip:active{transform:scale(.95)}
+.uchip .uav{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:800;color:#fff;flex-shrink:0}
+.uchip .un{text-align:left;line-height:1.15}
+.uchip .un b{display:block;font-size:11.5px;font-weight:700;letter-spacing:-.02em}
+.uchip .un span{display:block;font-size:9.5px;color:var(--label2);font-weight:600}
+.ibtn{width:32px;height:32px;border-radius:50%;border:0;background:var(--fill);color:var(--blue);display:grid;place-items:center;cursor:pointer;transition:transform .18s}
+.ibtn:active{transform:scale(.88)}
+.tb-act{display:flex;align-items:center;gap:8px;margin-top:11px;flex-wrap:wrap}
+.vpill{font-size:11px;font-weight:700;padding:5px 10px;border-radius:8px;display:inline-flex;align-items:center;gap:6px}
+.abtn{border:0;cursor:pointer;font-size:12px;font-weight:700;padding:7px 14px;border-radius:100px;background:var(--card);
+  color:var(--label);box-shadow:var(--sh);display:inline-flex;align-items:center;gap:6px;transition:transform .18s,opacity .2s}
+.abtn:active{transform:scale(.95)}
+.abtn.pri{background:var(--blue);color:#fff}.abtn.ok{background:var(--green);color:#fff}
+.abtn.dis{opacity:.35;pointer-events:none}
+#scroll{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+#view{padding:16px 20px 40px;max-width:1240px;margin:0 auto;animation:vin .34s cubic-bezier(.2,.85,.25,1)}
+@keyframes vin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-/* status bar */
-.statusbar{position:absolute;top:0;left:0;right:0;height:54px;z-index:55;display:flex;align-items:center;
-  justify-content:space-between;padding:14px 30px 0;pointer-events:none}
-.sb-time{font-size:15px;font-weight:600;letter-spacing:-.02em;color:var(--label)}
-.sb-icons{display:flex;align-items:center;gap:6px}
+/* ===== TABBAR (mobile) ===== */
+#tabbar{display:none;position:relative;z-index:30;height:78px;padding-bottom:20px;flex-shrink:0;background:var(--tab);
+  -webkit-backdrop-filter:saturate(180%) blur(24px);backdrop-filter:saturate(180%) blur(24px);border-top:.5px solid var(--sep)}
+.tb{flex:1;border:0;background:transparent;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:3px;color:var(--label3);transition:.2s;padding-top:8px}
+.tb.on{color:var(--blue)}
+.tb:active{transform:scale(.88)}
+.tb span{font-size:9.5px;font-weight:700;letter-spacing:-.01em}
+.tb .tico{position:relative}
+.tb .tbg{position:absolute;top:-3px;right:-8px;min-width:15px;height:15px;border-radius:100px;background:var(--red);color:#fff;
+  font-size:9px;font-weight:800;display:grid;place-items:center;padding:0 4px;box-shadow:0 0 0 2px var(--tab)}
 
-/* scroll + header */
-.scroll{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding-bottom:104px;scrollbar-width:none}
-.scroll::-webkit-scrollbar{display:none}
-.hdr{position:sticky;top:0;z-index:40;padding:56px 18px 10px;background:var(--hdr);
-  -webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px);
-  border-bottom:.5px solid transparent;transition:border-color .25s,padding .3s}
-.hdr.stuck{border-bottom-color:var(--sep);padding-top:52px;padding-bottom:8px}
-.hdr.stuck .big-title{font-size:22px}
-.hdr-top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
-.big-title{font-size:32px;font-weight:700;letter-spacing:-.035em;line-height:1.12;transition:font-size .28s cubic-bezier(.2,.8,.2,1)}
-.hdr-sub{font-size:12.5px;font-weight:500;color:var(--label2);margin-top:4px}
-.icon-btn{width:34px;height:34px;border-radius:50%;border:0;background:var(--fill);color:var(--blue);
-  display:grid;place-items:center;cursor:pointer;transition:transform .18s,background .2s;flex-shrink:0;margin-bottom:2px}
-.icon-btn:active{transform:scale(.88)}
-.hdr-extra{margin-top:12px}
-
-/* search */
-.searchbar{display:flex;align-items:center;gap:7px;background:var(--fill);border-radius:11px;padding:8px 10px;height:38px}
-.searchbar svg{flex-shrink:0;opacity:.45}
-.searchbar input{border:0;background:transparent;outline:0;font-family:inherit;font-size:16px;width:100%;color:var(--label)}
-.searchbar input::placeholder{color:var(--label2)}
-
-/* segmented control */
-.seg{position:relative;display:flex;background:var(--fill);border-radius:9px;padding:2px;gap:2px}
-.seg-thumb{position:absolute;top:2px;bottom:2px;border-radius:7.5px;background:#fff;
-  box-shadow:0 1px 3px rgba(0,0,0,.14),0 0 0 .5px rgba(0,0,0,.04);transition:transform .3s cubic-bezier(.3,1.2,.4,1),width .3s}
-[data-theme="dark"] .seg-thumb{background:#636366;box-shadow:none}
-.seg-btn{position:relative;z-index:2;flex:1;border:0;background:transparent;font-family:inherit;font-size:12.5px;font-weight:600;
-  color:var(--label);padding:6px 4px;cursor:pointer;border-radius:7.5px;transition:color .2s;white-space:nowrap}
-.seg-btn:not(.active){color:var(--label2)}
-
-/* chips */
-.chips{display:flex;gap:7px;overflow-x:auto;padding:2px 0 1px;scrollbar-width:none}
+/* ===== UI ATOMS ===== */
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:22px 4px 8px}
+.sec-h span:first-child{font-size:12px;font-weight:700;color:var(--label2);text-transform:uppercase;letter-spacing:.04em}
+.sec-h span:last-child{font-size:12px;font-weight:500;color:var(--label3)}
+.group{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--sh)}
+.row{display:flex;align-items:center;gap:12px;padding:11px 14px;position:relative;cursor:pointer;transition:background .15s,transform .15s}
+.row:active{background:var(--press);transform:scale(.99)}
+.row+.row::before{content:'';position:absolute;top:0;left:var(--inset,14px);right:0;height:.5px;background:var(--sep)}
+.row.static{cursor:default}.row.static:active{transform:none;background:transparent}
+.r-main{flex:1;min-width:0}
+.r-title{font-size:15px;font-weight:600;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r-sub{font-size:12px;color:var(--label2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chev{opacity:.28;flex-shrink:0}
+.av{width:38px;height:38px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;font-size:15px;font-weight:700;position:relative}
+.av.sm{width:30px;height:30px;font-size:12px}
+.av.sq{border-radius:11px;width:34px;height:34px;font-size:15px}
+.sdot{width:9px;height:9px;border-radius:50%;flex-shrink:0;box-shadow:0 0 0 2.5px var(--card);position:absolute;right:-1px;bottom:-1px}
+.pill{font-size:11px;font-weight:700;padding:4px 9px;border-radius:100px;white-space:nowrap;letter-spacing:-.01em}
+.mchip{width:44px;height:38px;border-radius:11px;flex-shrink:0;display:grid;place-items:center;font-size:14px;font-weight:800;
+  letter-spacing:-.03em;font-variant-numeric:tabular-nums;background:var(--fill)}
+.lk{width:18px;height:18px;border-radius:6px;background:var(--fill);display:grid;place-items:center;color:var(--label3);flex-shrink:0}
+.bar{height:5px;border-radius:100px;background:var(--fill);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:100px;width:0;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.tile{background:var(--card);border-radius:16px;padding:13px;box-shadow:var(--sh)}
+.tile .t-ic{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;margin-bottom:9px;color:#fff}
+.tile b{display:block;font-size:23px;font-weight:800;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums}
+.tile b i{font-style:normal;font-size:13px;color:var(--label3);font-weight:700}
+.tile span{display:block;font-size:11px;color:var(--label2);margin-top:5px;font-weight:500;line-height:1.3}
+.hero{border-radius:22px;padding:18px;color:#fff;position:relative;overflow:hidden;box-shadow:0 16px 34px -16px rgba(50,50,160,.7)}
+.hero.blue{background:linear-gradient(140deg,#0A84FF 0%,#5E5CE6 58%,#AF52DE 132%)}
+.hero.dark{background:linear-gradient(140deg,#23232a,#33333f 60%,#43434f)}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;position:relative;z-index:2}
+.hero-lbl{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;opacity:.72}
+.hero-title{font-size:20px;font-weight:800;letter-spacing:-.035em;margin-top:5px;line-height:1.2}
+.hero-sub{font-size:12px;opacity:.85;margin-top:4px;font-weight:500;line-height:1.4}
+.ring-w{position:relative;width:66px;height:66px;flex-shrink:0}
+.ring-w svg{transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:rgba(255,255,255,.26);stroke-width:6}
+.ring-fg{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset 1s cubic-bezier(.2,.8,.2,1)}
+.ring-t{position:absolute;inset:0;display:grid;place-items:center;font-size:14px;font-weight:800;letter-spacing:-.03em}
+.hero-stats{display:flex;gap:8px;margin-top:15px;position:relative;z-index:2}
+.hs{flex:1;background:rgba(255,255,255,.17);border-radius:13px;padding:9px 10px}
+.hs b{display:block;font-size:17px;font-weight:800;letter-spacing:-.035em}
+.hs span{font-size:10px;opacity:.85;font-weight:600}
+.seg{position:relative;display:flex;background:var(--fill);border-radius:10px;padding:2px;gap:2px}
+.seg-th{position:absolute;top:2px;bottom:2px;border-radius:8px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.15);
+  transition:transform .3s cubic-bezier(.3,1.2,.4,1),width .3s}
+[data-theme=dark] .seg-th{background:#636366;box-shadow:none}
+.seg-b{position:relative;z-index:2;flex:1;border:0;background:transparent;font-size:12.5px;font-weight:700;color:var(--label2);
+  padding:6px 6px;cursor:pointer;border-radius:8px;white-space:nowrap;transition:color .2s}
+.seg-b.on{color:var(--label)}
+.chips{display:flex;gap:7px;overflow-x:auto;padding:2px 0;scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
-.chip{flex-shrink:0;border:0;cursor:pointer;font-family:inherit;font-size:12.5px;font-weight:600;padding:6px 13px;border-radius:100px;
-  background:var(--card);color:var(--label2);box-shadow:0 0 0 .5px var(--sep);transition:transform .18s,background .2s,color .2s;
-  display:flex;align-items:center;gap:6px}
+.chip{flex-shrink:0;border:0;cursor:pointer;font-size:12.5px;font-weight:600;padding:6px 13px;border-radius:100px;background:var(--card);
+  color:var(--label2);box-shadow:0 0 0 .5px var(--sep);transition:.2s;display:flex;align-items:center;gap:6px}
 .chip:active{transform:scale(.94)}
 .chip.on{background:var(--label);color:var(--bg)}
-.chip .cdot{width:7px;height:7px;border-radius:50%}
+.chip .cd{width:7px;height:7px;border-radius:50%}
+.searchbar{display:flex;align-items:center;gap:7px;background:var(--fill);border-radius:11px;padding:8px 10px;height:38px}
+.searchbar input{border:0;background:transparent;outline:0;font-family:inherit;font-size:15px;width:100%;color:var(--label)}
+.searchbar input::placeholder{color:var(--label2)}
+.note{display:flex;gap:10px;border-radius:14px;padding:12px 14px;align-items:flex-start}
+.note p{font-size:12.5px;line-height:1.5}
+.note .ic{flex-shrink:0;margin-top:1px}
+.btn{border:0;cursor:pointer;font-size:14px;font-weight:700;padding:13px 18px;border-radius:14px;background:var(--blue);color:#fff;
+  width:100%;transition:transform .18s,opacity .2s;letter-spacing:-.02em}
+.btn:active{transform:scale(.97)}
+.btn.gray{background:var(--fill);color:var(--label)}
+.btn.red{background:var(--red)}
+.btn.green{background:var(--green)}
+.btn.dis{opacity:.35;pointer-events:none}
+.empty{text-align:center;padding:46px 26px;color:var(--label2)}
+.empty p{font-size:13.5px;font-weight:500;margin-top:12px}
 
-/* view */
-.view{padding:6px 16px 0;animation:viewIn .38s cubic-bezier(.2,.85,.25,1)}
-@keyframes viewIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+/* ===== DESKTOP GRID ===== */
+.planwrap{display:flex;gap:16px;align-items:flex-start}
+.planmain{flex:1;min-width:0}
+.roster{width:216px;flex-shrink:0;background:var(--card);border-radius:16px;padding:12px;box-shadow:var(--sh);position:sticky;top:0}
+.roster h5{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--label2);margin-bottom:9px}
+.rst{display:flex;align-items:center;gap:8px;padding:6px 7px;border-radius:10px;cursor:grab;font-size:12px;font-weight:600;
+  transition:background .15s;margin-bottom:2px}
+.rst:hover{background:var(--fill)}
+.rst.drag{opacity:.4}
+.rst .rav{width:24px;height:24px;border-radius:8px;display:grid;place-items:center;font-size:10px;font-weight:800;color:#fff;flex-shrink:0}
+.rst small{display:block;font-size:9.5px;color:var(--label2);font-weight:500}
+.rst.off{opacity:.42;cursor:not-allowed}
+.gcard{background:var(--card);border-radius:16px;box-shadow:var(--sh);overflow:hidden}
+.gscroll{overflow-x:auto}
+table.gt{border-collapse:collapse;width:100%;min-width:720px}
+table.gt th{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.045em;color:var(--label2);text-align:left;
+  padding:10px 12px;border-bottom:.5px solid var(--sep);background:var(--card2);white-space:nowrap;position:sticky;top:0;z-index:2}
+table.gt th.ed{color:var(--blue)}
+table.gt td{font-size:12.5px;padding:7px 12px;border-bottom:.5px solid var(--sep);white-space:nowrap;vertical-align:middle}
+table.gt tr.zrow td{background:var(--card2);font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;
+  color:var(--label2);padding:7px 12px}
+table.gt tbody tr:hover td{background:var(--card2)}
+.ced{display:inline-flex;align-items:center;gap:7px;border-radius:8px;padding:4px 8px;margin:-4px -8px;transition:.16s;min-height:28px}
+td.can .ced{background:rgba(0,122,255,.08);box-shadow:0 0 0 1px rgba(0,122,255,.18);cursor:pointer}
+td.can .ced:hover{background:rgba(0,122,255,.16);box-shadow:0 0 0 1px rgba(0,122,255,.4)}
+td.no .ced{color:var(--label2)}
+td.drop{background:rgba(52,199,89,.16)!important;box-shadow:inset 0 0 0 2px var(--green)}
+td.drop-bad{background:rgba(255,59,48,.14)!important;box-shadow:inset 0 0 0 2px var(--red)}
+.mn{font-weight:800;font-size:12.5px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 
-/* grouped list */
-.sec-h{display:flex;align-items:baseline;justify-content:space-between;padding:22px 6px 7px}
-.sec-h span:first-child{font-size:12.5px;font-weight:600;color:var(--label2);text-transform:uppercase;letter-spacing:.03em}
-.sec-h span:last-child{font-size:12.5px;font-weight:500;color:var(--label3)}
-.group{background:var(--card);border-radius:15px;overflow:hidden;box-shadow:0 0 0 .5px rgba(0,0,0,.03)}
-.row{display:flex;align-items:center;gap:12px;padding:11px 14px;position:relative;cursor:pointer;
-  transition:background .15s,transform .15s}
-.row:active{background:var(--press);transform:scale(.988)}
-.row+.row::before{content:'';position:absolute;top:0;left:var(--inset,14px);right:0;height:.5px;background:var(--sep)}
-.row .r-main{flex:1;min-width:0}
-.row .r-title{font-size:15.5px;font-weight:600;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.row .r-sub{font-size:12.5px;color:var(--label2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.chev{flex-shrink:0;opacity:.28}
-
-/* avatar */
-.av{width:38px;height:38px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;font-size:15.5px;font-weight:600;
-  letter-spacing:-.02em;position:relative}
-.av.sm{width:30px;height:30px;font-size:12.5px}
-
-/* status dot */
-.sdot{width:9px;height:9px;border-radius:50%;flex-shrink:0;box-shadow:0 0 0 2.5px var(--card)}
-.pill{font-size:11px;font-weight:600;padding:3.5px 9px;border-radius:100px;white-space:nowrap;letter-spacing:-.01em}
-
-/* machine chip */
-.mchip{width:44px;height:38px;border-radius:10px;flex-shrink:0;display:grid;place-items:center;
-  font-size:14.5px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums;background:var(--fill)}
-
-/* hero */
-.hero{margin-top:14px;border-radius:20px;padding:18px;color:#fff;position:relative;overflow:hidden;
-  background:linear-gradient(140deg,#0A84FF 0%,#5E5CE6 58%,#AF52DE 130%);box-shadow:0 14px 30px -12px rgba(60,60,200,.6)}
-.hero::after{content:'';position:absolute;width:220px;height:220px;right:-70px;top:-100px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,.28),transparent 68%)}
-.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;position:relative;z-index:2}
-.hero-lbl{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;opacity:.72}
-.hero-title{font-size:21px;font-weight:700;letter-spacing:-.03em;margin-top:5px}
-.hero-sub{font-size:12.5px;opacity:.82;margin-top:3px;font-weight:500}
-.ring-wrap{position:relative;width:70px;height:70px;flex-shrink:0}
-.ring-wrap svg{transform:rotate(-90deg)}
-.ring-bg{fill:none;stroke:rgba(255,255,255,.26);stroke-width:6}
-.ring-fg{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset 1.1s cubic-bezier(.2,.8,.2,1)}
-.ring-txt{position:absolute;inset:0;display:grid;place-items:center;font-size:15px;font-weight:700;letter-spacing:-.03em}
-.hero-stats{display:flex;gap:8px;margin-top:16px;position:relative;z-index:2}
-.hero-stat{flex:1;background:rgba(255,255,255,.17);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
-  border-radius:13px;padding:9px 10px}
-.hero-stat b{display:block;font-size:18px;font-weight:700;letter-spacing:-.03em}
-.hero-stat span{font-size:10.5px;opacity:.82;font-weight:500}
-
-/* stat tiles */
-.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.tile{background:var(--card);border-radius:16px;padding:14px;box-shadow:var(--shadow)}
-.tile .t-ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;margin-bottom:10px;color:#fff}
-.tile b{display:block;font-size:25px;font-weight:700;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
-.tile b i{font-style:normal;font-size:14px;color:var(--label3);font-weight:600}
-.tile span{display:block;font-size:11.5px;color:var(--label2);margin-top:5px;font-weight:500}
-
-/* progress bar */
-.bar{height:5px;border-radius:100px;background:var(--fill);overflow:hidden}
-.bar i{display:block;height:100%;border-radius:100px;width:0;transition:width 1s cubic-bezier(.2,.8,.2,1)}
-
-/* legend */
-.legend{display:flex;flex-direction:column;gap:0}
-.lg-row{display:flex;align-items:center;gap:10px;padding:8px 14px;font-size:13px;position:relative}
-.lg-row+.lg-row::before{content:'';position:absolute;top:0;left:14px;right:0;height:.5px;background:var(--sep)}
-.lg-sw{width:14px;height:14px;border-radius:4.5px;flex-shrink:0}
-.lg-row span{color:var(--label2)}
-.lg-row b{font-weight:600;color:var(--label)}
-
-/* schedule */
-.sched-card{background:var(--card);border-radius:16px;padding:14px 0 14px 0;overflow:hidden;box-shadow:var(--shadow)}
-.sched{overflow-x:auto;scrollbar-width:none}
-.sched::-webkit-scrollbar{display:none}
-.sched table{border-collapse:separate;border-spacing:0 3px;min-width:330px;width:100%}
-.sched th,.sched td{padding:0}
-.sched .day-h{font-size:10.5px;font-weight:600;color:var(--label2);text-align:center;padding-bottom:6px;line-height:1.3}
-.sched .day-h b{display:block;font-size:11.5px;color:var(--label);font-variant-numeric:tabular-nums}
-.sched .day-h.today b{color:var(--blue)}
-.sched .day-h.today{color:var(--blue)}
-.sched .nm{position:sticky;left:0;background:var(--card);z-index:2;padding:0 8px 0 14px;width:96px}
-.sched .nm div{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sched .nm small{font-size:10px;color:var(--label2);font-weight:500}
-.sched td.cell{padding:0 2px}
-.sc{height:32px;border-radius:9px;display:grid;place-items:center;font-size:11.5px;font-weight:700;color:#fff;
-  transition:transform .15s}
-.sc:active{transform:scale(.9)}
-.sc.today{box-shadow:0 0 0 2px var(--card),0 0 0 3.5px var(--blue)}
-.sc.mute{color:var(--label2)}
+/* ===== SHEET / MODAL ===== */
+#ov{position:fixed;inset:0;background:rgba(0,0,0,.42);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s;
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+#ov.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-radius:22px 22px 0 0;max-height:90dvh;display:flex;
+  flex-direction:column;transform:translateY(102%);transition:transform .42s cubic-bezier(.2,.9,.25,1);z-index:201;
+  box-shadow:0 -20px 60px rgba(0,0,0,.3);border-top:.5px solid var(--sep)}
+.sheet.on{transform:none}
+.grab{width:36px;height:5px;border-radius:100px;background:var(--label3);margin:8px auto 0;opacity:.55;flex-shrink:0}
+.sh-h{display:flex;align-items:flex-start;gap:12px;padding:12px 18px 10px;flex-shrink:0}
+.sh-t{font-size:19px;font-weight:800;letter-spacing:-.038em;line-height:1.2}
+.sh-s{font-size:12.5px;color:var(--label2);margin-top:3px;font-weight:500}
+.sh-x{width:30px;height:30px;border-radius:50%;border:0;background:var(--fill);color:var(--label2);display:grid;place-items:center;
+  cursor:pointer;margin-left:auto;flex-shrink:0}
+.sh-b{overflow-y:auto;padding:0 18px 8px;flex:1;-webkit-overflow-scrolling:touch}
+.sh-f{padding:10px 18px calc(18px + env(safe-area-inset-bottom));border-top:.5px solid var(--sep);display:flex;gap:9px;flex-shrink:0}
+.sh-f .btn{width:auto;flex:1}
+.opt{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:13px;background:var(--card);margin-bottom:7px;
+  cursor:pointer;border:2px solid transparent;transition:.16s;box-shadow:var(--sh)}
+.opt:active{transform:scale(.985)}
+.opt.sel{border-color:var(--blue)}
+.opt.dis{opacity:.4;cursor:not-allowed}
+.opt .ot{flex:1;min-width:0}
+.opt b{font-size:14px;font-weight:600;letter-spacing:-.02em;display:block}
+.opt small{font-size:11.5px;color:var(--label2);display:block;margin-top:1px}
+.sw-mk{width:22px;height:22px;border-radius:7px;flex-shrink:0}
+.ta{width:100%;border:0;background:var(--card);border-radius:13px;padding:12px;font-family:inherit;font-size:14px;color:var(--label);
+  resize:vertical;min-height:78px;outline:0;box-shadow:var(--sh);line-height:1.5}
+.inp{width:100%;border:0;background:var(--card);border-radius:12px;padding:11px 13px;font-family:inherit;font-size:15px;
+  color:var(--label);outline:0;box-shadow:var(--sh)}
+.fl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--label2);margin:14px 2px 7px}
+.stepper{display:flex;align-items:center;gap:4px;background:var(--card);border-radius:12px;padding:5px;box-shadow:var(--sh)}
+.stepper button{width:36px;height:34px;border:0;border-radius:9px;background:var(--fill);color:var(--blue);font-size:18px;
+  font-weight:700;cursor:pointer;display:grid;place-items:center}
+.stepper input{flex:1;border:0;background:transparent;text-align:center;font-family:inherit;font-size:16px;font-weight:700;
+  color:var(--label);outline:0;width:50px}
 
 /* task card */
-.tcard{background:var(--card);border-radius:16px;padding:14px;box-shadow:var(--shadow);margin-bottom:10px;cursor:pointer;
-  transition:transform .16s cubic-bezier(.2,.8,.2,1)}
-.tcard:active{transform:scale(.98)}
-.tcard-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
-.tcard h4{font-size:15px;font-weight:600;letter-spacing:-.02em;line-height:1.3}
-.tcard .tmeta{display:flex;align-items:center;gap:8px;margin-top:7px;flex-wrap:wrap}
-.tagz{font-size:11px;font-weight:600;padding:3px 8px;border-radius:7px;display:inline-flex;align-items:center;gap:5px}
-.tcard .tm{font-size:11.5px;color:var(--label2);font-weight:500;display:inline-flex;align-items:center;gap:4px}
+.tcard{background:var(--card);border-radius:17px;padding:14px;box-shadow:var(--sh);margin-bottom:10px;cursor:pointer;transition:transform .16s}
+.tcard:active{transform:scale(.985)}
+.tc-top{display:flex;gap:11px;align-items:flex-start}
+.prio{width:3px;border-radius:100px;align-self:stretch;min-height:36px;flex-shrink:0}
+.tcard h4{font-size:14.5px;font-weight:700;letter-spacing:-.025em;line-height:1.3}
+.tmeta{display:flex;align-items:center;gap:8px;margin-top:7px;flex-wrap:wrap}
+.tagz{font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:7px;display:inline-flex;align-items:center;gap:5px}
+.tm{font-size:11px;color:var(--label2);font-weight:600;display:inline-flex;align-items:center;gap:4px}
 .tprog{display:flex;align-items:center;gap:10px;margin-top:12px}
 .tprog .bar{flex:1}
-.tprog b{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;min-width:34px;text-align:right}
-.prio{width:3px;border-radius:100px;align-self:stretch;min-height:34px}
+.tprog b{font-size:11.5px;font-weight:800;font-variant-numeric:tabular-nums;min-width:40px;text-align:right}
 
-/* empty */
-.empty{text-align:center;padding:60px 30px;color:var(--label2)}
-.empty svg{opacity:.3;margin-bottom:14px}
-.empty p{font-size:14px;font-weight:500}
+/* audit */
+.aud{display:flex;gap:11px;padding:11px 14px;position:relative}
+.aud+.aud::before{content:'';position:absolute;top:0;left:47px;right:0;height:.5px;background:var(--sep)}
+.aud .aic{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;color:#fff}
+.aud b{font-size:13px;font-weight:700;letter-spacing:-.02em;display:block}
+.aud p{font-size:11.5px;color:var(--label2);margin-top:2px;line-height:1.45}
+.aud .diff{font-size:11.5px;margin-top:5px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.aud .old{color:var(--red);text-decoration:line-through}
+.aud .new{color:var(--green);font-weight:700}
+.aud time{font-size:10px;color:var(--label3);font-weight:600;margin-left:auto;flex-shrink:0}
 
-/* tab bar */
-.tabbar{position:absolute;left:0;right:0;bottom:0;height:88px;z-index:50;display:flex;padding:0 6px 26px;
-  background:var(--tab);-webkit-backdrop-filter:saturate(180%) blur(24px);backdrop-filter:saturate(180%) blur(24px);
-  border-top:.5px solid var(--sep)}
-.tab{flex:1;border:0;background:transparent;cursor:pointer;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;gap:3.5px;padding-top:9px;font-family:inherit;color:var(--label3);transition:transform .18s,color .22s}
-.tab span{font-size:9.5px;font-weight:600;letter-spacing:-.01em}
-.tab.on{color:var(--blue)}
-.tab:active{transform:scale(.88)}
-.tab .tico{position:relative}
-.tab .tbadge{position:absolute;top:-3px;right:-7px;min-width:15px;height:15px;border-radius:100px;background:var(--red);
-  color:#fff;font-size:9.5px;font-weight:700;display:grid;place-items:center;padding:0 4px;box-shadow:0 0 0 1.5px var(--tab)}
+/* schedule */
+.scard{background:var(--card);border-radius:17px;padding:13px 0;box-shadow:var(--sh);overflow:hidden}
+.sscroll{overflow-x:auto;scrollbar-width:none}.sscroll::-webkit-scrollbar{display:none}
+table.sch{border-collapse:separate;border-spacing:0 3px;min-width:340px;width:100%}
+table.sch .dh{font-size:10px;font-weight:700;color:var(--label2);text-align:center;padding-bottom:6px;line-height:1.3}
+table.sch .dh b{display:block;font-size:11.5px;color:var(--label);font-variant-numeric:tabular-nums}
+table.sch .dh.td b,table.sch .dh.td{color:var(--blue)}
+table.sch .nm{position:sticky;left:0;background:var(--card);z-index:2;padding:0 8px 0 13px;width:104px;text-align:left}
+table.sch .nm div{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+table.sch .nm small{font-size:9.5px;color:var(--label2);font-weight:500}
+table.sch td.c{padding:0 2px}
+.sc{height:33px;border-radius:10px;display:grid;place-items:center;font-size:11.5px;font-weight:800;color:#fff;cursor:pointer;transition:transform .15s}
+.sc:active{transform:scale(.9)}
+.sc.tdw{box-shadow:0 0 0 2px var(--card),0 0 0 3.5px var(--blue)}
+.lgd{display:flex;flex-direction:column}
+.lgr{display:flex;align-items:center;gap:10px;padding:9px 14px;font-size:13px;position:relative}
+.lgr+.lgr::before{content:'';position:absolute;top:0;left:14px;right:0;height:.5px;background:var(--sep)}
+.lgr .sw-mk{width:16px;height:16px;border-radius:5px}
+.lgr b{font-weight:600}.lgr span{color:var(--label2);font-size:12px;margin-left:auto}
 
-/* fullscreen mode */
-body.fs .info{display:none}
-body.fs .stage{padding:0;gap:0}
-body.fs .device{width:100vw;height:100dvh;max-width:100vw;border-radius:0;padding:0;background:var(--bg);box-shadow:none}
-body.fs .device::before,body.fs .device::after,body.fs .island{display:none}
-body.fs .screen{border-radius:0}
-body.fs .statusbar{padding-top:10px;height:46px}
-body.fs .hdr{padding-top:52px}
+/* toast */
+#toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,120px);background:var(--label);color:var(--bg);border-radius:15px;
+  padding:12px 16px;display:flex;align-items:center;gap:11px;font-size:13px;font-weight:600;z-index:300;max-width:calc(100vw - 32px);
+  box-shadow:0 16px 40px rgba(0,0,0,.35);transition:transform .4s cubic-bezier(.2,1.1,.3,1);letter-spacing:-.02em}
+#toast.on{transform:translate(-50%,0)}
+#toast b{color:var(--blue);font-weight:800;cursor:pointer;flex-shrink:0}
+[data-theme=dark] #toast b{color:#64D2FF}
+#toast .ti{flex-shrink:0}
 
-@media(max-width:1120px){
-  .stage{gap:32px;padding:24px}
-  .info{width:290px}
+.hint{background:linear-gradient(135deg,rgba(0,122,255,.10),rgba(88,86,214,.10));border-radius:16px;padding:14px;display:flex;gap:12px;
+  align-items:flex-start;margin-bottom:14px;border:.5px solid rgba(0,122,255,.18)}
+.hint p{font-size:12.5px;line-height:1.5;color:var(--label)}
+.hint b{font-weight:800}
+.hint .hx{margin-left:auto;background:var(--fill);border:0;border-radius:50%;width:24px;height:24px;cursor:pointer;color:var(--label2);
+  display:grid;place-items:center;flex-shrink:0}
+
+@media(max-width:899px){
+  #app{grid-template-columns:1fr}
+  #sidebar{display:none}
+  #tabbar{display:flex}
+  #topbar{padding:12px 16px 10px}
+  #ttl{font-size:24px}
+  #view{padding:14px 16px 30px}
+  .tiles{grid-template-columns:1fr 1fr}
+  .uchip .un{display:none}
+  .uchip{padding:4px}
+  .tb-act{margin-top:10px}
+  .planwrap{flex-direction:column}
+  .roster{display:none}
 }
-@media(max-width:900px){
-  .info{display:none}
-  .stage{padding:0}
-  .device{width:100vw;height:100dvh;max-width:100vw;border-radius:0;padding:0;background:var(--bg);box-shadow:none}
-  .device::before,.device::after,.island{display:none}
-  .screen{border-radius:0}
-  .statusbar{padding-top:8px;height:46px}
-  .hdr{padding-top:50px}
-}
+@media(max-width:420px){.hero-title{font-size:18px}.tile b{font-size:20px}}
 </style>
 </head>
 <body>
-<div class="stage">
-
-  <aside class="info">
-    <div class="badge">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
-      Превью интерфейса · iOS
+<div id="app">
+  <aside id="sidebar">
+    <div class="brand">
+      <div class="lg"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2.4"/><path d="M10 2.5v3M14 2.5v3M10 18.5v3M14 18.5v3M2.5 10h3M2.5 14h3M18.5 10h3M18.5 14h3"/></svg></div>
+      <div><b>РИЦ · Расстановка</b><span>Сменное задание участка</span></div>
     </div>
-    <h2>Расстановка РИЦ</h2>
-    <p>Сменное задание участка: помещения, оборудование, исполнители и график смен. Данные — «РАССТАНОВКА РИЦ 25.09.2026.xlsx».</p>
-    <div class="info-list" id="infoList"></div>
-    <div class="info-actions">
-      <button class="btn primary" id="fsBtn">На весь экран</button>
-      <button class="btn" id="themeBtn2">Тёмная тема</button>
+    <nav id="navDesk"></nav>
+    <div class="sb-foot">
+      <div class="vcard" id="verCard"></div>
+      <button class="tgl" data-act="offline"><span id="offIc"></span>Офлайн-режим<span class="sw" id="offSw"></span></button>
+      <button class="tgl" data-act="theme"><span id="thIc"></span>Тёмная тема<span class="sw" id="thSw"></span></button>
     </div>
   </aside>
 
-  <div class="device" id="device">
-    <div class="screen">
-      <div class="island"></div>
-
-      <div class="statusbar">
-        <span class="sb-time">9:41</span>
-        <span class="sb-icons">
-          <svg width="18" height="12" viewBox="0 0 18 12" fill="var(--label)"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
-          <svg width="17" height="12" viewBox="0 0 17 12" fill="var(--label)"><path d="M8.5 11.6 6.2 8.9a3.6 3.6 0 0 1 4.6 0l-2.3 2.7Z"/><path d="M8.5 6.3c-1.3 0-2.5.5-3.4 1.3L3.7 6.1A7.3 7.3 0 0 1 8.5 4.3c1.8 0 3.5.7 4.8 1.8l-1.4 1.5a5.3 5.3 0 0 0-3.4-1.3Z"/><path d="M8.5 2.1A10 10 0 0 0 2.2 4.3L.8 2.8A12 12 0 0 1 8.5.2c2.9 0 5.6 1 7.7 2.6l-1.4 1.5A10 10 0 0 0 8.5 2.1Z"/></svg>
-          <svg width="27" height="13" viewBox="0 0 27 13" fill="none"><rect x=".6" y=".6" width="22" height="11.8" rx="3.6" stroke="var(--label)" stroke-opacity=".35" stroke-width="1.1"/><rect x="2.3" y="2.3" width="17" height="8.4" rx="2.2" fill="var(--label)"/><path d="M24.4 4.4c1 .5 1.6 1.3 1.6 2.1s-.6 1.6-1.6 2.1V4.4Z" fill="var(--label)" fill-opacity=".4"/></svg>
-        </span>
+  <div id="main">
+    <header id="topbar">
+      <div class="tb-row">
+        <div><h1 id="ttl">Обзор</h1><p id="sub"></p></div>
+        <div class="tb-r">
+          <button class="uchip" data-act="go" data-v="profile" id="uchip"></button>
+          <button class="ibtn" data-act="theme" id="themeBtn"></button>
+        </div>
       </div>
-
-      <div class="scroll" id="scroll">
-        <header class="hdr" id="hdr">
-          <div class="hdr-top">
-            <div>
-              <h1 class="big-title" id="bigTitle">Обзор</h1>
-              <p class="hdr-sub" id="hdrSub">РИЦ · пт, 25 сентября 2026</p>
-            </div>
-            <button class="icon-btn" id="themeBtn" aria-label="Тема">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
-            </button>
-          </div>
-          <div class="hdr-extra" id="hdrExtra"></div>
-        </header>
-        <main class="view" id="view"></main>
-      </div>
-
-      <nav class="tabbar" id="tabbar"></nav>
-    </div>
+      <div class="tb-act" id="tbAct"></div>
+    </header>
+    <div id="scroll"><main id="view"></main></div>
+    <nav id="tabbar"></nav>
   </div>
 </div>
 
+<div id="ov" data-act="close"></div>
+<div class="sheet" id="sheet">
+  <div class="grab"></div>
+  <div class="sh-h"><div><div class="sh-t" id="shT"></div><div class="sh-s" id="shS"></div></div>
+    <button class="sh-x" data-act="close" aria-label="Закрыть"></button></div>
+  <div class="sh-b" id="shB"></div>
+  <div class="sh-f" id="shF"></div>
+</div>
+<div id="toast"></div>
+
 <script>
-/* ================= ДАННЫЕ ================= */
-const ICON = {
-  grid:'<path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/>',
-  users:'<path d="M16 20v-1.5a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4V20"/><circle cx="9" cy="7" r="3.4"/><path d="M22 20v-1.5a4 4 0 0 0-3-3.87M16.5 4.2a3.4 3.4 0 0 1 0 6.6"/>',
-  cpu:'<rect x="6" y="6" width="12" height="12" rx="2.4"/><path d="M10 2.5v3M14 2.5v3M10 18.5v3M14 18.5v3M2.5 10h3M2.5 14h3M18.5 10h3M18.5 14h3"/>',
-  cal:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>',
-  check:'<path d="M8 6h13M8 12h13M8 18h13M3.5 6.2l1.2 1.2 2-2.2M3.5 12.2l1.2 1.2 2-2.2M3.5 18.2l1.2 1.2 2-2.2"/>',
-  flame:'<path d="M12 22c4 0 7-2.7 7-6.5 0-3.2-2-5.3-3.4-7C14.2 6.7 13.4 4.7 13.6 2c-2.6 1.2-4.2 3.3-4.6 5.6-.3 1.7.2 3-.6 3.6-.6.5-1.4.2-1.9-.6-.5.9-.9 2-.9 3.4C5.6 19 8.4 22 12 22Z"/>',
-  zap:'<path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2Z"/>',
-  tag:'<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7.2-7.2A2 2 0 0 1 2.8 12V4.8A2 2 0 0 1 4.8 2.8H12a2 2 0 0 1 1.4.6l7.2 7.2a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.4"/>',
-  wrench:'<path d="M14.7 6.3a4.5 4.5 0 0 0 5.9 5.9l-8 8a3 3 0 1 1-4.2-4.2l8-8Z"/><path d="M14.7 6.3 17.4 3.6"/>',
-  disc:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.2"/>',
-  shield:'<path d="M12 22s8-3.4 8-9.4V5.6L12 2.6 4 5.6v7C4 18.6 12 22 12 22Z"/><path d="m9 12 2.2 2.2L15.4 10"/>',
-  box:'<path d="M21 8.4 12 3.6 3 8.4v7.2l9 4.8 9-4.8V8.4Z"/><path d="m3 8.4 9 4.8 9-4.8M12 21.6v-8.4"/>',
-  search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/>',
-  chev:'<path d="m9 5 7 7-7 7"/>',
-  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7.2V12l3.2 2"/>',
-  person:'<circle cx="12" cy="8" r="3.6"/><path d="M5 20a7 7 0 0 1 14 0"/>',
-  alert:'<path d="M12 3.5 2.6 20h18.8L12 3.5Z"/><path d="M12 10v4M12 17.2h.01"/>',
-  sun:'<circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/>'
+/* ==================== ИКОНКИ ==================== */
+const I={
+ grid:'<path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/>',
+ board:'<rect x="3" y="4" width="18" height="14" rx="2.4"/><path d="M3 9h18M9 9v9M15 9v9"/>',
+ users:'<path d="M16 20v-1.5a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4V20"/><circle cx="9" cy="7" r="3.4"/><path d="M22 20v-1.5a4 4 0 0 0-3-3.87"/>',
+ cpu:'<rect x="6" y="6" width="12" height="12" rx="2.4"/><path d="M10 2.5v3M14 2.5v3M10 18.5v3M14 18.5v3M2.5 10h3M2.5 14h3M18.5 10h3M18.5 14h3"/>',
+ cal:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+ check:'<path d="M8 6h13M8 12h13M8 18h13M3.5 6.2l1.2 1.2 2-2.2M3.5 12.2l1.2 1.2 2-2.2M3.5 18.2l1.2 1.2 2-2.2"/>',
+ hist:'<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7.5V12l3 1.8"/>',
+ person:'<circle cx="12" cy="8" r="3.6"/><path d="M5 20a7 7 0 0 1 14 0"/>',
+ lock:'<rect x="4" y="10" width="16" height="11" rx="2.6"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
+ edit:'<path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4Z"/>',
+ flag:'<path d="M5 21V4M5 4h11l-1.6 3.5L16 11H5"/>',
+ sync:'<path d="M21 12a9 9 0 0 1-15.3 6.4L3 16M3 12a9 9 0 0 1 15.3-6.4L21 8"/><path d="M21 16v-5h-5M3 8v5h5"/>',
+ chev:'<path d="m9 5 7 7-7 7"/>',
+ alert:'<path d="M12 3.5 2.6 20h18.8L12 3.5Z"/><path d="M12 10v4M12 17.2h.01"/>',
+ x:'<path d="M6 6l12 12M18 6 6 18"/>',
+ plus:'<path d="M12 5v14M5 12h14"/>',
+ minus:'<path d="M5 12h14"/>',
+ dl:'<path d="M12 3v12M7.5 10.5 12 15l4.5-4.5M4 20h16"/>',
+ trash:'<path d="M4 7h16M9.5 7V4.8h5V7M6.5 7l1 13h9l1-13"/>',
+ moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>',
+ sun:'<circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/>',
+ flame:'<path d="M12 22c4 0 7-2.7 7-6.5 0-3.2-2-5.3-3.4-7C14.2 6.7 13.4 4.7 13.6 2c-2.6 1.2-4.2 3.3-4.6 5.6-.3 1.7.2 3-.6 3.6-.6.5-1.4.2-1.9-.6-.5.9-.9 2-.9 3.4C5.6 19 8.4 22 12 22Z"/>',
+ zap:'<path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2Z"/>',
+ tag:'<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7.2-7.2A2 2 0 0 1 2.8 12V4.8A2 2 0 0 1 4.8 2.8H12a2 2 0 0 1 1.4.6l7.2 7.2a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.3"/>',
+ wrench:'<path d="M14.7 6.3a4.5 4.5 0 0 0 5.9 5.9l-8 8a3 3 0 1 1-4.2-4.2l8-8Z"/><path d="M14.7 6.3 17.4 3.6"/>',
+ disc:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.2"/>',
+ shield:'<path d="M12 22s8-3.4 8-9.4V5.6L12 2.6 4 5.6v7C4 18.6 12 22 12 22Z"/><path d="m9 12 2.2 2.2L15.4 10"/>',
+ box:'<path d="M21 8.4 12 3.6 3 8.4v7.2l9 4.8 9-4.8V8.4Z"/><path d="m3 8.4 9 4.8 9-4.8M12 21.6v-8.4"/>',
+ search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/>',
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7.2V12l3.2 2"/>',
+ pub:'<path d="M4.5 12.5 8 16l11.5-11.5"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/>',
+ bell:'<path d="M18 8.5a6 6 0 1 0-12 0c0 6-2 7.5-2 7.5h16s-2-1.5-2-7.5Z"/><path d="M13.7 20a2 2 0 0 1-3.4 0"/>',
+ logout:'<path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/><path d="M10 8 6 12l4 4M6 12h10"/>',
+ doc:'<path d="M6 2.8h7.5L19 8.3V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.8a1 1 0 0 1 1-1Z"/><path d="M13 3v5.5h5.5"/>'
 };
-const svg=(n,s=20,w=1.9)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${ICON[n]}</svg>`;
+const sv=(n,s=18,w=2)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${I[n]||''}</svg>`;
+const hexA=(h,a)=>{const n=parseInt(h.slice(1),16);return`rgba(${n>>16&255},${n>>8&255},${n&255},${a})`};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
+/* ==================== СПРАВОЧНИКИ ==================== */
 const ZONES={
-  termo:{name:'Термическая обработка',short:'Термо',icon:'flame',c:'#FF9500'},
-  ero:{name:'Электроэрозия (ЭРО)',short:'ЭРО',icon:'zap',c:'#5856D6'},
-  mark:{name:'Маркировка',short:'Маркировка',icon:'tag',c:'#AF52DE'},
-  si:{name:'СИ · слесарный участок',short:'СИ',icon:'wrench',c:'#0A84FF'},
-  sishlif:{name:'СИ-шлиф',short:'СИ-шлиф',icon:'disc',c:'#30B0C7'},
-  tu:{name:'ТУ · заточной участок',short:'ТУ',icon:'disc',c:'#FF9F0A'},
-  otk:{name:'ОТК · контроль',short:'ОТК',icon:'shield',c:'#34C759'},
-  fchpu:{name:'ФЧПУ',short:'ФЧПУ',icon:'cpu',c:'#FF375F'},
-  tchpu:{name:'ТЧПУ',short:'ТЧПУ',icon:'cpu',c:'#5E5CE6'},
-  sklad:{name:'Склад металла · ЗУ',short:'Склад',icon:'box',c:'#8E8E93'}
+ termo:{n:'Термическая обработка',s:'Термо',i:'flame',c:'#FF9500'},
+ ero:{n:'ЭРО · электроэрозия',s:'ЭРО',i:'zap',c:'#5856D6'},
+ mark:{n:'Маркировка',s:'Маркировка',i:'tag',c:'#AF52DE'},
+ si:{n:'СИ · слесарный участок',s:'СИ',i:'wrench',c:'#0A84FF'},
+ sishlif:{n:'СИ-шлиф',s:'СИ-шлиф',i:'disc',c:'#30B0C7'},
+ tu:{n:'ТУ · заточной участок',s:'ТУ',i:'disc',c:'#FF9F0A'},
+ otk:{n:'ОТК · контроль',s:'ОТК',i:'shield',c:'#34C759'},
+ fchpu:{n:'ФЧПУ',s:'ФЧПУ',i:'cpu',c:'#FF375F'},
+ tchpu:{n:'ТЧПУ',s:'ТЧПУ',i:'cpu',c:'#5E5CE6'},
+ sklad:{n:'Склад металла · ЗУ',s:'Склад',i:'box',c:'#8E8E93'}
 };
-
-const ST={
-  work:{l:'На смене',c:'#5856D6',m:'Р'},
-  rest:{l:'День отдыха',c:'#0A84FF',m:'В'},
-  vac:{l:'В отпуске',c:'#34C759',m:'О'},
-  sick:{l:'На больничном',c:'#FF9500',m:'Б'},
-  extra:{l:'На подработке',c:'#FF2D55',m:'П'},
-  trainee:{l:'Стажёр',c:'#FFCC00',m:'С'},
-  cross:{l:'Подработка с др. смены',c:'#FF3B30',m:'×'}
+const MK={
+ work:{l:'На смене',c:'#5856D6',m:'Р'},
+ rest:{l:'День отдыха',c:'#0A84FF',m:'В'},
+ vac:{l:'В отпуске',c:'#34C759',m:'О'},
+ sick:{l:'На больничном',c:'#FF9500',m:'Б'},
+ extra:{l:'На подработке',c:'#FF2D55',m:'П'},
+ trainee:{l:'Стажёр',c:'#FFCC00',m:'С',dark:1},
+ cross:{l:'Подработка с другой смены',c:'#FF3B30',m:'×'}
 };
-
-const PEOPLE=[
-  {id:1,n:'Арифулов',r:'Термист',z:'termo',m:[225,251,229],s:'work',sh:1,w:['work','work','work','work','work','rest','rest']},
-  {id:2,n:'Прямов',r:'Термист',z:'termo',m:[201],s:'work',sh:2,w:['work','rest','work','rest','work','rest','work']},
-  {id:3,n:'Багаутдинов',r:'Слесарь',z:'si',m:[203,204,205,227],s:'rest',sh:1,w:['work','work','rest','rest','rest','work','work']},
-  {id:4,n:'Герчи',r:'Шлифовщик',z:'sishlif',m:[247,234],s:'sick',sh:2,w:['work','work','sick','sick','sick','sick','sick']},
-  {id:5,n:'Сапогов',r:'Шлифовщик',z:'sishlif',m:[210,236],s:'work',sh:1,w:['work','work','work','work','work','rest','rest']},
-  {id:6,n:'Уфимцев',r:'Заточник',z:'tu',m:[228],s:'extra',sh:1,w:['work','work','work','work','extra','extra','rest']},
-  {id:7,n:'Широбоков',r:'Оператор ТЧПУ',z:'tchpu',m:[137,245],s:'cross',sh:2,w:['work','work','work','work','cross','work','rest']},
-  {id:8,n:'Свинин',r:'Контролёр ОТК',z:'otk',m:[202],s:'work',sh:1,w:['work','work','work','work','work','work','rest']},
-  {id:9,n:'Пережогина',r:'Кладовщик',z:'sklad',m:[],s:'vac',sh:1,w:['vac','vac','vac','vac','vac','vac','vac']},
-  {id:10,n:'Бабкин',r:'Оператор ЗУ / ТЧПУ',z:'tchpu',m:[138,139],s:'work',sh:2,w:['rest','work','work','work','work','rest','rest']},
-  {id:11,n:'Сопельцев',r:'Оператор ФЧПУ',z:'fchpu',m:[207,224],s:'work',sh:1,w:['work','work','rest','rest','work','work','work']},
-  {id:12,n:'Жалилов',r:'Оператор ФЧПУ · стажёр',z:'fchpu',m:[206,226],s:'trainee',sh:2,w:['trainee','trainee','trainee','trainee','trainee','rest','rest']}
-];
-
-const MST={run:{l:'В работе',c:'#34C759'},wait:{l:'Ожидает',c:'#FF9500'},maint:{l:'ТО / ремонт',c:'#8E8E93'},idle:{l:'Свободен',c:'#0A84FF'}};
+const HR_MARKERS=['vac','sick'];
 const MACHINES=[
-  {n:225,z:'termo',op:'Арифулов',s:'run',job:'Термообработка, партия РИЦ-225'},
-  {n:251,z:'termo',op:'Арифулов',s:'run',job:'Закалка ТВЧ, втулки'},
-  {n:229,z:'termo',op:'Прямов',s:'wait',job:'Ожидает загрузку партии'},
-  {n:201,z:'termo',op:'Прямов',s:'maint',job:'Плановое ТО печи'},
-  {n:246,z:'ero',op:'Арифулов',s:'run',job:'Прошивка матриц РИЦ-18'},
-  {n:233,z:'ero',op:'Арифулов',s:'run',job:'Вырезка пуансонов'},
-  {n:241,z:'ero',op:null,s:'idle',job:'Свободен, смена 2'},
-  {n:205,z:'si',op:'Багаутдинов',s:'wait',job:'Нет оператора (день отдыха)'},
-  {n:204,z:'si',op:null,s:'idle',job:'Свободен'},
-  {n:203,z:'si',op:'Багаутдинов',s:'run',job:'Слесарная доводка'},
-  {n:227,z:'si',op:'Багаутдинов',s:'run',job:'Сборка пакета РИЦ-14'},
-  {n:247,z:'sishlif',op:'Герчи',s:'wait',job:'Оператор на больничном'},
-  {n:234,z:'sishlif',op:'Герчи',s:'wait',job:'Оператор на больничном'},
-  {n:210,z:'sishlif',op:'Сапогов',s:'run',job:'Шлифовка пуансонов'},
-  {n:236,z:'sishlif',op:'Сапогов',s:'run',job:'Круглая шлифовка валов'},
-  {n:228,z:'tu',op:'Уфимцев',s:'run',job:'Заточка инструмента'},
-  {n:245,z:'tu',op:'Широбоков',s:'run',job:'Заточка пуансонов'},
-  {n:202,z:'otk',op:'Свинин',s:'run',job:'Контроль партии РИЦ-225'},
-  {n:207,z:'fchpu',op:'Сопельцев',s:'run',job:'Корпус РИЦ-14'},
-  {n:224,z:'fchpu',op:'Сопельцев',s:'run',job:'Плита нажимная'},
-  {n:206,z:'fchpu',op:'Жалилов',s:'run',job:'Обучение · плита опорная'},
-  {n:226,z:'fchpu',op:'Жалилов',s:'maint',job:'Замена инструмента, наладка'},
-  {n:135,z:'tchpu',op:null,s:'idle',job:'Свободен'},
-  {n:136,z:'tchpu',op:null,s:'idle',job:'Свободен'},
-  {n:137,z:'tchpu',op:'Широбоков',s:'run',job:'Вал РИЦ-19, черновая'},
-  {n:138,z:'tchpu',op:'Бабкин',s:'run',job:'Вал-шестерня'},
-  {n:139,z:'tchpu',op:'Бабкин',s:'run',job:'Втулка Д-40, партия 25 шт.'}
+ {n:225,z:'termo',st:'run',j:'Термообработка, партия РИЦ-225'},{n:251,z:'termo',st:'run',j:'Закалка ТВЧ, втулки'},
+ {n:229,z:'termo',st:'wait',j:'Ожидает загрузку партии'},{n:201,z:'termo',st:'maint',j:'Плановое ТО печи'},
+ {n:246,z:'ero',st:'run',j:'Прошивка матриц РИЦ-18'},{n:233,z:'ero',st:'run',j:'Вырезка пуансонов'},
+ {n:241,z:'ero',st:'idle',j:'Резерв'},
+ {n:205,z:'si',st:'wait',j:'Нет оператора'},{n:204,z:'si',st:'idle',j:'Свободен'},{n:203,z:'si',st:'run',j:'Слесарная доводка'},
+ {n:227,z:'si',st:'run',j:'Сборка пакета РИЦ-14'},
+ {n:247,z:'sishlif',st:'wait',j:'Оператор на больничном'},{n:234,z:'sishlif',st:'wait',j:'Оператор на больничном'},
+ {n:210,z:'sishlif',st:'run',j:'Шлифовка пуансонов'},{n:236,z:'sishlif',st:'run',j:'Круглая шлифовка валов'},
+ {n:228,z:'tu',st:'run',j:'Заточка инструмента'},{n:245,z:'tu',st:'run',j:'Заточка пуансонов'},
+ {n:202,z:'otk',st:'run',j:'Контрольный пост'},
+ {n:207,z:'fchpu',st:'run',j:'Корпус РИЦ-14'},{n:224,z:'fchpu',st:'run',j:'Плита нажимная'},
+ {n:206,z:'fchpu',st:'run',j:'Плита опорная'},{n:226,z:'fchpu',st:'maint',j:'Наладка, замена инструмента'},
+ {n:135,z:'tchpu',st:'idle',j:'Свободен'},{n:136,z:'tchpu',st:'idle',j:'Свободен'},
+ {n:137,z:'tchpu',st:'run',j:'Вал РИЦ-19, черновая'},{n:138,z:'tchpu',st:'run',j:'Вал-шестерня'},{n:139,z:'tchpu',st:'run',j:'Втулка Д-40'}
 ];
-
-const TASKS=[
-  {id:'T-2041',t:'Термообработка партии валов',z:'termo',m:225,w:'Арифулов',q:40,d:26,due:'15:30',p:'high',s:'run'},
-  {id:'T-2043',t:'Корпус РИЦ-14 · фрезерная',z:'fchpu',m:207,w:'Сопельцев',q:8,d:7,due:'18:40',p:'high',s:'run'},
-  {id:'T-2047',t:'Контроль партии РИЦ-225',z:'otk',m:202,w:'Свинин',q:40,d:0,due:'19:30',p:'high',s:'wait'},
-  {id:'T-2046',t:'Шлифовка пуансонов',z:'sishlif',m:210,w:'Сапогов',q:30,d:28,due:'17:05',p:'mid',s:'run'},
-  {id:'T-2045',t:'Вал-шестерня · токарная',z:'tchpu',m:138,w:'Бабкин',q:25,d:11,due:'21:15',p:'mid',s:'run'},
-  {id:'T-2042',t:'Прошивка матриц РИЦ-18',z:'ero',m:246,w:'Арифулов',q:12,d:4,due:'22:00',p:'mid',s:'run'},
-  {id:'T-2049',t:'Выдача заготовок на ЗУ',z:'sklad',m:null,w:'Бабкин',q:18,d:9,due:'20:00',p:'mid',s:'run'},
-  {id:'T-2044',t:'Плита опорная · обучение стажёра',z:'fchpu',m:206,w:'Жалилов',q:4,d:1,due:'23:00',p:'low',s:'run'},
-  {id:'T-2051',t:'Слесарная доводка пуансонов',z:'si',m:203,w:'Багаутдинов',q:10,d:0,due:'—',p:'mid',s:'pause'},
-  {id:'T-2050',t:'Заточка инструмента · ТУ',z:'tu',m:228,w:'Уфимцев',q:15,d:15,due:'13:20',p:'low',s:'done'},
-  {id:'T-2048',t:'Маркировка партии РИЦ-19',z:'mark',m:null,w:'Арифулов',q:60,d:60,due:'14:10',p:'low',s:'done'}
+const MST={run:{l:'В работе',c:'#34C759'},wait:{l:'Ожидает',c:'#FF9500'},maint:{l:'ТО / ремонт',c:'#8E8E93'},idle:{l:'Свободен',c:'#0A84FF'}};
+const PEOPLE=[
+ {id:'p1',n:'Арифулов',r:'Термист',z:'termo',sh:1,mk:null,post:null},
+ {id:'p2',n:'Прямов',r:'Термист',z:'termo',sh:2,mk:null,post:null},
+ {id:'p3',n:'Багаутдинов',r:'Слесарь',z:'si',sh:1,mk:'rest',post:null},
+ {id:'p4',n:'Герчи',r:'Шлифовщик',z:'sishlif',sh:2,mk:'sick',post:null},
+ {id:'p5',n:'Сапогов',r:'Шлифовщик',z:'sishlif',sh:1,mk:null,post:null},
+ {id:'p6',n:'Уфимцев',r:'Заточник',z:'tu',sh:1,mk:'extra',post:null},
+ {id:'p7',n:'Широбоков',r:'Оператор ТЧПУ',z:'tchpu',sh:2,mk:'cross',post:null,
+   note:'Оставил мастер смены 1 для своих задач на ст. 137'},
+ {id:'p8',n:'Свинин',r:'Контролёр ОТК',z:'otk',sh:1,mk:null,post:null},
+ {id:'p9',n:'Пережогина',r:'Кладовщик',z:'sklad',sh:1,mk:'vac',post:'Склад металла'},
+ {id:'p10',n:'Бабкин',r:'Оператор ЗУ / ТЧПУ',z:'tchpu',sh:2,mk:null,post:'ЗУ'},
+ {id:'p11',n:'Сопельцев',r:'Оператор ФЧПУ',z:'fchpu',sh:1,mk:null,post:null},
+ {id:'p12',n:'Жалилов',r:'Оператор ФЧПУ · стажёр',z:'fchpu',sh:2,mk:'trainee',post:null,mentor:'p11'}
 ];
-const TST={run:{l:'В работе',c:'#0A84FF'},wait:{l:'Ожидает',c:'#FF9500'},done:{l:'Готово',c:'#34C759'},pause:{l:'Пауза',c:'#8E8E93'}};
-const PRIO={high:'#FF3B30',mid:'#FF9500',low:'#8E8E93'};
+const BASE_SCHED={
+ p1:['work','work','work','work','work','rest','rest'],p2:['work','rest','work','rest','work','rest','work'],
+ p3:['work','work','rest','rest','rest','work','work'],p4:['work','work','sick','sick','sick','sick','sick'],
+ p5:['work','work','work','work','work','rest','rest'],p6:['work','work','work','work','extra','extra','rest'],
+ p7:['work','work','work','work','cross','work','rest'],p8:['work','work','work','work','work','work','rest'],
+ p9:['vac','vac','vac','vac','vac','vac','vac'],p10:['rest','work','work','work','work','rest','rest'],
+ p11:['work','work','rest','rest','work','work','work'],p12:['trainee','trainee','trainee','trainee','trainee','rest','rest']
+};
 const DAYS=[{d:'Пн',n:21},{d:'Вт',n:22},{d:'Ср',n:23},{d:'Чт',n:24},{d:'Пт',n:25},{d:'Сб',n:26},{d:'Вс',n:27}];
+const TODAY_IDX=4;
 
-/* ================= HELPERS ================= */
-const $=s=>document.querySelector(s);
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const pct=(d,q)=>Math.round(d/q*100);
-const avColor=c=>{const d=document.documentElement.dataset.theme;return d==='dark'?hexA(c,.22):hexA(c,.13)};
-function hexA(h,a){const n=parseInt(h.slice(1),16);return`rgba(${n>>16&255},${n>>8&255},${n&255},${a})`}
-const initials=n=>n.slice(0,1).toUpperCase();
-const state={tab:'overview',q:'',filter:'all',shift:0,tfilter:'all',sel:null};
-
-/* ================= TABBAR ================= */
-const TABS=[
-  {id:'overview',l:'Обзор',i:'grid'},
-  {id:'people',l:'Люди',i:'users'},
-  {id:'machines',l:'Станки',i:'cpu'},
-  {id:'schedule',l:'График',i:'cal'},
-  {id:'tasks',l:'Задания',i:'check'}
+/* ==================== РОЛИ / ПРАВА ==================== */
+const ROLES={
+ nu:{ab:'НАЧ',n:'Начальник участка РИЦ',c:'#5856D6',
+     d:'Владелец документа. Расстановка в обеих сменах, публикация версии, разбор конфликтов.',
+     perms:{plan:5,people:4,machine:4,marker:4,cross:4,task:4,fact:4,accept:3,request:5,audit:1,roles:2},scope:{shifts:[1,2],zones:'all'}},
+ ms:{ab:'МАСТ',n:'Мастер смены',c:'#0A84FF',
+     d:'Ведёт свою смену: перестановка людей, маркеры, передача работника другой смене с комментарием.',
+     perms:{plan:3,people:1,machine:2,marker:3,cross:3,task:3,fact:3,accept:1,request:3,audit:1,roles:0},scope:{shifts:[1],zones:'all'}},
+ ms2:{ab:'МС2',n:'Мастер смены 2',c:'#0A84FF',
+     d:'То же, что мастер смены, но в области смены 2 (15:30–00:00).',
+     perms:{plan:3,people:1,machine:2,marker:3,cross:3,task:3,fact:3,accept:1,request:3,audit:1,roles:0},scope:{shifts:[2],zones:'all'}},
+ pd:{ab:'ПДО',n:'Диспетчер ПДО',c:'#FF9500',
+     d:'Сменные задания, сроки, приоритеты. Расстановку людей только просматривает.',
+     perms:{plan:1,people:1,machine:1,marker:0,cross:0,task:4,fact:1,accept:1,request:2,audit:1,roles:0},scope:{shifts:[1,2],zones:'all'}},
+ hr:{ab:'ОК',n:'Табельщик / ОК',c:'#34C759',
+     d:'Маркеры отсутствия: отпуск, больничный, день отдыха, стажировка. Привязку к станкам не меняет.',
+     perms:{plan:1,people:4,machine:0,marker:4,cross:0,task:0,fact:0,accept:0,request:2,audit:1,roles:0},scope:{shifts:[1,2],zones:'all'}},
+ ot:{ab:'ОТК',n:'Контролёр ОТК',c:'#30B0C7',
+     d:'Приёмка заданий, возврат в доработку. Расстановка — просмотр.',
+     perms:{plan:1,people:1,machine:1,marker:0,cross:0,task:1,fact:2,accept:4,request:2,audit:1,roles:0},scope:{shifts:[1,2],zones:'all'}},
+ rb:{ab:'РАБ',n:'Работник (Сапогов)',c:'#AF52DE',
+     d:'Своя смена, свой станок, свои задания. Отмечает факт, ошибки исправляет через заявку.',
+     perms:{plan:1,people:1,machine:1,marker:0,cross:0,task:1,fact:2,accept:0,request:4,audit:0,roles:0},scope:{shifts:[1],zones:'all'},personId:'p5'},
+ ru:{ab:'РУК',n:'Руководитель производства',c:'#8E8E93',
+     d:'Дашборды, отчёты, экспорт. Оперативные данные не редактирует.',
+     perms:{plan:1,people:1,machine:1,marker:1,cross:1,task:1,fact:1,accept:1,request:1,audit:1,roles:0},scope:{shifts:[1,2],zones:'all'}},
+ ad:{ab:'АДМ',n:'Администратор ИТ',c:'#FF375F',
+     d:'Роли, справочники, журнал, резервные копии. Производство не редактирует.',
+     perms:{plan:0,people:6,machine:6,marker:0,cross:0,task:0,fact:0,accept:0,request:1,audit:6,roles:6},scope:{shifts:[1,2],zones:'all'}}
+};
+const USERS=[
+ {id:'u1',role:'nu',n:'Ковалёв И.И.'},{id:'u2',role:'ms',n:'Гаврилов П.С.'},{id:'u3',role:'ms2',n:'Ефимов Д.А.'},
+ {id:'u4',role:'pd',n:'Носова Е.В.'},{id:'u5',role:'hr',n:'Тихонова М.А.'},{id:'u6',role:'ot',n:'Свинин А.Ю.',personId:'p8'},
+ {id:'u7',role:'rb',n:'Сапогов В.Н.',personId:'p5'},{id:'u8',role:'ru',n:'Демьянов А.Р.'},{id:'u9',role:'ad',n:'Системный администратор'}
 ];
-function renderTabs(){
-  const active=TASKS.filter(t=>t.s==='run').length;
-  $('#tabbar').innerHTML=TABS.map(t=>`
-    <button class="tab ${state.tab===t.id?'on':''}" data-tab="${t.id}">
-      <span class="tico">${svg(t.i,23,1.85)}${t.id==='tasks'?`<span class="tbadge">${active}</span>`:''}</span>
-      <span>${t.l}</span>
-    </button>`).join('');
-  $('#tabbar').querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{
-    state.tab=b.dataset.tab;state.sel=null;renderTabs();render();$('#scroll').scrollTo({top:0,behavior:'smooth'});
+const NEED={'plan.read':1,'plan.write':3,'plan.publish':5,'people.write':4,'machine.write':4,'marker.write':3,'marker.hr':4,
+ 'cross.write':3,'task.write':4,'task.qty':3,'task.fact':2,'task.accept':4,'request.create':4,'request.approve':3,'audit.read':1,'roles.write':6};
+const WHO={'plan.write':'мастер смены или начальник участка','plan.publish':'начальник участка','marker.write':'мастер смены или ОК',
+ 'marker.hr':'ОК или начальник участка','cross.write':'мастер смены, отдающий работника','task.write':'диспетчер ПДО или начальник участка',
+ 'task.fact':'работник по своему заданию или мастер смены','task.accept':'контролёр ОТК','request.approve':'мастер смены или начальник участка',
+ 'machine.write':'начальник участка или администратор','people.write':'ОК или начальник участка'};
+function inScope(ctx){
+  const sc=ROLES[S.user.role].scope;if(!ctx)return true;
+  if(ctx.shift&&!sc.shifts.includes(ctx.shift))return false;
+  if(ctx.zone&&sc.zones!=='all'&&!sc.zones.includes(ctx.zone))return false;
+  if(ctx.self&&ctx.self!==(S.user.personId||ROLES[S.user.role].personId))return false;
+  return true;
+}
+function lvl(action){return ROLES[S.user.role].perms[action.split('.')[0]]||0}
+function can(action,ctx){
+  const need=NEED[action]??9,have=lvl(action);
+  if(have<need)return false;
+  if(have>=3&&have<=3&&!inScope(ctx))return false;
+  if(have===3&&!inScope(ctx))return false;
+  if(ctx&&!inScope(ctx)&&have<4)return false;
+  return true;
+}
+const R=()=>ROLES[S.user.role];
+const isDesktop=()=>window.matchMedia('(min-width:900px)').matches;
+
+/* ==================== СОСТОЯНИЕ ==================== */
+const SEED={
+ asg:{225:{1:'p1',2:'p2'},251:{1:'p1',2:'p2'},229:{1:'p1',2:null},201:{1:null,2:'p2'},
+  246:{1:'p1',2:null},233:{1:'p1',2:null},241:{1:null,2:null},
+  205:{1:'p3',2:null},204:{1:'p3',2:null},203:{1:'p3',2:null},227:{1:'p3',2:null},
+  247:{1:null,2:'p4'},234:{1:null,2:'p4'},210:{1:'p5',2:null},236:{1:'p5',2:null},
+  228:{1:'p6',2:null},245:{1:null,2:'p7'},202:{1:'p8',2:null},
+  207:{1:'p11',2:null},224:{1:'p11',2:null},206:{1:null,2:'p12'},226:{1:null,2:'p12'},
+  135:{1:null,2:null},136:{1:null,2:null},137:{1:null,2:'p7'},138:{1:null,2:'p10'},139:{1:null,2:'p10'}},
+ mk:{p3:'rest',p4:'sick',p6:'extra',p7:'cross',p9:'vac',p12:'trainee'},
+ mkn:{p7:'Оставил мастер смены 1 для своих задач на ст. 137'},
+ tasks:[
+  {id:'T-2041',t:'Термообработка партии валов',z:'termo',m:225,w:'p1',q:40,d:26,due:'15:30',p:'high',s:'run'},
+  {id:'T-2043',t:'Корпус РИЦ-14 · фрезерная',z:'fchpu',m:207,w:'p11',q:8,d:7,due:'18:40',p:'high',s:'run'},
+  {id:'T-2047',t:'Контроль партии РИЦ-225',z:'otk',m:202,w:'p8',q:40,d:0,due:'19:30',p:'high',s:'wait'},
+  {id:'T-2046',t:'Шлифовка пуансонов',z:'sishlif',m:210,w:'p5',q:30,d:28,due:'17:05',p:'mid',s:'run'},
+  {id:'T-2045',t:'Вал-шестерня · токарная',z:'tchpu',m:138,w:'p10',q:25,d:11,due:'21:15',p:'mid',s:'run'},
+  {id:'T-2042',t:'Прошивка матриц РИЦ-18',z:'ero',m:246,w:'p1',q:12,d:4,due:'22:00',p:'mid',s:'run'},
+  {id:'T-2049',t:'Выдача заготовок на ЗУ',z:'sklad',m:null,w:'p10',q:18,d:9,due:'20:00',p:'mid',s:'run'},
+  {id:'T-2044',t:'Плита опорная · обучение стажёра',z:'fchpu',m:206,w:'p12',q:4,d:1,due:'23:00',p:'low',s:'run'},
+  {id:'T-2051',t:'Слесарная доводка пуансонов',z:'si',m:203,w:'p3',q:10,d:0,due:'—',p:'mid',s:'pause'},
+  {id:'T-2050',t:'Заточка инструмента · ТУ',z:'tu',m:228,w:'p6',q:15,d:15,due:'13:20',p:'low',s:'done'},
+  {id:'T-2048',t:'Маркировка партии РИЦ-19',z:'mark',m:null,w:'p1',q:60,d:60,due:'14:10',p:'low',s:'done'}],
+ reqs:[{id:'R-01',by:'p12',type:'Ошибка в расстановке',txt:'Стою на 206, фактически работаю на 226',state:'new',ts:Date.now()-3600e3*5}],
+ audit:[
+  {id:1,ts:Date.now()-3600e3*7,who:'Тихонова М.А.',role:'hr',act:'marker',obj:'Герчи',old:'На смене',nw:'На больничном',c:'Листок нетрудоспособности с 25.09'},
+  {id:2,ts:Date.now()-3600e3*6,who:'Гаврилов П.С.',role:'ms',act:'cross',obj:'Широбоков → смена 1',old:'—',nw:'Подработка с др. смены',c:'Оставил мастер смены 1 для своих задач на ст. 137'},
+  {id:3,ts:Date.now()-3600e3*2,who:'Носова Е.В.',role:'pd',act:'task.create',obj:'T-2047',old:'—',nw:'Контроль партии РИЦ-225 · 40 шт.',c:''}
+ ],
+ queue:[],ovr:{},
+ ver:{date:'25.09.2026',status:'draft',rev:4,published:null},
+ nextTask:2052,nextReq:2,nextAud:4
+};
+let S,UNDO=null;
+const KEY='ric-plan-v1';
+function load(){
+  try{const r=localStorage.getItem(KEY);if(r){const p=JSON.parse(r);S=Object.assign(JSON.parse(JSON.stringify(SEED)),p);S.user=USERS.find(u=>u.id===(p.userId||'u1'))||USERS[0];return}}catch(e){}
+  S=JSON.parse(JSON.stringify(SEED));S.user=USERS[0];
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({...S,userId:S.user.id,user:undefined}))}catch(e){}}
+const P=id=>PEOPLE.find(p=>p.id===id);
+const M=n=>MACHINES.find(m=>m.n===n);
+const marker=id=>S.mk[id]||null;
+const mkL=id=>MK[marker(id)||'work'].l;
+function assignedTo(pid,shift){return MACHINES.filter(m=>S.asg[m.n]&&S.asg[m.n][shift]===pid).map(m=>m.n)}
+
+/* ==================== ЖУРНАЛ / МУТАЦИИ ==================== */
+function log(act,obj,old,nw,c=''){
+  S.audit.unshift({id:S.nextAud++,ts:Date.now(),who:S.user.n,role:S.user.role,act,obj,old:nw===old?'':old,nw,c});
+  if(S.audit.length>220)S.audit.length=220;
+}
+function snapshot(){UNDO=JSON.stringify({asg:S.asg,mk:S.mk,mkn:S.mkn,tasks:S.tasks,reqs:S.reqs,ovr:S.ovr,ver:S.ver,nextTask:S.nextTask,nextReq:S.nextReq,nextAud:S.nextAud,audit:S.audit})}
+function undo(){if(!UNDO)return;const u=JSON.parse(UNDO);Object.assign(S,u);UNDO=null;save();render();toast('Изменение отменено','check')}
+let TOAST_T;
+function toast(msg,ic='check',undoable=false){
+  const t=$('#toast');
+  t.innerHTML=`<span class="ti">${sv(ic,17,2.3)}</span><span>${esc(msg)}</span>${undoable?'<b data-act="undo">Отменить</b>':''}`;
+  t.classList.add('on');clearTimeout(TOAST_T);TOAST_T=setTimeout(()=>t.classList.remove('on'),undoable?5200:2800);
+}
+function offlineMark(){if(S.offline){S.queue.push({ts:Date.now(),who:S.user.n});}}
+function guarded(action,ctx,fn){
+  if(!can(action,ctx)){return deny(action,ctx)}
+  if(S.ver.status==='published'){return askReason(()=>fn(true))}
+  fn(false);
+}
+function deny(action,ctx){
+  const w=WHO[action]||'пользователь с соответствующими правами';
+  openSheet({t:'Недостаточно прав',s:`Роль: ${R().n}`,body:`
+    <div class="note" style="background:${hexA('#FF9500',.11)}">
+      <span class="ic" style="color:var(--orange)">${sv('lock',18,2.2)}</span>
+      <p>Действие <b>«${actName(action)}»</b> недоступно для вашей роли${ctx&&ctx.shift?` в смене ${ctx.shift}`:''}.<br>
+      Изменения вносит: <b>${w}</b>.</p></div>
+    <div class="fl">Что можно сделать</div>
+    <div class="opt" data-act="req-new" data-pre="${esc(typeof ctx==='object'&&ctx?JSON.stringify(ctx):'')}">
+      <span class="sw-mk" style="background:${hexA('#FF9500',.16)};display:grid;place-items:center;color:var(--orange)">${sv('bell',13,2.3)}</span>
+      <span class="ot"><b>Запросить правку</b><small>Заявка уйдёт мастеру смены с уведомлением</small></span>${sv('chev',15,2.4)}</div>
+    <div class="opt" data-act="go" data-v="log"><span class="sw-mk" style="background:var(--fill);display:grid;place-items:center;color:var(--label2)">${sv('hist',13,2.3)}</span>
+      <span class="ot"><b>Открыть журнал</b><small>Кто и когда менял расстановку</small></span>${sv('chev',15,2.4)}</div>`,
+    foot:`<button class="btn gray" data-act="close">Понятно</button>`});
+}
+const actName=a=>({'plan.write':'изменение расстановки','plan.publish':'публикация версии','marker.write':'изменение статуса','marker.hr':'изменение статуса отсутствия','cross.write':'передача в другую смену','task.write':'изменение задания','task.fact':'отметка выполнения','task.accept':'приёмка ОТК','machine.write':'изменение оборудования','people.write':'изменение справочника','request.approve':'решение по заявке'})[a]||a;
+
+/* ---- валидации ---- */
+function validateAssign(pid,mn,shift){
+  const p=P(pid),m=M(mn);
+  if(!p||!m)return{ok:false,why:'Некорректные данные'};
+  const mk=marker(pid);
+  if(mk==='vac')return{ok:false,why:'Работник в отпуске — назначение невозможно. Измените статус в ОК.',hard:1};
+  if(mk==='sick')return{ok:false,why:'Работник на больничном — назначение невозможно.',hard:1};
+  if(mk==='rest')return{ok:false,why:'У работника день отдыха по графику. Требуется согласование начальника участка.',hard:1};
+  if(m.st==='maint')return{ok:false,why:`Станок ${mn} в состоянии «ТО / ремонт» — задания не назначаются.`,hard:1};
+  if(p.sh!==shift&&mk!=='cross')return{ok:false,why:`${p.n} числится в смене ${p.sh}. Для работы в смене ${shift} оформите передачу (красный маркер).`,hard:1};
+  const busy=assignedTo(pid,shift).filter(x=>x!==mn);
+  if(busy.length>=2)return{ok:false,why:`У ${p.n} уже ${busy.length} станка в этой смене (ст. ${busy.join(', ')}). Превышение нормы обслуживания.`,hard:1};
+  if(mk==='trainee'){
+    const mentor=p.mentor&&P(p.mentor);
+    const mentorHere=mentor&&assignedTo(mentor.id,shift).length>0;
+    if(!mentorHere)return{ok:false,warn:1,why:`Стажёр ${p.n} назначается без наставника в смене. Наставник: ${mentor?mentor.n:'не указан'}.`};
+  }
+  return{ok:true};
+}
+
+/* ---- действия ---- */
+function actAssign(mn,shift,pid){
+  const m=M(mn),ctx={shift,zone:m.z};
+  guarded('plan.write',ctx,rep=>{
+    const v=validateAssign(pid,mn,shift);
+    if(!v.ok&&!v.warn){return toast(v.why,'alert')}
+    if(!v.ok&&v.warn&&!rep){return askConfirm('Назначение с предупреждением',v.why,()=>actAssign(mn,shift,pid))}
+    snapshot();
+    const old=S.asg[mn][shift]?P(S.asg[mn][shift]).n:'—';
+    S.asg[mn][shift]=pid;
+    if(m.st==='wait'||m.st==='idle')m.st='run';
+    log('assign',`ст. ${mn} · ${ZONES[m.z].s} · смена ${shift}`,old,P(pid).n,rep?'Правка опубликованной версии: '+rep:'');
+    offlineMark();save();render();closeSheet();
+    toast(`${P(pid).n} → ст. ${mn}, смена ${shift}`,'check',true);
+    if(v.warn)toast(v.why,'alert');
   });
 }
-
-/* ================= HEADER ================= */
-const TITLES={overview:'Обзор',people:'Работники',machines:'Оборудование',schedule:'График смен',tasks:'Задания'};
-function renderHeader(){
-  $('#bigTitle').textContent=TITLES[state.tab];
-  const extra=$('#hdrExtra');
-  if(state.tab==='people'){
-    extra.innerHTML=`
-      <div class="searchbar">${svg('search',16,2)}<input id="q" type="search" placeholder="Поиск: фамилия, станок, участок" value="${esc(state.q)}"></div>
-      <div class="chips" style="margin-top:10px">
-        <button class="chip ${state.filter==='all'?'on':''}" data-f="all">Все · ${PEOPLE.length}</button>
-        ${Object.entries(ST).map(([k,v])=>{const c=PEOPLE.filter(p=>p.s===k).length;return c?`<button class="chip ${state.filter===k?'on':''}" data-f="${k}"><span class="cdot" style="background:${v.c}"></span>${v.l} · ${c}</button>`:''}).join('')}
-      </div>`;
-    const qi=$('#q');qi.oninput=e=>{state.q=e.target.value;renderPeople();};
-    extra.querySelectorAll('[data-f]').forEach(c=>c.onclick=()=>{state.filter=c.dataset.f;renderHeader();renderPeople();});
-  } else if(state.tab==='machines'){
-    extra.innerHTML=`<div class="seg" data-seg="ms"><div class="seg-thumb"></div>
-      <button class="seg-btn ${state.mfilter!=='run'?'active':''}" data-m="all">Все</button>
-      <button class="seg-btn ${state.mfilter==='run'?'active':''}" data-m="run">В работе</button>
-      <button class="seg-btn ${state.mfilter==='wait'?'active':''}" data-m="wait">Ожидают</button>
-      <button class="seg-btn ${state.mfilter==='idle'?'active':''}" data-m="idle">Свободные</button></div>`;
-    bindSeg(extra.querySelector('[data-seg]'),b=>{state.mfilter=b.dataset.m;renderHeader();renderMachines();});
-  } else if(state.tab==='schedule'){
-    extra.innerHTML=`<div class="seg" data-seg="sh"><div class="seg-thumb"></div>
-      <button class="seg-btn ${state.shift===0?'active':''}" data-s="0">Все смены</button>
-      <button class="seg-btn ${state.shift===1?'active':''}" data-s="1">Смена 1</button>
-      <button class="seg-btn ${state.shift===2?'active':''}" data-s="2">Смена 2</button></div>`;
-    bindSeg(extra.querySelector('[data-seg]'),b=>{state.shift=+b.dataset.s;renderHeader();renderSchedule();});
-  } else if(state.tab==='tasks'){
-    extra.innerHTML=`<div class="seg" data-seg="tf"><div class="seg-thumb"></div>
-      <button class="seg-btn ${state.tfilter==='all'?'active':''}" data-t="all">Все</button>
-      <button class="seg-btn ${state.tfilter==='run'?'active':''}" data-t="run">В работе</button>
-      <button class="seg-btn ${state.tfilter==='wait'?'active':''}" data-t="wait">Ожидают</button>
-      <button class="seg-btn ${state.tfilter==='done'?'active':''}" data-t="done">Готово</button></div>`;
-    bindSeg(extra.querySelector('[data-seg]'),b=>{state.tfilter=b.dataset.t;renderHeader();renderTasks();});
-  } else extra.innerHTML='';
+function actUnassign(mn,shift){
+  const m=M(mn);
+  guarded('plan.write',{shift,zone:m.z},rep=>{
+    if(!S.asg[mn][shift])return closeSheet();
+    snapshot();const old=P(S.asg[mn][shift]).n;S.asg[mn][shift]=null;m.st='wait';
+    log('unassign',`ст. ${mn} · смена ${shift}`,old,'—',rep?'Правка опубликованной версии: '+rep:'');
+    offlineMark();save();render();closeSheet();toast(`ст. ${mn}: исполнитель снят`,'check',true);
+  });
 }
-function bindSeg(seg,cb){
-  const btns=seg.querySelectorAll('.seg-btn'),th=seg.querySelector('.seg-thumb');
-  const move=b=>{th.style.width=b.offsetWidth+'px';th.style.transform=`translateX(${b.offsetLeft-2}px)`;};
-  const act=seg.querySelector('.active');if(act)requestAnimationFrame(()=>move(act));
-  btns.forEach(b=>b.onclick=()=>{btns.forEach(x=>x.classList.remove('active'));b.classList.add('active');move(b);cb(b);});
+function actMarker(pid,mk,comment){
+  const p=P(pid),ctx={shift:p.sh,zone:p.z};
+  const action=HR_MARKERS.includes(mk)?'marker.hr':'marker.write';
+  guarded(action,ctx,rep=>{
+    if(mk==='cross'&&!comment)return toast('Для красного маркера обязателен комментарий','alert');
+    snapshot();
+    const old=MK[marker(pid)||'work'].l;
+    if(mk==='work'||mk===null){delete S.mk[pid];delete S.mkn[pid]}else{S.mk[pid]=mk;if(comment)S.mkn[pid]=comment}
+    if(mk==='cross'&&p.sh===1){/* передача в смену 2 фиксируется */}
+    log(mk==='cross'?'cross':'marker',`${p.n} · ${ZONES[p.z].s}`,old,MK[mk||'work'].l,comment||(rep?'Правка опубликованной версии: '+rep:''));
+    offlineMark();save();render();closeSheet();toast(`${p.n}: ${MK[mk||'work'].l}`,'check',true);
+  });
+}
+function actTaskSave(data,id){
+  guarded('task.write',{shift:data.shift||1,zone:data.z},rep=>{
+    snapshot();
+    if(id){const t=S.tasks.find(x=>x.id===id);const old=`${t.t} · ${t.q} шт. · ${t.due}`;Object.assign(t,data);
+      log('task.update',id,old,`${t.t} · ${t.q} шт. · ${t.due}`,rep?'Правка опубликованной версии: '+rep:'');}
+    else{const nid='T-'+(S.nextTask++);S.tasks.unshift(Object.assign({id:nid,s:'wait',d:0},data));
+      log('task.create',nid,'—',`${data.t} · ${data.q} шт. · ${data.due}`,rep?'':'');}
+    offlineMark();save();render();closeSheet();toast(id?'Задание обновлено':'Задание создано','check',true);
+  });
+}
+function actFact(id,delta){
+  const t=S.tasks.find(x=>x.id===id);
+  const own=t.w===S.user.personId;
+  if(!can('task.fact',{shift:1,self:own?t.w:undefined})&&!own){
+    if(!(lvl('fact')>=3&&inScope({shift:1})))return deny('task.fact');
+  }
+  snapshot();const old=t.d;t.d=Math.max(0,Math.min(t.q,t.d+delta));
+  if(t.d>=t.q&&t.s!=='done')t.s='done';else if(t.d>0&&t.s==='wait')t.s='run';
+  log('fact',`${t.id} · ${t.t}`,old+' шт.',t.d+' шт.','');
+  offlineMark();save();render();toast(`Факт ${t.id}: ${t.d}/${t.q} шт.`,'check',true);
+}
+function actAccept(id,ok){
+  const t=S.tasks.find(x=>x.id===id);
+  if(!can('task.accept'))return deny('task.accept');
+  snapshot();
+  if(ok){t.s='done';t.d=t.q;log('accept',`${t.id} · ${t.t}`,'на контроле','принято ОТК','')}
+  else{t.s='run';t.d=Math.max(0,t.d-Math.ceil(t.q*.2));log('accept',`${t.id} · ${t.t}`,'на контроле','возврат в доработку','')}
+  save();render();closeSheet();toast(ok?'Задание принято ОТК':'Возврат в доработку',ok?'check':'alert',true);
+}
+function actReq(payload){
+  if(!can('request.create'))return deny('request.create');
+  snapshot();
+  S.reqs.unshift({id:'R-'+String(S.nextReq++).padStart(2,'0'),by:S.user.personId||null,author:S.user.n,role:S.user.role,
+    type:payload.type,txt:payload.txt,state:'new',ts:Date.now()});
+  log('request.create',payload.type,'—',payload.txt.slice(0,60),'');
+  save();render();closeSheet();toast('Заявка отправлена мастеру смены','check');
+}
+function actReqDecide(id,dec,reason){
+  if(!can('request.approve'))return deny('request.approve');
+  const r=S.reqs.find(x=>x.id===id);if(!r)return;
+  snapshot();r.state=dec;r.decBy=S.user.n;r.decReason=reason||'';
+  log('request.'+dec,r.id,r.type,dec==='ok'?'принята':'отклонена',reason||'');
+  save();render();closeSheet();toast(dec==='ok'?'Заявка принята':'Заявка отклонена',dec==='ok'?'check':'alert',true);
+}
+function askReason(cb){
+  openSheet({t:'Правка опубликованной версии',s:`Версия rev.${S.ver.rev} · опубликована ${S.ver.published||''}`,body:`
+    <div class="note" style="background:${hexA('#FF3B30',.10)}"><span class="ic" style="color:var(--red)">${sv('alert',18,2.2)}</span>
+    <p>Документ опубликован и виден рабочим. Изменение создаст <b>ревизию ${S.ver.rev+1}</b> и уведомит всех участников смены. Укажите причину.</p></div>
+    <div class="fl">Причина изменения *</div><textarea class="ta" id="rsn" placeholder="Например: замена исполнителя из-за поломки станка 210"></textarea>`,
+    foot:`<button class="btn gray" data-act="close">Отмена</button><button class="btn" id="rsnOk">Изменить и зафиксировать</button>`});
+  $('#rsnOk').onclick=()=>{const v=$('#rsn').value.trim();if(v.length<4)return toast('Укажите причину (минимум 4 символа)','alert');
+    closeSheet();S.ver.rev++;S.ver.status='published';S.ver.published=fmt(Date.now());save();cb(v);};
+}
+function askConfirm(t,msg,cb){
+  openSheet({t,s:'Требуется подтверждение',body:`<div class="note" style="background:${hexA('#FF9500',.12)}">
+    <span class="ic" style="color:var(--orange)">${sv('alert',18,2.2)}</span><p>${esc(msg)}</p></div>`,
+    foot:`<button class="btn gray" data-act="close">Отмена</button><button class="btn" id="cfOk">Продолжить</button>`});
+  $('#cfOk').onclick=()=>{closeSheet();cb()};
+}
+function actPublish(){
+  if(!can('plan.publish'))return deny('plan.publish');
+  const iss=issues();
+  openSheet({t:'Публикация версии',s:`${S.ver.date} · rev.${S.ver.rev}`,body:`
+    <div class="note" style="background:${hexA('#34C759',.12)}"><span class="ic" style="color:var(--green)">${sv('pub',18,2.2)}</span>
+    <p>После публикации расстановку увидят все участники смены. Дальнейшие правки создадут новую ревизию с обязательным указанием причины.</p></div>
+    <div class="fl">Проверка перед публикацией</div>
+    <div class="group" style="box-shadow:none;background:var(--card2)">
+      ${iss.length?iss.map(i=>`<div class="row static" style="--inset:44px"><span class="sw-mk" style="width:26px;height:26px;border-radius:8px;background:${hexA(i.c,.15)};display:grid;place-items:center;color:${i.c}">${sv(i.i,13,2.3)}</span>
+        <span class="r-main"><span class="r-title" style="font-size:13px">${esc(i.t)}</span><span class="r-sub">${esc(i.d)}</span></span></div>`).join('')
+        :'<div class="row static"><span class="r-main"><span class="r-title" style="font-size:13px;color:var(--green)">Замечаний нет</span></span></div>'}
+    </div>
+    <div class="fl">Получатели уведомления</div>
+    <p style="font-size:12.5px;color:var(--label2);line-height:1.5;padding:0 2px">Мастера смен 1 и 2 · ${PEOPLE.filter(p=>!['vac','sick','rest'].includes(marker(p.id))).length} работников · табло участка · диспетчер ПДО</p>`,
+    foot:`<button class="btn gray" data-act="close">Отмена</button>
+      <button class="btn ${iss.some(i=>i.hard)?'red':'green'}" id="pubOk">${iss.some(i=>i.hard)?'Опубликовать несмотря на замечания':'Опубликовать'}</button>`});
+  $('#pubOk').onclick=()=>{
+    snapshot();S.ver.status='published';S.ver.published=fmt(Date.now());
+    log('publish',`Версия ${S.ver.date}`,'черновик','опубликован',iss.length?'Замечания: '+iss.map(i=>i.t).join('; '):'');
+    save();render();closeSheet();toast('Версия опубликована','pub');
+  };
+}
+function issues(){
+  const out=[];
+  [1,2].forEach(sh=>{
+    const free=MACHINES.filter(m=>!S.asg[m.n][sh]&&(m.st==='run'||m.st==='wait'));
+    if(free.length)out.push({t:`${free.length} станк(ов) без исполнителя · смена ${sh}`,d:'ст. '+free.map(m=>m.n).join(', '),c:'#FF9500',i:'alert',hard:0});
+  });
+  PEOPLE.filter(p=>marker(p.id)==='trainee').forEach(p=>{
+    const m=p.mentor&&P(p.mentor);
+    if(!m||assignedTo(m.id,p.sh).length===0)out.push({t:'Стажёр без наставника в смене',d:`${p.n} — наставник ${m?m.n:'не назначен'}`,c:'#FFCC00',i:'person',hard:0});
+  });
+  if(S.reqs.filter(r=>r.state==='new').length)out.push({t:'Не рассмотрены заявки на правку',d:S.reqs.filter(r=>r.state==='new').map(r=>r.id).join(', '),c:'#FF3B30',i:'bell',hard:1});
+  return out;
 }
 
-/* ================= VIEWS ================= */
-function render(){renderHeader();({overview:renderOverview,people:renderPeople,machines:renderMachines,schedule:renderSchedule,tasks:renderTasks})[state.tab]();}
+/* ==================== ФОРМАТЫ ==================== */
+function fmt(ts){const d=new Date(ts);return d.toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}
+function ago(ts){const s=(Date.now()-ts)/1000;if(s<60)return'только что';if(s<3600)return Math.floor(s/60)+' мин назад';
+  if(s<86400)return Math.floor(s/3600)+' ч назад';return fmt(ts)}
+const pct=(d,q)=>q?Math.round(d/q*100):0;
 
-/* --- OVERVIEW --- */
-function renderOverview(){
-  const onShift=PEOPLE.filter(p=>['work','extra','cross','trainee'].includes(p.s)).length;
-  const run=MACHINES.filter(m=>m.s==='run').length;
-  const tRun=TASKS.filter(t=>t.s==='run').length;
-  const ready=Math.round(TASKS.reduce((a,t)=>a+t.d,0)/TASKS.reduce((a,t)=>a+t.q,0)*100);
-  const C=2*Math.PI*28, off=C*(1-ready/100);
-  const alerts=PEOPLE.filter(p=>['sick','vac'].includes(p.s));
-
-  $('#view').innerHTML=`
-  <div class="hero">
-    <div class="hero-top">
-      <div>
-        <div class="hero-lbl">Текущая смена</div>
-        <div class="hero-title">Смена 1 · 07:00–15:30</div>
-        <div class="hero-sub">Пятница, 25.09.2026 · мастер участка РИЦ</div>
-      </div>
-      <div class="ring-wrap">
-        <svg width="70" height="70" viewBox="0 0 70 70">
-          <circle class="ring-bg" cx="35" cy="35" r="28"/>
-          <circle class="ring-fg" cx="35" cy="35" r="28" stroke-dasharray="${C}" stroke-dashoffset="${C}"/>
-        </svg>
-        <div class="ring-txt">${ready}%</div>
-      </div>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><b>${onShift}/${PEOPLE.length}</b><span>на смене</span></div>
-      <div class="hero-stat"><b>${run}/${MACHINES.length}</b><span>станков в работе</span></div>
-      <div class="hero-stat"><b>${tRun}</b><span>заданий в работе</span></div>
-    </div>
-  </div>
-
-  <div class="sec-h"><span>Участки смены</span><span>${Object.keys(ZONES).length} участков</span></div>
-  <div class="group">
-    ${Object.entries(ZONES).map(([k,z])=>{
-      const ppl=PEOPLE.filter(p=>p.z===k);
-      const mc=MACHINES.filter(m=>m.z===k);
-      const r=mc.filter(m=>m.s==='run').length;
-      return `<div class="row" style="--inset:56px" data-zone="${k}">
-        <div class="av" style="background:${avColor(z.c)};color:${z.c};border-radius:11px;width:34px;height:34px;font-size:15px">${svg(z.icon,17,2)}</div>
-        <div class="r-main">
-          <div class="r-title" style="font-size:14.5px">${z.name}</div>
-          <div class="r-sub">${ppl.length?ppl.map(p=>p.n).join(', '):'без исполнителя'}${mc.length?' · '+r+'/'+mc.length+' станков':''}</div>
-        </div>
-        <span class="chev">${svg('chev',15,2.4)}</span>
-      </div>`;
-    }).join('')}
-  </div>
-
-  <div class="sec-h"><span>Сводка</span><span>25.09.2026</span></div>
-  <div class="tiles">
-    ${tile('person','#5856D6',onShift,'/'+PEOPLE.length,'человек на смене')}
-    ${tile('cpu','#34C759',run,'/'+MACHINES.length,'единиц оборудования')}
-    ${tile('alert','#FF9500',alerts.length,'','отсутствуют (отпуск / б-л)')}
-    ${tile('check','#0A84FF',TASKS.filter(t=>t.s==='done').length,'/'+TASKS.length,'заданий закрыто')}
-  </div>
-
-  <div class="sec-h"><span>Отсутствуют на смене</span></div>
-  <div class="group">
-    ${alerts.map(p=>personRow(p)).join('')||'<div class="row"><div class="r-main"><div class="r-sub">Все на рабочих местах</div></div></div>'}
-  </div>
-
-  <div class="sec-h"><span>Ближайшие задания</span><span>по сроку</span></div>
-  ${TASKS.filter(t=>t.s==='run'||t.s==='wait').slice(0,3).map(taskCard).join('')}
-
-  <div class="sec-h"><span>Обозначения маркеров</span></div>
-  <div class="group legend">
-    ${Object.entries(ST).map(([k,v])=>`<div class="lg-row"><span class="lg-sw" style="background:${v.c}"></span><b>${v.l}</b></div>`).join('')}
-  </div>
-  <p style="font-size:11.5px;color:var(--label2);line-height:1.5;padding:10px 6px 4px">Цветовая маркировка соответствует исходному файлу расстановки. Задания и прогресс — демонстрационные данные для превью.</p>
-  `;
-  requestAnimationFrame(()=>{const r=document.querySelector('.ring-fg');if(r)r.style.strokeDashoffset=off;});
-  $('#view').querySelectorAll('[data-zone]').forEach(el=>el.onclick=()=>{state.tab='machines';state.mfilter='all';renderTabs();render();});
+/* ==================== SHEET ==================== */
+let sheetOpen=false;
+function openSheet({t,s='',body='',foot=''}){
+  $('#shT').innerHTML=t;$('#shS').innerHTML=s;$('#shB').innerHTML=body;$('#shF').innerHTML=foot;
+  $('#shF').style.display=foot?'':'none';
+  $('#ov').classList.add('on');$('#sheet').classList.add('on');sheetOpen=true;
+  if(isDesktop()){const sh=$('#sheet');sh.style.left='50%';sh.style.right='auto';sh.style.bottom='auto';sh.style.top='50%';
+    sh.style.width='480px';sh.style.maxWidth='calc(100vw - 40px)';sh.style.borderRadius='22px';
+    sh.style.transform='translate(-50%,-46%) scale(.96)';sh.style.opacity='0';
+    requestAnimationFrame(()=>{sh.style.transition='transform .34s cubic-bezier(.2,1,.3,1),opacity .3s';
+      sh.style.transform='translate(-50%,-50%) scale(1)';sh.style.opacity='1'});
+    $('.grab').style.opacity='0';
+  }else{const sh=$('#sheet');sh.style.cssText='';$('.grab').style.opacity=''}
 }
-function tile(ic,c,v,sub,l){return `<div class="tile"><div class="t-ic" style="background:${c}">${svg(ic,16,2.1)}</div>
-  <b>${v}<i>${sub||''}</i></b><span>${l}</span></div>`}
+function closeSheet(){$('#ov').classList.remove('on');$('#sheet').classList.remove('on');sheetOpen=false;
+  if(isDesktop()){$('#sheet').style.transform='translate(-50%,-46%) scale(.96)';$('#sheet').style.opacity='0'}}
 
-function personRow(p){
-  const z=ZONES[p.z],st=ST[p.s];
-  return `<div class="row" style="--inset:62px" data-p="${p.id}">
-    <div class="av" style="background:${avColor(z.c)};color:${z.c}">${initials(p.n)}
-      <span class="sdot" style="background:${st.c};position:absolute;right:-1px;bottom:-1px"></span></div>
-    <div class="r-main">
-      <div class="r-title">${esc(p.n)}</div>
-      <div class="r-sub">${esc(p.r)}${p.m.length?' · ст. '+p.m.join(', '):''}</div>
-    </div>
-    <span class="pill" style="background:${hexA(st.c,.14)};color:${st.c}">${st.l}</span>
-  </div>`;
+/* ==================== РЕНДЕР КАРКАСА ==================== */
+const VIEWS=[
+ {id:'overview',n:'Обзор',i:'grid'},
+ {id:'plan',n:'Расстановка',i:'board'},
+ {id:'people',n:'Работники',i:'users'},
+ {id:'machines',n:'Оборудование',i:'cpu'},
+ {id:'schedule',n:'График смен',i:'cal'},
+ {id:'tasks',n:'Задания',i:'check'},
+ {id:'log',n:'Журнал',i:'hist'},
+ {id:'profile',n:'Профиль и права',i:'person'}
+];
+const MOBILE_TABS=['overview','plan','tasks','schedule','more'];
+const VSTATUS={draft:{l:'Черновик',c:'#FF9500',i:'edit'},review:{l:'На согласовании',c:'#0A84FF',i:'clock'},
+ published:{l:'Опубликован',c:'#34C759',i:'pub'},archived:{l:'Архив',c:'#8E8E93',i:'box'}};
+function badgeN(){return S.reqs.filter(r=>r.state==='new').length}
+function renderNav(){
+  $('#navDesk').innerHTML=VIEWS.map(v=>`<button class="nv ${S.view===v.id?'on':''}" data-act="go" data-v="${v.id}">
+    ${sv(v.i,17,2)}${v.n}${v.id==='log'&&badgeN()?`<span class="bdg-n">${badgeN()}</span>`:''}</button>`).join('');
+  const vs=VSTATUS[S.ver.status];
+  $('#verCard').innerHTML=`<div class="vr"><span style="width:8px;height:8px;border-radius:50%;background:${vs.c}"></span>
+    <span style="color:${vs.c}">${vs.l}</span><span style="margin-left:auto;color:var(--label3);font-weight:700">rev.${S.ver.rev}</span></div>
+    <p>Расстановка на ${S.ver.date}<br>Смена 1: 07:00–15:30 · Смена 2: 15:30–00:00</p>`;
+  $('#offSw').classList.toggle('on',!!S.offline);
+  $('#offIc').innerHTML=`<span style="color:${S.offline?'var(--orange)':'var(--label3)'};display:flex">${sv(S.offline?'alert':'sync',15,2.2)}</span>`;
+  $('#thSw').classList.toggle('on',document.documentElement.dataset.theme==='dark');
+  $('#thIc').innerHTML=`<span style="color:var(--label3);display:flex">${sv(document.documentElement.dataset.theme==='dark'?'moon':'sun',15,2.2)}</span>`;
+}
+function renderTopbar(){
+  const v=VIEWS.find(x=>x.id===S.view);
+  $('#ttl').textContent=v.n;
+  $('#sub').innerHTML=`РИЦ · пт, 25 сентября 2026 · <span style="color:${VSTATUS[S.ver.status].c};font-weight:700">${VSTATUS[S.ver.status].l.toLowerCase()}</span>, rev.${S.ver.rev}`;
+  const r=R();
+  $('#uchip').innerHTML=`<span class="uav" style="background:${r.c}">${r.ab}</span>
+    <span class="un"><b>${esc(S.user.n)}</b><span>${esc(r.n)}</span></span>`;
+  $('#themeBtn').innerHTML=sv(document.documentElement.dataset.theme==='dark'?'sun':'moon',16,2.1);
+  const q=S.queue?S.queue.length:0;
+  $('#tbAct').innerHTML=`
+    <span class="vpill" style="background:${hexA(VSTATUS[S.ver.status].c,.14)};color:${VSTATUS[S.ver.status].c}">${sv(VSTATUS[S.ver.status].i,12,2.4)}${VSTATUS[S.ver.status].l}</span>
+    ${q?`<span class="vpill" style="background:${hexA('#FF9500',.14)};color:var(--orange)">${sv('sync',12,2.4)}${q} в очереди</span>`:''}
+    <span class="vpill" style="background:var(--fill);color:var(--label2)">${sv('lock',12,2.4)}${r.n}</span>
+    <span style="margin-left:auto"></span>
+    ${S.offline?`<button class="abtn" data-act="sync">${sv('sync',13,2.3)}Синхронизировать</button>`:''}
+    <button class="abtn" data-act="export">${sv('dl',13,2.3)}Экспорт CSV</button>
+    ${S.ver.status!=='published'
+      ?`<button class="abtn ${can('plan.publish')?'ok':'dis'}" data-act="publish">${sv('pub',13,2.3)}Опубликовать</button>`
+      :`<button class="abtn" data-act="todraft">${sv('edit',13,2.3)}Снять с публикации</button>`}`}
+
+function renderTabbar(){
+  $('#tabbar').innerHTML=MOBILE_TABS.map(id=>{
+    if(id==='more')return `<button class="tb ${!MOBILE_TABS.slice(0,4).includes(S.view)?'on':''}" data-act="more">
+      <span class="tico">${sv('grid',22,1.9)}</span><span>Ещё</span></button>`;
+    const v=VIEWS.find(x=>x.id===id);
+    return `<button class="tb ${S.view===id?'on':''}" data-act="go" data-v="${id}">
+      <span class="tico">${sv(v.i,22,1.9)}${id==='log'&&badgeN()?`<span class="tbg">${badgeN()}</span>`:''}</span><span>${v.n}</span></button>`;
+  }).join('');
+}
+
+/* ==================== ОБЩИЕ БЛОКИ ==================== */
+function segShift(){
+  return `<div class="seg" style="max-width:340px;margin-bottom:14px"><div class="seg-th"></div>
+    <button class="seg-b ${S.shift===1?'on':''}" data-act="shift" data-s="1">Смена 1 · 07:00–15:30</button>
+    <button class="seg-b ${S.shift===2?'on':''}" data-act="shift" data-s="2">Смена 2 · 15:30–00:00</button></div>`;
+}
+function bindSegs(){
+  $$('.seg').forEach(seg=>{
+    const th=seg.querySelector('.seg-th'),on=seg.querySelector('.seg-b.on');
+    if(!on)return;const move=b=>{th.style.width=b.offsetWidth+'px';th.style.transform=`translateX(${b.offsetLeft-2}px)`};
+    requestAnimationFrame(()=>move(on));
+    seg.querySelectorAll('.seg-b').forEach(b=>b.onclick=e=>{
+      if(b.dataset.act){e.stopPropagation();return}
+      seg.querySelectorAll('.seg-b').forEach(x=>x.classList.remove('on'));b.classList.add('on');move(b);
+    });
+  });
+}
+function personRow(p,opt={}){
+  const z=ZONES[p.z],mk=MK[marker(p.id)||'work'],ms=assignedTo(p.id,p.sh);
+  return `<div class="row" style="--inset:62px" data-act="person" data-p="${p.id}">
+    <div class="av" style="background:${hexA(z.c,.15)};color:${z.c}">${p.n[0]}
+      <span class="sdot" style="background:${mk.c}"></span></div>
+    <div class="r-main"><div class="r-title">${esc(p.n)}</div>
+      <div class="r-sub">${esc(p.r)}${ms.length?' · ст. '+ms.join(', '):(p.post?' · '+p.post:' · не назначен')}</div></div>
+    ${opt.badge===false?'':`<span class="pill" style="background:${hexA(mk.c,.14)};color:${mk.c==='#FFCC00'?'#8a6d00':mk.c}">${mk.l}</span>`}
+    ${opt.chev===false?'':`<span class="chev">${sv('chev',15,2.4)}</span>`}</div>`;
 }
 function taskCard(t){
-  const z=ZONES[t.z],s=TST[t.s],pr=pct(t.d,t.q);
-  return `<div class="tcard" data-task="${t.id}">
-    <div class="tcard-top">
-      <div style="display:flex;gap:11px;flex:1;min-width:0">
-        <div class="prio" style="background:${PRIO[t.p]}"></div>
-        <div style="flex:1;min-width:0">
-          <h4>${esc(t.t)}</h4>
-          <div class="tmeta">
-            <span class="tagz" style="background:${hexA(z.c,.13)};color:${z.c}">${z.short}</span>
-            ${t.m?`<span class="tm">${svg('cpu',12,2.2)}ст. ${t.m}</span>`:''}
-            <span class="tm">${svg('person',12,2.2)}${esc(t.w)}</span>
-            <span class="tm">${svg('clock',12,2.2)}${t.due}</span>
-          </div>
-        </div>
+  const z=ZONES[t.z],w=t.w?P(t.w):null,pr=pct(t.d,t.q),st={run:['В работе','#0A84FF'],wait:['Ожидает','#FF9500'],done:['Готово','#34C759'],pause:['Пауза','#8E8E93']}[t.s];
+  return `<div class="tcard" data-act="task" data-t="${t.id}">
+    <div class="tc-top"><div class="prio" style="background:${PRIO[t.p]}"></div>
+      <div style="flex:1;min-width:0">
+        <h4>${esc(t.t)}</h4>
+        <div class="tmeta"><span class="tagz" style="background:${hexA(z.c,.13)};color:${z.c}">${z.s}</span>
+          ${t.m?`<span class="tm">${sv('cpu',11,2.4)}ст. ${t.m}</span>`:''}
+          <span class="tm">${sv('person',11,2.4)}${w?esc(w.n):'—'}</span>
+          <span class="tm">${sv('clock',11,2.4)}${esc(t.due)}</span></div>
       </div>
-      <span class="pill" style="background:${hexA(s.c,.14)};color:${s.c}">${s.l}</span>
-    </div>
-    <div class="tprog">
-      <div class="bar"><i data-w="${pr}" style="background:${pr>=100?'#34C759':z.c}"></i></div>
-      <b>${t.d}/${t.q}</b>
-    </div>
+      <span class="pill" style="background:${hexA(st[1],.14)};color:${st[1]}">${st[0]}</span></div>
+    <div class="tprog"><div class="bar"><i data-w="${pr}" style="background:${pr>=100?'#34C759':z.c}"></i></div><b>${t.d}/${t.q}</b></div>
   </div>`;
 }
+const PRIO={high:'#FF3B30',mid:'#FF9500',low:'#8E8E93'};
+function animBars(){$$('.bar i[data-w]').forEach(b=>requestAnimationFrame(()=>b.style.width=b.dataset.w+'%'))}
 
-/* --- PEOPLE --- */
-function renderPeople(){
-  const q=state.q.toLowerCase().trim();
-  let list=PEOPLE.filter(p=>{
-    if(state.filter!=='all'&&p.s!==state.filter)return false;
-    if(!q)return true;
-    const z=ZONES[p.z];
-    return (p.n+' '+p.r+' '+z.name+' '+z.short+' '+p.m.join(' ')).toLowerCase().includes(q);
-  });
-  const byShift=[1,2].map(s=>({s,p:list.filter(p=>p.sh===s)})).filter(g=>g.p.length);
-  const shName={1:'Смена 1 · 07:00–15:30',2:'Смена 2 · 15:30–00:00'};
-  $('#view').innerHTML=list.length?byShift.map(g=>`
-    <div class="sec-h"><span>${shName[g.s]}</span><span>${g.p.length} чел.</span></div>
-    <div class="group">${g.p.map(personRow).join('')}</div>`).join('')
-    :`<div class="empty">${svg('search',42,1.6)}<p>Ничего не найдено</p></div>`;
-  $('#view').querySelectorAll('[data-p]').forEach(el=>el.onclick=()=>openPerson(+el.dataset.p));
+/* ==================== ОБЗОР ==================== */
+function vOverview(){
+  const sh=S.shift,vs=VSTATUS[S.ver.status];
+  const list=PEOPLE.filter(p=>p.sh===sh);
+  const on=list.filter(p=>!['vac','sick','rest'].includes(marker(p.id))).length;
+  const absent=list.filter(p=>['vac','sick','rest'].includes(marker(p.id)));
+  const mc=MACHINES.filter(m=>S.asg[m.n][sh]);
+  const run=mc.filter(m=>!S.asg[m.n][sh]?false:true).length;
+  const act=mc.filter(m=>S.asg[m.n][sh]).length;
+  const ts=S.tasks.filter(t=>t.s!=='done');
+  const ready=pct(S.tasks.reduce((a,t)=>a+t.d,0),S.tasks.reduce((a,t)=>a+t.q,0));
+  const C=2*Math.PI*27,off=C*(1-ready/100);
+  const iss=issues(),iss2=iss.length;
+  const canEdit=can('plan.write',{shift:sh});
+  return `
+  ${!localStorage.getItem('ric-hint')?`<div class="hint">
+    <span style="color:var(--blue);flex-shrink:0;margin-top:1px">${sv('person',19,2.1)}</span>
+    <p><b>Демо-доступ.</b> Сейчас вы вошли как <b>${esc(R().n)}</b> — ${esc(R().d)} Смените роль в разделе «Профиль и права», чтобы увидеть, как меняются доступные действия, заблокированные ячейки и сценарий «Запросить правку».</p>
+    <button class="hx" data-act="hide-hint">${sv('x',12,2.6)}</button></div>`:''}
+  <div class="hero ${S.ver.status==='published'?'dark':'blue'}">
+    <div class="hero-top">
+      <div><div class="hero-lbl">${vs.l} · rev.${S.ver.rev}</div>
+        <div class="hero-title">Расстановка · смена ${sh}</div>
+        <div class="hero-sub">Пятница, 25.09.2026 · ${sh===1?'07:00–15:30':'15:30–00:00'}${S.ver.published?' · опубликована '+S.ver.published:''}</div></div>
+      <div class="ring-w"><svg width="66" height="66" viewBox="0 0 66 66"><circle class="ring-bg" cx="33" cy="33" r="27"/>
+        <circle class="ring-fg" cx="33" cy="33" r="27" stroke-dasharray="${C}" stroke-dashoffset="${C}"/></svg>
+        <div class="ring-t">${ready}%</div></div>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><b>${on}/${list.length}</b><span>на смене</span></div>
+      <div class="hs"><b>${act}/${MACHINES.length}</b><span>станков занято</span></div>
+      <div class="hs"><b>${ts.length}</b><span>заданий открыто</span></div>
+    </div>
+  </div>
+
+  <div class="sec-h"><span>Быстрые действия</span><span>по вашим правам</span></div>
+  <div class="tiles">
+    <div class="tile" data-act="go" data-v="plan" style="cursor:pointer"><div class="t-ic" style="background:${canEdit?'#0A84FF':'var(--gray)'}">${sv(canEdit?'edit':'lock',15,2.2)}</div>
+      <b style="font-size:14px;line-height:1.25">${canEdit?'Править расстановку':'Расстановка — просмотр'}</b><span>смена ${sh}</span></div>
+    <div class="tile" data-act="task-new" style="cursor:pointer"><div class="t-ic" style="background:${can('task.write')?'#34C759':'var(--gray)'}">${sv(can('task.write')?'plus':'lock',15,2.4)}</div>
+      <b style="font-size:14px;line-height:1.25">${can('task.write')?'Новое задание':'Задания — просмотр'}</b><span>ПДО / начальник участка</span></div>
+    <div class="tile" data-act="publish" style="cursor:pointer"><div class="t-ic" style="background:${can('plan.publish')?'#5856D6':'var(--gray)'}">${sv(can('plan.publish')?'pub':'lock',15,2.2)}</div>
+      <b style="font-size:14px;line-height:1.25">${can('plan.publish')?'Опубликовать версию':'Публикация недоступна'}</b><span>${vs.l}</span></div>
+    <div class="tile" data-act="req-new" style="cursor:pointer"><div class="t-ic" style="background:#FF9500">${sv('bell',15,2.2)}</div>
+      <b style="font-size:14px;line-height:1.25">Запросить правку</b><span>${badgeN()?badgeN()+' новых заявок':'доступно всем ролям'}</span></div>
+  </div>
+
+  ${iss2?`<div class="sec-h"><span>Требует внимания</span><span>${iss2}</span></div>
+  <div class="group">${iss.map(i=>`<div class="row" data-act="${i.t.includes('заявк')?'go':'go'}" data-v="${i.t.includes('заявк')?'log':'plan'}" style="--inset:52px">
+    <div class="av sq" style="background:${hexA(i.c,.15)};color:${i.c}">${sv(i.i,16,2.2)}</div>
+    <div class="r-main"><div class="r-title" style="font-size:14px">${esc(i.t)}</div><div class="r-sub">${esc(i.d)}</div></div>
+    <span class="chev">${sv('chev',15,2.4)}</span></div>`).join('')}</div>`:''}
+
+  <div class="sec-h"><span>Участки · смена ${sh}</span><span>${Object.keys(ZONES).length} зон</span></div>
+  <div class="group">
+    ${Object.entries(ZONES).map(([k,z])=>{
+      const ms=MACHINES.filter(m=>m.z===k);
+      const ppl=[...new Set(ms.map(m=>S.asg[m.n][sh]).filter(Boolean))];
+      const zp=PEOPLE.filter(p=>p.z===k&&p.sh===sh);
+      return `<div class="row" style="--inset:56px" data-act="go" data-v="plan">
+        <div class="av sq" style="background:${hexA(z.c,.15)};color:${z.c}">${sv(z.i,16,2.2)}</div>
+        <div class="r-main"><div class="r-title" style="font-size:14px">${z.n}</div>
+          <div class="r-sub">${ppl.length?ppl.map(id=>P(id).n).join(', '):(zp.length?zp.map(p=>p.n).join(', '):'нет исполнителя')}</div></div>
+        <span class="pill" style="background:var(--fill);color:var(--label2)">${ppl.length?ppl.length+'/'+ms.length:'—'}</span>
+        <span class="chev">${sv('chev',15,2.4)}</span></div>`}).join('')}
+  </div>
+
+  <div class="sec-h"><span>Отсутствуют · смена ${sh}</span><span>${absent.length}</span></div>
+  <div class="group">${absent.length?absent.map(p=>personRow(p)).join(''):'<div class="row static"><div class="r-main"><div class="r-sub">Все работники на местах</div></div></div>'}</div>
+
+  <div class="sec-h"><span>Задания под риском</span><span>по сроку</span></div>
+  ${S.tasks.filter(t=>t.s==='run'||t.s==='wait').slice(0,3).map(taskCard).join('')}
+
+  <div class="sec-h"><span>Последние изменения</span><span data-act="go" data-v="log" style="color:var(--blue);font-weight:600;cursor:pointer">весь журнал</span></div>
+  <div class="group">${S.audit.slice(0,4).map(audRow).join('')}</div>`;
 }
+function audRow(a){
+  const cs={assign:'#0A84FF',unassign:'#8E8E93',marker:'#FF9500',cross:'#FF3B30','task.create':'#34C759','task.update':'#FF9F0A',
+    fact:'#5856D6',accept:'#30B0C7','request.create':'#AF52DE','request.ok':'#34C759','request.no':'#FF3B30',publish:'#5856D6',status:'#8E8E93'};
+  const ic={assign:'person',unassign:'minus',marker:'flag',cross:'sync','task.create':'plus','task.update':'edit',fact:'check',
+    accept:'shield','request.create':'bell','request.ok':'check','request.no':'x',publish:'pub',status:'doc'};
+  const c=cs[a.act]||'#8E8E93';
+  return `<div class="aud"><div class="aic" style="background:${hexA(c,.15)};color:${c}">${sv(ic[a.act]||'edit',15,2.2)}</div>
+    <div style="flex:1;min-width:0"><b>${esc(a.obj)}</b>
+      <p>${esc(actLabel(a.act))} · ${esc(a.who)}${a.c?' · «'+esc(a.c)+'»':''}</p>
+      ${a.old||a.nw?`<div class="diff">${a.old?`<span class="old">${esc(a.old)}</span>`:''}${a.old&&a.nw?sv('chev',10,3):''}${a.nw?`<span class="new">${esc(a.nw)}</span>`:''}</div>`:''}
+    </div><time>${ago(a.ts)}</time></div>`;
+}
+const actLabel=a=>({assign:'назначение на станок',unassign:'снятие со станка',marker:'изменение статуса',cross:'передача в другую смену',
+ 'task.create':'создано задание','task.update':'изменено задание',fact:'отметка выполнения',accept:'приёмка ОТК',
+ 'request.create':'заявка на правку','request.ok':'заявка принята','request.no':'заявка отклонена',publish:'публикация версии',status:'статус версии'})[a]||a;
 
-function openPerson(id){
-  const p=PEOPLE.find(x=>x.id===id),z=ZONES[p.z],st=ST[p.s];
-  const jobs=TASKS.filter(t=>t.w===p.n);
-  const mc=MACHINES.filter(m=>m.op===p.n);
-  $('#view').innerHTML=`
-    <div style="display:flex;flex-direction:column;align-items:center;padding:20px 0 6px">
-      <div class="av" style="width:74px;height:74px;font-size:30px;background:${avColor(z.c)};color:${z.c}">${initials(p.n)}</div>
-      <h3 style="font-size:22px;font-weight:700;letter-spacing:-.03em;margin-top:12px">${esc(p.n)}</h3>
-      <p style="font-size:13.5px;color:var(--label2);margin-top:3px">${esc(p.r)}</p>
-      <span class="pill" style="background:${hexA(st.c,.14)};color:${st.c};margin-top:10px;padding:5px 12px;font-size:12px">${st.l}</span>
-    </div>
-    <div class="tiles">
-      ${tile('cpu',z.c,mc.filter(m=>m.s==='run').length,'/'+mc.length,'закреплённых станков')}
-      ${tile('check','#34C759',jobs.filter(j=>j.s==='done').length,'/'+jobs.length,'заданий смены')}
-    </div>
-    <div class="sec-h"><span>Участок</span></div>
+/* ==================== РАССТАНОВКА ==================== */
+function vPlan(){
+  const sh=S.shift,canEd=can('plan.write',{shift:sh});
+  if(isDesktop())return vPlanGrid(sh,canEd);
+  return `${segShift()}
+  <div class="note" style="background:${canEd?hexA('#34C759',.12):hexA('#FF9500',.12)};margin-bottom:14px">
+    <span class="ic" style="color:${canEd?'var(--green)':'var(--orange)'}">${sv(canEd?'edit':'lock',17,2.2)}</span>
+    <p>${canEd?`Режим правки доступен: смена ${sh}, все участки. Каждое изменение пишется в журнал.`
+      :`Расстановка доступна только для просмотра. Изменения вносит ${WHO['plan.write']}.`}</p></div>
+  ${Object.entries(ZONES).map(([k,z])=>{
+    const ms=MACHINES.filter(m=>m.z===k);
+    const zp=PEOPLE.filter(p=>p.z===k&&p.sh===sh);
+    if(!ms.length&&!zp.length)return'';
+    return `<div class="sec-h"><span>${z.n}</span><span>${ms.filter(m=>S.asg[m.n][sh]).length}/${ms.length||'—'}</span></div>
     <div class="group">
-      <div class="row" style="--inset:56px">
-        <div class="av" style="background:${avColor(z.c)};color:${z.c};border-radius:11px;width:34px;height:34px">${svg(z.icon,17,2)}</div>
-        <div class="r-main"><div class="r-title" style="font-size:14.5px">${z.name}</div><div class="r-sub">${p.m.length?'Станки: '+p.m.join(', '):'Без закреплённого оборудования'}</div></div>
-      </div>
-    </div>
-    ${mc.length?`<div class="sec-h"><span>Оборудование</span></div><div class="group">${mc.map(machineRow).join('')}</div>`:''}
-    <div class="sec-h"><span>Задания</span><span>${jobs.length}</span></div>
-    ${jobs.length?jobs.map(taskCard).join(''):'<div class="group"><div class="row"><div class="r-main"><div class="r-sub">Заданий на смену не назначено</div></div></div></div>'}
-    <div class="sec-h"><span>Неделя 21–27.09</span></div>
-    <div class="sched-card">${schedTable([p])}</div>
-    <button class="btn primary" style="width:100%;margin:18px 0 4px" id="backP">Назад к списку</button>`;
-  animBars();
-  $('#backP').onclick=()=>renderPeople();
+      ${ms.map(m=>{
+        const pid=S.asg[m.n][sh],p=pid?P(pid):null,st=MST[m.st];
+        return `<div class="row" style="--inset:66px" data-act="cell" data-m="${m.n}" data-s="${sh}">
+          <div class="mchip" style="background:${hexA(z.c,.13)};color:${z.c}">${m.n}</div>
+          <div class="r-main"><div class="r-title" style="font-size:14px">${p?esc(p.n):'Нет исполнителя'}</div>
+            <div class="r-sub">${esc(m.j)} · <span style="color:${st.c};font-weight:600">${st.l}</span></div></div>
+          ${p?`<span class="sdot" style="position:static;background:${MK[marker(pid)||'work'].c}"></span>`:''}
+          ${canEd?`<span class="chev">${sv('chev',15,2.4)}</span>`:`<span class="lk">${sv('lock',10,2.6)}</span>`}</div>`}).join('')}
+      ${zp.filter(p=>!assignedTo(p.id,sh).length).map(p=>`<div class="row" style="--inset:62px" data-act="person" data-p="${p.id}">
+        <div class="av" style="background:${hexA(z.c,.15)};color:${z.c}">${p.n[0]}<span class="sdot" style="background:${MK[marker(p.id)||'work'].c}"></span></div>
+        <div class="r-main"><div class="r-title" style="font-size:14px">${esc(p.n)}</div>
+        <div class="r-sub">${esc(p.post||p.r)} · без закреплённого станка</div></div>
+        <span class="chev">${sv('chev',15,2.4)}</span></div>`).join('')}
+    </div>`}).join('')}
+  <p style="font-size:11.5px;color:var(--label2);padding:14px 4px 0;line-height:1.5">Нажмите на строку станка, чтобы назначить или снять исполнителя. Недоступные действия помечены замком.</p>`;
 }
-
-/* --- MACHINES --- */
-function machineRow(m){
-  const z=ZONES[m.z],s=MST[m.s];
-  return `<div class="row" style="--inset:66px">
-    <div class="mchip" style="background:${hexA(z.c,.13)};color:${z.c}">${m.n}</div>
-    <div class="r-main">
-      <div class="r-title" style="font-size:14.5px">${z.short} · ${esc(m.job)}</div>
-      <div class="r-sub">${m.op?svg('person',11,2.4)+' '+esc(m.op):'Свободен — нет исполнителя'}</div>
-    </div>
-    <span class="sdot" style="background:${s.c};box-shadow:none"></span>
+function vPlanGrid(sh,canEd){
+  const cols=[['a1','Смена 1',1],['a2','Смена 2',2]];
+  const roster=[1,2].flatMap(s=>PEOPLE.filter(p=>p.sh===s||marker(p.id)==='cross'));
+  return `<div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;align-items:center">
+    ${segShift()}
+    <div class="note" style="flex:1;min-width:250px;background:${canEd?hexA('#34C759',.11):hexA('#FF9500',.11)}">
+      <span class="ic" style="color:${canEd?'var(--green)':'var(--orange)'}">${sv(canEd?'edit':'lock',16,2.2)}</span>
+      <p>${canEd?'Клик по ячейке — назначение. Перетащите работника из списка справа на ячейку станка.'
+        :'Ячейки с замком недоступны для вашей роли. Клик покажет, кто может внести изменение.'}</p></div>
+  </div>
+  <div class="planwrap">
+    <div class="planmain"><div class="gcard"><div class="gscroll">
+      <table class="gt"><thead><tr>
+        <th>Станок</th><th>Участок / операция</th>
+        ${cols.map(c=>`<th class="${can('plan.write',{shift:c[2]})?'ed':''}">${c[1]} ${can('plan.write',{shift:c[2]})?'✎':''}</th>`).join('')}
+        <th>Состояние</th><th>Задание</th></tr></thead>
+      <tbody>${Object.entries(ZONES).map(([k,z])=>{
+        const ms=MACHINES.filter(m=>m.z===k);if(!ms.length)return'';
+        return `<tr class="zrow"><td colspan="6">${sv(z.i,11,2.4)} &nbsp;${z.n}</td></tr>`+ms.map(m=>{
+          const st=MST[m.st],tk=S.tasks.find(t=>t.m===m.n&&t.s!=='done');
+          return `<tr><td><span class="mn">${m.n}</span></td><td style="color:var(--label2)">${esc(m.j)}</td>
+          ${cols.map(c=>{
+            const s=c[2],pid=S.asg[m.n][s],p=pid?P(pid):null,ed=can('plan.write',{shift:s,zone:k}),mk=p?MK[marker(pid)||'work']:null;
+            return `<td class="${ed?'can':'no'}" data-drop="${m.n}:${s}">
+              <span class="ced" data-act="cell" data-m="${m.n}" data-s="${s}">
+                ${p?`<span style="width:20px;height:20px;border-radius:6px;background:${hexA(z.c,.16)};color:${z.c};display:grid;place-items:center;font-size:9.5px;font-weight:800">${p.n[0]}</span>`:''}
+                <span>${p?esc(p.n):'—'}</span>
+                ${mk&&marker(pid)?`<span style="width:7px;height:7px;border-radius:50%;background:${mk.c}"></span>`:''}
+                ${ed?'':`<span class="lk">${sv('lock',9,2.8)}</span>`}</span></td>`}).join('')}
+          <td><span class="pill" style="background:${hexA(st.c,.13)};color:${st.c}">${st.l}</span></td>
+          <td>${tk?`<span class="tm" style="color:var(--blue);font-weight:700" data-act="task" data-t="${tk.id}">${tk.id} · ${pct(tk.d,tk.q)}%</span>`:'<span style="color:var(--label3)">—</span>'}</td></tr>`}).join('')}).join('')}
+      </tbody></table></div></div></div>
+    <aside class="roster">
+      <h5>Работники · перетащите</h5>
+      ${roster.map(p=>{
+        const z=ZONES[p.z],mk=marker(p.id),off=['vac','sick','rest'].includes(mk);
+        return `<div class="rst ${off?'off':''}" draggable="${!off}" data-drag="${p.id}">
+          <span class="rav" style="background:${z.c}">${p.n[0]}</span>
+          <span style="min-width:0"><span style="display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.n)}</span>
+          <small>${z.s} · см.${p.sh}${mk?' · '+MK[mk].l:''}</small></span></div>`}).join('')}
+      <h5 style="margin-top:14px">Легенда маркеров</h5>
+      ${Object.entries(MK).filter(([k])=>k!=='work').map(([k,v])=>`<div style="display:flex;gap:7px;align-items:center;font-size:11px;color:var(--label2);margin-bottom:5px">
+        <span style="width:11px;height:11px;border-radius:4px;background:${v.c}"></span>${v.l}</div>`).join('')}
+    </aside>
   </div>`;
 }
-function renderMachines(){
-  const f=state.mfilter||'all';
-  const list=MACHINES.filter(m=>f==='all'?true:m.s===f);
-  const groups=Object.keys(ZONES).map(k=>({k,z:ZONES[k],m:list.filter(x=>x.z===k)})).filter(g=>g.m.length);
-  const c={run:MACHINES.filter(m=>m.s==='run').length,wait:MACHINES.filter(m=>m.s==='wait').length,
-    maint:MACHINES.filter(m=>m.s==='maint').length,idle:MACHINES.filter(m=>m.s==='idle').length};
-  $('#view').innerHTML=`
-    <div class="tiles" style="margin-top:14px">
-      ${tile('cpu','#34C759',c.run,'','в работе')}
-      ${tile('alert','#FF9500',c.wait,'','ожидают / нет оператора')}
-      ${tile('wrench','#8E8E93',c.maint,'','ТО и ремонт')}
-      ${tile('box','#0A84FF',c.idle,'','свободны')}
-    </div>
-    ${groups.length?groups.map(g=>`
-      <div class="sec-h"><span>${g.z.name}</span><span>${g.m.length} ед.</span></div>
-      <div class="group">${g.m.map(machineRow).join('')}</div>`).join('')
-      :'<div class="empty">'+svg('cpu',42,1.6)+'<p>Нет оборудования в этой категории</p></div>'}
-    <p style="font-size:11.5px;color:var(--label2);line-height:1.5;padding:14px 6px 0">Всего на участке: ${MACHINES.length} единиц оборудования в ${Object.keys(ZONES).length} зонах.</p>`;
+
+/* ==================== ЛЮДИ ==================== */
+function vPeople(){
+  const q=(S.q||'').toLowerCase().trim();
+  const list=PEOPLE.filter(p=>{
+    if(S.mfilter&&S.mfilter!=='all'&&marker(p.id)!==S.mfilter&&(S.mfilter!=='work'||marker(p.id)))return false;
+    if(!q)return true;
+    return (p.n+' '+p.r+' '+ZONES[p.z].n+' '+assignedTo(p.id,p.sh).join(' ')).toLowerCase().includes(q);
+  });
+  const cnt=k=>k==='all'?PEOPLE.length:PEOPLE.filter(p=>(marker(p.id)||'work')===k).length;
+  return `${segShift()}
+  <div class="searchbar" style="margin-bottom:11px">${sv('search',16,2)}
+    <input id="q" type="search" placeholder="Поиск: фамилия, станок, участок" value="${esc(S.q||'')}"></div>
+  <div class="chips" style="margin-bottom:6px">
+    <button class="chip ${!S.mfilter||S.mfilter==='all'?'on':''}" data-act="mf" data-k="all">Все · ${cnt('all')}</button>
+    ${Object.entries(MK).map(([k,v])=>cnt(k)?`<button class="chip ${S.mfilter===k?'on':''}" data-act="mf" data-k="${k}">
+      <span class="cd" style="background:${v.c}"></span>${v.l} · ${cnt(k)}</button>`:'').join('')}
+  </div>
+  ${[1,2].filter(s=>S.shift===s||true).map(s=>{
+    const g=list.filter(p=>p.sh===s);if(!g.length)return'';
+    return `<div class="sec-h"><span>Смена ${s} · ${s===1?'07:00–15:30':'15:30–00:00'}</span><span>${g.length} чел.</span></div>
+      <div class="group">${g.map(p=>personRow(p)).join('')}</div>`}).join('')}
+  ${list.length?'':'<div class="empty">'+sv('search',40,1.6)+'<p>Ничего не найдено</p></div>'}`;
 }
 
-/* --- SCHEDULE --- */
-function schedTable(list){
-  return `<div class="sched"><table>
-    <thead><tr><th class="nm"></th>${DAYS.map((d,i)=>`<th class="day-h ${i===4?'today':''}">${d.d}<b>${d.n}</b></th>`).join('')}</tr></thead>
+/* ==================== ОБОРУДОВАНИЕ ==================== */
+function vMachines(){
+  const f=S.mmf||'all';
+  const list=MACHINES.filter(m=>f==='all'?true:m.st===f);
+  const c={run:0,wait:0,maint:0,idle:0};MACHINES.forEach(m=>c[m.st]++);
+  return `<div class="tiles" style="margin-bottom:6px">
+    <div class="tile"><div class="t-ic" style="background:#34C759">${sv('cpu',14,2.2)}</div><b>${c.run}</b><span>в работе</span></div>
+    <div class="tile"><div class="t-ic" style="background:#FF9500">${sv('alert',14,2.2)}</div><b>${c.wait}</b><span>ожидают</span></div>
+    <div class="tile"><div class="t-ic" style="background:#8E8E93">${sv('wrench',14,2.2)}</div><b>${c.maint}</b><span>ТО / ремонт</span></div>
+    <div class="tile"><div class="t-ic" style="background:#0A84FF">${sv('box',14,2.2)}</div><b>${c.idle}</b><span>свободны</span></div></div>
+  <div class="sec-h"><span>Фильтр</span></div>
+  <div class="chips" style="margin-bottom:6px">
+    ${[['all','Все · '+MACHINES.length],['run','В работе'],['wait','Ожидают'],['maint','ТО'],['idle','Свободные']].map(([k,l])=>
+      `<button class="chip ${f===k?'on':''}" data-act="mmf" data-k="${k}">${l}</button>`).join('')}
+  </div>
+  ${Object.entries(ZONES).map(([k,z])=>{
+    const ms=list.filter(m=>m.z===k);if(!ms.length)return'';
+    return `<div class="sec-h"><span>${z.n}</span><span>${ms.length} ед.</span></div>
+    <div class="group">${ms.map(m=>{
+      const st=MST[m.st],p1=S.asg[m.n][1]?P(S.asg[m.n][1]):null,p2=S.asg[m.n][2]?P(S.asg[m.n][2]):null;
+      return `<div class="row" style="--inset:66px" data-act="cell" data-m="${m.n}" data-s="${S.shift}">
+        <div class="mchip" style="background:${hexA(z.c,.13)};color:${z.c}">${m.n}</div>
+        <div class="r-main"><div class="r-title" style="font-size:14px">${esc(m.j)}</div>
+          <div class="r-sub">См.1: ${p1?esc(p1.n):'—'} · См.2: ${p2?esc(p2.n):'—'}</div></div>
+        <span class="pill" style="background:${hexA(st.c,.13)};color:${st.c}">${st.l}</span></div>`}).join('')}</div>`}).join('')}`;
+}
+
+/* ==================== ГРАФИК ==================== */
+function vSchedule(){
+  const list=PEOPLE.filter(p=>S.shift===0||p.sh===S.shift);
+  const canMk=can('marker.write',{shift:S.shift||1});
+  return `${`<div class="seg" style="max-width:400px;margin-bottom:14px"><div class="seg-th"></div>
+    <button class="seg-b ${S.shift===0?'on':''}" data-act="shift" data-s="0">Все</button>
+    <button class="seg-b ${S.shift===1?'on':''}" data-act="shift" data-s="1">Смена 1</button>
+    <button class="seg-b ${S.shift===2?'on':''}" data-act="shift" data-s="2">Смена 2</button></div>`}
+  <div class="hero dark" style="box-shadow:0 16px 34px -18px rgba(0,0,0,.6)">
+    <div class="hero-lbl">Неделя 21 – 27 сентября 2026</div>
+    <div class="hero-title">${list.filter(p=>!['vac','sick','rest'].includes(marker(p.id))).length} из ${list.length} на рабочих местах</div>
+    <div class="hero-sub">Смена 1: 07:00–15:30 · Смена 2: 15:30–00:00 · ${canMk?'нажмите на ячейку дня, чтобы изменить маркер':'ячейки только для чтения'}</div>
+  </div>
+  <div class="sec-h"><span>График</span><span>пт 25.09 выделено</span></div>
+  <div class="scard"><div class="sscroll"><table class="sch">
+    <thead><tr><th class="nm"></th>${DAYS.map((d,i)=>`<th class="dh ${i===TODAY_IDX?'td':''}">${d.d}<b>${d.n}</b></th>`).join('')}</tr></thead>
     <tbody>${list.map(p=>{
       const z=ZONES[p.z];
-      return `<tr>
-        <td class="nm"><div>${esc(p.n)}</div><small>${z.short} · см. ${p.sh}</small></td>
-        ${p.w.map((k,i)=>{const s=ST[k];return `<td class="cell"><div class="sc ${i===4?'today':''}" style="background:${hexA(s.c,i===4?1:.82)};color:${s.c==='#FFCC00'?'#3a2e00':'#fff'}" title="${s.l}">${s.m}</div></td>`}).join('')}
-      </tr>`}).join('')}
-    </tbody></table></div>`;
+      return `<tr><td class="nm"><div>${esc(p.n)}</div><small>${z.s} · см.${p.sh}</small></td>
+      ${DAYS.map((d,i)=>{
+        const k=S.ovr[p.id+'_'+i]||(i===TODAY_IDX?(marker(p.id)||'work'):BASE_SCHED[p.id][i]);
+        const v=MK[k]||MK.work;
+        return `<td class="c"><div class="sc ${i===TODAY_IDX?'tdw':''}" data-act="sched" data-p="${p.id}" data-d="${i}"
+          style="background:${hexA(v.c,i===TODAY_IDX?1:.78)};color:${v.dark?'#3a2e00':'#fff'}">${v.m}</div></td>`}).join('')}</tr>`}).join('')}
+    </tbody></table></div></div>
+  <div class="sec-h"><span>Обозначения маркеров</span><span>как в исходном файле</span></div>
+  <div class="group lgd">${Object.entries(MK).map(([k,v])=>`<div class="lgr"><span class="sw-mk" style="background:${v.c}"></span>
+    <b>${v.l}</b><span>${v.m}</span></div>`).join('')}</div>
+  <div class="sec-h"><span>Загрузка участков по сменам</span></div>
+  <div class="group" style="padding:6px 0">
+    ${Object.entries(ZONES).map(([k,z])=>{
+      const a=PEOPLE.filter(p=>p.z===k&&p.sh===1).length,b=PEOPLE.filter(p=>p.z===k&&p.sh===2).length;
+      if(!a&&!b)return'';const mx=Math.max(a,b,1);
+      return `<div class="row static" style="--inset:14px;flex-direction:column;align-items:stretch;gap:8px">
+        <div style="display:flex;justify-content:space-between"><span style="font-size:13px;font-weight:700">${z.n}</span>
+        <span style="font-size:11.5px;color:var(--label2);font-weight:700">${a} / ${b}</span></div>
+        <div style="display:flex;gap:6px"><div style="flex:1"><div class="bar"><i data-w="${a/mx*100}" style="background:${z.c}"></i></div></div>
+        <div style="flex:1"><div class="bar"><i data-w="${b/mx*100}" style="background:${hexA(z.c,.45)}"></i></div></div></div></div>`}).join('')}
+  </div>`;
 }
-function renderSchedule(){
-  const list=state.shift?PEOPLE.filter(p=>p.sh===state.shift):PEOPLE;
-  const s1=PEOPLE.filter(p=>p.sh===1),s2=PEOPLE.filter(p=>p.sh===2);
-  const on=list.filter(p=>['work','extra','cross','trainee'].includes(p.s)).length;
-  $('#view').innerHTML=`
-    <div class="hero" style="background:linear-gradient(140deg,#1C1C1E 0%,#2C2C3A 55%,#3A3A52 130%);box-shadow:0 14px 30px -14px rgba(0,0,0,.5)">
-      <div class="hero-top">
-        <div>
-          <div class="hero-lbl">Неделя 21 – 27 сентября 2026</div>
-          <div class="hero-title">${on} из ${list.length} на рабочих местах</div>
-          <div class="hero-sub">Смена 1: 07:00–15:30 · Смена 2: 15:30–00:00</div>
-        </div>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat"><b>${s1.filter(p=>['work','extra','cross','trainee'].includes(p.s)).length}/${s1.length}</b><span>смена 1 сегодня</span></div>
-        <div class="hero-stat"><b>${s2.filter(p=>['work','extra','cross','trainee'].includes(p.s)).length}/${s2.length}</b><span>смена 2 сегодня</span></div>
-        <div class="hero-stat"><b>${PEOPLE.filter(p=>['sick','vac'].includes(p.s)).length}</b><span>отсутствуют</span></div>
-      </div>
+
+/* ==================== ЗАДАНИЯ ==================== */
+const TST={run:['В работе','#0A84FF'],wait:['Ожидает','#FF9500'],done:['Готово','#34C759'],pause:['Пауза','#8E8E93']};
+function vTasks(){
+  const f=S.tfilter||'all';
+  const list=S.tasks.filter(t=>f==='all'?true:t.s===f);
+  const done=S.tasks.reduce((a,t)=>a+t.d,0),tot=S.tasks.reduce((a,t)=>a+t.q,0);
+  return `<div class="seg" style="max-width:420px;margin-bottom:14px"><div class="seg-th"></div>
+    ${[['all','Все'],['run','В работе'],['wait','Ожидают'],['done','Готово']].map(([k,l])=>
+      `<button class="seg-b ${f===k?'on':''}" data-act="tf" data-k="${k}">${l}</button>`).join('')}</div>
+  <div class="tiles" style="margin-bottom:6px">
+    <div class="tile"><div class="t-ic" style="background:#0A84FF">${sv('check',14,2.4)}</div><b>${S.tasks.filter(t=>t.s==='run').length}</b><span>в работе</span></div>
+    <div class="tile"><div class="t-ic" style="background:#FF9500">${sv('clock',14,2.2)}</div><b>${S.tasks.filter(t=>t.s==='wait').length}</b><span>ожидают</span></div>
+    <div class="tile"><div class="t-ic" style="background:#34C759">${sv('pub',14,2.2)}</div><b>${S.tasks.filter(t=>t.s==='done').length}</b><span>закрыто</span></div>
+    <div class="tile"><div class="t-ic" style="background:#FF3B30">${sv('alert',14,2.2)}</div><b>${S.tasks.filter(t=>t.p==='high'&&t.s!=='done').length}</b><span>высокий приоритет</span></div></div>
+  <div class="sec-h"><span>Выполнение смены</span><span>${done} / ${tot} шт. · ${pct(done,tot)}%</span></div>
+  <div class="bar" style="height:7px;margin-bottom:16px"><i data-w="${pct(done,tot)}" style="background:linear-gradient(90deg,#0A84FF,#5E5CE6)"></i></div>
+  ${can('task.write')?`<button class="btn" data-act="task-new" style="margin-bottom:14px">${sv('plus',15,2.6)} &nbsp;Новое задание</button>`:''}
+  ${list.length?list.map(taskCard).join(''):'<div class="empty">'+sv('check',40,1.6)+'<p>Нет заданий в этой категории</p></div>'}`;
+}
+
+/* ==================== ЖУРНАЛ ==================== */
+function vLog(){
+  const reqs=S.reqs,canDec=can('request.approve');
+  return `<div class="sec-h" style="padding-top:6px"><span>Заявки на правку</span><span>${reqs.filter(r=>r.state==='new').length} новых</span></div>
+  ${reqs.length?`<div class="group">${reqs.map(r=>{
+    const by=r.author||(r.by?P(r.by).n:'—'),st={new:['Новая','#FF9500'],ok:['Принята','#34C759'],no:['Отклонена','#FF3B30']}[r.state];
+    return `<div class="row" style="--inset:14px;flex-direction:column;align-items:stretch;gap:9px">
+      <div style="display:flex;gap:10px;align-items:center">
+        <div class="av sm" style="background:var(--fill);color:var(--label2)">${sv('bell',14,2.2)}</div>
+        <div class="r-main"><div class="r-title" style="font-size:13.5px">${esc(r.type)} · ${r.id}</div>
+          <div class="r-sub">${esc(by)} · ${ago(r.ts)}</div></div>
+        <span class="pill" style="background:${hexA(st[1],.14)};color:${st[1]}">${st[0]}</span></div>
+      <p style="font-size:12.5px;color:var(--label2);line-height:1.5">${esc(r.txt)}</p>
+      ${r.state==='new'?`<div style="display:flex;gap:8px">
+        <button class="btn green" style="padding:9px;font-size:13px" data-act="req-ok" data-id="${r.id}" ${canDec?'':'disabled style="opacity:.35;pointer-events:none"'}>Принять</button>
+        <button class="btn gray" style="padding:9px;font-size:13px" data-act="req-no" data-id="${r.id}" ${canDec?'':'disabled style="opacity:.35;pointer-events:none"'}>Отклонить</button></div>`
+        :`<p style="font-size:11.5px;color:var(--label3)">Решение: ${esc(r.decBy||'—')}${r.decReason?' · «'+esc(r.decReason)+'»':''}</p>`}
+    </div>`}).join('')}</div>`:'<div class="group"><div class="row static"><div class="r-main"><div class="r-sub">Заявок нет</div></div></div></div>'}
+  <div class="sec-h"><span>Журнал изменений</span><span>${S.audit.length} записей</span></div>
+  <div class="group">${S.audit.map(audRow).join('')}</div>
+  <div style="display:flex;gap:9px;margin-top:14px">
+    <button class="btn gray" data-act="export">${sv('dl',15,2.4)} &nbsp;Выгрузить журнал CSV</button></div>
+  <p style="font-size:11.5px;color:var(--label2);line-height:1.5;padding:12px 4px 0">Журнал неизменяем: каждая запись содержит автора, роль, время, устройство, старое и новое значение. Срок хранения — 5 лет.</p>`;
+}
+
+/* ==================== ПРОФИЛЬ ==================== */
+function vProfile(){
+  const r=R(),pr=r.perms;
+  const NAMES={plan:'Расстановка на дату',people:'Справочник работников',machine:'Справочник оборудования',marker:'Статусы-маркеры',
+    cross:'Передача в другую смену',task:'Сменные задания',fact:'Факт выполнения',accept:'Приёмка ОТК',request:'Заявки на правку',
+    audit:'Журнал изменений',roles:'Роли и доступы'};
+  const LVLS={0:['—','#C7C7CC','нет доступа'],1:['R','#8E8E93','просмотр'],2:['W·своё','#0A84FF','отметка по своему объекту'],
+    3:['W·зона','#FF9500','правка в своей области'],4:['W','#34C759','полная правка'],5:['A','#5856D6','утверждение / публикация'],
+    6:['ADM','#AF52DE','администрирование']};
+  return `<div class="hero blue" style="background:linear-gradient(140deg,${r.c},#5E5CE6 90%)">
+    <div class="hero-top"><div><div class="hero-lbl">Текущая сессия</div>
+      <div class="hero-title">${esc(S.user.n)}</div><div class="hero-sub">${esc(r.n)} · ${esc(r.d)}</div></div>
+      <div style="width:62px;height:62px;border-radius:20px;background:rgba(255,255,255,.22);display:grid;place-items:center;
+        font-size:17px;font-weight:800;flex-shrink:0">${r.ab}</div></div>
+    <div class="hero-stats">
+      <div class="hs"><b>${r.scope.shifts.join(', ')}</b><span>смены в области</span></div>
+      <div class="hs"><b>${r.scope.zones==='all'?'все':r.scope.zones.length}</b><span>участки</span></div>
+      <div class="hs"><b>${Object.values(pr).filter(x=>x>=3).length}</b><span>прав записи</span></div></div></div>
+
+  <div class="sec-h"><span>Ваши права по объектам</span><span>уровни L0–L6</span></div>
+  <div class="group">${Object.entries(NAMES).map(([k,n])=>{
+    const l=pr[k]||0,L=LVLS[l];
+    return `<div class="row static" style="--inset:56px">
+      <span class="av sq" style="background:${hexA(L[1],.15)};color:${L[1]};font-size:10px;font-weight:800">${L[0]}</span>
+      <div class="r-main"><div class="r-title" style="font-size:14px">${n}</div><div class="r-sub">${L[2]}</div></div>
+      <span class="pill" style="background:var(--fill);color:var(--label2)">L${l}</span></div>`}).join('')}</div>
+
+  <div class="sec-h"><span>Войти как (демо)</span><span>9 учётных записей</span></div>
+  <div class="group">${USERS.map(u=>{const rr=ROLES[u.role];
+    return `<div class="row" style="--inset:56px" data-act="login" data-u="${u.id}">
+      <span class="av" style="background:${rr.c};width:34px;height:34px;font-size:11px;border-radius:11px">${rr.ab}</span>
+      <div class="r-main"><div class="r-title" style="font-size:14px">${esc(u.n)}</div><div class="r-sub">${esc(rr.n)}</div></div>
+      ${u.id===S.user.id?`<span class="pill" style="background:${hexA('#34C759',.15)};color:var(--green)">активна</span>`:''}
+      <span class="chev">${sv('chev',15,2.4)}</span></div>`}).join('')}</div>
+
+  <div class="sec-h"><span>Параметры</span></div>
+  <div class="group">
+    <div class="row static" style="--inset:52px"><span class="av sq" style="background:var(--fill);color:var(--label2)">${sv(document.documentElement.dataset.theme==='dark'?'moon':'sun',15,2.2)}</span>
+      <div class="r-main"><div class="r-title" style="font-size:14px">Тёмная тема</div></div>
+      <button class="abtn" data-act="theme">${document.documentElement.dataset.theme==='dark'?'Вкл':'Выкл'}</button></div>
+    <div class="row static" style="--inset:52px"><span class="av sq" style="background:${S.offline?hexA('#FF9500',.15):'var(--fill)'};color:${S.offline?'var(--orange)':'var(--label2)'}">${sv('sync',15,2.2)}</span>
+      <div class="r-main"><div class="r-title" style="font-size:14px">Офлайн-режим</div>
+      <div class="r-sub">${S.offline?S.queue.length+' изм. в очереди синхронизации':'сеть доступна, синхронизация мгновенная'}</div></div>
+      <button class="abtn" data-act="offline">${S.offline?'Вкл':'Выкл'}</button></div>
+    ${S.offline&&S.queue.length?`<div class="row" data-act="sync" style="--inset:52px"><span class="av sq" style="background:${hexA('#34C759',.15)};color:var(--green)">${sv('sync',15,2.2)}</span>
+      <div class="r-main"><div class="r-title" style="font-size:14px">Синхронизировать сейчас</div><div class="r-sub">Отправить ${S.queue.length} изм. на сервер</div></div>
+      <span class="chev">${sv('chev',15,2.4)}</span></div>`:''}
+    <div class="row" data-act="reset" style="--inset:52px"><span class="av sq" style="background:${hexA('#FF3B30',.13)};color:var(--red)">${sv('trash',15,2.2)}</span>
+      <div class="r-main"><div class="r-title" style="font-size:14px;color:var(--red)">Сбросить к данным файла</div>
+      <div class="r-sub">Вернуть расстановку на 25.09.2026 из XLSX</div></div><span class="chev">${sv('chev',15,2.4)}</span></div>
+  </div>
+  <div class="sec-h"><span>О документе</span></div>
+  <div class="group">
+    <div class="row static"><div class="r-main"><div class="r-title" style="font-size:13.5px">Источник данных</div><div class="r-sub">РАССТАНОВКА РИЦ 25.09.2026.xlsx</div></div></div>
+    <div class="row static" style="--inset:14px"><div class="r-main"><div class="r-title" style="font-size:13.5px">Версия / ревизия</div><div class="r-sub">${S.ver.date} · rev.${S.ver.rev} · ${VSTATUS[S.ver.status].l}</div></div></div>
+    <div class="row static" style="--inset:14px"><div class="r-main"><div class="r-title" style="font-size:13.5px">Объектов в системе</div>
+      <div class="r-sub">${MACHINES.length} станков · ${PEOPLE.length} работников · ${S.tasks.length} заданий · ${S.audit.length} записей журнала</div></div></div>
+  </div>`;
+}
+
+/* ==================== ЛИСТЫ ДЕЙСТВИЙ ==================== */
+function sheetCell(mn,shift){
+  const m=M(mn),z=ZONES[m.z],pid=S.asg[mn][shift],p=pid?P(pid):null;
+  const ed=can('plan.write',{shift,zone:m.z});
+  const cands=PEOPLE.filter(x=>{
+    if(shift===1&&x.sh!==1&&marker(x.id)!=='cross')return false;
+    if(shift===2&&x.sh!==2&&marker(x.id)!=='cross')return false;
+    return true;
+  });
+  openSheet({t:`Станок ${mn} · смена ${shift}`,s:`${z.n} · ${m.j} · ${MST[m.st].l}`,body:`
+    ${p?`<div class="fl">Текущий исполнитель</div>
+      <div class="opt" data-act="person" data-p="${p.id}">
+        <span class="sw-mk" style="background:${hexA(z.c,.16)};display:grid;place-items:center;color:${z.c};font-size:11px;font-weight:800">${p.n[0]}</span>
+        <span class="ot"><b>${esc(p.n)}</b><small>${esc(p.r)} · ${mkL(p.id)}${p.post?' · '+p.post:''}</small></span>${sv('chev',15,2.4)}</div>
+      ${ed?`<button class="btn gray" data-act="unassign" data-m="${mn}" data-s="${shift}" style="margin-bottom:6px">Снять со станка</button>`:''}`
+      :`<div class="note" style="background:${hexA('#FF9500',.12)};margin-top:4px"><span class="ic" style="color:var(--orange)">${sv('alert',17,2.2)}</span>
+        <p>На станке <b>${mn}</b> в смене ${shift} нет исполнителя. ${ed?'Назначьте работника из списка ниже.':'Назначение выполнит '+WHO['plan.write']+'.'}</p></div>`}
+    <div class="fl">${ed?'Назначить исполнителя':'Возможные исполнители (просмотр)'}</div>
+    ${ed?`<div class="searchbar" style="margin-bottom:9px">${sv('search',15,2)}<input id="cs" type="search" placeholder="Поиск по фамилии или участку"></div>`:''}
+    <div id="cands">${cands.map(c=>candRow(c,mn,shift,ed)).join('')}</div>
+    <div class="fl">Задания на станке</div>
+    ${S.tasks.filter(t=>t.m===mn).map(t=>`<div class="opt" data-act="task" data-t="${t.id}">
+      <span class="sw-mk" style="background:${hexA(TST[t.s][1],.15)};display:grid;place-items:center;color:${TST[t.s][1]}">${sv('doc',12,2.3)}</span>
+      <span class="ot"><b>${esc(t.t)}</b><small>${t.id} · ${t.d}/${t.q} шт. · ${TST[t.s][0]}</small></span>${sv('chev',15,2.4)}</div>`).join('')
+      ||'<p style="font-size:12.5px;color:var(--label2);padding:2px 2px 8px">Заданий нет</p>'}
+    ${!ed?`<div class="note" style="background:${hexA('#8E8E93',.12)};margin-top:6px"><span class="ic" style="color:var(--label2)">${sv('lock',17,2.2)}</span>
+      <p>Право записи: <b>${WHO['plan.write']}</b>. Вы можете отправить заявку на изменение.</p></div>`:''}`,
+    foot:`<button class="btn gray" data-act="close">Закрыть</button>${!ed?'<button class="btn" data-act="req-new">Запросить правку</button>':''}`});
+  const cs=$('#cs');if(cs)cs.oninput=e=>{const q=e.target.value.toLowerCase();
+    $$('#cands .opt').forEach(o=>o.style.display=o.dataset.s.toLowerCase().includes(q)?'':'none')};
+}
+function candRow(c,mn,shift,ed){
+  const z=ZONES[c.z],mk=marker(c.id),v=validateAssign(c.id,mn,shift);
+  const cur=S.asg[mn][shift]===c.id;
+  const dis=!v.ok&&!v.warn;
+  return `<div class="opt ${cur?'sel':''} ${dis||!ed?'dis':''}" data-s="${esc((c.n+' '+c.r+' '+z.n).toLowerCase())}"
+    ${ed&&!dis?`data-act="assign" data-m="${mn}" data-s="${shift}" data-p="${c.id}"`:''}>
+    <span class="sw-mk" style="background:${hexA(z.c,.16)};display:grid;place-items:center;color:${z.c};font-size:11px;font-weight:800">${c.n[0]}</span>
+    <span class="ot"><b>${esc(c.n)} ${cur?'· назначен':''}</b>
+      <small>${esc(c.r)} · ${z.s} · ${MK[mk||'work'].l}${!v.ok?' · '+v.why:''}</small></span>
+    ${dis?`<span class="lk">${sv('lock',10,2.6)}</span>`:(v.warn?`<span class="pill" style="background:${hexA('#FF9500',.15)};color:var(--orange)">⚠</span>`:'')}
+  </div>`;
+}
+function sheetPerson(pid){
+  const p=P(pid),z=ZONES[p.z],mk=MK[marker(pid)||'work'];
+  const ms1=assignedTo(pid,1),ms2=assignedTo(pid,2);
+  const canMk=can(HR_MARKERS.includes(marker(pid))?'marker.hr':'marker.write',{shift:p.sh,zone:p.z});
+  const canCross=can('cross.write',{shift:p.sh});
+  const tasks=S.tasks.filter(t=>t.w===pid);
+  openSheet({t:esc(p.n),s:`${esc(p.r)} · ${z.n} · смена ${p.sh}${p.post?' · '+p.post:''}`,body:`
+    <div style="display:flex;align-items:center;gap:14px;padding:4px 2px 14px">
+      <div class="av" style="width:58px;height:58px;font-size:23px;background:${hexA(z.c,.15)};color:${z.c}">${p.n[0]}
+        <span class="sdot" style="background:${mk.c}"></span></div>
+      <div><div style="font-size:15px;font-weight:700;letter-spacing:-.02em">${mk.l}</div>
+        <div style="font-size:12px;color:var(--label2);margin-top:2px">${S.mkn[pid]?esc(S.mkn[pid]):'Статус на 25.09.2026'}</div></div>
     </div>
-    <div class="sec-h"><span>График · ${state.shift?'смена '+state.shift:'обе смены'}</span><span>пт 25.09 выделено</span></div>
-    <div class="sched-card">${schedTable(list)}</div>
-    <div class="sec-h"><span>Обозначения</span></div>
-    <div class="group legend">
-      ${Object.entries(ST).map(([k,v])=>`<div class="lg-row">
-        <span class="lg-sw" style="background:${v.c};display:grid;place-items:center;color:#fff;font-size:9.5px;font-weight:700;border-radius:5px">${v.m}</span>
-        <b>${v.l}</b></div>`).join('')}
+    <div class="fl">Закреплённое оборудование</div>
+    <div class="group" style="box-shadow:none;background:var(--card2)">
+      ${[...ms1.map(n=>({n,s:1})),...ms2.map(n=>({n,s:2}))].map(x=>{const m=M(x.n);
+        return `<div class="row" style="--inset:52px" data-act="cell" data-m="${x.n}" data-s="${x.s}">
+        <span class="mchip" style="width:36px;height:30px;font-size:12px;background:${hexA(ZONES[m.z].c,.13)};color:${ZONES[m.z].c}">${x.n}</span>
+        <div class="r-main"><div class="r-title" style="font-size:13px">${esc(m.j)}</div><div class="r-sub">смена ${x.s} · ${MST[m.st].l}</div></div>
+        <span class="chev">${sv('chev',14,2.4)}</span></div>`}).join('')
+        ||'<div class="row static"><div class="r-main"><div class="r-sub">Станки не закреплены</div></div></div>'}
     </div>
-    <div class="sec-h"><span>Загрузка участков по сменам</span></div>
-    <div class="group" style="padding:4px 0">
-      ${Object.entries(ZONES).map(([k,z])=>{
-        const a=s1.filter(p=>p.z===k).length,b=s2.filter(p=>p.z===k).length;
-        if(!a&&!b)return'';
-        const mx=Math.max(a,b,1);
-        return `<div class="row" style="--inset:14px;flex-direction:column;align-items:stretch;gap:8px">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:13.5px;font-weight:600">${z.name}</span>
-            <span style="font-size:11.5px;color:var(--label2);font-weight:600">${a} / ${b}</span>
-          </div>
-          <div style="display:flex;gap:6px">
-            <div style="flex:1"><div class="bar"><i data-w="${a/mx*100}" style="background:${z.c}"></i></div></div>
-            <div style="flex:1"><div class="bar"><i data-w="${b/mx*100}" style="background:${hexA(z.c,.45)}"></i></div></div>
-          </div>
-        </div>`}).join('')}
+    <div class="fl">Действия</div>
+    <div class="opt ${canMk?'':'dis'}" ${canMk?`data-act="marker-open" data-p="${pid}"`:''}>
+      <span class="sw-mk" style="background:${hexA('#FF9500',.15)};display:grid;place-items:center;color:var(--orange)">${sv('flag',13,2.3)}</span>
+      <span class="ot"><b>Изменить статус-маркер</b><small>${canMk?'Отпуск, больничный, подработка, стажёр…':'право: '+WHO['marker.write']}</small></span>${sv('chev',15,2.4)}</div>
+    <div class="opt ${canCross?'':'dis'}" ${canCross?`data-act="cross-open" data-p="${pid}"`:''}>
+      <span class="sw-mk" style="background:${hexA('#FF3B30',.14)};display:grid;place-items:center;color:var(--red)">${sv('sync',13,2.3)}</span>
+      <span class="ot"><b>Передать в другую смену</b><small>${canCross?'Красный маркер «×» с обязательным комментарием':'право: '+WHO['cross.write']}</small></span>${sv('chev',15,2.4)}</div>
+    <div class="opt" data-act="assign-any" data-p="${pid}">
+      <span class="sw-mk" style="background:${hexA('#0A84FF',.14)};display:grid;place-items:center;color:var(--blue)">${sv('cpu',13,2.3)}</span>
+      <span class="ot"><b>Назначить на станок</b><small>Выбор оборудования в смене ${p.sh}</small></span>${sv('chev',15,2.4)}</div>
+    <div class="opt" data-act="hist-p" data-p="${pid}">
+      <span class="sw-mk" style="background:var(--fill);display:grid;place-items:center;color:var(--label2)">${sv('hist',13,2.3)}</span>
+      <span class="ot"><b>История изменений</b><small>Записи журнала по работнику</small></span>${sv('chev',15,2.4)}</div>
+    <div class="fl">Задания · ${tasks.length}</div>
+    ${tasks.map(t=>`<div class="opt" data-act="task" data-t="${t.id}">
+      <span class="sw-mk" style="background:${hexA(TST[t.s][1],.15)};display:grid;place-items:center;color:${TST[t.s][1]}">${sv('doc',12,2.3)}</span>
+      <span class="ot"><b>${esc(t.t)}</b><small>${t.id} · ${t.d}/${t.q} шт. · срок ${esc(t.due)}</small></span>${sv('chev',15,2.4)}</div>`).join('')
+      ||'<p style="font-size:12.5px;color:var(--label2);padding:2px 2px 8px">Заданий нет</p>'}`,
+    foot:`<button class="btn gray" data-act="close">Закрыть</button><button class="btn" data-act="req-new">Запросить правку</button>`});
+}
+function sheetMarker(pid){
+  const p=P(pid);
+  const canHR=can('marker.hr',{shift:p.sh}),canM=can('marker.write',{shift:p.sh});
+  openSheet({t:'Статус-маркер',s:`${esc(p.n)} · смена ${p.sh}`,body:`
+    <div class="note" style="background:${hexA('#0A84FF',.10)}"><span class="ic" style="color:var(--blue)">${sv('flag',17,2.2)}</span>
+    <p>Цвета соответствуют легенде исходного файла. Маркеры «в отпуске» и «на больничном» вносит только ОК.</p></div>
+    <div class="fl">Выберите маркер</div>
+    ${Object.entries(MK).map(([k,v])=>{
+      const hr=HR_MARKERS.includes(k),ok=hr?canHR:canM;
+      return `<div class="opt ${marker(pid)===k?'sel':''} ${ok?'':'dis'}" ${ok?`data-act="marker-set" data-p="${pid}" data-mk="${k}"`:''}>
+        <span class="sw-mk" style="background:${v.c}"></span>
+        <span class="ot"><b>${v.l}</b><small>${hr?'только ОК / начальник участка':k==='cross'?'обязателен комментарий':'мастер смены'}</small></span>
+        ${ok?'':`<span class="lk">${sv('lock',10,2.6)}</span>`}</div>`}).join('')}`,
+    foot:`<button class="btn gray" data-act="close">Отмена</button>`});
+}
+function sheetCross(pid){
+  const p=P(pid),to=p.sh===1?2:1;
+  openSheet({t:'Передача в другую смену',s:`${esc(p.n)} → смена ${to}`,body:`
+    <div class="note" style="background:${hexA('#FF3B30',.10)}"><span class="ic" style="color:var(--red)">${sv('alert',17,2.2)}</span>
+    <p>Красный маркер «подработка с другой смены (оставил другой мастер для своих задач)». Комментарий <b>обязателен</b> — он фиксируется в журнале вместе с автором и временем.</p></div>
+    <div class="fl">Комментарий: кто оставил и для каких задач *</div>
+    <textarea class="ta" id="cmt" placeholder="Например: оставил мастер Гаврилов П.С. для завершения партии на ст. 137, смена 1"></textarea>
+    <div class="fl">Станки в смене ${to}</div>
+    <div class="group" style="box-shadow:none;background:var(--card2)">
+      ${MACHINES.filter(m=>S.asg[m.n][to]===pid).map(m=>`<div class="row static" style="--inset:48px">
+        <span class="mchip" style="width:34px;height:28px;font-size:11.5px">${m.n}</span>
+        <div class="r-main"><div class="r-title" style="font-size:13px">${esc(m.j)}</div></div></div>`).join('')
+        ||'<div class="row static"><div class="r-main"><div class="r-sub">Станки в принимающей смене не закреплены — назначьте после передачи</div></div></div>'}
     </div>
-    <p style="font-size:11.5px;color:var(--label2);padding:10px 6px 0">Слева — смена 1, справа — смена 2. Красный маркер «×» — подработка с другой смены (оставил другой мастер).</p>`;
+    <div class="fl">Уведомление получит</div>
+    <p style="font-size:12.5px;color:var(--label2);padding:0 2px">Мастер смены ${to} (${to===1?'Гаврилов П.С.':'Ефимов Д.А.'}) — push и запись в журнале.</p>`,
+    foot:`<button class="btn gray" data-act="close">Отмена</button>
+      <button class="btn red" id="crossOk">Передать в смену ${to}</button>`});
+  $('#crossOk').onclick=()=>actMarker(pid,'cross',$('#cmt').value.trim());
+}
+function sheetAssignAny(pid){
+  const p=P(pid);
+  const ms=MACHINES.filter(m=>m.z===p.z||true);
+  openSheet({t:'Назначить на станок',s:`${esc(p.n)} · смена ${p.sh}`,body:`
+    <div class="fl">Оборудование · смена ${p.sh}</div>
+    ${ms.map(m=>{const v=validateAssign(pid,m.n,p.sh),cur=S.asg[m.n][p.sh]===pid;
+      const dis=!v.ok&&!v.warn||!can('plan.write',{shift:p.sh,zone:m.z});
+      return `<div class="opt ${cur?'sel':''} ${dis?'dis':''}" ${dis?'':`data-act="assign" data-m="${m.n}" data-s="${p.sh}" data-p="${pid}"`}>
+        <span class="sw-mk" style="background:${hexA(ZONES[m.z].c,.15)};display:grid;place-items:center;color:${ZONES[m.z].c};font-size:10px;font-weight:800">${m.n}</span>
+        <span class="ot"><b>${ZONES[m.z].s} · ${esc(m.j)}</b><small>${cur?'уже назначен':(!v.ok?v.why:(S.asg[m.n][p.sh]?'занят: '+P(S.asg[m.n][p.sh]).n:'свободен'))}</small></span>
+        ${dis?`<span class="lk">${sv('lock',10,2.6)}</span>`:''}</div>`}).join('')}`,
+    foot:`<button class="btn gray" data-act="close">Отмена</button>`});
+}
+function sheetTask(id){
+  const t=S.tasks.find(x=>x.id===id);if(!t)return closeSheet();
+  const z=ZONES[t.z],w=t.w?P(t.w):null,pr=pct(t.d,t.q);
+  const ed=can('task.write'),qty=can('task.qty',{shift:1}),own=S.user.personId&&t.w===S.user.personId,fact=can('task.fact')&&(own||lvl('fact')>=3);
+  const acc=can('task.accept');
+  openSheet({t:esc(t.t),s:`${t.id} · ${z.n}${t.m?' · ст. '+t.m:''} · срок ${esc(t.due)}`,body:`
+    <div class="tiles" style="grid-template-columns:1fr 1fr;margin-bottom:4px">
+      <div class="tile" style="box-shadow:none;background:var(--card2)"><b>${t.d}<i>/${t.q}</i></b><span>штук выполнено</span></div>
+      <div class="tile" style="box-shadow:none;background:var(--card2)"><b>${pr}<i>%</i></b><span>прогресс · ${TST[t.s][0]}</span></div></div>
+    <div class="tprog" style="margin:10px 0 4px"><div class="bar" style="height:7px"><i data-w="${pr}" style="background:${z.c}"></i></div></div>
+    <div class="fl">Исполнитель</div>
+    ${w?`<div class="opt" data-act="person" data-p="${w.id}"><span class="sw-mk" style="background:${hexA(ZONES[w.z].c,.16)};display:grid;place-items:center;color:${ZONES[w.z].c};font-size:11px;font-weight:800">${w.n[0]}</span>
+      <span class="ot"><b>${esc(w.n)}</b><small>${esc(w.r)} · ${mkL(w.id)}</small></span>${sv('chev',15,2.4)}</div>`:'<p style="font-size:12.5px;color:var(--label2)">не назначен</p>'}
+    <div class="fl">Факт выполнения</div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div class="stepper" style="flex:1">
+        <button data-act="fact" data-t="${t.id}" data-d="-1" ${fact?'':'disabled style="opacity:.3"'}>−</button>
+        <input value="${t.d}" readonly>
+        <button data-act="fact" data-t="${t.id}" data-d="1" ${fact?'':'disabled style="opacity:.3"'}>+</button></div>
+      <button class="btn gray" style="width:auto;padding:11px 15px" data-act="fact" data-t="${t.id}" data-d="5" ${fact?'':'disabled style="opacity:.3"'}>+5</button></div>
+    <p style="font-size:11px;color:var(--label3);margin-top:7px;padding:0 2px">${fact?'Доступно: отметка по своему заданию или мастером смены':'Право: '+WHO['task.fact']}</p>
+    <div class="fl">Действия</div>
+    <div class="opt ${ed?'':'dis'}" ${ed?`data-act="task-edit" data-t="${t.id}"`:''}>
+      <span class="sw-mk" style="background:${hexA('#0A84FF',.14)};display:grid;place-items:center;color:var(--blue)">${sv('edit',13,2.3)}</span>
+      <span class="ot"><b>Изменить задание</b><small>${ed?'Номенклатура, объём, срок, приоритет':'право: '+WHO['task.write']}</small></span>${sv('chev',15,2.4)}</div>
+    <div class="opt ${acc?'':'dis'}" ${acc?`data-act="accept" data-t="${t.id}" data-ok="1"`:''}>
+      <span class="sw-mk" style="background:${hexA('#34C759',.14)};display:grid;place-items:center;color:var(--green)">${sv('shield',13,2.3)}</span>
+      <span class="ot"><b>Принять ОТК</b><small>${acc?'Контролёр Свинин А.Ю.':'право: '+WHO['task.accept']}</small></span>${sv('chev',15,2.4)}</div>
+    <div class="opt ${acc?'':'dis'}" ${acc?`data-act="accept" data-t="${t.id}" data-ok="0"`:''}>
+      <span class="sw-mk" style="background:${hexA('#FF3B30',.13)};display:grid;place-items:center;color:var(--red)">${sv('x',13,2.6)}</span>
+      <span class="ot"><b>Возврат в доработку</b><small>Создаст повторное задание</small></span>${sv('chev',15,2.4)}</div>
+    <div class="opt" data-act="hist-t" data-t="${t.id}">
+      <span class="sw-mk" style="background:var(--fill);display:grid;place-items:center;color:var(--label2)">${sv('hist',13,2.3)}</span>
+      <span class="ot"><b>История задания</b><small>Записи журнала</small></span>${sv('chev',15,2.4)}</div>
+    ${ed?`<div class="opt" data-act="task-del" data-t="${t.id}">
+      <span class="sw-mk" style="background:${hexA('#FF3B30',.13)};display:grid;place-items:center;color:var(--red)">${sv('trash',13,2.3)}</span>
+      <span class="ot"><b style="color:var(--red)">Удалить задание</b><small>Soft-delete с записью в журнал</small></span></div>`:''}`,
+    foot:`<button class="btn gray" data-act="close">Закрыть</button>`});
   animBars();
 }
-
-/* --- TASKS --- */
-function renderTasks(){
-  const f=state.tfilter;
-  const list=TASKS.filter(t=>f==='all'?true:t.s===f);
-  const total=TASKS.reduce((a,t)=>a+t.q,0),done=TASKS.reduce((a,t)=>a+t.d,0);
-  $('#view').innerHTML=`
-    <div class="tiles" style="margin-top:14px">
-      ${tile('check','#0A84FF',TASKS.filter(t=>t.s==='run').length,'','в работе сейчас')}
-      ${tile('clock','#FF9500',TASKS.filter(t=>t.s==='wait').length,'','ожидают запуска')}
-      ${tile('grid','#34C759',TASKS.filter(t=>t.s==='done').length,'','закрыто за смену')}
-      ${tile('alert','#FF3B30',TASKS.filter(t=>t.p==='high'&&t.s!=='done').length,'','высокий приоритет')}
-    </div>
-    <div class="sec-h"><span>Задания смены</span><span>${done} / ${total} шт. · ${pct(done,total)}%</span></div>
-    <div class="bar" style="height:7px;margin-bottom:16px"><i data-w="${pct(done,total)}" style="background:linear-gradient(90deg,#0A84FF,#5E5CE6)"></i></div>
-    ${list.length?list.map(taskCard).join(''):'<div class="empty">'+svg('check',42,1.6)+'<p>Нет заданий в этой категории</p></div>'}
-    <p style="font-size:11.5px;color:var(--label2);line-height:1.5;padding:6px 6px 0">Состав заданий сформирован демонстрационно на основе расстановки людей и оборудования. Подключение к MES/1С — следующий шаг.</p>`;
-  animBars();
-  $('#view').querySelectorAll('[data-task]').forEach(el=>el.onclick=()=>openTask(el.dataset.task));
+function sheetTaskForm(id){
+  const t=id?S.tasks.find(x=>x.id===id):null;
+  if(!can('task.write'))return deny('task.write');
+  openSheet({t:t?'Изменить задание':'Новое задание',s:t?t.id:'черновик · 25.09.2026',body:`
+    <div class="fl">Наименование операции *</div>
+    <input class="inp" id="f_t" value="${esc(t?t.t:'')}" placeholder="Например: Шлифовка матрицы РИЦ-21">
+    <div class="fl">Участок *</div>
+    <select class="inp" id="f_z">${Object.entries(ZONES).map(([k,z])=>`<option value="${k}" ${t&&t.z===k?'selected':''}>${z.n}</option>`).join('')}</select>
+    <div class="fl">Станок</div>
+    <select class="inp" id="f_m"><option value="">— без станка —</option>
+      ${MACHINES.map(m=>`<option value="${m.n}" ${t&&t.m===m.n?'selected':''}>${m.n} · ${ZONES[m.z].s} (${MST[m.st].l})</option>`).join('')}</select>
+    <div class="fl">Исполнитель</div>
+    <select class="inp" id="f_w"><option value="">— не назначен —</option>
+      ${PEOPLE.map(p=>`<option value="${p.id}" ${t&&t.w===p.id?'selected':''}>${p.n} · смена ${p.sh} · ${MK[marker(p.id)||'work'].l}</option>`).join('')}</select>
+    <div style="display:flex;gap:10px"><div style="flex:1"><div class="fl">Объём, шт. *</div>
+      <input class="inp" id="f_q" type="number" min="1" value="${t?t.q:10}"></div>
+      <div style="flex:1"><div class="fl">Срок *</div><input class="inp" id="f_d" value="${esc(t?t.due:'18:00')}" placeholder="18:00"></div></div>
+    <div class="fl">Приоритет</div>
+    <div class="seg" id="f_p"><div class="seg-th"></div>
+      ${[['low','Низкий'],['mid','Средний'],['high','Высокий']].map(([k,l])=>`<button class="seg-b ${(t?t.p:'mid')===k?'on':''}" data-k="${k}">${l}</button>`).join('')}</div>
+    <div class="note" style="background:${hexA('#FFCC00',.14)};margin-top:14px"><span class="ic" style="color:#a68700">${sv('alert',17,2.2)}</span>
+    <p>Если исполнитель — стажёр, система потребует указать наставника на том же участке.</p></div>`,
+    foot:`<button class="btn gray" data-act="close">Отмена</button><button class="btn" id="fSave">${t?'Сохранить':'Создать задание'}</button>`});
+  bindSegs();let prio=t?t.p:'mid';
+  $$('#f_p .seg-b').forEach(b=>b.onclick=()=>{prio=b.dataset.k;$$('#f_p .seg-b').forEach(x=>x.classList.remove('on'));b.classList.add('on')});
+  $('#fSave').onclick=()=>{
+    const d={t:$('#f_t').value.trim(),z:$('#f_z').value,m:$('#f_m').value?+$('#f_m').value:null,w:$('#f_w').value||null,
+      q:Math.max(1,+$('#f_q').value||1),due:$('#f_d').value.trim()||'—',p:prio};
+    if(d.t.length<4)return toast('Укажите наименование операции','alert');
+    if(d.w){const wp=P(d.w);
+      if(['vac','sick','rest'].includes(marker(d.w)))return toast(`${wp.n}: ${mkL(d.w)} — назначение невозможно`,'alert');
+      if(marker(d.w)==='trainee'){const mn=wp.mentor&&P(wp.mentor);
+        if(!mn||!assignedTo(mn.id,wp.sh).length)return toast('Стажёру нужен наставник в смене: назначьте '+
+          (mn?mn.n:'наставника')+' на тот же участок','alert');}}
+    if(d.m&&M(d.m).st==='maint')return toast(`Станок ${d.m} в состоянии ТО — задание не создаётся`,'alert');
+    actTaskSave(d,t?t.id:null);
+  };
 }
-function openTask(id){
-  const t=TASKS.find(x=>x.id===id),z=ZONES[t.z],s=TST[t.s],p=PEOPLE.find(x=>x.n===t.w),pr=pct(t.d,t.q);
-  const m=MACHINES.find(x=>x.n===t.m);
-  $('#view').innerHTML=`
-    <div class="hero" style="background:linear-gradient(140deg,${z.c} 0%,${hexA(z.c,.85)} 60%,#5E5CE6 140%);margin-top:14px">
-      <div class="hero-lbl">${t.id} · ${z.name}</div>
-      <div class="hero-title" style="font-size:19px;margin-top:7px">${esc(t.t)}</div>
-      <div class="hero-sub">Срок: сегодня, ${t.due}</div>
-      <div class="hero-stats">
-        <div class="hero-stat"><b>${t.d}/${t.q}</b><span>штук готово</span></div>
-        <div class="hero-stat"><b>${pr}%</b><span>прогресс</span></div>
-        <div class="hero-stat"><b>${s.l}</b><span>статус</span></div>
-      </div>
-    </div>
-    <div class="sec-h"><span>Исполнитель</span></div>
-    <div class="group">${p?personRow(p):'<div class="row"><div class="r-main"><div class="r-sub">Не назначен</div></div></div>'}</div>
-    ${m?`<div class="sec-h"><span>Оборудование</span></div><div class="group">${machineRow(m)}</div>`:''}
-    <div class="sec-h"><span>Ход выполнения</span></div>
-    <div class="group" style="padding:6px 0">
-      ${[['Выдано в работу','07:15',1],['Первая деталь принята ОТК','09:40',t.d>0?1:0],['50% партии','12:20',pr>=50?1:0],['Закрытие задания',t.due,pr>=100?1:0]].map(([a,b,c])=>`
-        <div class="row" style="--inset:52px">
-          <div class="av sm" style="background:${c?hexA('#34C759',.16):'var(--fill)'};color:${c?'#34C759':'var(--label3)'};border-radius:50%">${c?svg('check',14,3):svg('clock',14,2.2)}</div>
-          <div class="r-main"><div class="r-title" style="font-size:14px;${c?'':'color:var(--label2);font-weight:500'}">${a}</div><div class="r-sub">${c?'выполнено':'ожидается'} · ${b}</div></div>
-        </div>`).join('')}
-    </div>
-    <button class="btn primary" style="width:100%;margin:18px 0 4px" id="backT">Назад к заданиям</button>`;
-  $('#backT').onclick=()=>renderTasks();
+function sheetReq(pre){
+  if(!can('request.create'))return deny('request.create');
+  openSheet({t:'Запросить правку',s:'Заявка уйдёт мастеру смены',body:`
+    <div class="fl">Тип обращения *</div>
+    <div id="rqT">${['Ошибка в расстановке','Замена работника','Изменение статуса','Новое задание','Другое'].map((x,i)=>
+      `<div class="opt ${i===0?'sel':''}" data-act="rq-pick" data-v="${esc(x)}">
+        <span class="sw-mk" style="background:${i===0?'var(--blue)':'var(--fill)'};display:grid;place-items:center;color:${i===0?'#fff':'var(--label3)'}">${sv('bell',12,2.3)}</span>
+        <span class="ot"><b>${x}</b></span></div>`).join('')}</div>
+    <div class="fl">Описание *</div>
+    <textarea class="ta" id="rqX" placeholder="Например: в таблице я стою на ст. 210, фактически работаю на 236 — прошу исправить">${esc(pre||'')}</textarea>
+    <div class="fl">Кто рассмотрит</div>
+    <div class="group" style="box-shadow:none;background:var(--card2)">
+      <div class="row static" style="--inset:48px"><span class="av sm" style="background:#0A84FF;color:#fff;font-size:10px;font-weight:800">МАСТ</span>
+        <div class="r-main"><div class="r-title" style="font-size:13px">Гаврилов П.С.</div><div class="r-sub">Мастер смены 1 · push-уведомление</div></div></div>
+      <div class="row static" style="--inset:48px"><span class="av sm" style="background:#5856D6;color:#fff;font-size:10px;font-weight:800">НАЧ</span>
+        <div class="r-main"><div class="r-title" style="font-size:13px">Ковалёв И.И.</div><div class="r-sub">Начальник участка · копия</div></div></div>
+    </div>`,
+    foot:`<button class="btn gray" data-act="close">Отмена</button><button class="btn" id="rqOk">Отправить заявку</button>`});
+  let type='Ошибка в расстановке';
+  window.__rqPick=v=>{type=v;$$('#rqT .opt').forEach(o=>{const on=o.dataset.v===v;o.classList.toggle('sel',on);
+    const s=o.querySelector('.sw-mk');s.style.background=on?'var(--blue)':'var(--fill)';s.style.color=on?'#fff':'var(--label3)'})};
+  $('#rqOk').onclick=()=>{const txt=$('#rqX').value.trim();if(txt.length<6)return toast('Опишите проблему подробнее','alert');
+    actReq({type,txt});};
 }
-function animBars(){requestAnimationFrame(()=>document.querySelectorAll('.bar i[data-w]').forEach(b=>b.style.width=b.dataset.w+'%'));}
-
-/* ================= THEME / FS ================= */
-function setTheme(t){
-  document.documentElement.dataset.theme=t;
-  $('#themeBtn').innerHTML=t==='dark'?svg('sun',17,2):'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>';
-  $('#themeBtn2').textContent=t==='dark'?'Светлая тема':'Тёмная тема';
-  render();
+function sheetHist(filter,label){
+  const list=S.audit.filter(a=>!filter||(a.obj||'').includes(filter)||(a.c||'').includes(filter));
+  openSheet({t:'История изменений',s:label||(list.length+' записей'),body:`
+    ${list.length?`<div class="group" style="box-shadow:none;background:var(--card2)">${list.map(audRow).join('')}</div>`
+      :'<p style="font-size:13px;color:var(--label2);padding:10px 2px">Записей пока нет</p>'}`,
+    foot:`<button class="btn gray" data-act="close">Закрыть</button>`});
 }
-$('#themeBtn').onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
-$('#themeBtn2').onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
-$('#fsBtn').onclick=()=>{document.body.classList.toggle('fs');$('#fsBtn').textContent=document.body.classList.contains('fs')?'Режим превью':'На весь экран';};
-if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)setTheme('dark');
+function sheetMore(){
+  openSheet({t:'Ещё',s:'Разделы и параметры',body:`
+    ${VIEWS.filter(v=>!MOBILE_TABS.slice(0,4).includes(v.id)).map(v=>`<div class="opt" data-act="go" data-v="${v.id}">
+      <span class="sw-mk" style="background:${hexA('#0A84FF',.14)};display:grid;place-items:center;color:var(--blue)">${sv(v.i,13,2.3)}</span>
+      <span class="ot"><b>${v.n}</b>${v.id==='log'&&badgeN()?`<small>${badgeN()} новых заявок</small>`:''}</span>${sv('chev',15,2.4)}</div>`).join('')}
+    <div class="fl">Параметры</div>
+    <div class="opt" data-act="theme"><span class="sw-mk" style="background:var(--fill);display:grid;place-items:center;color:var(--label2)">${sv(document.documentElement.dataset.theme==='dark'?'sun':'moon',13,2.3)}</span>
+      <span class="ot"><b>Тёмная тема</b><small>${document.documentElement.dataset.theme==='dark'?'включена':'выключена'}</small></span></div>
+    <div class="opt" data-act="offline"><span class="sw-mk" style="background:${S.offline?hexA('#FF9500',.15):'var(--fill)'};display:grid;place-items:center;color:${S.offline?'var(--orange)':'var(--label2)'}">${sv('sync',13,2.3)}</span>
+      <span class="ot"><b>Офлайн-режим</b><small>${S.offline?S.queue.length+' изм. в очереди':'сеть доступна'}</small></span></div>
+    <div class="opt" data-act="export"><span class="sw-mk" style="background:${hexA('#34C759',.14)};display:grid;place-items:center;color:var(--green)">${sv('dl',13,2.3)}</span>
+      <span class="ot"><b>Экспорт в CSV</b><small>Расстановка + задания + журнал</small></span></div>`,
+    foot:`<button class="btn gray" data-act="close">Закрыть</button>`});
+}
+function sheetLogin(){
+  openSheet({t:'Смена пользователя',s:'Демонстрация ролевой модели',body:`
+    <p style="font-size:12.5px;color:var(--label2);line-height:1.5;margin-bottom:12px">Каждая роль видит свой набор действий. Недоступные элементы помечаются замком, вместо них предлагается «Запросить правку».</p>
+    ${USERS.map(u=>{const rr=ROLES[u.role];
+      return `<div class="opt ${u.id===S.user.id?'sel':''}" data-act="login" data-u="${u.id}">
+        <span class="sw-mk" style="background:${rr.c};display:grid;place-items:center;color:#fff;font-size:9px;font-weight:800">${rr.ab}</span>
+        <span class="ot"><b>${esc(u.n)}</b><small>${esc(rr.n)}</small></span>${sv('chev',15,2.4)}</div>`}).join('')}`,
+    foot:`<button class="btn gray" data-act="close">Отмена</button>`});
+}
 
-/* sticky header shadow */
-const sc=$('#scroll'),hdr=$('#hdr');
-sc.addEventListener('scroll',()=>hdr.classList.toggle('stuck',sc.scrollTop>4));
+/* ==================== ЭКСПОРТ / СИНХРОНИЗАЦИЯ ==================== */
+function exportCSV(){
+  const rows=[['Расстановка РИЦ','25.09.2026','rev.'+S.ver.rev,VSTATUS[S.ver.status].l],[],
+   ['Станок','Участок','Операция','Смена 1','Смена 2','Состояние'],
+   ...MACHINES.map(m=>[m.n,ZONES[m.z].n,m.j,S.asg[m.n][1]?P(S.asg[m.n][1]).n:'',S.asg[m.n][2]?P(S.asg[m.n][2]).n:'',MST[m.st].l]),[],
+   ['Работник','Должность','Участок','Смена','Маркер','Комментарий'],
+   ...PEOPLE.map(p=>[p.n,p.r,ZONES[p.z].n,p.sh,MK[marker(p.id)||'work'].l,S.mkn[p.id]||'']),[],
+   ['Задание','Операция','Участок','Станок','Исполнитель','Объём','Готово','Срок','Приоритет','Статус'],
+   ...S.tasks.map(t=>[t.id,t.t,ZONES[t.z].n,t.m||'',t.w?P(t.w).n:'',t.q,t.d,t.due,t.p,TST[t.s][0]]),[],
+   ['Журнал: время','Автор','Роль','Действие','Объект','Было','Стало','Комментарий'],
+   ...S.audit.map(a=>[new Date(a.ts).toLocaleString('ru-RU'),a.who,ROLES[a.role]?ROLES[a.role].n:a.role,actLabel(a.act),a.obj,a.old,a.nw,a.c])];
+  const csv='\uFEFF'+rows.map(r=>r.map(c=>'"'+String(c??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+  a.download='РАССТАНОВКА РИЦ 25.09.2026 (выгрузка).csv';a.click();
+  log('status','Экспорт CSV','—',rows.length+' строк','');save();toast('Файл выгружен','dl');
+}
+function sync(){
+  if(!S.queue.length)return toast('Очередь пуста','sync');
+  const n=S.queue.length;S.queue=[];log('status','Синхронизация','—',n+' изм. отправлено на сервер','');
+  save();render();toast(n+' изменений синхронизировано','sync');
+}
 
-/* side info list */
-$('#infoList').innerHTML=[
-  ['users','#5856D6','Работники','12 человек, статусы и станки'],
-  ['cpu','#34C759','Оборудование','27 единиц в 10 зонах'],
-  ['cal','#FF9500','График смен','неделя 21–27.09.2026'],
-  ['check','#0A84FF','Задания','прогресс и приоритеты']
-].map(([i,c,t,s])=>`<div class="info-item"><div class="dot" style="background:${c}">${svg(i,15,2.1)}</div>
-  <div class="txt"><b>${t}</b><span>${s}</span></div></div>`).join('');
+/* ==================== РОДЫ / СОБЫТИЯ ==================== */
+function render(){
+  renderNav();renderTopbar();renderTabbar();
+  const V={overview:vOverview,plan:vPlan,people:vPeople,machines:vMachines,schedule:vSchedule,tasks:vTasks,log:vLog,profile:vProfile};
+  $('#view').innerHTML=(V[S.view]||vOverview)();
+  bindSegs();animBars();
+  if(S.view==='people'){const qi=$('#q');if(qi){qi.oninput=e=>{S.q=e.target.value;
+    const p=e.target.selectionStart;$('#view').innerHTML=vPeople();bindSegs();
+    const n=$('#q');n.focus();n.setSelectionRange(p,p);n.oninput=qi.oninput;}}}
+}
+document.addEventListener('click',e=>{
+  const el=e.target.closest('[data-act]');if(!el)return;
+  const a=el.dataset.act;
+  if(a!=='close'&&e.target.closest('#sheet')===null&&el.closest('#ov'))return;
+  switch(a){
+    case 'go':{const v=el.dataset.v;if(v==='more'){sheetMore();return}
+      S.view=v;closeSheet();render();$('#scroll').scrollTo({top:0,behavior:'smooth'});break}
+    case 'more':sheetMore();break;
+    case 'shift':S.shift=+el.dataset.s;render();break;
+    case 'mf':S.mfilter=el.dataset.k;render();break;
+    case 'mmf':S.mmf=el.dataset.k;render();break;
+    case 'tf':S.tfilter=el.dataset.k;render();break;
+    case 'theme':{const d=document.documentElement.dataset.theme==='dark';
+      document.documentElement.dataset.theme=d?'light':'dark';try{localStorage.setItem('ric-theme',d?'light':'dark')}catch(x){}
+      render();if(sheetOpen)closeSheet();break}
+    case 'offline':S.offline=!S.offline;save();render();
+      toast(S.offline?'Офлайн-режим: правки уходят в очередь':'Онлайн: синхронизация мгновенная',S.offline?'alert':'sync');break;
+    case 'sync':sync();break;
+    case 'export':exportCSV();break;
+    case 'reset':askConfirm('Сбросить данные','Все изменения, журнал и заявки будут удалены, расстановка вернётся к состоянию файла РАССТАНОВКА РИЦ 25.09.2026.xlsx.',()=>{
+      try{localStorage.removeItem(KEY)}catch(x){}const u=S.user,th=document.documentElement.dataset.theme;load();S.user=u;
+      document.documentElement.dataset.theme=th;render();toast('Данные восстановлены из файла','sync');});break;
+    case 'publish':actPublish();break;
+    case 'todraft':if(!can('plan.publish'))return deny('plan.publish');
+      S.ver.status='draft';log('status',`Версия ${S.ver.date}`,'опубликован','черновик','');save();render();toast('Версия возвращена в черновик','edit');break;
+    case 'cell':sheetCell(+el.dataset.m,+el.dataset.s);break;
+    case 'person':sheetPerson(el.dataset.p);break;
+    case 'assign':actAssign(+el.dataset.m,+el.dataset.s,el.dataset.p);break;
+    case 'unassign':actUnassign(+el.dataset.m,+el.dataset.s);break;
+    case 'marker-open':sheetMarker(el.dataset.p);break;
+    case 'marker-set':{const c=el.dataset.mk==='cross';closeSheet();
+      if(c)setTimeout(()=>sheetCross(el.dataset.p),240);else actMarker(el.dataset.p,el.dataset.mk==='work'?null:el.dataset.mk,'');break}
+    case 'cross-open':sheetCross(el.dataset.p);break;
+    case 'assign-any':sheetAssignAny(el.dataset.p);break;
+    case 'hist-p':{const p=P(el.dataset.p);sheetHist(p.n,'по работнику: '+p.n);break}
+    case 'task':sheetTask(el.dataset.t);break;
+    case 'task-new':sheetTaskForm(null);break;
+    case 'task-edit':sheetTaskForm(el.dataset.t);break;
+    case 'hist-t':{const t=S.tasks.find(x=>x.id===el.dataset.t);sheetHist(t.id,'по заданию '+t.id);break}
+    case 'task-del':{const t=S.tasks.find(x=>x.id===el.dataset.t);
+      askConfirm('Удалить задание',`${t.id} · ${t.t}. Запись останется в журнале (soft-delete).`,()=>{
+        if(!can('task.write'))return deny('task.write');
+        snapshot();S.tasks=S.tasks.filter(x=>x.id!==t.id);log('task.update',t.id,t.t,'удалено','soft-delete');
+        save();render();closeSheet();toast('Задание удалено','trash',true)});break}
+    case 'fact':actFact(el.dataset.t,+el.dataset.d);break;
+    case 'accept':actAccept(el.dataset.t,el.dataset.ok==='1');break;
+    case 'req-new':{closeSheet();setTimeout(()=>sheetReq(''),240);break}
+    case 'rq-pick':window.__rqPick&&window.__rqPick(el.dataset.v);break;
+    case 'req-ok':{const r=S.reqs.find(x=>x.id===el.dataset.id);
+      askConfirm('Принять заявку',r.type+': '+r.txt+'. Правка будет внесена в черновик версии.',()=>actReqDecide(r.id,'ok',''));break}
+    case 'req-no':{const r=S.reqs.find(x=>x.id===el.dataset.id);
+      openSheet({t:'Отклонить заявку',s:r.id+' · '+r.type,body:`<div class="fl">Причина отказа *</div>
+        <textarea class="ta" id="rj" placeholder="Например: работник уже переназначен мастером смены 2"></textarea>`,
+        foot:`<button class="btn gray" data-act="close">Отмена</button><button class="btn red" id="rjOk">Отклонить</button>`});
+      $('#rjOk').onclick=()=>{const v=$('#rj').value.trim();if(v.length<4)return toast('Укажите причину','alert');actReqDecide(r.id,'no',v)};break}
+    case 'sched':{const pid=el.dataset.p,d=+el.dataset.d,p=P(pid);
+      if(!can('marker.write',{shift:p.sh}))return deny('marker.write',{shift:p.sh});
+      const cur=S.ovr[pid+'_'+d]||(d===TODAY_IDX?(marker(pid)||'work'):BASE_SCHED[pid][d]);
+      openSheet({t:`${DAYS[d].d} ${DAYS[d].n}.09`,s:esc(p.n)+' · '+ZONES[p.z].s+' · смена '+p.sh,body:`
+        <div class="fl">Маркер на этот день</div>
+        ${Object.entries(MK).map(([k,v])=>{const hr=HR_MARKERS.includes(k),ok=hr?can('marker.hr',{shift:p.sh}):true;
+          return `<div class="opt ${cur===k?'sel':''} ${ok?'':'dis'}" ${ok?`data-act="sched-set" data-p="${pid}" data-d="${d}" data-mk="${k}"`:''}>
+            <span class="sw-mk" style="background:${v.c}"></span><span class="ot"><b>${v.l}</b><small>${hr?'только ОК / начальник участка':'мастер смены'}</small></span>
+            ${ok?'':`<span class="lk">${sv('lock',10,2.6)}</span>`}</div>`}).join('')}
+        ${d===TODAY_IDX?'<div class="note" style="background:'+hexA('#FF9500',.11)+';margin-top:8px"><span class="ic" style="color:var(--orange)">'+sv('alert',17,2.2)+'</span><p>Изменение текущего дня (25.09) обновит статус работника в расстановке и уведомит смену.</p></div>':''}`,
+        foot:`<button class="btn gray" data-act="close">Отмена</button>`});break}
+    case 'sched-set':{const pid=el.dataset.p,d=+el.dataset.d,mk=el.dataset.mk,p=P(pid);
+      snapshot();const old=S.ovr[pid+'_'+d]||(d===TODAY_IDX?(marker(pid)||'work'):BASE_SCHED[pid][d]);
+      S.ovr[pid+'_'+d]=mk;
+      if(d===TODAY_IDX){if(mk==='work'){delete S.mk[pid]}else S.mk[pid]=mk}
+      log('marker',`${p.n} · ${DAYS[d].d} ${DAYS[d].n}.09`,MK[old].l,MK[mk].l,'');
+      offlineMark();save();render();closeSheet();toast(`${p.n}: ${MK[mk].l}`,'check',true);break}
+    case 'login':{S.user=USERS.find(u=>u.id===el.dataset.u);S.view='overview';save();render();closeSheet();
+      toast('Вход: '+S.user.n+' · '+R().n,'person');break}
+    case 'undo':undo();break;
+    case 'close':closeSheet();break;
+    case 'hide-hint':try{localStorage.setItem('ric-hint','1')}catch(x){}render();break;
+  }
+});
+$('#ov').addEventListener('click',closeSheet);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sheetOpen)closeSheet()});
+/* drag & drop */
+let dragId=null;
+document.addEventListener('dragstart',e=>{const t=e.target.closest('[data-drag]');if(!t)return;
+  dragId=t.dataset.drag;t.classList.add('drag');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',dragId)});
+document.addEventListener('dragend',e=>{const t=e.target.closest('[data-drag]');if(t)t.classList.remove('drag');
+  $$('td.drop,td.drop-bad').forEach(x=>x.classList.remove('drop','drop-bad'));dragId=null});
+document.addEventListener('dragover',e=>{const c=e.target.closest('td[data-drop]');if(!c||!dragId)return;
+  e.preventDefault();const [mn,sh]=c.dataset.drop.split(':').map(Number);const v=validateAssign(dragId,mn,sh);
+  c.classList.toggle('drop',v.ok||v.warn);c.classList.toggle('drop-bad',!v.ok&&!v.warn)});
+document.addEventListener('dragleave',e=>{const c=e.target.closest('td[data-drop]');if(c)c.classList.remove('drop','drop-bad')});
+document.addEventListener('drop',e=>{const c=e.target.closest('td[data-drop]');if(!c||!dragId)return;
+  e.preventDefault();const [mn,sh]=c.dataset.drop.split(':').map(Number);
+  c.classList.remove('drop','drop-bad');actAssign(mn,sh,dragId)});
 
-state.mfilter='all';
-renderTabs();render();
+/* ==================== СТАРТ ==================== */
+load();
+try{const th=localStorage.getItem('ric-theme');if(th)document.documentElement.dataset.theme=th}catch(e){}
+S.view='overview';S.shift=1;S.q='';S.mfilter='all';S.mmf='all';S.tfilter='all';S.offline=false;S.queue=S.queue||[];
+render();
+setInterval(()=>{if(!sheetOpen&&S.view!=='people')renderTopbar()},60000);
 </script>
 </body>
 </html>
