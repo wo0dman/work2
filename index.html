@@ -37,7 +37,6 @@ button{font-family:inherit}
 ::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-thumb{background:var(--sep);border-radius:9px}
 
 #app{display:grid;grid-template-columns:250px minmax(0,1fr);height:100dvh}
-/* ===== SIDEBAR ===== */
 #sidebar{background:var(--side);border-right:.5px solid var(--sep);display:flex;flex-direction:column;padding:16px 12px;gap:14px;overflow:hidden}
 .brand{display:flex;align-items:center;gap:10px;padding:4px 6px 8px}
 .brand .lg{width:34px;height:34px;border-radius:10px;background:linear-gradient(140deg,#0A84FF,#5E5CE6);display:grid;place-items:center;color:#fff;flex-shrink:0}
@@ -61,7 +60,6 @@ button{font-family:inherit}
   box-shadow:0 1px 3px rgba(0,0,0,.25);transition:.26s cubic-bezier(.3,1.3,.4,1)}
 .tgl .sw.on{background:var(--green)}.tgl .sw.on::after{transform:translateX(16px)}
 
-/* ===== MAIN ===== */
 #main{display:flex;flex-direction:column;min-width:0;position:relative;background:var(--bg)}
 #topbar{position:relative;z-index:30;padding:14px 20px 11px;background:var(--hdr);
   -webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px);border-bottom:.5px solid var(--sep);flex-shrink:0}
@@ -76,6 +74,9 @@ button{font-family:inherit}
 .uchip .un{text-align:left;line-height:1.15}
 .uchip .un b{display:block;font-size:11.5px;font-weight:700;letter-spacing:-.02em}
 .uchip .un span{display:block;font-size:9.5px;color:var(--label2);font-weight:600}
+.dchip{display:flex;align-items:center;gap:7px;border:0;background:var(--card);border-radius:100px;padding:7px 13px;cursor:pointer;
+  box-shadow:var(--sh);font-size:12px;font-weight:700;color:var(--blue);letter-spacing:-.02em;transition:transform .18s}
+.dchip:active{transform:scale(.95)}
 .ibtn{width:32px;height:32px;border-radius:50%;border:0;background:var(--fill);color:var(--blue);display:grid;place-items:center;cursor:pointer;transition:transform .18s}
 .ibtn:active{transform:scale(.88)}
 .tb-act{display:flex;align-items:center;gap:8px;margin-top:11px;flex-wrap:wrap}
@@ -89,7 +90,6 @@ button{font-family:inherit}
 #view{padding:16px 20px 40px;max-width:1240px;margin:0 auto;animation:vin .34s cubic-bezier(.2,.85,.25,1)}
 @keyframes vin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-/* ===== TABBAR (mobile) ===== */
 #tabbar{display:none;position:relative;z-index:30;height:78px;padding-bottom:20px;flex-shrink:0;background:var(--tab);
   -webkit-backdrop-filter:saturate(180%) blur(24px);backdrop-filter:saturate(180%) blur(24px);border-top:.5px solid var(--sep)}
 .tb{flex:1;border:0;background:transparent;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -101,7 +101,6 @@ button{font-family:inherit}
 .tb .tbg{position:absolute;top:-3px;right:-8px;min-width:15px;height:15px;border-radius:100px;background:var(--red);color:#fff;
   font-size:9px;font-weight:800;display:grid;place-items:center;padding:0 4px;box-shadow:0 0 0 2px var(--tab)}
 
-/* ===== UI ATOMS ===== */
 .sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:22px 4px 8px}
 .sec-h span:first-child{font-size:12px;font-weight:700;color:var(--label2);text-transform:uppercase;letter-spacing:.04em}
 .sec-h span:last-child{font-size:12px;font-weight:500;color:var(--label3)}
@@ -176,10 +175,31 @@ button{font-family:inherit}
 .empty{text-align:center;padding:46px 26px;color:var(--label2)}
 .empty p{font-size:13.5px;font-weight:500;margin-top:12px}
 
-/* ===== DESKTOP GRID ===== */
+/* ===== КАЛЕНДАРЬ ===== */
+.cal{background:var(--card);border-radius:18px;padding:12px;box-shadow:var(--sh)}
+.cal-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.cal-hd b{font-size:14.5px;font-weight:800;letter-spacing:-.03em;text-transform:capitalize}
+.cal-hd .ibtn{width:28px;height:28px}
+.cal-wd{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:4px}
+.cal-wd span{text-align:center;font-size:9.5px;font-weight:800;color:var(--label3);text-transform:uppercase;letter-spacing:.04em}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cal-d{border:0;background:transparent;border-radius:11px;padding:5px 2px 4px;cursor:pointer;position:relative;
+  display:flex;flex-direction:column;align-items:center;gap:3px;transition:.16s}
+.cal-d:hover{background:var(--fill)}
+.cal-d b{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.cal-d.out{opacity:.28}
+.cal-d.sel{background:var(--label)}
+.cal-d.sel b{color:var(--bg)}
+.cal-bars{display:flex;gap:2px;width:20px}
+.cal-bars i{flex:1;height:3px;border-radius:100px;display:block}
+.cal-d.sel .cal-bars i{opacity:.85}
+.cal-dot{position:absolute;top:3px;right:4px;width:4px;height:4px;border-radius:50%;background:var(--orange)}
+.cal-d.wknd b{color:var(--red)}
+.cal-d.sel.wknd b{color:var(--bg)}
+
 .planwrap{display:flex;gap:16px;align-items:flex-start}
 .planmain{flex:1;min-width:0}
-.roster{width:216px;flex-shrink:0;background:var(--card);border-radius:16px;padding:12px;box-shadow:var(--sh);position:sticky;top:0}
+.roster{width:222px;flex-shrink:0;background:var(--card);border-radius:16px;padding:12px;box-shadow:var(--sh);position:sticky;top:0}
 .roster h5{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--label2);margin-bottom:9px}
 .rst{display:flex;align-items:center;gap:8px;padding:6px 7px;border-radius:10px;cursor:grab;font-size:12px;font-weight:600;
   transition:background .15s;margin-bottom:2px}
@@ -188,9 +208,10 @@ button{font-family:inherit}
 .rst .rav{width:24px;height:24px;border-radius:8px;display:grid;place-items:center;font-size:10px;font-weight:800;color:#fff;flex-shrink:0}
 .rst small{display:block;font-size:9.5px;color:var(--label2);font-weight:500}
 .rst.off{opacity:.42;cursor:not-allowed}
+.rbadge{font-size:9px;font-weight:800;padding:1px 5px;border-radius:5px;color:#fff;margin-left:auto;flex-shrink:0}
 .gcard{background:var(--card);border-radius:16px;box-shadow:var(--sh);overflow:hidden}
 .gscroll{overflow-x:auto}
-table.gt{border-collapse:collapse;width:100%;min-width:720px}
+table.gt{border-collapse:collapse;width:100%;min-width:740px}
 table.gt th{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.045em;color:var(--label2);text-align:left;
   padding:10px 12px;border-bottom:.5px solid var(--sep);background:var(--card2);white-space:nowrap;position:sticky;top:0;z-index:2}
 table.gt th.ed{color:var(--blue)}
@@ -206,7 +227,6 @@ td.drop{background:rgba(52,199,89,.16)!important;box-shadow:inset 0 0 0 2px var(
 td.drop-bad{background:rgba(255,59,48,.14)!important;box-shadow:inset 0 0 0 2px var(--red)}
 .mn{font-weight:800;font-size:12.5px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 
-/* ===== SHEET / MODAL ===== */
 #ov{position:fixed;inset:0;background:rgba(0,0,0,.42);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s;
   -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
 #ov.on{opacity:1;pointer-events:auto}
@@ -236,6 +256,7 @@ td.drop-bad{background:rgba(255,59,48,.14)!important;box-shadow:inset 0 0 0 2px 
   resize:vertical;min-height:78px;outline:0;box-shadow:var(--sh);line-height:1.5}
 .inp{width:100%;border:0;background:var(--card);border-radius:12px;padding:11px 13px;font-family:inherit;font-size:15px;
   color:var(--label);outline:0;box-shadow:var(--sh)}
+select.inp{appearance:none}
 .fl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--label2);margin:14px 2px 7px}
 .stepper{display:flex;align-items:center;gap:4px;background:var(--card);border-radius:12px;padding:5px;box-shadow:var(--sh)}
 .stepper button{width:36px;height:34px;border:0;border-radius:9px;background:var(--fill);color:var(--blue);font-size:18px;
@@ -243,7 +264,6 @@ td.drop-bad{background:rgba(255,59,48,.14)!important;box-shadow:inset 0 0 0 2px 
 .stepper input{flex:1;border:0;background:transparent;text-align:center;font-family:inherit;font-size:16px;font-weight:700;
   color:var(--label);outline:0;width:50px}
 
-/* task card */
 .tcard{background:var(--card);border-radius:17px;padding:14px;box-shadow:var(--sh);margin-bottom:10px;cursor:pointer;transition:transform .16s}
 .tcard:active{transform:scale(.985)}
 .tc-top{display:flex;gap:11px;align-items:flex-start}
@@ -256,7 +276,6 @@ td.drop-bad{background:rgba(255,59,48,.14)!important;box-shadow:inset 0 0 0 2px 
 .tprog .bar{flex:1}
 .tprog b{font-size:11.5px;font-weight:800;font-variant-numeric:tabular-nums;min-width:40px;text-align:right}
 
-/* audit */
 .aud{display:flex;gap:11px;padding:11px 14px;position:relative}
 .aud+.aud::before{content:'';position:absolute;top:0;left:47px;right:0;height:.5px;background:var(--sep)}
 .aud .aic{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;color:#fff}
@@ -267,27 +286,26 @@ td.drop-bad{background:rgba(255,59,48,.14)!important;box-shadow:inset 0 0 0 2px 
 .aud .new{color:var(--green);font-weight:700}
 .aud time{font-size:10px;color:var(--label3);font-weight:600;margin-left:auto;flex-shrink:0}
 
-/* schedule */
 .scard{background:var(--card);border-radius:17px;padding:13px 0;box-shadow:var(--sh);overflow:hidden}
 .sscroll{overflow-x:auto;scrollbar-width:none}.sscroll::-webkit-scrollbar{display:none}
-table.sch{border-collapse:separate;border-spacing:0 3px;min-width:340px;width:100%}
-table.sch .dh{font-size:10px;font-weight:700;color:var(--label2);text-align:center;padding-bottom:6px;line-height:1.3}
+table.sch{border-collapse:separate;border-spacing:0 3px;width:100%}
+table.sch .dh{font-size:9.5px;font-weight:700;color:var(--label2);text-align:center;padding-bottom:6px;line-height:1.3;min-width:34px}
 table.sch .dh b{display:block;font-size:11.5px;color:var(--label);font-variant-numeric:tabular-nums}
 table.sch .dh.td b,table.sch .dh.td{color:var(--blue)}
-table.sch .nm{position:sticky;left:0;background:var(--card);z-index:2;padding:0 8px 0 13px;width:104px;text-align:left}
+table.sch .nm{position:sticky;left:0;background:var(--card);z-index:2;padding:0 8px 0 13px;width:118px;text-align:left}
 table.sch .nm div{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-table.sch .nm small{font-size:9.5px;color:var(--label2);font-weight:500}
+table.sch .nm small{font-size:9.5px;color:var(--label2);font-weight:500;display:block}
 table.sch td.c{padding:0 2px}
-.sc{height:33px;border-radius:10px;display:grid;place-items:center;font-size:11.5px;font-weight:800;color:#fff;cursor:pointer;transition:transform .15s}
+.sc{height:33px;border-radius:10px;display:grid;place-items:center;font-size:10.5px;font-weight:800;color:#fff;cursor:pointer;
+  transition:transform .15s;letter-spacing:-.02em}
 .sc:active{transform:scale(.9)}
 .sc.tdw{box-shadow:0 0 0 2px var(--card),0 0 0 3.5px var(--blue)}
 .lgd{display:flex;flex-direction:column}
 .lgr{display:flex;align-items:center;gap:10px;padding:9px 14px;font-size:13px;position:relative}
 .lgr+.lgr::before{content:'';position:absolute;top:0;left:14px;right:0;height:.5px;background:var(--sep)}
 .lgr .sw-mk{width:16px;height:16px;border-radius:5px}
-.lgr b{font-weight:600}.lgr span{color:var(--label2);font-size:12px;margin-left:auto}
+.lgr b{font-weight:600}.lgr span{color:var(--label2);font-size:11.5px;margin-left:auto;text-align:right}
 
-/* toast */
 #toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,120px);background:var(--label);color:var(--bg);border-radius:15px;
   padding:12px 16px;display:flex;align-items:center;gap:11px;font-size:13px;font-weight:600;z-index:300;max-width:calc(100vw - 32px);
   box-shadow:0 16px 40px rgba(0,0,0,.35);transition:transform .4s cubic-bezier(.2,1.1,.3,1);letter-spacing:-.02em}
@@ -302,17 +320,19 @@ table.sch td.c{padding:0 2px}
 .hint b{font-weight:800}
 .hint .hx{margin-left:auto;background:var(--fill);border:0;border-radius:50%;width:24px;height:24px;cursor:pointer;color:var(--label2);
   display:grid;place-items:center;flex-shrink:0}
+.grb{font-size:10px;font-weight:800;padding:2.5px 7px;border-radius:6px;letter-spacing:-.01em;white-space:nowrap}
 
 @media(max-width:899px){
   #app{grid-template-columns:1fr}
   #sidebar{display:none}
   #tabbar{display:flex}
   #topbar{padding:12px 16px 10px}
-  #ttl{font-size:24px}
+  #ttl{font-size:23px}
   #view{padding:14px 16px 30px}
   .tiles{grid-template-columns:1fr 1fr}
   .uchip .un{display:none}
   .uchip{padding:4px}
+  .dchip span.dl{display:none}
   .tb-act{margin-top:10px}
   .planwrap{flex-direction:column}
   .roster{display:none}
@@ -340,6 +360,7 @@ table.sch td.c{padding:0 2px}
       <div class="tb-row">
         <div><h1 id="ttl">Обзор</h1><p id="sub"></p></div>
         <div class="tb-r">
+          <button class="dchip" data-act="date" id="dateChip"></button>
           <button class="uchip" data-act="go" data-v="profile" id="uchip"></button>
           <button class="ibtn" data-act="theme" id="themeBtn"></button>
         </div>
@@ -396,13 +417,64 @@ const I={
  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7.2V12l3.2 2"/>',
  pub:'<path d="M4.5 12.5 8 16l11.5-11.5"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/>',
  bell:'<path d="M18 8.5a6 6 0 1 0-12 0c0 6-2 7.5-2 7.5h16s-2-1.5-2-7.5Z"/><path d="M13.7 20a2 2 0 0 1-3.4 0"/>',
- logout:'<path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/><path d="M10 8 6 12l4 4M6 12h10"/>',
- doc:'<path d="M6 2.8h7.5L19 8.3V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.8a1 1 0 0 1 1-1Z"/><path d="M13 3v5.5h5.5"/>'
+ doc:'<path d="M6 2.8h7.5L19 8.3V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.8a1 1 0 0 1 1-1Z"/><path d="M13 3v5.5h5.5"/>',
+ night:'<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>'
 };
 const sv=(n,s=18,w=2)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${I[n]||''}</svg>`;
 const hexA=(h,a)=>{const n=parseInt(h.slice(1),16);return`rgba(${n>>16&255},${n>>8&255},${n&255},${a})`};
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ==================== КАЛЕНДАРЬ / СМЕНЫ ==================== */
+const SHIFT={1:{n:'Дневная',t:'08:00–20:00',c:'#0A84FF',i:'sun',s:'Д'},
+             2:{n:'Ночная',t:'20:00–08:00',c:'#5856D6',i:'night',s:'Н'}};
+const DOC_DATE='2026-09-25';
+const MONTHS=['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
+const WD=['вс','пн','вт','ср','чт','пт','сб'];
+function iso(d){const x=(d instanceof Date)?d:new Date(String(d).slice(0,10)+'T00:00:00');
+  return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0')}
+function addD(ds,n){const d=new Date(ds+'T00:00:00');d.setDate(d.getDate()+n);return iso(d)}
+function parts(ds){const[a,b,c]=ds.split('-').map(Number);return{y:a,m:b,d:c}}
+const EPOCH=Date.UTC(2026,8,1);
+function dayIdx(ds){const{y,m,d}=parts(ds);return Math.round((Date.UTC(y,m-1,d)-EPOCH)/86400000)}
+function wdOf(ds){return new Date(ds+'T00:00:00').getDay()}
+function fmtD(ds,f){const{y,m,d}=parts(ds);const dt=new Date(y,m-1,d);
+  if(f==='full')return dt.toLocaleDateString('ru-RU',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  if(f==='short')return dt.toLocaleDateString('ru-RU',{weekday:'short',day:'numeric',month:'short'});
+  return String(d).padStart(2,'0')+'.'+String(m).padStart(2,'0')+'.'+y}
+function weekStart(ds){const w=wdOf(ds);return addD(ds,-((w+6)%7))}
+
+/* типы графиков */
+const GR={
+ '5d':{n:'Пятидневный',s:'5-дневка',c:'#34C759',
+   d:'Пн–Пт — дневная смена 08:00–20:00, суббота и воскресенье — выходные.'},
+ '2x2':{n:'2 через 2',s:'2/2',c:'#0A84FF',
+   d:'Два рабочих дня, два выходных. Бригады чередуются: цикл в дневную смену, следующий цикл — в ночную.'},
+ 'dno':{n:'День — ночь — отсыпной — выходной',s:'Д-Н-О-В',c:'#AF52DE',
+   d:'Четырёхдневный цикл: дневная смена (08:00–20:00), ночная (20:00–08:00), отсыпной, выходной. Затем цикл повторяется.'}
+};
+/* коды табеля */
+const CD={
+ D:{l:'Дневная смена · 08:00–20:00',m:'Д',c:'#0A84FF',sh:1},
+ N:{l:'Ночная смена · 20:00–08:00',m:'Н',c:'#5856D6',sh:2},
+ OT:{l:'Отсыпной после ночной',m:'ОТ',c:'#30B0C7',sh:null},
+ V:{l:'Выходной',m:'В',c:'#8E8E93',sh:null},
+ vac:{l:'В отпуске',m:'ОТП',c:'#34C759',sh:null},
+ sick:{l:'На больничном',m:'Б',c:'#FF9500',sh:null},
+ extra:{l:'На подработке',m:'П',c:'#FF2D55',sh:null},
+ trainee:{l:'Стажёр',m:'СТ',c:'#FFCC00',sh:null,dark:1},
+ cross:{l:'Подработка с другой смены',m:'×',c:'#FF3B30',sh:null}
+};
+/* статусы-маркеры из исходного файла */
+const MK={
+ work:{l:'Работает по графику',c:'#5856D6',m:'Р'},
+ rest:{l:'День отдыха (вне графика)',c:'#8E8E93',m:'В'},
+ vac:{l:'В отпуске',c:'#34C759',m:'ОТП'},
+ sick:{l:'На больничном',c:'#FF9500',m:'Б'},
+ extra:{l:'На подработке',c:'#FF2D55',m:'П'},
+ trainee:{l:'Стажёр',c:'#FFCC00',m:'СТ'},
+ cross:{l:'Подработка с другой смены',c:'#FF3B30',m:'×'}
+};
 
 /* ==================== СПРАВОЧНИКИ ==================== */
 const ZONES={
@@ -417,24 +489,14 @@ const ZONES={
  tchpu:{n:'ТЧПУ',s:'ТЧПУ',i:'cpu',c:'#5E5CE6'},
  sklad:{n:'Склад металла · ЗУ',s:'Склад',i:'box',c:'#8E8E93'}
 };
-const MK={
- work:{l:'На смене',c:'#5856D6',m:'Р'},
- rest:{l:'День отдыха',c:'#0A84FF',m:'В'},
- vac:{l:'В отпуске',c:'#34C759',m:'О'},
- sick:{l:'На больничном',c:'#FF9500',m:'Б'},
- extra:{l:'На подработке',c:'#FF2D55',m:'П'},
- trainee:{l:'Стажёр',c:'#FFCC00',m:'С',dark:1},
- cross:{l:'Подработка с другой смены',c:'#FF3B30',m:'×'}
-};
-const HR_MARKERS=['vac','sick'];
 const MACHINES=[
  {n:225,z:'termo',st:'run',j:'Термообработка, партия РИЦ-225'},{n:251,z:'termo',st:'run',j:'Закалка ТВЧ, втулки'},
  {n:229,z:'termo',st:'wait',j:'Ожидает загрузку партии'},{n:201,z:'termo',st:'maint',j:'Плановое ТО печи'},
  {n:246,z:'ero',st:'run',j:'Прошивка матриц РИЦ-18'},{n:233,z:'ero',st:'run',j:'Вырезка пуансонов'},
  {n:241,z:'ero',st:'idle',j:'Резерв'},
- {n:205,z:'si',st:'wait',j:'Нет оператора'},{n:204,z:'si',st:'idle',j:'Свободен'},{n:203,z:'si',st:'run',j:'Слесарная доводка'},
+ {n:205,z:'si',st:'wait',j:'Слесарные работы'},{n:204,z:'si',st:'idle',j:'Свободен'},{n:203,z:'si',st:'run',j:'Слесарная доводка'},
  {n:227,z:'si',st:'run',j:'Сборка пакета РИЦ-14'},
- {n:247,z:'sishlif',st:'wait',j:'Оператор на больничном'},{n:234,z:'sishlif',st:'wait',j:'Оператор на больничном'},
+ {n:247,z:'sishlif',st:'wait',j:'Оператор на больничном'},{n:234,z:'sishlif',st:'wait',j:'Круглошлифовальная'},
  {n:210,z:'sishlif',st:'run',j:'Шлифовка пуансонов'},{n:236,z:'sishlif',st:'run',j:'Круглая шлифовка валов'},
  {n:228,z:'tu',st:'run',j:'Заточка инструмента'},{n:245,z:'tu',st:'run',j:'Заточка пуансонов'},
  {n:202,z:'otk',st:'run',j:'Контрольный пост'},
@@ -444,42 +506,33 @@ const MACHINES=[
  {n:137,z:'tchpu',st:'run',j:'Вал РИЦ-19, черновая'},{n:138,z:'tchpu',st:'run',j:'Вал-шестерня'},{n:139,z:'tchpu',st:'run',j:'Втулка Д-40'}
 ];
 const MST={run:{l:'В работе',c:'#34C759'},wait:{l:'Ожидает',c:'#FF9500'},maint:{l:'ТО / ремонт',c:'#8E8E93'},idle:{l:'Свободен',c:'#0A84FF'}};
+
+/* работники: должность, разряд, табельный №, тип графика, сдвиг цикла */
 const PEOPLE=[
- {id:'p1',n:'Арифулов',r:'Термист',z:'termo',sh:1,mk:null,post:null},
- {id:'p2',n:'Прямов',r:'Термист',z:'termo',sh:2,mk:null,post:null},
- {id:'p3',n:'Багаутдинов',r:'Слесарь',z:'si',sh:1,mk:'rest',post:null},
- {id:'p4',n:'Герчи',r:'Шлифовщик',z:'sishlif',sh:2,mk:'sick',post:null},
- {id:'p5',n:'Сапогов',r:'Шлифовщик',z:'sishlif',sh:1,mk:null,post:null},
- {id:'p6',n:'Уфимцев',r:'Заточник',z:'tu',sh:1,mk:'extra',post:null},
- {id:'p7',n:'Широбоков',r:'Оператор ТЧПУ',z:'tchpu',sh:2,mk:'cross',post:null,
-   note:'Оставил мастер смены 1 для своих задач на ст. 137'},
- {id:'p8',n:'Свинин',r:'Контролёр ОТК',z:'otk',sh:1,mk:null,post:null},
- {id:'p9',n:'Пережогина',r:'Кладовщик',z:'sklad',sh:1,mk:'vac',post:'Склад металла'},
- {id:'p10',n:'Бабкин',r:'Оператор ЗУ / ТЧПУ',z:'tchpu',sh:2,mk:null,post:'ЗУ'},
- {id:'p11',n:'Сопельцев',r:'Оператор ФЧПУ',z:'fchpu',sh:1,mk:null,post:null},
- {id:'p12',n:'Жалилов',r:'Оператор ФЧПУ · стажёр',z:'fchpu',sh:2,mk:'trainee',post:null,mentor:'p11'}
+ {id:'p1',n:'Арифулов',r:'Термист',rz:'5 разряд',tab:'1042',z:'termo',gr:'dno',off:0},
+ {id:'p2',n:'Прямов',r:'Термист',rz:'5 разряд',tab:'1043',z:'termo',gr:'dno',off:1},
+ {id:'p3',n:'Багаутдинов',r:'Слесарь-инструментальщик',rz:'5 разряд',tab:'1051',z:'si',gr:'5d',off:0},
+ {id:'p4',n:'Герчи',r:'Шлифовщик',rz:'4 разряд',tab:'1063',z:'sishlif',gr:'2x2',off:5},
+ {id:'p5',n:'Сапогов',r:'Шлифовщик',rz:'5 разряд',tab:'1064',z:'sishlif',gr:'2x2',off:0},
+ {id:'p6',n:'Уфимцев',r:'Заточник',rz:'4 разряд',tab:'1070',z:'tu',gr:'dno',off:0},
+ {id:'p7',n:'Широбоков',r:'Оператор станков с ЧПУ',rz:'5 разряд',tab:'1081',z:'tchpu',gr:'dno',off:1},
+ {id:'p8',n:'Свинин',r:'Контролёр ОТК',rz:'5 разряд',tab:'1090',z:'otk',gr:'2x2',off:0},
+ {id:'p9',n:'Пережогина',r:'Кладовщик',rz:'4 разряд',tab:'1102',z:'sklad',gr:'5d',off:0,post:'Склад металла'},
+ {id:'p10',n:'Бабкин',r:'Оператор ЗУ / станков с ЧПУ',rz:'4 разряд',tab:'1088',z:'tchpu',gr:'dno',off:1,post:'ЗУ'},
+ {id:'p11',n:'Сопельцев',r:'Оператор станков с ЧПУ (ФЧПУ)',rz:'6 разряд',tab:'1075',z:'fchpu',gr:'2x2',off:0},
+ {id:'p12',n:'Жалилов',r:'Оператор станков с ЧПУ · стажёр',rz:'3 разряд',tab:'1099',z:'fchpu',gr:'2x2',off:0,mentor:'p11'}
 ];
-const BASE_SCHED={
- p1:['work','work','work','work','work','rest','rest'],p2:['work','rest','work','rest','work','rest','work'],
- p3:['work','work','rest','rest','rest','work','work'],p4:['work','work','sick','sick','sick','sick','sick'],
- p5:['work','work','work','work','work','rest','rest'],p6:['work','work','work','work','extra','extra','rest'],
- p7:['work','work','work','work','cross','work','rest'],p8:['work','work','work','work','work','work','rest'],
- p9:['vac','vac','vac','vac','vac','vac','vac'],p10:['rest','work','work','work','work','rest','rest'],
- p11:['work','work','rest','rest','work','work','work'],p12:['trainee','trainee','trainee','trainee','trainee','rest','rest']
-};
-const DAYS=[{d:'Пн',n:21},{d:'Вт',n:22},{d:'Ср',n:23},{d:'Чт',n:24},{d:'Пт',n:25},{d:'Сб',n:26},{d:'Вс',n:27}];
-const TODAY_IDX=4;
 
 /* ==================== РОЛИ / ПРАВА ==================== */
 const ROLES={
  nu:{ab:'НАЧ',n:'Начальник участка РИЦ',c:'#5856D6',
      d:'Владелец документа. Расстановка в обеих сменах, публикация версии, разбор конфликтов.',
      perms:{plan:5,people:4,machine:4,marker:4,cross:4,task:4,fact:4,accept:3,request:5,audit:1,roles:2},scope:{shifts:[1,2],zones:'all'}},
- ms:{ab:'МАСТ',n:'Мастер смены',c:'#0A84FF',
-     d:'Ведёт свою смену: перестановка людей, маркеры, передача работника другой смене с комментарием.',
+ ms:{ab:'МАСТ',n:'Мастер дневной смены',c:'#0A84FF',
+     d:'Ведёт смену 08:00–20:00: перестановка людей, маркеры, передача работника ночной смене с комментарием.',
      perms:{plan:3,people:1,machine:2,marker:3,cross:3,task:3,fact:3,accept:1,request:3,audit:1,roles:0},scope:{shifts:[1],zones:'all'}},
- ms2:{ab:'МС2',n:'Мастер смены 2',c:'#0A84FF',
-     d:'То же, что мастер смены, но в области смены 2 (15:30–00:00).',
+ ms2:{ab:'МС2',n:'Мастер ночной смены',c:'#5856D6',
+     d:'Ведёт смену 20:00–08:00: те же права, но в области ночной смены.',
      perms:{plan:3,people:1,machine:2,marker:3,cross:3,task:3,fact:3,accept:1,request:3,audit:1,roles:0},scope:{shifts:[2],zones:'all'}},
  pd:{ab:'ПДО',n:'Диспетчер ПДО',c:'#FF9500',
      d:'Сменные задания, сроки, приоритеты. Расстановку людей только просматривает.',
@@ -518,12 +571,10 @@ function inScope(ctx){
   if(ctx.self&&ctx.self!==(S.user.personId||ROLES[S.user.role].personId))return false;
   return true;
 }
-function lvl(action){return ROLES[S.user.role].perms[action.split('.')[0]]||0}
+function lvl(a){return ROLES[S.user.role].perms[a.split('.')[0]]||0}
 function can(action,ctx){
   const need=NEED[action]??9,have=lvl(action);
   if(have<need)return false;
-  if(have>=3&&have<=3&&!inScope(ctx))return false;
-  if(have===3&&!inScope(ctx))return false;
   if(ctx&&!inScope(ctx)&&have<4)return false;
   return true;
 }
@@ -532,161 +583,213 @@ const isDesktop=()=>window.matchMedia('(min-width:900px)').matches;
 
 /* ==================== СОСТОЯНИЕ ==================== */
 const SEED={
- asg:{225:{1:'p1',2:'p2'},251:{1:'p1',2:'p2'},229:{1:'p1',2:null},201:{1:null,2:'p2'},
-  246:{1:'p1',2:null},233:{1:'p1',2:null},241:{1:null,2:null},
-  205:{1:'p3',2:null},204:{1:'p3',2:null},203:{1:'p3',2:null},227:{1:'p3',2:null},
-  247:{1:null,2:'p4'},234:{1:null,2:'p4'},210:{1:'p5',2:null},236:{1:'p5',2:null},
+ asg:{
+  225:{1:'p1',2:'p2'},251:{1:'p1',2:'p2'},229:{1:'p1',2:null},201:{1:null,2:null},
+  246:{1:'p1',2:null},233:{1:null,2:null},241:{1:null,2:null},
+  205:{1:'p3',2:null},204:{1:'p3',2:null},203:{1:'p3',2:null},227:{1:null,2:null},
+  247:{1:null,2:null},234:{1:null,2:null},210:{1:'p5',2:null},236:{1:'p5',2:null},
   228:{1:'p6',2:null},245:{1:null,2:'p7'},202:{1:'p8',2:null},
-  207:{1:'p11',2:null},224:{1:'p11',2:null},206:{1:null,2:'p12'},226:{1:null,2:'p12'},
-  135:{1:null,2:null},136:{1:null,2:null},137:{1:null,2:'p7'},138:{1:null,2:'p10'},139:{1:null,2:'p10'}},
- mk:{p3:'rest',p4:'sick',p6:'extra',p7:'cross',p9:'vac',p12:'trainee'},
- mkn:{p7:'Оставил мастер смены 1 для своих задач на ст. 137'},
+  207:{1:'p11',2:null},224:{1:'p11',2:null},206:{1:'p12',2:null},226:{1:null,2:null},
+  135:{1:null,2:'p10'},136:{1:null,2:null},137:{1:null,2:'p7'},138:{1:null,2:'p10'},139:{1:null,2:'p10'}},
+ mk:{p4:'sick',p6:'extra',p7:'cross',p9:'vac',p12:'trainee'},
+ mkn:{p7:'Оставил мастер дневной смены для своих задач на ст. 137'},
  tasks:[
-  {id:'T-2041',t:'Термообработка партии валов',z:'termo',m:225,w:'p1',q:40,d:26,due:'15:30',p:'high',s:'run'},
-  {id:'T-2043',t:'Корпус РИЦ-14 · фрезерная',z:'fchpu',m:207,w:'p11',q:8,d:7,due:'18:40',p:'high',s:'run'},
+  {id:'T-2041',t:'Термообработка партии валов',z:'termo',m:225,w:'p1',q:40,d:26,due:'18:00',p:'high',s:'run'},
+  {id:'T-2043',t:'Корпус РИЦ-14 · фрезерная',z:'fchpu',m:207,w:'p11',q:8,d:7,due:'19:40',p:'high',s:'run'},
   {id:'T-2047',t:'Контроль партии РИЦ-225',z:'otk',m:202,w:'p8',q:40,d:0,due:'19:30',p:'high',s:'wait'},
   {id:'T-2046',t:'Шлифовка пуансонов',z:'sishlif',m:210,w:'p5',q:30,d:28,due:'17:05',p:'mid',s:'run'},
-  {id:'T-2045',t:'Вал-шестерня · токарная',z:'tchpu',m:138,w:'p10',q:25,d:11,due:'21:15',p:'mid',s:'run'},
+  {id:'T-2045',t:'Вал-шестерня · токарная',z:'tchpu',m:138,w:'p10',q:25,d:11,due:'05:15',p:'mid',s:'run'},
   {id:'T-2042',t:'Прошивка матриц РИЦ-18',z:'ero',m:246,w:'p1',q:12,d:4,due:'22:00',p:'mid',s:'run'},
-  {id:'T-2049',t:'Выдача заготовок на ЗУ',z:'sklad',m:null,w:'p10',q:18,d:9,due:'20:00',p:'mid',s:'run'},
-  {id:'T-2044',t:'Плита опорная · обучение стажёра',z:'fchpu',m:206,w:'p12',q:4,d:1,due:'23:00',p:'low',s:'run'},
+  {id:'T-2049',t:'Выдача заготовок на ЗУ',z:'sklad',m:null,w:'p10',q:18,d:9,due:'04:00',p:'mid',s:'run'},
+  {id:'T-2044',t:'Плита опорная · обучение стажёра',z:'fchpu',m:206,w:'p12',q:4,d:1,due:'19:00',p:'low',s:'run'},
   {id:'T-2051',t:'Слесарная доводка пуансонов',z:'si',m:203,w:'p3',q:10,d:0,due:'—',p:'mid',s:'pause'},
   {id:'T-2050',t:'Заточка инструмента · ТУ',z:'tu',m:228,w:'p6',q:15,d:15,due:'13:20',p:'low',s:'done'},
   {id:'T-2048',t:'Маркировка партии РИЦ-19',z:'mark',m:null,w:'p1',q:60,d:60,due:'14:10',p:'low',s:'done'}],
- reqs:[{id:'R-01',by:'p12',type:'Ошибка в расстановке',txt:'Стою на 206, фактически работаю на 226',state:'new',ts:Date.now()-3600e3*5}],
+ reqs:[{id:'R-01',by:'p12',author:'Жалилов',type:'Ошибка в расстановке',txt:'Стою на 206, фактически работаю на 226',state:'new',ts:Date.now()-3600e3*5}],
  audit:[
-  {id:1,ts:Date.now()-3600e3*7,who:'Тихонова М.А.',role:'hr',act:'marker',obj:'Герчи',old:'На смене',nw:'На больничном',c:'Листок нетрудоспособности с 25.09'},
-  {id:2,ts:Date.now()-3600e3*6,who:'Гаврилов П.С.',role:'ms',act:'cross',obj:'Широбоков → смена 1',old:'—',nw:'Подработка с др. смены',c:'Оставил мастер смены 1 для своих задач на ст. 137'},
-  {id:3,ts:Date.now()-3600e3*2,who:'Носова Е.В.',role:'pd',act:'task.create',obj:'T-2047',old:'—',nw:'Контроль партии РИЦ-225 · 40 шт.',c:''}
- ],
- queue:[],ovr:{},
- ver:{date:'25.09.2026',status:'draft',rev:4,published:null},
- nextTask:2052,nextReq:2,nextAud:4
+  {id:1,ts:Date.now()-3600e3*7,who:'Тихонова М.А.',role:'hr',act:'marker',obj:'Герчи',old:'Работает по графику',nw:'На больничном',c:'Листок нетрудоспособности с 25.09'},
+  {id:2,ts:Date.now()-3600e3*6,who:'Гаврилов П.С.',role:'ms',act:'cross',obj:'Широбоков → ночная смена',old:'—',nw:'Подработка с др. смены',c:'Оставил мастер дневной смены для своих задач на ст. 137'},
+  {id:3,ts:Date.now()-3600e3*2,who:'Носова Е.В.',role:'pd',act:'task.create',obj:'T-2047',old:'—',nw:'Контроль партии РИЦ-225 · 40 шт.',c:''}],
+ queue:[],ovr:{},asgBy:{},vers:{},nextTask:2052,nextReq:2,nextAud:4
 };
 let S,UNDO=null;
-const KEY='ric-plan-v1';
+const KEY='ric-plan-v2';
 function load(){
-  try{const r=localStorage.getItem(KEY);if(r){const p=JSON.parse(r);S=Object.assign(JSON.parse(JSON.stringify(SEED)),p);S.user=USERS.find(u=>u.id===(p.userId||'u1'))||USERS[0];return}}catch(e){}
+  try{const r=localStorage.getItem(KEY);if(r){const p=JSON.parse(r);
+    S=Object.assign(JSON.parse(JSON.stringify(SEED)),p);S.user=USERS.find(u=>u.id===(p.userId||'u1'))||USERS[0];
+    S.asgBy=S.asgBy||{};S.vers=S.vers||{};S.ovr=S.ovr||{};S.queue=S.queue||[];return}}catch(e){}
   S=JSON.parse(JSON.stringify(SEED));S.user=USERS[0];
 }
 function save(){try{localStorage.setItem(KEY,JSON.stringify({...S,userId:S.user.id,user:undefined}))}catch(e){}}
 const P=id=>PEOPLE.find(p=>p.id===id);
 const M=n=>MACHINES.find(m=>m.n===n);
 const marker=id=>S.mk[id]||null;
-const mkL=id=>MK[marker(id)||'work'].l;
-function assignedTo(pid,shift){return MACHINES.filter(m=>S.asg[m.n]&&S.asg[m.n][shift]===pid).map(m=>m.n)}
+function ver(){if(!S.vers[S.date])S.vers[S.date]={status:'draft',rev:1,published:null};return S.vers[S.date]}
+function A(ds){
+  const d=ds||S.date;
+  if(!S.asgBy[d]){
+    const b={};MACHINES.forEach(m=>b[m.n]={1:null,2:null});
+    if(d===DOC_DATE){Object.keys(S.asg).forEach(k=>b[k]={1:S.asg[k][1],2:S.asg[k][2]})}
+    else{Object.keys(S.asg).forEach(k=>[1,2].forEach(sh=>{const pid=S.asg[k][sh];
+      if(pid&&dayShift(P(pid),d)===sh&&!isAbsent(P(pid),d))b[k][sh]=pid}))}
+    S.asgBy[d]=b;
+  }
+  return S.asgBy[d];
+}
+function assignedTo(pid,shift,ds){const a=A(ds);return MACHINES.filter(m=>a[m.n]&&a[m.n][shift]===pid).map(m=>m.n)}
+function allAssigned(pid,ds){const a=A(ds);return MACHINES.filter(m=>a[m.n]&&(a[m.n][1]===pid||a[m.n][2]===pid))
+  .map(m=>({n:m.n,sh:a[m.n][1]===pid?1:2}))}
+
+/* ---- расчёт графика по календарю ---- */
+function schedInfo(p,ds){
+  if(p.gr==='5d'){const w=wdOf(ds);return (w>=1&&w<=5)?{code:'D',shift:1}:{code:'V',shift:null}}
+  const k=dayIdx(ds)+(p.off||0);
+  if(p.gr==='2x2'){const cyc=Math.floor(k/4),pos=((k%4)+4)%4;
+    if(pos<2){const sh=(((cyc%2)+2)%2===0)?1:2;return{code:sh===1?'D':'N',shift:sh}}
+    return{code:'V',shift:null}}
+  const pos=((k%4)+4)%4;
+  return [{code:'D',shift:1},{code:'N',shift:2},{code:'OT',shift:null},{code:'V',shift:null}][pos];
+}
+function dayCode(p,ds){
+  const ov=S.ovr[p.id+'_'+ds];if(ov)return ov;
+  const mk=marker(p.id);
+  if(mk==='vac')return 'vac';
+  if(mk==='sick')return 'sick';
+  if(mk==='rest')return 'V';
+  return schedInfo(p,ds).code;
+}
+function dayShift(p,ds){return CD[dayCode(p,ds)].sh}
+function isAbsent(p,ds){return ['vac','sick','OT','V'].includes(dayCode(p,ds))}
+function worksShift(p,ds,sh){return dayShift(p,ds)===sh}
+function brigade(pid,ds){return PEOPLE.filter(p=>dayShift(p,ds)===dayShift(P(pid),ds)&&p.z===P(pid).z&&p.id!==pid)}
 
 /* ==================== ЖУРНАЛ / МУТАЦИИ ==================== */
 function log(act,obj,old,nw,c=''){
-  S.audit.unshift({id:S.nextAud++,ts:Date.now(),who:S.user.n,role:S.user.role,act,obj,old:nw===old?'':old,nw,c});
-  if(S.audit.length>220)S.audit.length=220;
+  S.audit.unshift({id:S.nextAud++,ts:Date.now(),who:S.user.n,role:S.user.role,act,obj,old:nw===old?'':old,nw,c,date:S.date});
+  if(S.audit.length>260)S.audit.length=260;
 }
-function snapshot(){UNDO=JSON.stringify({asg:S.asg,mk:S.mk,mkn:S.mkn,tasks:S.tasks,reqs:S.reqs,ovr:S.ovr,ver:S.ver,nextTask:S.nextTask,nextReq:S.nextReq,nextAud:S.nextAud,audit:S.audit})}
-function undo(){if(!UNDO)return;const u=JSON.parse(UNDO);Object.assign(S,u);UNDO=null;save();render();toast('Изменение отменено','check')}
+function snapshot(){UNDO=JSON.stringify({asgBy:S.asgBy,mk:S.mk,mkn:S.mkn,tasks:S.tasks,reqs:S.reqs,ovr:S.ovr,vers:S.vers,
+  nextTask:S.nextTask,nextReq:S.nextReq,nextAud:S.nextAud,audit:S.audit})}
+function undo(){if(!UNDO)return;Object.assign(S,JSON.parse(UNDO));UNDO=null;save();render();toast('Изменение отменено','check')}
 let TOAST_T;
-function toast(msg,ic='check',undoable=false){
+function toast(msg,ic='check',u=false){
   const t=$('#toast');
-  t.innerHTML=`<span class="ti">${sv(ic,17,2.3)}</span><span>${esc(msg)}</span>${undoable?'<b data-act="undo">Отменить</b>':''}`;
-  t.classList.add('on');clearTimeout(TOAST_T);TOAST_T=setTimeout(()=>t.classList.remove('on'),undoable?5200:2800);
+  t.innerHTML=`<span class="ti">${sv(ic,17,2.3)}</span><span>${esc(msg)}</span>${u?'<b data-act="undo">Отменить</b>':''}`;
+  t.classList.add('on');clearTimeout(TOAST_T);TOAST_T=setTimeout(()=>t.classList.remove('on'),u?5200:2800);
 }
-function offlineMark(){if(S.offline){S.queue.push({ts:Date.now(),who:S.user.n});}}
+function offlineMark(){if(S.offline)S.queue.push({ts:Date.now(),who:S.user.n})}
 function guarded(action,ctx,fn){
-  if(!can(action,ctx)){return deny(action,ctx)}
-  if(S.ver.status==='published'){return askReason(()=>fn(true))}
-  fn(false);
+  if(!can(action,ctx))return deny(action,ctx);
+  if(ver().status==='published')return askReason(fn);
+  fn('');
 }
 function deny(action,ctx){
   const w=WHO[action]||'пользователь с соответствующими правами';
   openSheet({t:'Недостаточно прав',s:`Роль: ${R().n}`,body:`
     <div class="note" style="background:${hexA('#FF9500',.11)}">
       <span class="ic" style="color:var(--orange)">${sv('lock',18,2.2)}</span>
-      <p>Действие <b>«${actName(action)}»</b> недоступно для вашей роли${ctx&&ctx.shift?` в смене ${ctx.shift}`:''}.<br>
+      <p>Действие <b>«${actName(action)}»</b> недоступно для вашей роли${ctx&&ctx.shift?` в ${SHIFT[ctx.shift].n.toLowerCase()} смене`:''}.<br>
       Изменения вносит: <b>${w}</b>.</p></div>
     <div class="fl">Что можно сделать</div>
-    <div class="opt" data-act="req-new" data-pre="${esc(typeof ctx==='object'&&ctx?JSON.stringify(ctx):'')}">
+    <div class="opt" data-act="req-new">
       <span class="sw-mk" style="background:${hexA('#FF9500',.16)};display:grid;place-items:center;color:var(--orange)">${sv('bell',13,2.3)}</span>
       <span class="ot"><b>Запросить правку</b><small>Заявка уйдёт мастеру смены с уведомлением</small></span>${sv('chev',15,2.4)}</div>
     <div class="opt" data-act="go" data-v="log"><span class="sw-mk" style="background:var(--fill);display:grid;place-items:center;color:var(--label2)">${sv('hist',13,2.3)}</span>
       <span class="ot"><b>Открыть журнал</b><small>Кто и когда менял расстановку</small></span>${sv('chev',15,2.4)}</div>`,
     foot:`<button class="btn gray" data-act="close">Понятно</button>`});
 }
-const actName=a=>({'plan.write':'изменение расстановки','plan.publish':'публикация версии','marker.write':'изменение статуса','marker.hr':'изменение статуса отсутствия','cross.write':'передача в другую смену','task.write':'изменение задания','task.fact':'отметка выполнения','task.accept':'приёмка ОТК','machine.write':'изменение оборудования','people.write':'изменение справочника','request.approve':'решение по заявке'})[a]||a;
+const actName=a=>({'plan.write':'изменение расстановки','plan.publish':'публикация версии','marker.write':'изменение статуса',
+ 'marker.hr':'изменение статуса отсутствия','cross.write':'передача в другую смену','task.write':'изменение задания',
+ 'task.fact':'отметка выполнения','task.accept':'приёмка ОТК','machine.write':'изменение оборудования',
+ 'people.write':'изменение справочника','request.approve':'решение по заявке'})[a]||a;
 
-/* ---- валидации ---- */
-function validateAssign(pid,mn,shift){
-  const p=P(pid),m=M(mn);
+/* ---- валидации с учётом календаря ---- */
+function validateAssign(pid,mn,shift,ds){
+  ds=ds||S.date;const p=P(pid),m=M(mn);
   if(!p||!m)return{ok:false,why:'Некорректные данные'};
-  const mk=marker(pid);
-  if(mk==='vac')return{ok:false,why:'Работник в отпуске — назначение невозможно. Измените статус в ОК.',hard:1};
-  if(mk==='sick')return{ok:false,why:'Работник на больничном — назначение невозможно.',hard:1};
-  if(mk==='rest')return{ok:false,why:'У работника день отдыха по графику. Требуется согласование начальника участка.',hard:1};
+  const mk=marker(pid),code=dayCode(p,ds),ci=CD[code];
+  if(code==='vac')return{ok:false,why:`${p.n} в отпуске — назначение невозможно.`,hard:1};
+  if(code==='sick')return{ok:false,why:`${p.n} на больничном — назначение невозможно.`,hard:1};
+  if(code==='V')return{ok:false,why:`${p.n}: по графику «${GR[p.gr].s}» ${fmtD(ds)} — выходной.`,hard:1};
+  if(code==='OT')return{ok:false,why:`${p.n}: ${fmtD(ds)} — отсыпной после ночной смены.`,hard:1};
+  if(ci.sh&&ci.sh!==shift)return{ok:false,why:`${p.n} по графику ${fmtD(ds)} работает в ${SHIFT[ci.sh].n.toLowerCase()} смене (${SHIFT[ci.sh].t}), а не в смене ${shift}.`,hard:1};
   if(m.st==='maint')return{ok:false,why:`Станок ${mn} в состоянии «ТО / ремонт» — задания не назначаются.`,hard:1};
-  if(p.sh!==shift&&mk!=='cross')return{ok:false,why:`${p.n} числится в смене ${p.sh}. Для работы в смене ${shift} оформите передачу (красный маркер).`,hard:1};
-  const busy=assignedTo(pid,shift).filter(x=>x!==mn);
+  const busy=assignedTo(pid,shift,ds).filter(x=>x!==mn);
   if(busy.length>=2)return{ok:false,why:`У ${p.n} уже ${busy.length} станка в этой смене (ст. ${busy.join(', ')}). Превышение нормы обслуживания.`,hard:1};
+  if(mk==='cross')return{ok:true,warn:1,why:`${p.n} — подработка с другой смены. Убедитесь, что передача согласована.`};
   if(mk==='trainee'){
-    const mentor=p.mentor&&P(p.mentor);
-    const mentorHere=mentor&&assignedTo(mentor.id,shift).length>0;
-    if(!mentorHere)return{ok:false,warn:1,why:`Стажёр ${p.n} назначается без наставника в смене. Наставник: ${mentor?mentor.n:'не указан'}.`};
+    const mn2=p.mentor&&P(p.mentor);
+    const ok=mn2&&dayShift(mn2,ds)===shift&&assignedTo(mn2.id,shift,ds).length>0;
+    if(!ok)return{ok:false,warn:1,why:`Стажёр ${p.n} назначается без наставника в смене. Наставник: ${mn2?mn2.n+' ('+(mn2?fmtD(ds)+' — '+CD[dayCode(mn2,ds)].l:'')+')':'не указан'}.`};
   }
   return{ok:true};
 }
-
 /* ---- действия ---- */
 function actAssign(mn,shift,pid){
   const m=M(mn),ctx={shift,zone:m.z};
   guarded('plan.write',ctx,rep=>{
     const v=validateAssign(pid,mn,shift);
-    if(!v.ok&&!v.warn){return toast(v.why,'alert')}
-    if(!v.ok&&v.warn&&!rep){return askConfirm('Назначение с предупреждением',v.why,()=>actAssign(mn,shift,pid))}
+    if(!v.ok&&!v.warn)return toast(v.why,'alert');
+    if(!v.ok&&v.warn)return askConfirm('Назначение с предупреждением',v.why,()=>actAssign(mn,shift,pid));
     snapshot();
-    const old=S.asg[mn][shift]?P(S.asg[mn][shift]).n:'—';
-    S.asg[mn][shift]=pid;
+    const a=A(),old=a[mn][shift]?P(a[mn][shift]).n:'—';
+    a[mn][shift]=pid;
     if(m.st==='wait'||m.st==='idle')m.st='run';
-    log('assign',`ст. ${mn} · ${ZONES[m.z].s} · смена ${shift}`,old,P(pid).n,rep?'Правка опубликованной версии: '+rep:'');
+    log('assign',`${fmtD(S.date)} · ст. ${mn} · ${ZONES[m.z].s} · ${SHIFT[shift].n.toLowerCase()}`,old,P(pid).n,rep?'Правка опубликованной версии: '+rep:'');
     offlineMark();save();render();closeSheet();
-    toast(`${P(pid).n} → ст. ${mn}, смена ${shift}`,'check',true);
-    if(v.warn)toast(v.why,'alert');
+    toast(`${P(pid).n} → ст. ${mn}, ${SHIFT[shift].n.toLowerCase()} ${fmtD(S.date,'short')}`,'check',true);
+    if(v.warn)setTimeout(()=>toast(v.why,'alert'),1400);
   });
 }
 function actUnassign(mn,shift){
   const m=M(mn);
   guarded('plan.write',{shift,zone:m.z},rep=>{
-    if(!S.asg[mn][shift])return closeSheet();
-    snapshot();const old=P(S.asg[mn][shift]).n;S.asg[mn][shift]=null;m.st='wait';
-    log('unassign',`ст. ${mn} · смена ${shift}`,old,'—',rep?'Правка опубликованной версии: '+rep:'');
+    const a=A();if(!a[mn][shift])return closeSheet();
+    snapshot();const old=P(a[mn][shift]).n;a[mn][shift]=null;m.st='wait';
+    log('unassign',`${fmtD(S.date)} · ст. ${mn} · смена ${shift}`,old,'—',rep?'Правка опубликованной версии: '+rep:'');
     offlineMark();save();render();closeSheet();toast(`ст. ${mn}: исполнитель снят`,'check',true);
   });
 }
 function actMarker(pid,mk,comment){
-  const p=P(pid),ctx={shift:p.sh,zone:p.z};
+  const p=P(pid),sh=dayShift(pid,S.date)||1;
   const action=HR_MARKERS.includes(mk)?'marker.hr':'marker.write';
-  guarded(action,ctx,rep=>{
+  guarded(action,{shift:sh,zone:p.z},rep=>{
     if(mk==='cross'&&!comment)return toast('Для красного маркера обязателен комментарий','alert');
     snapshot();
     const old=MK[marker(pid)||'work'].l;
-    if(mk==='work'||mk===null){delete S.mk[pid];delete S.mkn[pid]}else{S.mk[pid]=mk;if(comment)S.mkn[pid]=comment}
-    if(mk==='cross'&&p.sh===1){/* передача в смену 2 фиксируется */}
-    log(mk==='cross'?'cross':'marker',`${p.n} · ${ZONES[p.z].s}`,old,MK[mk||'work'].l,comment||(rep?'Правка опубликованной версии: '+rep:''));
+    if(mk==='rest'){S.ovr[p.id+'_'+S.date]='V';delete S.mk[pid]}
+    else if(mk==='work'){delete S.mk[pid];delete S.ovr[p.id+'_'+S.date]}
+    else{S.mk[pid]=mk;if(comment)S.mkn[pid]=comment}
+    log(mk==='cross'?'cross':'marker',`${p.n} · ${fmtD(S.date)}`,old,MK[mk||'work'].l,comment||(rep?'Правка опубликованной версии: '+rep:''));
     offlineMark();save();render();closeSheet();toast(`${p.n}: ${MK[mk||'work'].l}`,'check',true);
   });
 }
+const HR_MARKERS=['vac','sick'];
+function actSchedOvr(pid,ds,code){
+  const p=P(pid),cur=dayCode(p,ds),sh=CD[cur].sh||CD[code].sh||1;
+  const isStat=['vac','sick','extra','trainee','cross'].includes(code);
+  const action=isStat?(HR_MARKERS.includes(code)?'marker.hr':'marker.write'):'plan.write';
+  guarded(action,{shift:sh,zone:p.z},rep=>{
+    snapshot();
+    if(code==='auto'){delete S.ovr[p.id+'_'+ds];if(isStat)delete S.mk[pid]}
+    else S.ovr[p.id+'_'+ds]=code;
+    log(isStat?'marker':'sched',`${p.n} · ${fmtD(ds)}`,CD[cur].l,code==='auto'?'по графику '+GR[p.gr].s:CD[code].l,rep?'Правка опубликованной версии: '+rep:'');
+    offlineMark();save();render();closeSheet();toast(`${p.n}, ${fmtD(ds,'short')}: ${code==='auto'?'вернули к графику':CD[code].m}`,'check',true);
+  });
+}
 function actTaskSave(data,id){
-  guarded('task.write',{shift:data.shift||1,zone:data.z},rep=>{
+  guarded('task.write',{shift:1,zone:data.z},rep=>{
     snapshot();
     if(id){const t=S.tasks.find(x=>x.id===id);const old=`${t.t} · ${t.q} шт. · ${t.due}`;Object.assign(t,data);
-      log('task.update',id,old,`${t.t} · ${t.q} шт. · ${t.due}`,rep?'Правка опубликованной версии: '+rep:'');}
+      log('task.update',id,old,`${t.t} · ${t.q} шт. · ${t.due}`,rep?'Правка опубликованной версии: '+rep:'')}
     else{const nid='T-'+(S.nextTask++);S.tasks.unshift(Object.assign({id:nid,s:'wait',d:0},data));
-      log('task.create',nid,'—',`${data.t} · ${data.q} шт. · ${data.due}`,rep?'':'');}
+      log('task.create',nid,'—',`${data.t} · ${data.q} шт. · ${data.due}`,'')}
     offlineMark();save();render();closeSheet();toast(id?'Задание обновлено':'Задание создано','check',true);
   });
 }
 function actFact(id,delta){
-  const t=S.tasks.find(x=>x.id===id);
-  const own=t.w===S.user.personId;
-  if(!can('task.fact',{shift:1,self:own?t.w:undefined})&&!own){
-    if(!(lvl('fact')>=3&&inScope({shift:1})))return deny('task.fact');
-  }
+  const t=S.tasks.find(x=>x.id===id),own=t.w===S.user.personId;
+  if(!own&&!(lvl('fact')>=3))return deny('task.fact');
   snapshot();const old=t.d;t.d=Math.max(0,Math.min(t.q,t.d+delta));
   if(t.d>=t.q&&t.s!=='done')t.s='done';else if(t.d>0&&t.s==='wait')t.s='run';
   log('fact',`${t.id} · ${t.t}`,old+' шт.',t.d+' шт.','');
@@ -704,7 +807,7 @@ function actReq(payload){
   if(!can('request.create'))return deny('request.create');
   snapshot();
   S.reqs.unshift({id:'R-'+String(S.nextReq++).padStart(2,'0'),by:S.user.personId||null,author:S.user.n,role:S.user.role,
-    type:payload.type,txt:payload.txt,state:'new',ts:Date.now()});
+    type:payload.type,txt:payload.txt,state:'new',ts:Date.now(),date:S.date});
   log('request.create',payload.type,'—',payload.txt.slice(0,60),'');
   save();render();closeSheet();toast('Заявка отправлена мастеру смены','check');
 }
@@ -716,13 +819,14 @@ function actReqDecide(id,dec,reason){
   save();render();closeSheet();toast(dec==='ok'?'Заявка принята':'Заявка отклонена',dec==='ok'?'check':'alert',true);
 }
 function askReason(cb){
-  openSheet({t:'Правка опубликованной версии',s:`Версия rev.${S.ver.rev} · опубликована ${S.ver.published||''}`,body:`
+  const v=ver();
+  openSheet({t:'Правка опубликованной версии',s:`${fmtD(S.date)} · rev.${v.rev} · опубликована ${v.published||''}`,body:`
     <div class="note" style="background:${hexA('#FF3B30',.10)}"><span class="ic" style="color:var(--red)">${sv('alert',18,2.2)}</span>
-    <p>Документ опубликован и виден рабочим. Изменение создаст <b>ревизию ${S.ver.rev+1}</b> и уведомит всех участников смены. Укажите причину.</p></div>
+    <p>Документ опубликован и виден рабочим. Изменение создаст <b>ревизию ${v.rev+1}</b> и уведомит участников смены. Укажите причину.</p></div>
     <div class="fl">Причина изменения *</div><textarea class="ta" id="rsn" placeholder="Например: замена исполнителя из-за поломки станка 210"></textarea>`,
     foot:`<button class="btn gray" data-act="close">Отмена</button><button class="btn" id="rsnOk">Изменить и зафиксировать</button>`});
-  $('#rsnOk').onclick=()=>{const v=$('#rsn').value.trim();if(v.length<4)return toast('Укажите причину (минимум 4 символа)','alert');
-    closeSheet();S.ver.rev++;S.ver.status='published';S.ver.published=fmt(Date.now());save();cb(v);};
+  $('#rsnOk').onclick=()=>{const x=$('#rsn').value.trim();if(x.length<4)return toast('Укажите причину (минимум 4 символа)','alert');
+    closeSheet();const vv=ver();vv.rev++;vv.status='published';vv.published=fmtT(Date.now());save();cb(x)};
 }
 function askConfirm(t,msg,cb){
   openSheet({t,s:'Требуется подтверждение',body:`<div class="note" style="background:${hexA('#FF9500',.12)}">
@@ -732,44 +836,53 @@ function askConfirm(t,msg,cb){
 }
 function actPublish(){
   if(!can('plan.publish'))return deny('plan.publish');
-  const iss=issues();
-  openSheet({t:'Публикация версии',s:`${S.ver.date} · rev.${S.ver.rev}`,body:`
+  const iss=issues(),v=ver();
+  openSheet({t:'Публикация версии',s:`${fmtD(S.date,'full')} · rev.${v.rev}`,body:`
     <div class="note" style="background:${hexA('#34C759',.12)}"><span class="ic" style="color:var(--green)">${sv('pub',18,2.2)}</span>
-    <p>После публикации расстановку увидят все участники смены. Дальнейшие правки создадут новую ревизию с обязательным указанием причины.</p></div>
+    <p>После публикации расстановку увидят все участники смен. Дальнейшие правки создадут новую ревизию с обязательным указанием причины.</p></div>
     <div class="fl">Проверка перед публикацией</div>
     <div class="group" style="box-shadow:none;background:var(--card2)">
-      ${iss.length?iss.map(i=>`<div class="row static" style="--inset:44px"><span class="sw-mk" style="width:26px;height:26px;border-radius:8px;background:${hexA(i.c,.15)};display:grid;place-items:center;color:${i.c}">${sv(i.i,13,2.3)}</span>
+      ${iss.length?iss.map(i=>`<div class="row static" style="--inset:44px">
+        <span class="sw-mk" style="width:26px;height:26px;border-radius:8px;background:${hexA(i.c,.15)};display:grid;place-items:center;color:${i.c}">${sv(i.i,13,2.3)}</span>
         <span class="r-main"><span class="r-title" style="font-size:13px">${esc(i.t)}</span><span class="r-sub">${esc(i.d)}</span></span></div>`).join('')
         :'<div class="row static"><span class="r-main"><span class="r-title" style="font-size:13px;color:var(--green)">Замечаний нет</span></span></div>'}
     </div>
     <div class="fl">Получатели уведомления</div>
-    <p style="font-size:12.5px;color:var(--label2);line-height:1.5;padding:0 2px">Мастера смен 1 и 2 · ${PEOPLE.filter(p=>!['vac','sick','rest'].includes(marker(p.id))).length} работников · табло участка · диспетчер ПДО</p>`,
+    <p style="font-size:12.5px;color:var(--label2);line-height:1.5;padding:0 2px">Мастер дневной и ночной смен ·
+    ${PEOPLE.filter(p=>!isAbsent(p,S.date)).length} работников · табло участка · диспетчер ПДО</p>`,
     foot:`<button class="btn gray" data-act="close">Отмена</button>
       <button class="btn ${iss.some(i=>i.hard)?'red':'green'}" id="pubOk">${iss.some(i=>i.hard)?'Опубликовать несмотря на замечания':'Опубликовать'}</button>`});
   $('#pubOk').onclick=()=>{
-    snapshot();S.ver.status='published';S.ver.published=fmt(Date.now());
-    log('publish',`Версия ${S.ver.date}`,'черновик','опубликован',iss.length?'Замечания: '+iss.map(i=>i.t).join('; '):'');
+    snapshot();const vv=ver();vv.status='published';vv.published=fmtT(Date.now());
+    log('publish',`Версия ${fmtD(S.date)}`,'черновик','опубликован',iss.length?'Замечания: '+iss.map(i=>i.t).join('; '):'');
     save();render();closeSheet();toast('Версия опубликована','pub');
   };
 }
 function issues(){
-  const out=[];
+  const out=[],a=A();
   [1,2].forEach(sh=>{
-    const free=MACHINES.filter(m=>!S.asg[m.n][sh]&&(m.st==='run'||m.st==='wait'));
-    if(free.length)out.push({t:`${free.length} станк(ов) без исполнителя · смена ${sh}`,d:'ст. '+free.map(m=>m.n).join(', '),c:'#FF9500',i:'alert',hard:0});
+    const free=MACHINES.filter(m=>!a[m.n][sh]&&(m.st==='run'||m.st==='wait'));
+    if(free.length)out.push({t:`${free.length} станк(ов) без исполнителя · ${SHIFT[sh].n.toLowerCase()} ${SHIFT[sh].t}`,
+      d:'ст. '+free.map(m=>m.n).join(', '),c:'#FF9500',i:'alert',hard:0});
   });
+  MACHINES.forEach(m=>[1,2].forEach(sh=>{const pid=a[m.n][sh];if(!pid)return;const p=P(pid);
+    if(isAbsent(p,S.date)||dayShift(p,S.date)!==sh)
+      out.push({t:`${p.n} назначен на ст. ${m}, но по графику не работает`,d:`${fmtD(S.date)} · ${CD[dayCode(p,S.date)].l} · график ${GR[p.gr].s}`,c:'#FF3B30',i:'alert',hard:1});}));
   PEOPLE.filter(p=>marker(p.id)==='trainee').forEach(p=>{
-    const m=p.mentor&&P(p.mentor);
-    if(!m||assignedTo(m.id,p.sh).length===0)out.push({t:'Стажёр без наставника в смене',d:`${p.n} — наставник ${m?m.n:'не назначен'}`,c:'#FFCC00',i:'person',hard:0});
+    const m=p.mentor&&P(p.mentor),sh=dayShift(p,S.date);
+    if(!sh)return;
+    if(!m||!assignedTo(m.id,sh,S.date).length)
+      out.push({t:'Стажёр без наставника в смене',d:`${p.n} · ${SHIFT[sh].n.toLowerCase()} · наставник ${m?m.n:'не назначен'}`,c:'#FFCC00',i:'person',hard:0});
   });
-  if(S.reqs.filter(r=>r.state==='new').length)out.push({t:'Не рассмотрены заявки на правку',d:S.reqs.filter(r=>r.state==='new').map(r=>r.id).join(', '),c:'#FF3B30',i:'bell',hard:1});
-  return out;
+  if(S.reqs.filter(r=>r.state==='new').length)
+    out.push({t:'Не рассмотрены заявки на правку',d:S.reqs.filter(r=>r.state==='new').map(r=>r.id).join(', '),c:'#FF3B30',i:'bell',hard:1});
+  return out.slice(0,8);
 }
 
 /* ==================== ФОРМАТЫ ==================== */
-function fmt(ts){const d=new Date(ts);return d.toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}
+function fmtT(ts){const d=new Date(ts);return d.toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}
 function ago(ts){const s=(Date.now()-ts)/1000;if(s<60)return'только что';if(s<3600)return Math.floor(s/60)+' мин назад';
-  if(s<86400)return Math.floor(s/3600)+' ч назад';return fmt(ts)}
+  if(s<86400)return Math.floor(s/3600)+' ч назад';return fmtT(ts)}
 const pct=(d,q)=>q?Math.round(d/q*100):0;
 
 /* ==================== SHEET ==================== */
@@ -778,28 +891,23 @@ function openSheet({t,s='',body='',foot=''}){
   $('#shT').innerHTML=t;$('#shS').innerHTML=s;$('#shB').innerHTML=body;$('#shF').innerHTML=foot;
   $('#shF').style.display=foot?'':'none';
   $('#ov').classList.add('on');$('#sheet').classList.add('on');sheetOpen=true;
-  if(isDesktop()){const sh=$('#sheet');sh.style.left='50%';sh.style.right='auto';sh.style.bottom='auto';sh.style.top='50%';
-    sh.style.width='480px';sh.style.maxWidth='calc(100vw - 40px)';sh.style.borderRadius='22px';
+  const sh=$('#sheet');
+  if(isDesktop()){sh.style.left='50%';sh.style.right='auto';sh.style.bottom='auto';sh.style.top='50%';
+    sh.style.width='500px';sh.style.maxWidth='calc(100vw - 40px)';sh.style.borderRadius='22px';
     sh.style.transform='translate(-50%,-46%) scale(.96)';sh.style.opacity='0';
     requestAnimationFrame(()=>{sh.style.transition='transform .34s cubic-bezier(.2,1,.3,1),opacity .3s';
       sh.style.transform='translate(-50%,-50%) scale(1)';sh.style.opacity='1'});
     $('.grab').style.opacity='0';
-  }else{const sh=$('#sheet');sh.style.cssText='';$('.grab').style.opacity=''}
+  }else{sh.style.cssText='';$('.grab').style.opacity=''}
 }
 function closeSheet(){$('#ov').classList.remove('on');$('#sheet').classList.remove('on');sheetOpen=false;
   if(isDesktop()){$('#sheet').style.transform='translate(-50%,-46%) scale(.96)';$('#sheet').style.opacity='0'}}
 
-/* ==================== РЕНДЕР КАРКАСА ==================== */
+/* ==================== КАРКАС ==================== */
 const VIEWS=[
- {id:'overview',n:'Обзор',i:'grid'},
- {id:'plan',n:'Расстановка',i:'board'},
- {id:'people',n:'Работники',i:'users'},
- {id:'machines',n:'Оборудование',i:'cpu'},
- {id:'schedule',n:'График смен',i:'cal'},
- {id:'tasks',n:'Задания',i:'check'},
- {id:'log',n:'Журнал',i:'hist'},
- {id:'profile',n:'Профиль и права',i:'person'}
-];
+ {id:'overview',n:'Обзор',i:'grid'},{id:'plan',n:'Расстановка',i:'board'},{id:'people',n:'Работники',i:'users'},
+ {id:'machines',n:'Оборудование',i:'cpu'},{id:'schedule',n:'График и календарь',i:'cal'},{id:'tasks',n:'Задания',i:'check'},
+ {id:'log',n:'Журнал',i:'hist'},{id:'profile',n:'Профиль и права',i:'person'}];
 const MOBILE_TABS=['overview','plan','tasks','schedule','more'];
 const VSTATUS={draft:{l:'Черновик',c:'#FF9500',i:'edit'},review:{l:'На согласовании',c:'#0A84FF',i:'clock'},
  published:{l:'Опубликован',c:'#34C759',i:'pub'},archived:{l:'Архив',c:'#8E8E93',i:'box'}};
@@ -807,83 +915,81 @@ function badgeN(){return S.reqs.filter(r=>r.state==='new').length}
 function renderNav(){
   $('#navDesk').innerHTML=VIEWS.map(v=>`<button class="nv ${S.view===v.id?'on':''}" data-act="go" data-v="${v.id}">
     ${sv(v.i,17,2)}${v.n}${v.id==='log'&&badgeN()?`<span class="bdg-n">${badgeN()}</span>`:''}</button>`).join('');
-  const vs=VSTATUS[S.ver.status];
+  const v=ver(),vs=VSTATUS[v.status];
   $('#verCard').innerHTML=`<div class="vr"><span style="width:8px;height:8px;border-radius:50%;background:${vs.c}"></span>
-    <span style="color:${vs.c}">${vs.l}</span><span style="margin-left:auto;color:var(--label3);font-weight:700">rev.${S.ver.rev}</span></div>
-    <p>Расстановка на ${S.ver.date}<br>Смена 1: 07:00–15:30 · Смена 2: 15:30–00:00</p>`;
+    <span style="color:${vs.c}">${vs.l}</span><span style="margin-left:auto;color:var(--label3);font-weight:700">rev.${v.rev}</span></div>
+    <p>Расстановка на ${fmtD(S.date)}<br>День 08:00–20:00 · Ночь 20:00–08:00</p>`;
   $('#offSw').classList.toggle('on',!!S.offline);
   $('#offIc').innerHTML=`<span style="color:${S.offline?'var(--orange)':'var(--label3)'};display:flex">${sv(S.offline?'alert':'sync',15,2.2)}</span>`;
   $('#thSw').classList.toggle('on',document.documentElement.dataset.theme==='dark');
   $('#thIc').innerHTML=`<span style="color:var(--label3);display:flex">${sv(document.documentElement.dataset.theme==='dark'?'moon':'sun',15,2.2)}</span>`;
 }
 function renderTopbar(){
-  const v=VIEWS.find(x=>x.id===S.view);
+  const v=VIEWS.find(x=>x.id===S.view),vv=ver();
   $('#ttl').textContent=v.n;
-  $('#sub').innerHTML=`РИЦ · пт, 25 сентября 2026 · <span style="color:${VSTATUS[S.ver.status].c};font-weight:700">${VSTATUS[S.ver.status].l.toLowerCase()}</span>, rev.${S.ver.rev}`;
+  $('#sub').innerHTML=`РИЦ · ${fmtD(S.date,'full')} · <span style="color:${VSTATUS[vv.status].c};font-weight:700">${VSTATUS[vv.status].l.toLowerCase()}</span>, rev.${vv.rev}`;
+  $('#dateChip').innerHTML=`${sv('cal',14,2.2)}<span class="dl">${fmtD(S.date)}</span>`;
   const r=R();
   $('#uchip').innerHTML=`<span class="uav" style="background:${r.c}">${r.ab}</span>
     <span class="un"><b>${esc(S.user.n)}</b><span>${esc(r.n)}</span></span>`;
   $('#themeBtn').innerHTML=sv(document.documentElement.dataset.theme==='dark'?'sun':'moon',16,2.1);
   const q=S.queue?S.queue.length:0;
   $('#tbAct').innerHTML=`
-    <span class="vpill" style="background:${hexA(VSTATUS[S.ver.status].c,.14)};color:${VSTATUS[S.ver.status].c}">${sv(VSTATUS[S.ver.status].i,12,2.4)}${VSTATUS[S.ver.status].l}</span>
+    <span class="vpill" style="background:${hexA(VSTATUS[vv.status].c,.14)};color:${VSTATUS[vv.status].c}">${sv(VSTATUS[vv.status].i,12,2.4)}${VSTATUS[vv.status].l}</span>
+    <span class="vpill" style="background:${hexA(SHIFT[1].c,.13)};color:${SHIFT[1].c}">${sv('sun',12,2.4)}08:00–20:00</span>
+    <span class="vpill" style="background:${hexA(SHIFT[2].c,.13)};color:${SHIFT[2].c}">${sv('night',12,2.4)}20:00–08:00</span>
     ${q?`<span class="vpill" style="background:${hexA('#FF9500',.14)};color:var(--orange)">${sv('sync',12,2.4)}${q} в очереди</span>`:''}
     <span class="vpill" style="background:var(--fill);color:var(--label2)">${sv('lock',12,2.4)}${r.n}</span>
     <span style="margin-left:auto"></span>
     ${S.offline?`<button class="abtn" data-act="sync">${sv('sync',13,2.3)}Синхронизировать</button>`:''}
     <button class="abtn" data-act="export">${sv('dl',13,2.3)}Экспорт CSV</button>
-    ${S.ver.status!=='published'
+    ${vv.status!=='published'
       ?`<button class="abtn ${can('plan.publish')?'ok':'dis'}" data-act="publish">${sv('pub',13,2.3)}Опубликовать</button>`
-      :`<button class="abtn" data-act="todraft">${sv('edit',13,2.3)}Снять с публикации</button>`}`}
-
+      :`<button class="abtn" data-act="todraft">${sv('edit',13,2.3)}Снять с публикации</button>`}`;
+}
 function renderTabbar(){
   $('#tabbar').innerHTML=MOBILE_TABS.map(id=>{
     if(id==='more')return `<button class="tb ${!MOBILE_TABS.slice(0,4).includes(S.view)?'on':''}" data-act="more">
       <span class="tico">${sv('grid',22,1.9)}</span><span>Ещё</span></button>`;
     const v=VIEWS.find(x=>x.id===id);
     return `<button class="tb ${S.view===id?'on':''}" data-act="go" data-v="${id}">
-      <span class="tico">${sv(v.i,22,1.9)}${id==='log'&&badgeN()?`<span class="tbg">${badgeN()}</span>`:''}</span><span>${v.n}</span></button>`;
+      <span class="tico">${sv(v.i,22,1.9)}${id==='log'&&badgeN()?`<span class="tbg">${badgeN()}</span>`:''}</span><span>${v.n.split(' ')[0]}</span></button>`;
   }).join('');
 }
-
-/* ==================== ОБЩИЕ БЛОКИ ==================== */
 function segShift(){
-  return `<div class="seg" style="max-width:340px;margin-bottom:14px"><div class="seg-th"></div>
-    <button class="seg-b ${S.shift===1?'on':''}" data-act="shift" data-s="1">Смена 1 · 07:00–15:30</button>
-    <button class="seg-b ${S.shift===2?'on':''}" data-act="shift" data-s="2">Смена 2 · 15:30–00:00</button></div>`;
+  return `<div class="seg" style="max-width:380px;margin-bottom:14px"><div class="seg-th"></div>
+    <button class="seg-b ${S.shift===1?'on':''}" data-act="shift" data-s="1">День · 08:00–20:00</button>
+    <button class="seg-b ${S.shift===2?'on':''}" data-act="shift" data-s="2">Ночь · 20:00–08:00</button></div>`;
 }
 function bindSegs(){
   $$('.seg').forEach(seg=>{
     const th=seg.querySelector('.seg-th'),on=seg.querySelector('.seg-b.on');
     if(!on)return;const move=b=>{th.style.width=b.offsetWidth+'px';th.style.transform=`translateX(${b.offsetLeft-2}px)`};
     requestAnimationFrame(()=>move(on));
-    seg.querySelectorAll('.seg-b').forEach(b=>b.onclick=e=>{
-      if(b.dataset.act){e.stopPropagation();return}
-      seg.querySelectorAll('.seg-b').forEach(x=>x.classList.remove('on'));b.classList.add('on');move(b);
-    });
   });
 }
+function grBadge(p){const g=GR[p.gr];return `<span class="grb" style="background:${hexA(g.c,.15)};color:${g.c}">${g.s}</span>`}
+function codeBadge(p,ds){const c=CD[dayCode(p,ds||S.date)];
+  return `<span class="pill" style="background:${hexA(c.c,.14)};color:${c.dark?'#8a6d00':c.c}">${c.m}</span>`}
 function personRow(p,opt={}){
-  const z=ZONES[p.z],mk=MK[marker(p.id)||'work'],ms=assignedTo(p.id,p.sh);
+  const z=ZONES[p.z],c=CD[dayCode(p,S.date)],ms=allAssigned(p.id,S.date);
   return `<div class="row" style="--inset:62px" data-act="person" data-p="${p.id}">
     <div class="av" style="background:${hexA(z.c,.15)};color:${z.c}">${p.n[0]}
-      <span class="sdot" style="background:${mk.c}"></span></div>
-    <div class="r-main"><div class="r-title">${esc(p.n)}</div>
-      <div class="r-sub">${esc(p.r)}${ms.length?' · ст. '+ms.join(', '):(p.post?' · '+p.post:' · не назначен')}</div></div>
-    ${opt.badge===false?'':`<span class="pill" style="background:${hexA(mk.c,.14)};color:${mk.c==='#FFCC00'?'#8a6d00':mk.c}">${mk.l}</span>`}
+      <span class="sdot" style="background:${c.c}"></span></div>
+    <div class="r-main"><div class="r-title">${esc(p.n)} ${opt.gr===false?'':grBadge(p)}</div>
+      <div class="r-sub">${esc(p.r)} · ${esc(p.rz)}${ms.length?' · ст. '+ms.map(x=>x.n).join(', '):(p.post?' · '+p.post:'')}</div></div>
+    ${opt.badge===false?'':`<span class="pill" style="background:${hexA(c.c,.14)};color:${c.dark?'#8a6d00':c.c}">${c.m} · ${c.sh?SHIFT[c.sh].t.slice(0,5):'—'}</span>`}
     ${opt.chev===false?'':`<span class="chev">${sv('chev',15,2.4)}</span>`}</div>`;
 }
 function taskCard(t){
   const z=ZONES[t.z],w=t.w?P(t.w):null,pr=pct(t.d,t.q),st={run:['В работе','#0A84FF'],wait:['Ожидает','#FF9500'],done:['Готово','#34C759'],pause:['Пауза','#8E8E93']}[t.s];
   return `<div class="tcard" data-act="task" data-t="${t.id}">
     <div class="tc-top"><div class="prio" style="background:${PRIO[t.p]}"></div>
-      <div style="flex:1;min-width:0">
-        <h4>${esc(t.t)}</h4>
+      <div style="flex:1;min-width:0"><h4>${esc(t.t)}</h4>
         <div class="tmeta"><span class="tagz" style="background:${hexA(z.c,.13)};color:${z.c}">${z.s}</span>
           ${t.m?`<span class="tm">${sv('cpu',11,2.4)}ст. ${t.m}</span>`:''}
           <span class="tm">${sv('person',11,2.4)}${w?esc(w.n):'—'}</span>
-          <span class="tm">${sv('clock',11,2.4)}${esc(t.due)}</span></div>
-      </div>
+          <span class="tm">${sv('clock',11,2.4)}${esc(t.due)}</span></div></div>
       <span class="pill" style="background:${hexA(st[1],.14)};color:${st[1]}">${st[0]}</span></div>
     <div class="tprog"><div class="bar"><i data-w="${pr}" style="background:${pr>=100?'#34C759':z.c}"></i></div><b>${t.d}/${t.q}</b></div>
   </div>`;
@@ -891,87 +997,127 @@ function taskCard(t){
 const PRIO={high:'#FF3B30',mid:'#FF9500',low:'#8E8E93'};
 function animBars(){$$('.bar i[data-w]').forEach(b=>requestAnimationFrame(()=>b.style.width=b.dataset.w+'%'))}
 
+/* ==================== КАЛЕНДАРЬ ==================== */
+function calHTML(mon){
+  const{y,m}=parts(mon),first=new Date(y,m-1,1),sd=(first.getDay()+6)%7;
+  const start=new Date(y,m-1,1-sd),total=new Date(y,m,0).getDate()+sd,weeks=Math.ceil(total/7);
+  let cells='';
+  for(let i=0;i<weeks*7;i++){
+    const d=new Date(start);d.setDate(start.getDate()+i);
+    const ds=iso(d),inM=d.getMonth()===m-1,we=d.getDay()===0||d.getDay()===6;
+    const dn=PEOPLE.filter(p=>!isAbsent(p,ds)&&dayShift(p,ds)===1).length;
+    const nn=PEOPLE.filter(p=>!isAbsent(p,ds)&&dayShift(p,ds)===2).length;
+    cells+=`<button class="cal-d ${inM?'':'out'} ${we?'wknd':''} ${ds===S.date?'sel':''}" data-act="cal-pick" data-d="${ds}">
+      <b>${d.getDate()}</b>
+      <span class="cal-bars"><i style="background:${dn?SHIFT[1].c:'var(--fill)'}"></i><i style="background:${nn?SHIFT[2].c:'var(--fill)'}"></i></span>
+      ${ds===DOC_DATE?'<span class="cal-dot"></span>':''}</button>`;
+  }
+  return `<div class="cal">
+    <div class="cal-hd"><button class="ibtn" data-act="cal-prev" aria-label="Назад">${sv('chev',15,2.4)}</button>
+      <b>${MONTHS[m-1]} ${y}</b>
+      <button class="ibtn" data-act="cal-next" style="transform:rotate(180deg)" aria-label="Вперёд">${sv('chev',15,2.4)}</button></div>
+    <div class="cal-wd">${['пн','вт','ср','чт','пт','сб','вс'].map(x=>`<span>${x}</span>`).join('')}</div>
+    <div class="cal-grid">${cells}</div>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:9px;font-size:10px;font-weight:600;color:var(--label2)">
+      <span style="display:flex;align-items:center;gap:5px"><i style="width:9px;height:3px;border-radius:9px;background:${SHIFT[1].c};display:block"></i>день</span>
+      <span style="display:flex;align-items:center;gap:5px"><i style="width:9px;height:3px;border-radius:9px;background:${SHIFT[2].c};display:block"></i>ночь</span>
+      <span style="display:flex;align-items:center;gap:5px"><i style="width:5px;height:5px;border-radius:50%;background:var(--orange);display:block"></i>файл 25.09</span>
+    </div></div>`;
+}
+function sheetCalendar(){
+  openSheet({t:'Дата расстановки',s:'Версия документа привязана к календарю',body:`
+    ${calHTML(S.mon)}
+    <div class="fl">Смены</div>
+    <div class="opt" data-act="close"><span class="sw-mk" style="background:${hexA(SHIFT[1].c,.15)};display:grid;place-items:center;color:${SHIFT[1].c}">${sv('sun',13,2.3)}</span>
+      <span class="ot"><b>Дневная · 08:00–20:00</b><small>${PEOPLE.filter(p=>!isAbsent(p,S.date)&&dayShift(p,S.date)===1).length} чел. по графикам</small></span></div>
+    <div class="opt" data-act="close"><span class="sw-mk" style="background:${hexA(SHIFT[2].c,.15)};display:grid;place-items:center;color:${SHIFT[2].c}">${sv('night',13,2.3)}</span>
+      <span class="ot"><b>Ночная · 20:00–08:00</b><small>${PEOPLE.filter(p=>!isAbsent(p,S.date)&&dayShift(p,S.date)===2).length} чел. по графикам</small></span></div>`,
+    foot:`<button class="btn gray" data-act="cal-doc">К файлу 25.09.2026</button><button class="btn" data-act="close">Готово</button>`});
+}
+
 /* ==================== ОБЗОР ==================== */
 function vOverview(){
-  const sh=S.shift,vs=VSTATUS[S.ver.status];
-  const list=PEOPLE.filter(p=>p.sh===sh);
-  const on=list.filter(p=>!['vac','sick','rest'].includes(marker(p.id))).length;
-  const absent=list.filter(p=>['vac','sick','rest'].includes(marker(p.id)));
-  const mc=MACHINES.filter(m=>S.asg[m.n][sh]);
-  const run=mc.filter(m=>!S.asg[m.n][sh]?false:true).length;
-  const act=mc.filter(m=>S.asg[m.n][sh]).length;
-  const ts=S.tasks.filter(t=>t.s!=='done');
-  const ready=pct(S.tasks.reduce((a,t)=>a+t.d,0),S.tasks.reduce((a,t)=>a+t.q,0));
+  const sh=S.shift,v=ver(),vs=VSTATUS[v.status],a=A();
+  const list=PEOPLE.filter(p=>!isAbsent(p,S.date)&&dayShift(p,S.date)===sh);
+  const absent=PEOPLE.filter(p=>['vac','sick'].includes(dayCode(p,S.date)));
+  const act=MACHINES.filter(m=>a[m.n][sh]).length;
+  const ready=pct(S.tasks.reduce((s,t)=>s+t.d,0),S.tasks.reduce((s,t)=>s+t.q,0));
   const C=2*Math.PI*27,off=C*(1-ready/100);
-  const iss=issues(),iss2=iss.length;
-  const canEdit=can('plan.write',{shift:sh});
+  const iss=issues(),canEd=can('plan.write',{shift:sh});
   return `
-  ${!localStorage.getItem('ric-hint')?`<div class="hint">
-    <span style="color:var(--blue);flex-shrink:0;margin-top:1px">${sv('person',19,2.1)}</span>
-    <p><b>Демо-доступ.</b> Сейчас вы вошли как <b>${esc(R().n)}</b> — ${esc(R().d)} Смените роль в разделе «Профиль и права», чтобы увидеть, как меняются доступные действия, заблокированные ячейки и сценарий «Запросить правку».</p>
+  ${!localStorage.getItem('ric-hint2')?`<div class="hint">
+    <span style="color:var(--blue);flex-shrink:0;margin-top:1px">${sv('cal',19,2.1)}</span>
+    <p><b>Привязка к календарю.</b> Смены: <b>день 08:00–20:00</b> и <b>ночь 20:00–08:00</b>. У каждого работника указаны должность и тип графика — пятидневка, 2/2 или «день — ночь — отсыпной — выходной». Дата версии меняется в шапке (${fmtD(S.date)}), расстановка и график пересчитываются автоматически. Роль: <b>${esc(R().n)}</b> — сменить в разделе «Профиль и права».</p>
     <button class="hx" data-act="hide-hint">${sv('x',12,2.6)}</button></div>`:''}
-  <div class="hero ${S.ver.status==='published'?'dark':'blue'}">
+  <div class="hero ${v.status==='published'?'dark':'blue'}">
     <div class="hero-top">
-      <div><div class="hero-lbl">${vs.l} · rev.${S.ver.rev}</div>
-        <div class="hero-title">Расстановка · смена ${sh}</div>
-        <div class="hero-sub">Пятница, 25.09.2026 · ${sh===1?'07:00–15:30':'15:30–00:00'}${S.ver.published?' · опубликована '+S.ver.published:''}</div></div>
+      <div><div class="hero-lbl">${vs.l} · rev.${v.rev}</div>
+        <div class="hero-title">${fmtD(S.date,'full')}</div>
+        <div class="hero-sub">${SHIFT[sh].n} смена · ${SHIFT[sh].t} · ${list.length} чел. по графику${v.published?' · опубликована '+v.published:''}</div></div>
       <div class="ring-w"><svg width="66" height="66" viewBox="0 0 66 66"><circle class="ring-bg" cx="33" cy="33" r="27"/>
         <circle class="ring-fg" cx="33" cy="33" r="27" stroke-dasharray="${C}" stroke-dashoffset="${C}"/></svg>
-        <div class="ring-t">${ready}%</div></div>
-    </div>
+        <div class="ring-t">${ready}%</div></div></div>
     <div class="hero-stats">
-      <div class="hs"><b>${on}/${list.length}</b><span>на смене</span></div>
-      <div class="hs"><b>${act}/${MACHINES.length}</b><span>станков занято</span></div>
-      <div class="hs"><b>${ts.length}</b><span>заданий открыто</span></div>
-    </div>
-  </div>
+      <div class="hs"><b>${list.length}</b><span>по графику</span></div>
+      <div class="hs"><b>${act}</b><span>занято станков</span></div>
+      <div class="hs"><b>${S.tasks.filter(t=>t.s!=='done').length}</b><span>заданий открыто</span></div>
+    </div></div>
 
   <div class="sec-h"><span>Быстрые действия</span><span>по вашим правам</span></div>
   <div class="tiles">
-    <div class="tile" data-act="go" data-v="plan" style="cursor:pointer"><div class="t-ic" style="background:${canEdit?'#0A84FF':'var(--gray)'}">${sv(canEdit?'edit':'lock',15,2.2)}</div>
-      <b style="font-size:14px;line-height:1.25">${canEdit?'Править расстановку':'Расстановка — просмотр'}</b><span>смена ${sh}</span></div>
+    <div class="tile" data-act="go" data-v="plan" style="cursor:pointer"><div class="t-ic" style="background:${canEd?'#0A84FF':'var(--gray)'}">${sv(canEd?'edit':'lock',15,2.2)}</div>
+      <b style="font-size:14px;line-height:1.25">${canEd?'Править расстановку':'Расстановка — просмотр'}</b><span>${SHIFT[sh].n.toLowerCase()} ${SHIFT[sh].t}</span></div>
+    <div class="tile" data-act="go" data-v="schedule" style="cursor:pointer"><div class="t-ic" style="background:#AF52DE">${sv('cal',15,2.2)}</div>
+      <b style="font-size:14px;line-height:1.25">Календарь и графики</b><span>5-дневка · 2/2 · Д-Н-О-В</span></div>
     <div class="tile" data-act="task-new" style="cursor:pointer"><div class="t-ic" style="background:${can('task.write')?'#34C759':'var(--gray)'}">${sv(can('task.write')?'plus':'lock',15,2.4)}</div>
       <b style="font-size:14px;line-height:1.25">${can('task.write')?'Новое задание':'Задания — просмотр'}</b><span>ПДО / начальник участка</span></div>
-    <div class="tile" data-act="publish" style="cursor:pointer"><div class="t-ic" style="background:${can('plan.publish')?'#5856D6':'var(--gray)'}">${sv(can('plan.publish')?'pub':'lock',15,2.2)}</div>
-      <b style="font-size:14px;line-height:1.25">${can('plan.publish')?'Опубликовать версию':'Публикация недоступна'}</b><span>${vs.l}</span></div>
     <div class="tile" data-act="req-new" style="cursor:pointer"><div class="t-ic" style="background:#FF9500">${sv('bell',15,2.2)}</div>
       <b style="font-size:14px;line-height:1.25">Запросить правку</b><span>${badgeN()?badgeN()+' новых заявок':'доступно всем ролям'}</span></div>
   </div>
 
-  ${iss2?`<div class="sec-h"><span>Требует внимания</span><span>${iss2}</span></div>
-  <div class="group">${iss.map(i=>`<div class="row" data-act="${i.t.includes('заявк')?'go':'go'}" data-v="${i.t.includes('заявк')?'log':'plan'}" style="--inset:52px">
+  ${iss.length?`<div class="sec-h"><span>Требует внимания</span><span>${iss.length}</span></div>
+  <div class="group">${iss.map(i=>`<div class="row" data-act="go" data-v="${i.t.includes('заявк')?'log':'plan'}" style="--inset:52px">
     <div class="av sq" style="background:${hexA(i.c,.15)};color:${i.c}">${sv(i.i,16,2.2)}</div>
     <div class="r-main"><div class="r-title" style="font-size:14px">${esc(i.t)}</div><div class="r-sub">${esc(i.d)}</div></div>
     <span class="chev">${sv('chev',15,2.4)}</span></div>`).join('')}</div>`:''}
 
-  <div class="sec-h"><span>Участки · смена ${sh}</span><span>${Object.keys(ZONES).length} зон</span></div>
+  <div class="sec-h"><span>Кто работает ${fmtD(S.date,'short')}</span><span>день / ночь</span></div>
+  <div class="tiles" style="grid-template-columns:1fr 1fr">
+    ${[1,2].map(s=>{const n=PEOPLE.filter(p=>!isAbsent(p,S.date)&&dayShift(p,S.date)===s);
+      return `<div class="tile" data-act="shift" data-s="${s}" style="cursor:pointer">
+        <div class="t-ic" style="background:${SHIFT[s].c}">${sv(SHIFT[s].i,15,2.2)}</div>
+        <b>${n.length}</b><span>${SHIFT[s].n} · ${SHIFT[s].t}<br>${n.length?n.slice(0,3).map(p=>p.n).join(', ')+(n.length>3?'…':''):'никого'}</span></div>`}).join('')}
+  </div>
+
+  <div class="sec-h"><span>Участки · ${SHIFT[sh].n.toLowerCase()} смена</span><span>${Object.keys(ZONES).length} зон</span></div>
   <div class="group">
     ${Object.entries(ZONES).map(([k,z])=>{
       const ms=MACHINES.filter(m=>m.z===k);
-      const ppl=[...new Set(ms.map(m=>S.asg[m.n][sh]).filter(Boolean))];
-      const zp=PEOPLE.filter(p=>p.z===k&&p.sh===sh);
+      const ppl=[...new Set(ms.map(m=>a[m.n][sh]).filter(Boolean))];
+      const zp=PEOPLE.filter(p=>p.z===k&&!isAbsent(p,S.date)&&dayShift(p,S.date)===sh);
       return `<div class="row" style="--inset:56px" data-act="go" data-v="plan">
         <div class="av sq" style="background:${hexA(z.c,.15)};color:${z.c}">${sv(z.i,16,2.2)}</div>
         <div class="r-main"><div class="r-title" style="font-size:14px">${z.n}</div>
-          <div class="r-sub">${ppl.length?ppl.map(id=>P(id).n).join(', '):(zp.length?zp.map(p=>p.n).join(', '):'нет исполнителя')}</div></div>
+          <div class="r-sub">${ppl.length?ppl.map(id=>P(id).n).join(', '):(zp.length?zp.map(p=>p.n+' (по графику)').join(', '):'нет исполнителя')}</div></div>
         <span class="pill" style="background:var(--fill);color:var(--label2)">${ppl.length?ppl.length+'/'+ms.length:'—'}</span>
         <span class="chev">${sv('chev',15,2.4)}</span></div>`}).join('')}
   </div>
 
-  <div class="sec-h"><span>Отсутствуют · смена ${sh}</span><span>${absent.length}</span></div>
+  <div class="sec-h"><span>Отсутствуют</span><span>${absent.length}</span></div>
   <div class="group">${absent.length?absent.map(p=>personRow(p)).join(''):'<div class="row static"><div class="r-main"><div class="r-sub">Все работники на местах</div></div></div>'}</div>
 
-  <div class="sec-h"><span>Задания под риском</span><span>по сроку</span></div>
+  <div class="sec-h"><span>Задания</span><span data-act="go" data-v="tasks" style="color:var(--blue);font-weight:600;cursor:pointer">все</span></div>
   ${S.tasks.filter(t=>t.s==='run'||t.s==='wait').slice(0,3).map(taskCard).join('')}
 
   <div class="sec-h"><span>Последние изменения</span><span data-act="go" data-v="log" style="color:var(--blue);font-weight:600;cursor:pointer">весь журнал</span></div>
   <div class="group">${S.audit.slice(0,4).map(audRow).join('')}</div>`;
 }
 function audRow(a){
-  const cs={assign:'#0A84FF',unassign:'#8E8E93',marker:'#FF9500',cross:'#FF3B30','task.create':'#34C759','task.update':'#FF9F0A',
-    fact:'#5856D6',accept:'#30B0C7','request.create':'#AF52DE','request.ok':'#34C759','request.no':'#FF3B30',publish:'#5856D6',status:'#8E8E93'};
-  const ic={assign:'person',unassign:'minus',marker:'flag',cross:'sync','task.create':'plus','task.update':'edit',fact:'check',
-    accept:'shield','request.create':'bell','request.ok':'check','request.no':'x',publish:'pub',status:'doc'};
+  const cs={assign:'#0A84FF',unassign:'#8E8E93',marker:'#FF9500',sched:'#30B0C7',cross:'#FF3B30','task.create':'#34C759',
+    'task.update':'#FF9F0A',fact:'#5856D6',accept:'#30B0C7','request.create':'#AF52DE','request.ok':'#34C759','request.no':'#FF3B30',
+    publish:'#5856D6',status:'#8E8E93'};
+  const ic={assign:'person',unassign:'minus',marker:'flag',sched:'cal',cross:'sync','task.create':'plus','task.update':'edit',
+    fact:'check',accept:'shield','request.create':'bell','request.ok':'check','request.no':'x',publish:'pub',status:'doc'};
   const c=cs[a.act]||'#8E8E93';
   return `<div class="aud"><div class="aic" style="background:${hexA(c,.15)};color:${c}">${sv(ic[a.act]||'edit',15,2.2)}</div>
     <div style="flex:1;min-width:0"><b>${esc(a.obj)}</b>
@@ -979,115 +1125,135 @@ function audRow(a){
       ${a.old||a.nw?`<div class="diff">${a.old?`<span class="old">${esc(a.old)}</span>`:''}${a.old&&a.nw?sv('chev',10,3):''}${a.nw?`<span class="new">${esc(a.nw)}</span>`:''}</div>`:''}
     </div><time>${ago(a.ts)}</time></div>`;
 }
-const actLabel=a=>({assign:'назначение на станок',unassign:'снятие со станка',marker:'изменение статуса',cross:'передача в другую смену',
- 'task.create':'создано задание','task.update':'изменено задание',fact:'отметка выполнения',accept:'приёмка ОТК',
- 'request.create':'заявка на правку','request.ok':'заявка принята','request.no':'заявка отклонена',publish:'публикация версии',status:'статус версии'})[a]||a;
+const actLabel=a=>({assign:'назначение на станок',unassign:'снятие со станка',marker:'изменение статуса',sched:'изменение графика',
+ cross:'передача в другую смену','task.create':'создано задание','task.update':'изменено задание',fact:'отметка выполнения',
+ accept:'приёмка ОТК','request.create':'заявка на правку','request.ok':'заявка принята','request.no':'заявка отклонена',
+ publish:'публикация версии',status:'статус версии'})[a]||a;
 
 /* ==================== РАССТАНОВКА ==================== */
 function vPlan(){
   const sh=S.shift,canEd=can('plan.write',{shift:sh});
   if(isDesktop())return vPlanGrid(sh,canEd);
+  const a=A();
   return `${segShift()}
   <div class="note" style="background:${canEd?hexA('#34C759',.12):hexA('#FF9500',.12)};margin-bottom:14px">
     <span class="ic" style="color:${canEd?'var(--green)':'var(--orange)'}">${sv(canEd?'edit':'lock',17,2.2)}</span>
-    <p>${canEd?`Режим правки доступен: смена ${sh}, все участки. Каждое изменение пишется в журнал.`
+    <p>${canEd?`Правка доступна: ${fmtD(S.date,'short')}, ${SHIFT[sh].n.toLowerCase()} смена ${SHIFT[sh].t}. Назначить можно только того, кто работает в эту смену по графику.`
       :`Расстановка доступна только для просмотра. Изменения вносит ${WHO['plan.write']}.`}</p></div>
   ${Object.entries(ZONES).map(([k,z])=>{
     const ms=MACHINES.filter(m=>m.z===k);
-    const zp=PEOPLE.filter(p=>p.z===k&&p.sh===sh);
+    const zp=PEOPLE.filter(p=>p.z===k&&!isAbsent(p,S.date)&&dayShift(p,S.date)===sh);
     if(!ms.length&&!zp.length)return'';
-    return `<div class="sec-h"><span>${z.n}</span><span>${ms.filter(m=>S.asg[m.n][sh]).length}/${ms.length||'—'}</span></div>
+    return `<div class="sec-h"><span>${z.n}</span><span>${ms.filter(m=>a[m.n][sh]).length}/${ms.length||'—'}</span></div>
     <div class="group">
       ${ms.map(m=>{
-        const pid=S.asg[m.n][sh],p=pid?P(pid):null,st=MST[m.st];
+        const pid=a[m.n][sh],p=pid?P(pid):null,st=MST[m.st];
         return `<div class="row" style="--inset:66px" data-act="cell" data-m="${m.n}" data-s="${sh}">
           <div class="mchip" style="background:${hexA(z.c,.13)};color:${z.c}">${m.n}</div>
-          <div class="r-main"><div class="r-title" style="font-size:14px">${p?esc(p.n):'Нет исполнителя'}</div>
+          <div class="r-main"><div class="r-title" style="font-size:14px">${p?esc(p.n)+' · '+esc(p.r):'Нет исполнителя'}</div>
             <div class="r-sub">${esc(m.j)} · <span style="color:${st.c};font-weight:600">${st.l}</span></div></div>
-          ${p?`<span class="sdot" style="position:static;background:${MK[marker(pid)||'work'].c}"></span>`:''}
+          ${p?codeBadge(p,S.date):''}
           ${canEd?`<span class="chev">${sv('chev',15,2.4)}</span>`:`<span class="lk">${sv('lock',10,2.6)}</span>`}</div>`}).join('')}
-      ${zp.filter(p=>!assignedTo(p.id,sh).length).map(p=>`<div class="row" style="--inset:62px" data-act="person" data-p="${p.id}">
-        <div class="av" style="background:${hexA(z.c,.15)};color:${z.c}">${p.n[0]}<span class="sdot" style="background:${MK[marker(p.id)||'work'].c}"></span></div>
+      ${zp.filter(p=>!assignedTo(p.id,sh,S.date).length).map(p=>`<div class="row" style="--inset:62px" data-act="person" data-p="${p.id}">
+        <div class="av" style="background:${hexA(z.c,.15)};color:${z.c}">${p.n[0]}<span class="sdot" style="background:${CD[dayCode(p,S.date)].c}"></span></div>
         <div class="r-main"><div class="r-title" style="font-size:14px">${esc(p.n)}</div>
-        <div class="r-sub">${esc(p.post||p.r)} · без закреплённого станка</div></div>
+        <div class="r-sub">${esc(p.post||p.r)} · по графику, без станка</div></div>
         <span class="chev">${sv('chev',15,2.4)}</span></div>`).join('')}
     </div>`}).join('')}
-  <p style="font-size:11.5px;color:var(--label2);padding:14px 4px 0;line-height:1.5">Нажмите на строку станка, чтобы назначить или снять исполнителя. Недоступные действия помечены замком.</p>`;
+  <p style="font-size:11.5px;color:var(--label2);padding:14px 4px 0;line-height:1.5">Нажмите на строку станка, чтобы назначить или снять исполнителя. Работники, у которых по графику выходной, отсыпной или другая смена, будут заблокированы с указанием причины.</p>`;
 }
 function vPlanGrid(sh,canEd){
-  const cols=[['a1','Смена 1',1],['a2','Смена 2',2]];
-  const roster=[1,2].flatMap(s=>PEOPLE.filter(p=>p.sh===s||marker(p.id)==='cross'));
-  return `<div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;align-items:center">
-    ${segShift()}
-    <div class="note" style="flex:1;min-width:250px;background:${canEd?hexA('#34C759',.11):hexA('#FF9500',.11)}">
+  const a=A();
+  const roster=[1,2].flatMap(s=>PEOPLE.filter(p=>!isAbsent(p,S.date)&&dayShift(p,S.date)===s));
+  return `<div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;align-items:flex-start">
+    <div style="flex:1;min-width:250px">${segShift()}
+    <div class="note" style="background:${canEd?hexA('#34C759',.11):hexA('#FF9500',.11)}">
       <span class="ic" style="color:${canEd?'var(--green)':'var(--orange)'}">${sv(canEd?'edit':'lock',16,2.2)}</span>
-      <p>${canEd?'Клик по ячейке — назначение. Перетащите работника из списка справа на ячейку станка.'
-        :'Ячейки с замком недоступны для вашей роли. Клик покажет, кто может внести изменение.'}</p></div>
+      <p>${canEd?`Клик по ячейке — назначение. Перетащите работника из списка справа на ячейку станка. Дата версии: <b>${fmtD(S.date)}</b>.`
+        :'Ячейки с замком недоступны для вашей роли. Клик покажет, кто может внести изменение.'}</p></div></div>
   </div>
   <div class="planwrap">
     <div class="planmain"><div class="gcard"><div class="gscroll">
       <table class="gt"><thead><tr>
         <th>Станок</th><th>Участок / операция</th>
-        ${cols.map(c=>`<th class="${can('plan.write',{shift:c[2]})?'ed':''}">${c[1]} ${can('plan.write',{shift:c[2]})?'✎':''}</th>`).join('')}
+        ${[1,2].map(s=>`<th class="${can('plan.write',{shift:s})?'ed':''}">${SHIFT[s].n} ${SHIFT[s].t} ${can('plan.write',{shift:s})?'✎':''}</th>`).join('')}
         <th>Состояние</th><th>Задание</th></tr></thead>
       <tbody>${Object.entries(ZONES).map(([k,z])=>{
         const ms=MACHINES.filter(m=>m.z===k);if(!ms.length)return'';
         return `<tr class="zrow"><td colspan="6">${sv(z.i,11,2.4)} &nbsp;${z.n}</td></tr>`+ms.map(m=>{
           const st=MST[m.st],tk=S.tasks.find(t=>t.m===m.n&&t.s!=='done');
           return `<tr><td><span class="mn">${m.n}</span></td><td style="color:var(--label2)">${esc(m.j)}</td>
-          ${cols.map(c=>{
-            const s=c[2],pid=S.asg[m.n][s],p=pid?P(pid):null,ed=can('plan.write',{shift:s,zone:k}),mk=p?MK[marker(pid)||'work']:null;
+          ${[1,2].map(s=>{
+            const pid=a[m.n][s],p=pid?P(pid):null,ed=can('plan.write',{shift:s,zone:k}),cd=p?CD[dayCode(p,S.date)]:null;
+            const bad=p&&(isAbsent(p,S.date)||dayShift(p,S.date)!==s);
             return `<td class="${ed?'can':'no'}" data-drop="${m.n}:${s}">
               <span class="ced" data-act="cell" data-m="${m.n}" data-s="${s}">
                 ${p?`<span style="width:20px;height:20px;border-radius:6px;background:${hexA(z.c,.16)};color:${z.c};display:grid;place-items:center;font-size:9.5px;font-weight:800">${p.n[0]}</span>`:''}
                 <span>${p?esc(p.n):'—'}</span>
-                ${mk&&marker(pid)?`<span style="width:7px;height:7px;border-radius:50%;background:${mk.c}"></span>`:''}
+                ${bad?`<span style="color:var(--red);display:flex">${sv('alert',11,2.6)}</span>`:(cd&&cd.sh?`<span style="width:7px;height:7px;border-radius:50%;background:${cd.c}"></span>`:'')}
                 ${ed?'':`<span class="lk">${sv('lock',9,2.8)}</span>`}</span></td>`}).join('')}
           <td><span class="pill" style="background:${hexA(st.c,.13)};color:${st.c}">${st.l}</span></td>
           <td>${tk?`<span class="tm" style="color:var(--blue);font-weight:700" data-act="task" data-t="${tk.id}">${tk.id} · ${pct(tk.d,tk.q)}%</span>`:'<span style="color:var(--label3)">—</span>'}</td></tr>`}).join('')}).join('')}
       </tbody></table></div></div></div>
     <aside class="roster">
-      <h5>Работники · перетащите</h5>
-      ${roster.map(p=>{
-        const z=ZONES[p.z],mk=marker(p.id),off=['vac','sick','rest'].includes(mk);
-        return `<div class="rst ${off?'off':''}" draggable="${!off}" data-drag="${p.id}">
+      <h5>Работают ${fmtD(S.date,'short')}</h5>
+      ${roster.map(p=>{const z=ZONES[p.z],c=CD[dayCode(p,S.date)];
+        return `<div class="rst" draggable="true" data-drag="${p.id}">
           <span class="rav" style="background:${z.c}">${p.n[0]}</span>
           <span style="min-width:0"><span style="display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.n)}</span>
-          <small>${z.s} · см.${p.sh}${mk?' · '+MK[mk].l:''}</small></span></div>`}).join('')}
-      <h5 style="margin-top:14px">Легенда маркеров</h5>
-      ${Object.entries(MK).filter(([k])=>k!=='work').map(([k,v])=>`<div style="display:flex;gap:7px;align-items:center;font-size:11px;color:var(--label2);margin-bottom:5px">
-        <span style="width:11px;height:11px;border-radius:4px;background:${v.c}"></span>${v.l}</div>`).join('')}
+          <small>${GR[p.gr].s} · ${c.sh?SHIFT[c.sh].t:'—'}</small></span>
+          <span class="rbadge" style="background:${c.c}">${c.m}</span></div>`}).join('')}
+      ${PEOPLE.filter(p=>isAbsent(p,S.date)).map(p=>`<div class="rst off">
+        <span class="rav" style="background:var(--gray)">${p.n[0]}</span>
+        <span style="min-width:0"><span style="display:block">${esc(p.n)}</span><small>${CD[dayCode(p,S.date)].l}</small></span></div>`).join('')}
+      <h5 style="margin-top:14px">Коды табеля</h5>
+      ${['D','N','OT','V'].map(k=>`<div style="display:flex;gap:7px;align-items:center;font-size:11px;color:var(--label2);margin-bottom:5px">
+        <span style="width:18px;height:16px;border-radius:5px;background:${CD[k].c};color:#fff;font-size:9px;font-weight:800;display:grid;place-items:center">${CD[k].m}</span>${CD[k].l}</div>`).join('')}
     </aside>
   </div>`;
 }
 
-/* ==================== ЛЮДИ ==================== */
+/* ==================== РАБОТНИКИ ==================== */
 function vPeople(){
   const q=(S.q||'').toLowerCase().trim();
   const list=PEOPLE.filter(p=>{
-    if(S.mfilter&&S.mfilter!=='all'&&marker(p.id)!==S.mfilter&&(S.mfilter!=='work'||marker(p.id)))return false;
+    if(S.mfilter&&S.mfilter!=='all'){
+      if(S.mfilter.startsWith('gr:')){if(p.gr!==S.mfilter.slice(3))return false}
+      else if(dayCode(p,S.date)!==S.mfilter)return false;
+    }
     if(!q)return true;
-    return (p.n+' '+p.r+' '+ZONES[p.z].n+' '+assignedTo(p.id,p.sh).join(' ')).toLowerCase().includes(q);
+    return (p.n+' '+p.r+' '+p.rz+' '+ZONES[p.z].n+' '+GR[p.gr].n+' '+allAssigned(p.id,S.date).map(x=>x.n).join(' ')).toLowerCase().includes(q);
   });
-  const cnt=k=>k==='all'?PEOPLE.length:PEOPLE.filter(p=>(marker(p.id)||'work')===k).length;
-  return `${segShift()}
+  const cntC=k=>PEOPLE.filter(p=>dayCode(p,S.date)===k).length;
+  return `
   <div class="searchbar" style="margin-bottom:11px">${sv('search',16,2)}
-    <input id="q" type="search" placeholder="Поиск: фамилия, станок, участок" value="${esc(S.q||'')}"></div>
+    <input id="q" type="search" placeholder="Поиск: фамилия, должность, станок, график" value="${esc(S.q||'')}"></div>
   <div class="chips" style="margin-bottom:6px">
-    <button class="chip ${!S.mfilter||S.mfilter==='all'?'on':''}" data-act="mf" data-k="all">Все · ${cnt('all')}</button>
-    ${Object.entries(MK).map(([k,v])=>cnt(k)?`<button class="chip ${S.mfilter===k?'on':''}" data-act="mf" data-k="${k}">
-      <span class="cd" style="background:${v.c}"></span>${v.l} · ${cnt(k)}</button>`:'').join('')}
+    <button class="chip ${!S.mfilter||S.mfilter==='all'?'on':''}" data-act="mf" data-k="all">Все · ${PEOPLE.length}</button>
+    ${Object.entries(GR).map(([k,g])=>`<button class="chip ${S.mfilter==='gr:'+k?'on':''}" data-act="mf" data-k="gr:${k}">
+      <span class="cd" style="background:${g.c}"></span>${g.s} · ${PEOPLE.filter(p=>p.gr===k).length}</button>`).join('')}
   </div>
-  ${[1,2].filter(s=>S.shift===s||true).map(s=>{
-    const g=list.filter(p=>p.sh===s);if(!g.length)return'';
-    return `<div class="sec-h"><span>Смена ${s} · ${s===1?'07:00–15:30':'15:30–00:00'}</span><span>${g.length} чел.</span></div>
+  <div class="chips" style="margin-bottom:6px">
+    ${['D','N','OT','V','vac','sick'].map(k=>cntC(k)?`<button class="chip ${S.mfilter===k?'on':''}" data-act="mf" data-k="${k}">
+      <span class="cd" style="background:${CD[k].c}"></span>${CD[k].m} · ${cntC(k)}</button>`:'').join('')}
+  </div>
+  ${[1,2,null].map(s=>{
+    const g=list.filter(p=>s===null?isAbsent(p,S.date)||!dayShift(p,S.date):(!isAbsent(p,S.date)&&dayShift(p,S.date)===s));
+    if(!g.length)return'';
+    const t=s?`${SHIFT[s].n} смена · ${SHIFT[s].t}`:'Не работают / отсутствуют';
+    return `<div class="sec-h"><span>${t}</span><span>${fmtD(S.date,'short')} · ${g.length} чел.</span></div>
       <div class="group">${g.map(p=>personRow(p)).join('')}</div>`}).join('')}
-  ${list.length?'':'<div class="empty">'+sv('search',40,1.6)+'<p>Ничего не найдено</p></div>'}`;
+  ${list.length?'':'<div class="empty">'+sv('search',40,1.6)+'<p>Ничего не найдено</p></div>'}
+  <div class="sec-h"><span>Типы графиков</span></div>
+  <div class="group">${Object.entries(GR).map(([k,g])=>`<div class="row static" style="--inset:52px">
+    <div class="av sq" style="background:${hexA(g.c,.15)};color:${g.c};font-size:10px;font-weight:800">${g.s.slice(0,3)}</div>
+    <div class="r-main"><div class="r-title" style="font-size:14px">${g.n}</div><div class="r-sub" style="white-space:normal">${g.d}</div></div>
+    <span class="pill" style="background:var(--fill);color:var(--label2)">${PEOPLE.filter(p=>p.gr===k).length}</span></div>`).join('')}</div>`;
 }
 
 /* ==================== ОБОРУДОВАНИЕ ==================== */
 function vMachines(){
-  const f=S.mmf||'all';
+  const f=S.mmf||'all',a=A();
   const list=MACHINES.filter(m=>f==='all'?true:m.st===f);
   const c={run:0,wait:0,maint:0,idle:0};MACHINES.forEach(m=>c[m.st]++);
   return `<div class="tiles" style="margin-bottom:6px">
@@ -1095,62 +1261,94 @@ function vMachines(){
     <div class="tile"><div class="t-ic" style="background:#FF9500">${sv('alert',14,2.2)}</div><b>${c.wait}</b><span>ожидают</span></div>
     <div class="tile"><div class="t-ic" style="background:#8E8E93">${sv('wrench',14,2.2)}</div><b>${c.maint}</b><span>ТО / ремонт</span></div>
     <div class="tile"><div class="t-ic" style="background:#0A84FF">${sv('box',14,2.2)}</div><b>${c.idle}</b><span>свободны</span></div></div>
-  <div class="sec-h"><span>Фильтр</span></div>
+  <div class="sec-h"><span>Фильтр</span><span>${fmtD(S.date,'short')}</span></div>
   <div class="chips" style="margin-bottom:6px">
     ${[['all','Все · '+MACHINES.length],['run','В работе'],['wait','Ожидают'],['maint','ТО'],['idle','Свободные']].map(([k,l])=>
-      `<button class="chip ${f===k?'on':''}" data-act="mmf" data-k="${k}">${l}</button>`).join('')}
-  </div>
+      `<button class="chip ${f===k?'on':''}" data-act="mmf" data-k="${k}">${l}</button>`).join('')}</div>
   ${Object.entries(ZONES).map(([k,z])=>{
     const ms=list.filter(m=>m.z===k);if(!ms.length)return'';
     return `<div class="sec-h"><span>${z.n}</span><span>${ms.length} ед.</span></div>
     <div class="group">${ms.map(m=>{
-      const st=MST[m.st],p1=S.asg[m.n][1]?P(S.asg[m.n][1]):null,p2=S.asg[m.n][2]?P(S.asg[m.n][2]):null;
+      const st=MST[m.st],p1=a[m.n][1]?P(a[m.n][1]):null,p2=a[m.n][2]?P(a[m.n][2]):null;
       return `<div class="row" style="--inset:66px" data-act="cell" data-m="${m.n}" data-s="${S.shift}">
         <div class="mchip" style="background:${hexA(z.c,.13)};color:${z.c}">${m.n}</div>
         <div class="r-main"><div class="r-title" style="font-size:14px">${esc(m.j)}</div>
-          <div class="r-sub">См.1: ${p1?esc(p1.n):'—'} · См.2: ${p2?esc(p2.n):'—'}</div></div>
+          <div class="r-sub">День: ${p1?esc(p1.n):'—'} · Ночь: ${p2?esc(p2.n):'—'}</div></div>
         <span class="pill" style="background:${hexA(st.c,.13)};color:${st.c}">${st.l}</span></div>`}).join('')}</div>`}).join('')}`;
 }
 
-/* ==================== ГРАФИК ==================== */
+/* ==================== ГРАФИК И КАЛЕНДАРЬ ==================== */
 function vSchedule(){
-  const list=PEOPLE.filter(p=>S.shift===0||p.sh===S.shift);
-  const canMk=can('marker.write',{shift:S.shift||1});
-  return `${`<div class="seg" style="max-width:400px;margin-bottom:14px"><div class="seg-th"></div>
-    <button class="seg-b ${S.shift===0?'on':''}" data-act="shift" data-s="0">Все</button>
-    <button class="seg-b ${S.shift===1?'on':''}" data-act="shift" data-s="1">Смена 1</button>
-    <button class="seg-b ${S.shift===2?'on':''}" data-act="shift" data-s="2">Смена 2</button></div>`}
-  <div class="hero dark" style="box-shadow:0 16px 34px -18px rgba(0,0,0,.6)">
-    <div class="hero-lbl">Неделя 21 – 27 сентября 2026</div>
-    <div class="hero-title">${list.filter(p=>!['vac','sick','rest'].includes(marker(p.id))).length} из ${list.length} на рабочих местах</div>
-    <div class="hero-sub">Смена 1: 07:00–15:30 · Смена 2: 15:30–00:00 · ${canMk?'нажмите на ячейку дня, чтобы изменить маркер':'ячейки только для чтения'}</div>
+  const ws=weekStart(S.date),days=Array.from({length:S.span||7},(_,i)=>addD(ws,i));
+  const list=PEOPLE.filter(p=>{
+    if(!S.gshift)return true;
+    if(S.gshift==='off')return isAbsent(p,S.date)||!dayShift(p,S.date);
+    return !isAbsent(p,S.date)&&dayShift(p,S.date)===S.gshift});
+  const dn=PEOPLE.filter(p=>!isAbsent(p,S.date)&&dayShift(p,S.date)===1);
+  const nn=PEOPLE.filter(p=>!isAbsent(p,S.date)&&dayShift(p,S.date)===2);
+  const ot=PEOPLE.filter(p=>dayCode(p,S.date)==='OT'),vs=PEOPLE.filter(p=>dayCode(p,S.date)==='V');
+  const ab=PEOPLE.filter(p=>['vac','sick'].includes(dayCode(p,S.date)));
+  return `
+  <div class="sec-h" style="padding-top:4px"><span>Календарь</span><span data-act="date" style="color:var(--blue);font-weight:600;cursor:pointer">выбрать дату</span></div>
+  ${calHTML(S.mon)}
+  <div class="tiles" style="margin-top:12px">
+    <div class="tile" data-act="gs" data-k="1" style="cursor:pointer"><div class="t-ic" style="background:${SHIFT[1].c}">${sv('sun',14,2.2)}</div>
+      <b>${dn.length}</b><span>день · 08:00–20:00</span></div>
+    <div class="tile" data-act="gs" data-k="2" style="cursor:pointer"><div class="t-ic" style="background:${SHIFT[2].c}">${sv('night',14,2.2)}</div>
+      <b>${nn.length}</b><span>ночь · 20:00–08:00</span></div>
+    <div class="tile" data-act="gs" data-k="OT" style="cursor:pointer"><div class="t-ic" style="background:#30B0C7">${sv('clock',14,2.2)}</div>
+      <b>${ot.length}</b><span>отсыпные</span></div>
+    <div class="tile" data-act="gs" data-k="V" style="cursor:pointer"><div class="t-ic" style="background:#8E8E93">${sv('minus',14,2.4)}</div>
+      <b>${vs.length+ab.length}</b><span>выходные / отсутствуют</span></div>
   </div>
-  <div class="sec-h"><span>График</span><span>пт 25.09 выделено</span></div>
-  <div class="scard"><div class="sscroll"><table class="sch">
-    <thead><tr><th class="nm"></th>${DAYS.map((d,i)=>`<th class="dh ${i===TODAY_IDX?'td':''}">${d.d}<b>${d.n}</b></th>`).join('')}</tr></thead>
+
+  <div class="sec-h"><span>Табель · неделя с ${fmtD(ws)}</span>
+    <span style="display:flex;gap:6px"><button class="chip ${S.span!==14?'on':''}" data-act="span" data-k="7">7 дней</button>
+    <button class="chip ${S.span===14?'on':''}" data-act="span" data-k="14">14 дней</button></span></div>
+  <div class="chips" style="margin-bottom:10px">
+    <button class="chip ${!S.gshift?'on':''}" data-act="gs" data-k="0">Все · ${PEOPLE.length}</button>
+    <button class="chip ${S.gshift==='1'?'on':''}" data-act="gs" data-k="1"><span class="cd" style="background:${SHIFT[1].c}"></span>День</button>
+    <button class="chip ${S.gshift==='2'?'on':''}" data-act="gs" data-k="2"><span class="cd" style="background:${SHIFT[2].c}"></span>Ночь</button>
+    <button class="chip ${S.gshift==='off'?'on':''}" data-act="gs" data-k="off">Не работают</button>
+  </div>
+  <div class="scard"><div class="sscroll"><table class="sch" style="min-width:${days.length*36+120}px">
+    <thead><tr><th class="nm"></th>${days.map(d=>{
+      const{y,m,d:dd}=parts(d),we=wdOf(d)===0||wdOf(d)===6;
+      return `<th class="dh ${d===S.date?'td':''}">${WD[wdOf(d)]}<b>${dd}.${String(m).padStart(2,'0')}</b></th>`}).join('')}</tr></thead>
     <tbody>${list.map(p=>{
       const z=ZONES[p.z];
-      return `<tr><td class="nm"><div>${esc(p.n)}</div><small>${z.s} · см.${p.sh}</small></td>
-      ${DAYS.map((d,i)=>{
-        const k=S.ovr[p.id+'_'+i]||(i===TODAY_IDX?(marker(p.id)||'work'):BASE_SCHED[p.id][i]);
-        const v=MK[k]||MK.work;
-        return `<td class="c"><div class="sc ${i===TODAY_IDX?'tdw':''}" data-act="sched" data-p="${p.id}" data-d="${i}"
-          style="background:${hexA(v.c,i===TODAY_IDX?1:.78)};color:${v.dark?'#3a2e00':'#fff'}">${v.m}</div></td>`}).join('')}</tr>`}).join('')}
+      return `<tr><td class="nm"><div>${esc(p.n)}</div><small>${esc(p.r.split(' ')[0])} · ${GR[p.gr].s}</small></td>
+      ${days.map(d=>{const k=dayCode(p,d),v=CD[k];
+        return `<td class="c"><div class="sc ${d===S.date?'tdw':''}" data-act="sched" data-p="${p.id}" data-d="${d}"
+          style="background:${hexA(v.c,d===S.date?1:.8)};color:${v.dark?'#3a2e00':'#fff'}">${v.m}</div></td>`}).join('')}</tr>`}).join('')}
     </tbody></table></div></div>
-  <div class="sec-h"><span>Обозначения маркеров</span><span>как в исходном файле</span></div>
-  <div class="group lgd">${Object.entries(MK).map(([k,v])=>`<div class="lgr"><span class="sw-mk" style="background:${v.c}"></span>
-    <b>${v.l}</b><span>${v.m}</span></div>`).join('')}</div>
-  <div class="sec-h"><span>Загрузка участков по сменам</span></div>
-  <div class="group" style="padding:6px 0">
-    ${Object.entries(ZONES).map(([k,z])=>{
-      const a=PEOPLE.filter(p=>p.z===k&&p.sh===1).length,b=PEOPLE.filter(p=>p.z===k&&p.sh===2).length;
-      if(!a&&!b)return'';const mx=Math.max(a,b,1);
-      return `<div class="row static" style="--inset:14px;flex-direction:column;align-items:stretch;gap:8px">
-        <div style="display:flex;justify-content:space-between"><span style="font-size:13px;font-weight:700">${z.n}</span>
-        <span style="font-size:11.5px;color:var(--label2);font-weight:700">${a} / ${b}</span></div>
-        <div style="display:flex;gap:6px"><div style="flex:1"><div class="bar"><i data-w="${a/mx*100}" style="background:${z.c}"></i></div></div>
-        <div style="flex:1"><div class="bar"><i data-w="${b/mx*100}" style="background:${hexA(z.c,.45)}"></i></div></div></div></div>`}).join('')}
-  </div>`;
+  <p style="font-size:11.5px;color:var(--label2);padding:10px 4px 0;line-height:1.5">Нажмите на ячейку дня, чтобы изменить её вручную (отпуск, больничный, подмена, выходной) — изменение переопределит расчёт графика и попадёт в журнал.</p>
+
+  <div class="sec-h"><span>Графики работников</span><span>${Object.keys(GR).length} типа</span></div>
+  <div class="group">${Object.entries(GR).map(([k,g])=>{
+    const pp=PEOPLE.filter(p=>p.gr===k);
+    return `<div class="row static" style="--inset:14px;flex-direction:column;align-items:stretch;gap:9px">
+      <div style="display:flex;gap:10px;align-items:center">
+        <div class="av sq" style="background:${hexA(g.c,.15)};color:${g.c};font-size:10px;font-weight:800">${g.s.slice(0,3)}</div>
+        <div class="r-main"><div class="r-title" style="font-size:14px">${g.n}</div><div class="r-sub" style="white-space:normal">${g.d}</div></div></div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px">${pp.map(p=>`<span class="pill" style="background:${hexA(ZONES[p.z].c,.13)};color:${ZONES[p.z].c}" data-act="person" data-p="${p.id}">${esc(p.n)} · ${p.rz}</span>`).join('')||'<span style="font-size:12px;color:var(--label3)">нет работников</span>'}</div>
+    </div>`}).join('')}</div>
+
+  <div class="sec-h"><span>Обозначения</span><span>табель + маркеры из файла</span></div>
+  <div class="group lgd">${Object.entries(CD).map(([k,v])=>`<div class="lgr"><span class="sw-mk" style="background:${v.c}"></span>
+    <b>${v.m} · ${v.l}</b><span>${v.sh?SHIFT[v.sh].t:'—'}</span></div>`).join('')}</div>
+
+  <div class="sec-h"><span>Баланс смен за 14 дней</span></div>
+  <div class="group" style="padding:6px 0">${PEOPLE.map(p=>{
+    let d=0,n=0,o=0,v2=0;
+    for(let i=0;i<14;i++){const c=dayCode(p,addD(S.date,i));if(c==='D')d++;else if(c==='N')n++;else if(c==='OT')o++;else if(c==='V')v2++}
+    const mx=Math.max(d,n,1);
+    return `<div class="row static" style="--inset:14px;flex-direction:column;align-items:stretch;gap:8px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+        <span style="font-size:13px;font-weight:700">${esc(p.n)}</span>
+        <span style="font-size:11px;color:var(--label2);font-weight:700;white-space:nowrap">${GR[p.gr].s} · Д ${d} · Н ${n} · ОТ ${o} · В ${v2}</span></div>
+      <div style="display:flex;gap:6px"><div style="flex:1"><div class="bar"><i data-w="${d/mx*100}" style="background:${SHIFT[1].c}"></i></div></div>
+      <div style="flex:1"><div class="bar"><i data-w="${n/mx*100}" style="background:${SHIFT[2].c}"></i></div></div></div></div>`}).join('')}</div>`;
 }
 
 /* ==================== ЗАДАНИЯ ==================== */
@@ -1159,7 +1357,7 @@ function vTasks(){
   const f=S.tfilter||'all';
   const list=S.tasks.filter(t=>f==='all'?true:t.s===f);
   const done=S.tasks.reduce((a,t)=>a+t.d,0),tot=S.tasks.reduce((a,t)=>a+t.q,0);
-  return `<div class="seg" style="max-width:420px;margin-bottom:14px"><div class="seg-th"></div>
+  return `<div class="seg" style="max-width:430px;margin-bottom:14px"><div class="seg-th"></div>
     ${[['all','Все'],['run','В работе'],['wait','Ожидают'],['done','Готово']].map(([k,l])=>
       `<button class="seg-b ${f===k?'on':''}" data-act="tf" data-k="${k}">${l}</button>`).join('')}</div>
   <div class="tiles" style="margin-bottom:6px">
@@ -1167,7 +1365,7 @@ function vTasks(){
     <div class="tile"><div class="t-ic" style="background:#FF9500">${sv('clock',14,2.2)}</div><b>${S.tasks.filter(t=>t.s==='wait').length}</b><span>ожидают</span></div>
     <div class="tile"><div class="t-ic" style="background:#34C759">${sv('pub',14,2.2)}</div><b>${S.tasks.filter(t=>t.s==='done').length}</b><span>закрыто</span></div>
     <div class="tile"><div class="t-ic" style="background:#FF3B30">${sv('alert',14,2.2)}</div><b>${S.tasks.filter(t=>t.p==='high'&&t.s!=='done').length}</b><span>высокий приоритет</span></div></div>
-  <div class="sec-h"><span>Выполнение смены</span><span>${done} / ${tot} шт. · ${pct(done,tot)}%</span></div>
+  <div class="sec-h"><span>Выполнение · ${fmtD(S.date,'short')}</span><span>${done} / ${tot} шт. · ${pct(done,tot)}%</span></div>
   <div class="bar" style="height:7px;margin-bottom:16px"><i data-w="${pct(done,tot)}" style="background:linear-gradient(90deg,#0A84FF,#5E5CE6)"></i></div>
   ${can('task.write')?`<button class="btn" data-act="task-new" style="margin-bottom:14px">${sv('plus',15,2.6)} &nbsp;Новое задание</button>`:''}
   ${list.length?list.map(taskCard).join(''):'<div class="empty">'+sv('check',40,1.6)+'<p>Нет заданий в этой категории</p></div>'}`;
@@ -1183,7 +1381,7 @@ function vLog(){
       <div style="display:flex;gap:10px;align-items:center">
         <div class="av sm" style="background:var(--fill);color:var(--label2)">${sv('bell',14,2.2)}</div>
         <div class="r-main"><div class="r-title" style="font-size:13.5px">${esc(r.type)} · ${r.id}</div>
-          <div class="r-sub">${esc(by)} · ${ago(r.ts)}</div></div>
+          <div class="r-sub">${esc(by)} · ${r.date?fmtD(r.date,'short')+' · ':''}${ago(r.ts)}</div></div>
         <span class="pill" style="background:${hexA(st[1],.14)};color:${st[1]}">${st[0]}</span></div>
       <p style="font-size:12.5px;color:var(--label2);line-height:1.5">${esc(r.txt)}</p>
       ${r.state==='new'?`<div style="display:flex;gap:8px">
@@ -1192,10 +1390,9 @@ function vLog(){
         :`<p style="font-size:11.5px;color:var(--label3)">Решение: ${esc(r.decBy||'—')}${r.decReason?' · «'+esc(r.decReason)+'»':''}</p>`}
     </div>`}).join('')}</div>`:'<div class="group"><div class="row static"><div class="r-main"><div class="r-sub">Заявок нет</div></div></div></div>'}
   <div class="sec-h"><span>Журнал изменений</span><span>${S.audit.length} записей</span></div>
-  <div class="group">${S.audit.map(audRow).join('')}</div>
-  <div style="display:flex;gap:9px;margin-top:14px">
-    <button class="btn gray" data-act="export">${sv('dl',15,2.4)} &nbsp;Выгрузить журнал CSV</button></div>
-  <p style="font-size:11.5px;color:var(--label2);line-height:1.5;padding:12px 4px 0">Журнал неизменяем: каждая запись содержит автора, роль, время, устройство, старое и новое значение. Срок хранения — 5 лет.</p>`;
+  <div class="group">${S.audit.map(audRow).join('')||'<div class="row static"><div class="r-main"><div class="r-sub">Записей нет</div></div></div>'}</div>
+  <div style="display:flex;gap:9px;margin-top:14px"><button class="btn gray" data-act="export">${sv('dl',15,2.4)} &nbsp;Выгрузить журнал CSV</button></div>
+  <p style="font-size:11.5px;color:var(--label2);line-height:1.5;padding:12px 4px 0">Журнал неизменяем: каждая запись содержит автора, роль, дату версии, время, старое и новое значение.</p>`;
 }
 
 /* ==================== ПРОФИЛЬ ==================== */
@@ -1213,7 +1410,7 @@ function vProfile(){
       <div style="width:62px;height:62px;border-radius:20px;background:rgba(255,255,255,.22);display:grid;place-items:center;
         font-size:17px;font-weight:800;flex-shrink:0">${r.ab}</div></div>
     <div class="hero-stats">
-      <div class="hs"><b>${r.scope.shifts.join(', ')}</b><span>смены в области</span></div>
+      <div class="hs"><b>${r.scope.shifts.map(s=>SHIFT[s].t.slice(0,5)).join(', ')}</b><span>смены в области</span></div>
       <div class="hs"><b>${r.scope.zones==='all'?'все':r.scope.zones.length}</b><span>участки</span></div>
       <div class="hs"><b>${Object.values(pr).filter(x=>x>=3).length}</b><span>прав записи</span></div></div></div>
 
@@ -1225,7 +1422,7 @@ function vProfile(){
       <div class="r-main"><div class="r-title" style="font-size:14px">${n}</div><div class="r-sub">${L[2]}</div></div>
       <span class="pill" style="background:var(--fill);color:var(--label2)">L${l}</span></div>`}).join('')}</div>
 
-  <div class="sec-h"><span>Войти как (демо)</span><span>9 учётных записей</span></div>
+  <div class="sec-h"><span>Войти как (демо)</span><span>${USERS.length} учётных записей</span></div>
   <div class="group">${USERS.map(u=>{const rr=ROLES[u.role];
     return `<div class="row" style="--inset:56px" data-act="login" data-u="${u.id}">
       <span class="av" style="background:${rr.c};width:34px;height:34px;font-size:11px;border-radius:11px">${rr.ab}</span>
@@ -1252,31 +1449,33 @@ function vProfile(){
   <div class="sec-h"><span>О документе</span></div>
   <div class="group">
     <div class="row static"><div class="r-main"><div class="r-title" style="font-size:13.5px">Источник данных</div><div class="r-sub">РАССТАНОВКА РИЦ 25.09.2026.xlsx</div></div></div>
-    <div class="row static" style="--inset:14px"><div class="r-main"><div class="r-title" style="font-size:13.5px">Версия / ревизия</div><div class="r-sub">${S.ver.date} · rev.${S.ver.rev} · ${VSTATUS[S.ver.status].l}</div></div></div>
+    <div class="row static" style="--inset:14px"><div class="r-main"><div class="r-title" style="font-size:13.5px">Дата версии / ревизия</div><div class="r-sub">${fmtD(S.date)} · rev.${ver().rev} · ${VSTATUS[ver().status].l}</div></div></div>
+    <div class="row static" style="--inset:14px"><div class="r-main"><div class="r-title" style="font-size:13.5px">Смены</div><div class="r-sub">День 08:00–20:00 · Ночь 20:00–08:00</div></div></div>
     <div class="row static" style="--inset:14px"><div class="r-main"><div class="r-title" style="font-size:13.5px">Объектов в системе</div>
       <div class="r-sub">${MACHINES.length} станков · ${PEOPLE.length} работников · ${S.tasks.length} заданий · ${S.audit.length} записей журнала</div></div></div>
   </div>`;
 }
 
-/* ==================== ЛИСТЫ ДЕЙСТВИЙ ==================== */
+/* ==================== ЛИСТЫ ==================== */
 function sheetCell(mn,shift){
-  const m=M(mn),z=ZONES[m.z],pid=S.asg[mn][shift],p=pid?P(pid):null;
+  const m=M(mn),z=ZONES[m.z],a=A(),pid=a[mn][shift],p=pid?P(pid):null;
   const ed=can('plan.write',{shift,zone:m.z});
-  const cands=PEOPLE.filter(x=>{
-    if(shift===1&&x.sh!==1&&marker(x.id)!=='cross')return false;
-    if(shift===2&&x.sh!==2&&marker(x.id)!=='cross')return false;
-    return true;
+  const cands=PEOPLE.slice().sort((x,y)=>{
+    const vx=validateAssign(x.id,mn,shift),vy=validateAssign(y.id,mn,shift);
+    return (vy.ok-vx.ok)||(dayShift(x.id===x.id?x:'',S.date)===shift?-1:1);
   });
-  openSheet({t:`Станок ${mn} · смена ${shift}`,s:`${z.n} · ${m.j} · ${MST[m.st].l}`,body:`
+  openSheet({t:`Станок ${mn} · ${SHIFT[shift].n.toLowerCase()} смена`,s:`${fmtD(S.date,'full')} · ${SHIFT[shift].t} · ${z.n}`,body:`
+    <div class="note" style="background:${hexA(z.c,.10)}"><span class="ic" style="color:${z.c}">${sv(m.st==='maint'?'wrench':'cpu',17,2.2)}</span>
+    <p><b>${esc(m.j)}</b> · ${MST[m.st].l}${m.st==='maint'?' — назначение заданий заблокировано':''}</p></div>
     ${p?`<div class="fl">Текущий исполнитель</div>
       <div class="opt" data-act="person" data-p="${p.id}">
         <span class="sw-mk" style="background:${hexA(z.c,.16)};display:grid;place-items:center;color:${z.c};font-size:11px;font-weight:800">${p.n[0]}</span>
-        <span class="ot"><b>${esc(p.n)}</b><small>${esc(p.r)} · ${mkL(p.id)}${p.post?' · '+p.post:''}</small></span>${sv('chev',15,2.4)}</div>
+        <span class="ot"><b>${esc(p.n)}</b><small>${esc(p.r)} · ${esc(p.rz)} · ${GR[p.gr].s} · ${CD[dayCode(p,S.date)].l}</small></span>${sv('chev',15,2.4)}</div>
       ${ed?`<button class="btn gray" data-act="unassign" data-m="${mn}" data-s="${shift}" style="margin-bottom:6px">Снять со станка</button>`:''}`
-      :`<div class="note" style="background:${hexA('#FF9500',.12)};margin-top:4px"><span class="ic" style="color:var(--orange)">${sv('alert',17,2.2)}</span>
-        <p>На станке <b>${mn}</b> в смене ${shift} нет исполнителя. ${ed?'Назначьте работника из списка ниже.':'Назначение выполнит '+WHO['plan.write']+'.'}</p></div>`}
-    <div class="fl">${ed?'Назначить исполнителя':'Возможные исполнители (просмотр)'}</div>
-    ${ed?`<div class="searchbar" style="margin-bottom:9px">${sv('search',15,2)}<input id="cs" type="search" placeholder="Поиск по фамилии или участку"></div>`:''}
+      :`<div class="note" style="background:${hexA('#FF9500',.12)}"><span class="ic" style="color:var(--orange)">${sv('alert',17,2.2)}</span>
+        <p>На станке <b>${mn}</b> в ${SHIFT[shift].n.toLowerCase()} смену ${fmtD(S.date,'short')} нет исполнителя. ${ed?'Назначьте работника, который работает в эту смену по графику.':'Назначение выполнит '+WHO['plan.write']+'.'}</p></div>`}
+    <div class="fl">${ed?'Назначить исполнителя':'Возможные исполнители (просмотр)'} · ${fmtD(S.date,'short')}</div>
+    ${ed?`<div class="searchbar" style="margin-bottom:9px">${sv('search',15,2)}<input id="cs" type="search" placeholder="Поиск по фамилии, должности, участку"></div>`:''}
     <div id="cands">${cands.map(c=>candRow(c,mn,shift,ed)).join('')}</div>
     <div class="fl">Задания на станке</div>
     ${S.tasks.filter(t=>t.m===mn).map(t=>`<div class="opt" data-act="task" data-t="${t.id}">
@@ -1290,39 +1489,54 @@ function sheetCell(mn,shift){
     $$('#cands .opt').forEach(o=>o.style.display=o.dataset.s.toLowerCase().includes(q)?'':'none')};
 }
 function candRow(c,mn,shift,ed){
-  const z=ZONES[c.z],mk=marker(c.id),v=validateAssign(c.id,mn,shift);
-  const cur=S.asg[mn][shift]===c.id;
+  const z=ZONES[c.z],v=validateAssign(c.id,mn,shift),cur=A()[mn][shift]===c.id,cd=CD[dayCode(c,S.date)];
   const dis=!v.ok&&!v.warn;
-  return `<div class="opt ${cur?'sel':''} ${dis||!ed?'dis':''}" data-s="${esc((c.n+' '+c.r+' '+z.n).toLowerCase())}"
+  return `<div class="opt ${cur?'sel':''} ${dis||!ed?'dis':''}" data-s="${esc((c.n+' '+c.r+' '+z.n+' '+GR[c.gr].n).toLowerCase())}"
     ${ed&&!dis?`data-act="assign" data-m="${mn}" data-s="${shift}" data-p="${c.id}"`:''}>
-    <span class="sw-mk" style="background:${hexA(z.c,.16)};display:grid;place-items:center;color:${z.c};font-size:11px;font-weight:800">${c.n[0]}</span>
+    <span class="sw-mk" style="background:${hexA(cd.c,.16)};display:grid;place-items:center;color:${cd.dark?'#8a6d00':cd.c};font-size:9.5px;font-weight:800">${cd.m}</span>
     <span class="ot"><b>${esc(c.n)} ${cur?'· назначен':''}</b>
-      <small>${esc(c.r)} · ${z.s} · ${MK[mk||'work'].l}${!v.ok?' · '+v.why:''}</small></span>
+      <small>${esc(c.r)} · ${z.s} · ${GR[c.gr].s} · ${cd.sh?'смена '+SHIFT[cd.sh].t:cd.l}${!v.ok?' — '+v.why:''}</small></span>
     ${dis?`<span class="lk">${sv('lock',10,2.6)}</span>`:(v.warn?`<span class="pill" style="background:${hexA('#FF9500',.15)};color:var(--orange)">⚠</span>`:'')}
   </div>`;
 }
 function sheetPerson(pid){
-  const p=P(pid),z=ZONES[p.z],mk=MK[marker(pid)||'work'];
-  const ms1=assignedTo(pid,1),ms2=assignedTo(pid,2);
-  const canMk=can(HR_MARKERS.includes(marker(pid))?'marker.hr':'marker.write',{shift:p.sh,zone:p.z});
-  const canCross=can('cross.write',{shift:p.sh});
+  const p=P(pid),z=ZONES[p.z],c=CD[dayCode(p,S.date)],ms=allAssigned(pid,S.date);
+  const canMk=can(HR_MARKERS.includes(marker(pid))?'marker.hr':'marker.write',{shift:c.sh||1,zone:p.z});
+  const canCross=c.sh?can('cross.write',{shift:c.sh}):false;
   const tasks=S.tasks.filter(t=>t.w===pid);
-  openSheet({t:esc(p.n),s:`${esc(p.r)} · ${z.n} · смена ${p.sh}${p.post?' · '+p.post:''}`,body:`
+  const days=Array.from({length:14},(_,i)=>addD(S.date,i));
+  let dn=0,nn=0;for(let i=0;i<30;i++){const k=dayCode(p,addD(S.date,i));if(k==='D')dn++;if(k==='N')nn++}
+  openSheet({t:esc(p.n),s:`${esc(p.r)} · ${esc(p.rz)} · таб. ${esc(p.tab)}`,body:`
     <div style="display:flex;align-items:center;gap:14px;padding:4px 2px 14px">
       <div class="av" style="width:58px;height:58px;font-size:23px;background:${hexA(z.c,.15)};color:${z.c}">${p.n[0]}
-        <span class="sdot" style="background:${mk.c}"></span></div>
-      <div><div style="font-size:15px;font-weight:700;letter-spacing:-.02em">${mk.l}</div>
-        <div style="font-size:12px;color:var(--label2);margin-top:2px">${S.mkn[pid]?esc(S.mkn[pid]):'Статус на 25.09.2026'}</div></div>
+        <span class="sdot" style="background:${c.c}"></span></div>
+      <div><div style="font-size:15px;font-weight:700;letter-spacing:-.02em">${c.l}</div>
+        <div style="font-size:12px;color:var(--label2);margin-top:2px">${fmtD(S.date,'full')} · ${ZONES[z===ZONES[z]?p.z:p.z].n}${p.post?' · '+p.post:''}</div>
+        <div style="margin-top:6px;display:flex;gap:5px">${grBadge(p)}
+          <span class="pill" style="background:var(--fill);color:var(--label2)">30 дн.: Д ${dn} · Н ${nn}</span></div></div>
     </div>
-    <div class="fl">Закреплённое оборудование</div>
+    ${S.mkn[pid]?`<div class="note" style="background:${hexA('#FF3B30',.10)};margin-bottom:4px"><span class="ic" style="color:var(--red)">${sv('alert',16,2.2)}</span><p>${esc(S.mkn[pid])}</p></div>`:''}
+    <div class="fl">Ближайшие 14 дней · ${GR[p.gr].s}</div>
+    <div class="scard" style="padding:10px 0"><div class="sscroll"><table class="sch" style="min-width:${14*34+110}px">
+      <thead><tr><th class="nm"></th>${days.map(d=>`<th class="dh ${d===S.date?'td':''}">${WD[wdOf(d)]}<b>${parts(d).d}</b></th>`).join('')}</tr></thead>
+      <tbody><tr><td class="nm"><div>${esc(p.n)}</div><small>${GR[p.gr].s}</small></td>
+        ${days.map(d=>{const k=dayCode(p,d),v=CD[k];
+          return `<td class="c"><div class="sc ${d===S.date?'tdw':''}" data-act="sched" data-p="${pid}" data-d="${d}"
+            style="background:${hexA(v.c,d===S.date?1:.8)};color:${v.dark?'#3a2e00':'#fff'};height:28px;font-size:10px">${v.m}</div></td>`}).join('')}</tr>
+      </tbody></table></div></div>
+    <div class="fl">Закреплённое оборудование · ${fmtD(S.date,'short')}</div>
     <div class="group" style="box-shadow:none;background:var(--card2)">
-      ${[...ms1.map(n=>({n,s:1})),...ms2.map(n=>({n,s:2}))].map(x=>{const m=M(x.n);
-        return `<div class="row" style="--inset:52px" data-act="cell" data-m="${x.n}" data-s="${x.s}">
+      ${ms.length?ms.map(x=>{const m=M(x.n);
+        return `<div class="row" style="--inset:52px" data-act="cell" data-m="${x.n}" data-s="${x.sh}">
         <span class="mchip" style="width:36px;height:30px;font-size:12px;background:${hexA(ZONES[m.z].c,.13)};color:${ZONES[m.z].c}">${x.n}</span>
-        <div class="r-main"><div class="r-title" style="font-size:13px">${esc(m.j)}</div><div class="r-sub">смена ${x.s} · ${MST[m.st].l}</div></div>
+        <div class="r-main"><div class="r-title" style="font-size:13px">${esc(m.j)}</div>
+          <div class="r-sub">${SHIFT[x.sh].n.toLowerCase()} ${SHIFT[x.sh].t} · ${MST[m.st].l}</div></div>
         <span class="chev">${sv('chev',14,2.4)}</span></div>`}).join('')
-        ||'<div class="row static"><div class="r-main"><div class="r-sub">Станки не закреплены</div></div></div>'}
+        :'<div class="row static"><div class="r-main"><div class="r-sub">Станки не закреплены</div></div></div>'}
     </div>
+    ${p.mentor?`<div class="fl">Наставник</div><div class="opt" data-act="person" data-p="${p.mentor}">
+      <span class="sw-mk" style="background:${hexA('#FFCC00',.2)};display:grid;place-items:center;color:#8a6d00">${sv('person',12,2.3)}</span>
+      <span class="ot"><b>${esc(P(p.mentor).n)}</b><small>${esc(P(p.mentor).r)} · ${CD[dayCode(P(p.mentor),S.date)].l}</small></span>${sv('chev',15,2.4)}</div>`:''}
     <div class="fl">Действия</div>
     <div class="opt ${canMk?'':'dis'}" ${canMk?`data-act="marker-open" data-p="${pid}"`:''}>
       <span class="sw-mk" style="background:${hexA('#FF9500',.15)};display:grid;place-items:center;color:var(--orange)">${sv('flag',13,2.3)}</span>
@@ -1332,7 +1546,7 @@ function sheetPerson(pid){
       <span class="ot"><b>Передать в другую смену</b><small>${canCross?'Красный маркер «×» с обязательным комментарием':'право: '+WHO['cross.write']}</small></span>${sv('chev',15,2.4)}</div>
     <div class="opt" data-act="assign-any" data-p="${pid}">
       <span class="sw-mk" style="background:${hexA('#0A84FF',.14)};display:grid;place-items:center;color:var(--blue)">${sv('cpu',13,2.3)}</span>
-      <span class="ot"><b>Назначить на станок</b><small>Выбор оборудования в смене ${p.sh}</small></span>${sv('chev',15,2.4)}</div>
+      <span class="ot"><b>Назначить на станок</b><small>${c.sh?SHIFT[c.sh].n.toLowerCase()+' смена '+SHIFT[c.sh].t:'в эту дату не работает'}</small></span>${sv('chev',15,2.4)}</div>
     <div class="opt" data-act="hist-p" data-p="${pid}">
       <span class="sw-mk" style="background:var(--fill);display:grid;place-items:center;color:var(--label2)">${sv('hist',13,2.3)}</span>
       <span class="ot"><b>История изменений</b><small>Записи журнала по работнику</small></span>${sv('chev',15,2.4)}</div>
@@ -1345,8 +1559,8 @@ function sheetPerson(pid){
 }
 function sheetMarker(pid){
   const p=P(pid);
-  const canHR=can('marker.hr',{shift:p.sh}),canM=can('marker.write',{shift:p.sh});
-  openSheet({t:'Статус-маркер',s:`${esc(p.n)} · смена ${p.sh}`,body:`
+  const canHR=can('marker.hr',{shift:dayShift(pid,S.date)||1}),canM=can('marker.write',{shift:dayShift(pid,S.date)||1});
+  openSheet({t:'Статус-маркер',s:`${esc(p.n)} · ${fmtD(S.date,'short')} · ${GR[p.gr].n}`,body:`
     <div class="note" style="background:${hexA('#0A84FF',.10)}"><span class="ic" style="color:var(--blue)">${sv('flag',17,2.2)}</span>
     <p>Цвета соответствуют легенде исходного файла. Маркеры «в отпуске» и «на больничном» вносит только ОК.</p></div>
     <div class="fl">Выберите маркер</div>
@@ -1354,56 +1568,91 @@ function sheetMarker(pid){
       const hr=HR_MARKERS.includes(k),ok=hr?canHR:canM;
       return `<div class="opt ${marker(pid)===k?'sel':''} ${ok?'':'dis'}" ${ok?`data-act="marker-set" data-p="${pid}" data-mk="${k}"`:''}>
         <span class="sw-mk" style="background:${v.c}"></span>
-        <span class="ot"><b>${v.l}</b><small>${hr?'только ОК / начальник участка':k==='cross'?'обязателен комментарий':'мастер смены'}</small></span>
+        <span class="ot"><b>${v.l}</b><small>${hr?'только ОК / начальник участка':k==='cross'?'обязателен комментарий':k==='rest'?'переопределяет график на дату':'мастер смены'}</small></span>
         ${ok?'':`<span class="lk">${sv('lock',10,2.6)}</span>`}</div>`}).join('')}`,
     foot:`<button class="btn gray" data-act="close">Отмена</button>`});
 }
 function sheetCross(pid){
-  const p=P(pid),to=p.sh===1?2:1;
-  openSheet({t:'Передача в другую смену',s:`${esc(p.n)} → смена ${to}`,body:`
+  const p=P(pid),cur=dayShift(pid,S.date),to=cur===1?2:1;
+  openSheet({t:'Передача в другую смену',s:`${esc(p.n)} → ${SHIFT[to].n.toLowerCase()} ${SHIFT[to].t}`,body:`
     <div class="note" style="background:${hexA('#FF3B30',.10)}"><span class="ic" style="color:var(--red)">${sv('alert',17,2.2)}</span>
     <p>Красный маркер «подработка с другой смены (оставил другой мастер для своих задач)». Комментарий <b>обязателен</b> — он фиксируется в журнале вместе с автором и временем.</p></div>
     <div class="fl">Комментарий: кто оставил и для каких задач *</div>
-    <textarea class="ta" id="cmt" placeholder="Например: оставил мастер Гаврилов П.С. для завершения партии на ст. 137, смена 1"></textarea>
-    <div class="fl">Станки в смене ${to}</div>
+    <textarea class="ta" id="cmt" placeholder="Например: оставил мастер Гаврилов П.С. для завершения партии на ст. 137">${esc(S.mkn[pid]||'')}</textarea>
+    <div class="fl">График работника</div>
     <div class="group" style="box-shadow:none;background:var(--card2)">
-      ${MACHINES.filter(m=>S.asg[m.n][to]===pid).map(m=>`<div class="row static" style="--inset:48px">
+      <div class="row static" style="--inset:48px"><span class="av sm" style="background:${hexA(GR[p.gr].c,.15)};color:${GR[p.gr].c};font-size:9px;font-weight:800">${GR[p.gr].s.slice(0,3)}</span>
+        <div class="r-main"><div class="r-title" style="font-size:13px">${GR[p.gr].n}</div>
+        <div class="r-sub">${fmtD(S.date)}: ${CD[dayCode(p,S.date)].l} → передаём в ${SHIFT[to].n.toLowerCase()}</div></div></div>
+    </div>
+    <div class="fl">Станки в принимающей смене</div>
+    <div class="group" style="box-shadow:none;background:var(--card2)">
+      ${MACHINES.filter(m=>A()[m.n][to]===pid).map(m=>`<div class="row static" style="--inset:48px">
         <span class="mchip" style="width:34px;height:28px;font-size:11.5px">${m.n}</span>
         <div class="r-main"><div class="r-title" style="font-size:13px">${esc(m.j)}</div></div></div>`).join('')
-        ||'<div class="row static"><div class="r-main"><div class="r-sub">Станки в принимающей смене не закреплены — назначьте после передачи</div></div></div>'}
+        ||'<div class="row static"><div class="r-main"><div class="r-sub">Станки не закреплены — назначьте после передачи</div></div></div>'}
     </div>
     <div class="fl">Уведомление получит</div>
-    <p style="font-size:12.5px;color:var(--label2);padding:0 2px">Мастер смены ${to} (${to===1?'Гаврилов П.С.':'Ефимов Д.А.'}) — push и запись в журнале.</p>`,
-    foot:`<button class="btn gray" data-act="close">Отмена</button>
-      <button class="btn red" id="crossOk">Передать в смену ${to}</button>`});
+    <p style="font-size:12.5px;color:var(--label2);padding:0 2px">Мастер ${SHIFT[to].n.toLowerCase()} смены (${to===1?'Гаврилов П.С.':'Ефимов Д.А.'}) — push и запись в журнале.</p>`,
+    foot:`<button class="btn gray" data-act="close">Отмена</button><button class="btn red" id="crossOk">Передать в ${SHIFT[to].n.toLowerCase()} смену</button>`});
   $('#crossOk').onclick=()=>actMarker(pid,'cross',$('#cmt').value.trim());
 }
+function sheetSched(pid,ds){
+  const p=P(pid),cur=dayCode(p,ds),base=schedInfo(p,ds),ov=S.ovr[p.id+'_'+ds];
+  const canPlan=can('plan.write',{shift:CD[cur].sh||1,zone:p.z});
+  const canHR=can('marker.hr',{shift:CD[cur].sh||1}),canM=can('marker.write',{shift:CD[cur].sh||1});
+  openSheet({t:`${fmtD(ds,'full')}`,s:`${esc(p.n)} · ${esc(p.r)} · ${GR[p.gr].n}`,body:`
+    <div class="note" style="background:${hexA(CD[cur].c,.12)}"><span class="ic" style="color:${CD[cur].c}">${sv('cal',17,2.2)}</span>
+    <p>По графику «<b>${GR[p.gr].n}</b>» на эту дату: <b>${CD[base.code].l}</b>.${ov?` Сейчас переопределено вручную: <b>${CD[cur].l}</b>.`:''}</p></div>
+    <div class="fl">Табель на этот день</div>
+    ${['D','N','OT','V'].map(k=>{const v=CD[k];
+      return `<div class="opt ${cur===k?'sel':''} ${canPlan?'':'dis'}" ${canPlan?`data-act="sched-set" data-p="${pid}" data-d="${ds}" data-mk="${k}"`:''}>
+      <span class="sw-mk" style="background:${v.c};display:grid;place-items:center;color:#fff;font-size:9.5px;font-weight:800">${v.m}</span>
+      <span class="ot"><b>${v.l}</b><small>${v.sh?'смена '+v.sh+' · '+SHIFT[v.sh].t:'не работает'}</small></span>
+      ${canPlan?'':`<span class="lk">${sv('lock',10,2.6)}</span>`}</div>`}).join('')}
+    <div class="fl">Статус-маркер</div>
+    ${[['vac','В отпуске',canHR],['sick','На больничном',canHR],['extra','На подработке',canM],['cross','Подработка с другой смены',canM],['trainee','Стажёр',canM]].map(([k,l,ok])=>
+      `<div class="opt ${marker(pid)===k?'sel':''} ${ok?'':'dis'}" ${ok?`data-act="sched-set" data-p="${pid}" data-d="${ds}" data-mk="${k}"`:''}>
+      <span class="sw-mk" style="background:${CD[k].c}"></span><span class="ot"><b>${l}</b><small>${ok?'доступно':'право: '+WHO[HR_MARKERS.includes(k)?'marker.hr':'marker.write']}</small></span>
+      ${ok?'':`<span class="lk">${sv('lock',10,2.6)}</span>`}</div>`).join('')}
+    ${ov||marker(pid)?`<div class="opt" data-act="sched-set" data-p="${pid}" data-d="${ds}" data-mk="auto" style="border-color:${hexA('#FF3B30',.35)}">
+      <span class="sw-mk" style="background:${hexA('#FF3B30',.13)};display:grid;place-items:center;color:var(--red)">${sv('sync',12,2.3)}</span>
+      <span class="ot"><b>Вернуть к расчётному графику</b><small>Снять ручное переопределение на эту дату</small></span></div>`:''}`,
+    foot:`<button class="btn gray" data-act="close">Отмена</button>`});
+}
 function sheetAssignAny(pid){
-  const p=P(pid);
-  const ms=MACHINES.filter(m=>m.z===p.z||true);
-  openSheet({t:'Назначить на станок',s:`${esc(p.n)} · смена ${p.sh}`,body:`
-    <div class="fl">Оборудование · смена ${p.sh}</div>
-    ${ms.map(m=>{const v=validateAssign(pid,m.n,p.sh),cur=S.asg[m.n][p.sh]===pid;
-      const dis=!v.ok&&!v.warn||!can('plan.write',{shift:p.sh,zone:m.z});
-      return `<div class="opt ${cur?'sel':''} ${dis?'dis':''}" ${dis?'':`data-act="assign" data-m="${m.n}" data-s="${p.sh}" data-p="${pid}"`}>
+  const p=P(pid),sh=dayShift(pid,S.date);
+  if(!sh)return openSheet({t:'Назначение недоступно',s:esc(p.n)+' · '+fmtD(S.date,'short'),body:`
+    <div class="note" style="background:${hexA('#FF9500',.12)}"><span class="ic" style="color:var(--orange)">${sv('alert',17,2.2)}</span>
+    <p>${fmtD(S.date,'full')} у работника <b>${CD[dayCode(p,S.date)].l}</b> (график «${GR[p.gr].n}»). Назначение на станок невозможно — выберите дату, когда он работает.</p></div>
+    <div class="fl">Ближайшие рабочие дни</div>
+    ${Array.from({length:14},(_,i)=>addD(S.date,i)).filter(d=>dayShift(p,d)).slice(0,5).map(d=>`<div class="opt" data-act="pick-date" data-d="${d}">
+      <span class="sw-mk" style="background:${hexA(CD[dayCode(p,d)].c,.16)};display:grid;place-items:center;color:${CD[dayCode(p,d)].c};font-size:9.5px;font-weight:800">${CD[dayCode(p,d)].m}</span>
+      <span class="ot"><b>${fmtD(d,'full')}</b><small>${SHIFT[dayShift(p,d)].n} · ${SHIFT[dayShift(p,d)].t}</small></span>${sv('chev',15,2.4)}</div>`).join('')}`,
+    foot:`<button class="btn gray" data-act="close">Закрыть</button>`});
+  openSheet({t:'Назначить на станок',s:`${esc(p.n)} · ${SHIFT[sh].n.toLowerCase()} ${SHIFT[sh].t} · ${fmtD(S.date,'short')}`,body:`
+    <div class="fl">Оборудование</div>
+    ${MACHINES.map(m=>{const v=validateAssign(pid,m.n,sh),cur=A()[m.n][sh]===pid;
+      const dis=!v.ok&&!v.warn||!can('plan.write',{shift:sh,zone:m.z});
+      return `<div class="opt ${cur?'sel':''} ${dis?'dis':''}" ${dis?'':`data-act="assign" data-m="${m.n}" data-s="${sh}" data-p="${pid}"`}>
         <span class="sw-mk" style="background:${hexA(ZONES[m.z].c,.15)};display:grid;place-items:center;color:${ZONES[m.z].c};font-size:10px;font-weight:800">${m.n}</span>
-        <span class="ot"><b>${ZONES[m.z].s} · ${esc(m.j)}</b><small>${cur?'уже назначен':(!v.ok?v.why:(S.asg[m.n][p.sh]?'занят: '+P(S.asg[m.n][p.sh]).n:'свободен'))}</small></span>
+        <span class="ot"><b>${ZONES[m.z].s} · ${esc(m.j)}</b><small>${cur?'уже назначен':(!v.ok?v.why:(A()[m.n][sh]?'занят: '+P(A()[m.n][sh]).n:'свободен'))}</small></span>
         ${dis?`<span class="lk">${sv('lock',10,2.6)}</span>`:''}</div>`}).join('')}`,
     foot:`<button class="btn gray" data-act="close">Отмена</button>`});
 }
 function sheetTask(id){
   const t=S.tasks.find(x=>x.id===id);if(!t)return closeSheet();
   const z=ZONES[t.z],w=t.w?P(t.w):null,pr=pct(t.d,t.q);
-  const ed=can('task.write'),qty=can('task.qty',{shift:1}),own=S.user.personId&&t.w===S.user.personId,fact=can('task.fact')&&(own||lvl('fact')>=3);
-  const acc=can('task.accept');
-  openSheet({t:esc(t.t),s:`${t.id} · ${z.n}${t.m?' · ст. '+t.m:''} · срок ${esc(t.due)}`,body:`
+  const ed=can('task.write'),own=S.user.personId&&t.w===S.user.personId,fact=own||lvl('fact')>=3,acc=can('task.accept');
+  openSheet({t:esc(t.t),s:`${t.id} · ${z.n}${t.m?' · ст. '+t.m:''} · срок ${esc(t.due)} · ${fmtD(S.date,'short')}`,body:`
     <div class="tiles" style="grid-template-columns:1fr 1fr;margin-bottom:4px">
       <div class="tile" style="box-shadow:none;background:var(--card2)"><b>${t.d}<i>/${t.q}</i></b><span>штук выполнено</span></div>
       <div class="tile" style="box-shadow:none;background:var(--card2)"><b>${pr}<i>%</i></b><span>прогресс · ${TST[t.s][0]}</span></div></div>
     <div class="tprog" style="margin:10px 0 4px"><div class="bar" style="height:7px"><i data-w="${pr}" style="background:${z.c}"></i></div></div>
     <div class="fl">Исполнитель</div>
     ${w?`<div class="opt" data-act="person" data-p="${w.id}"><span class="sw-mk" style="background:${hexA(ZONES[w.z].c,.16)};display:grid;place-items:center;color:${ZONES[w.z].c};font-size:11px;font-weight:800">${w.n[0]}</span>
-      <span class="ot"><b>${esc(w.n)}</b><small>${esc(w.r)} · ${mkL(w.id)}</small></span>${sv('chev',15,2.4)}</div>`:'<p style="font-size:12.5px;color:var(--label2)">не назначен</p>'}
+      <span class="ot"><b>${esc(w.n)}</b><small>${esc(w.r)} · ${GR[w.gr].s} · ${CD[dayCode(w,S.date)].l}</small></span>${sv('chev',15,2.4)}</div>`
+      :'<p style="font-size:12.5px;color:var(--label2)">не назначен</p>'}
     <div class="fl">Факт выполнения</div>
     <div style="display:flex;gap:8px;align-items:center">
       <div class="stepper" style="flex:1">
@@ -1421,7 +1670,7 @@ function sheetTask(id){
       <span class="ot"><b>Принять ОТК</b><small>${acc?'Контролёр Свинин А.Ю.':'право: '+WHO['task.accept']}</small></span>${sv('chev',15,2.4)}</div>
     <div class="opt ${acc?'':'dis'}" ${acc?`data-act="accept" data-t="${t.id}" data-ok="0"`:''}>
       <span class="sw-mk" style="background:${hexA('#FF3B30',.13)};display:grid;place-items:center;color:var(--red)">${sv('x',13,2.6)}</span>
-      <span class="ot"><b>Возврат в доработку</b><small>Создаст повторное задание</small></span>${sv('chev',15,2.4)}</div>
+      <span class="ot"><b>Возврат в доработку</b><small>Снимает 20% принятого объёма</small></span>${sv('chev',15,2.4)}</div>
     <div class="opt" data-act="hist-t" data-t="${t.id}">
       <span class="sw-mk" style="background:var(--fill);display:grid;place-items:center;color:var(--label2)">${sv('hist',13,2.3)}</span>
       <span class="ot"><b>История задания</b><small>Записи журнала</small></span>${sv('chev',15,2.4)}</div>
@@ -1434,7 +1683,7 @@ function sheetTask(id){
 function sheetTaskForm(id){
   const t=id?S.tasks.find(x=>x.id===id):null;
   if(!can('task.write'))return deny('task.write');
-  openSheet({t:t?'Изменить задание':'Новое задание',s:t?t.id:'черновик · 25.09.2026',body:`
+  openSheet({t:t?'Изменить задание':'Новое задание',s:(t?t.id:'черновик')+' · '+fmtD(S.date),body:`
     <div class="fl">Наименование операции *</div>
     <input class="inp" id="f_t" value="${esc(t?t.t:'')}" placeholder="Например: Шлифовка матрицы РИЦ-21">
     <div class="fl">Участок *</div>
@@ -1444,7 +1693,8 @@ function sheetTaskForm(id){
       ${MACHINES.map(m=>`<option value="${m.n}" ${t&&t.m===m.n?'selected':''}>${m.n} · ${ZONES[m.z].s} (${MST[m.st].l})</option>`).join('')}</select>
     <div class="fl">Исполнитель</div>
     <select class="inp" id="f_w"><option value="">— не назначен —</option>
-      ${PEOPLE.map(p=>`<option value="${p.id}" ${t&&t.w===p.id?'selected':''}>${p.n} · смена ${p.sh} · ${MK[marker(p.id)||'work'].l}</option>`).join('')}</select>
+      ${PEOPLE.map(p=>{const c=CD[dayCode(p,S.date)];
+        return `<option value="${p.id}" ${t&&t.w===p.id?'selected':''}>${p.n} · ${p.r} · ${c.m} ${c.sh?SHIFT[c.sh].t:c.l}</option>`}).join('')}</select>
     <div style="display:flex;gap:10px"><div style="flex:1"><div class="fl">Объём, шт. *</div>
       <input class="inp" id="f_q" type="number" min="1" value="${t?t.q:10}"></div>
       <div style="flex:1"><div class="fl">Срок *</div><input class="inp" id="f_d" value="${esc(t?t.due:'18:00')}" placeholder="18:00"></div></div>
@@ -1452,7 +1702,7 @@ function sheetTaskForm(id){
     <div class="seg" id="f_p"><div class="seg-th"></div>
       ${[['low','Низкий'],['mid','Средний'],['high','Высокий']].map(([k,l])=>`<button class="seg-b ${(t?t.p:'mid')===k?'on':''}" data-k="${k}">${l}</button>`).join('')}</div>
     <div class="note" style="background:${hexA('#FFCC00',.14)};margin-top:14px"><span class="ic" style="color:#a68700">${sv('alert',17,2.2)}</span>
-    <p>Если исполнитель — стажёр, система потребует указать наставника на том же участке.</p></div>`,
+    <p>Исполнитель должен работать в эту дату по графику. Для стажёра обязателен наставник в той же смене.</p></div>`,
     foot:`<button class="btn gray" data-act="close">Отмена</button><button class="btn" id="fSave">${t?'Сохранить':'Создать задание'}</button>`});
   bindSegs();let prio=t?t.p:'mid';
   $$('#f_p .seg-b').forEach(b=>b.onclick=()=>{prio=b.dataset.k;$$('#f_p .seg-b').forEach(x=>x.classList.remove('on'));b.classList.add('on')});
@@ -1460,29 +1710,30 @@ function sheetTaskForm(id){
     const d={t:$('#f_t').value.trim(),z:$('#f_z').value,m:$('#f_m').value?+$('#f_m').value:null,w:$('#f_w').value||null,
       q:Math.max(1,+$('#f_q').value||1),due:$('#f_d').value.trim()||'—',p:prio};
     if(d.t.length<4)return toast('Укажите наименование операции','alert');
-    if(d.w){const wp=P(d.w);
-      if(['vac','sick','rest'].includes(marker(d.w)))return toast(`${wp.n}: ${mkL(d.w)} — назначение невозможно`,'alert');
-      if(marker(d.w)==='trainee'){const mn=wp.mentor&&P(wp.mentor);
-        if(!mn||!assignedTo(mn.id,wp.sh).length)return toast('Стажёру нужен наставник в смене: назначьте '+
-          (mn?mn.n:'наставника')+' на тот же участок','alert');}}
+    if(d.w){const wp=P(d.w),sh=dayShift(wp.id,S.date);
+      if(isAbsent(wp,S.date))return toast(`${wp.n}: ${CD[dayCode(wp,S.date)].l} — назначение невозможно`,'alert');
+      if(!sh)return toast(`${wp.n} ${fmtD(S.date,'short')} не работает по графику «${GR[wp.gr].s}»`,'alert');
+      if(marker(d.w)==='trainee'){const mn2=wp.mentor&&P(wp.mentor);
+        if(!mn2||dayShift(mn2.id,S.date)!==sh||!assignedTo(mn2.id,sh,S.date).length)
+          return toast('Стажёру нужен наставник в смене: '+(mn2?mn2.n:'не назначен'),'alert');}}
     if(d.m&&M(d.m).st==='maint')return toast(`Станок ${d.m} в состоянии ТО — задание не создаётся`,'alert');
     actTaskSave(d,t?t.id:null);
   };
 }
-function sheetReq(pre){
+function sheetReq(){
   if(!can('request.create'))return deny('request.create');
-  openSheet({t:'Запросить правку',s:'Заявка уйдёт мастеру смены',body:`
+  openSheet({t:'Запросить правку',s:'Заявка уйдёт мастеру смены · '+fmtD(S.date,'short'),body:`
     <div class="fl">Тип обращения *</div>
     <div id="rqT">${['Ошибка в расстановке','Замена работника','Изменение статуса','Новое задание','Другое'].map((x,i)=>
       `<div class="opt ${i===0?'sel':''}" data-act="rq-pick" data-v="${esc(x)}">
         <span class="sw-mk" style="background:${i===0?'var(--blue)':'var(--fill)'};display:grid;place-items:center;color:${i===0?'#fff':'var(--label3)'}">${sv('bell',12,2.3)}</span>
         <span class="ot"><b>${x}</b></span></div>`).join('')}</div>
     <div class="fl">Описание *</div>
-    <textarea class="ta" id="rqX" placeholder="Например: в таблице я стою на ст. 210, фактически работаю на 236 — прошу исправить">${esc(pre||'')}</textarea>
+    <textarea class="ta" id="rqX" placeholder="Например: в таблице я стою на ст. 210, фактически работаю на 236 — прошу исправить"></textarea>
     <div class="fl">Кто рассмотрит</div>
     <div class="group" style="box-shadow:none;background:var(--card2)">
       <div class="row static" style="--inset:48px"><span class="av sm" style="background:#0A84FF;color:#fff;font-size:10px;font-weight:800">МАСТ</span>
-        <div class="r-main"><div class="r-title" style="font-size:13px">Гаврилов П.С.</div><div class="r-sub">Мастер смены 1 · push-уведомление</div></div></div>
+        <div class="r-main"><div class="r-title" style="font-size:13px">Гаврилов П.С.</div><div class="r-sub">Мастер дневной смены · push-уведомление</div></div></div>
       <div class="row static" style="--inset:48px"><span class="av sm" style="background:#5856D6;color:#fff;font-size:10px;font-weight:800">НАЧ</span>
         <div class="r-main"><div class="r-title" style="font-size:13px">Ковалёв И.И.</div><div class="r-sub">Начальник участка · копия</div></div></div>
     </div>`,
@@ -1490,8 +1741,7 @@ function sheetReq(pre){
   let type='Ошибка в расстановке';
   window.__rqPick=v=>{type=v;$$('#rqT .opt').forEach(o=>{const on=o.dataset.v===v;o.classList.toggle('sel',on);
     const s=o.querySelector('.sw-mk');s.style.background=on?'var(--blue)':'var(--fill)';s.style.color=on?'#fff':'var(--label3)'})};
-  $('#rqOk').onclick=()=>{const txt=$('#rqX').value.trim();if(txt.length<6)return toast('Опишите проблему подробнее','alert');
-    actReq({type,txt});};
+  $('#rqOk').onclick=()=>{const txt=$('#rqX').value.trim();if(txt.length<6)return toast('Опишите проблему подробнее','alert');actReq({type,txt})};
 }
 function sheetHist(filter,label){
   const list=S.audit.filter(a=>!filter||(a.obj||'').includes(filter)||(a.c||'').includes(filter));
@@ -1526,18 +1776,21 @@ function sheetLogin(){
 
 /* ==================== ЭКСПОРТ / СИНХРОНИЗАЦИЯ ==================== */
 function exportCSV(){
-  const rows=[['Расстановка РИЦ','25.09.2026','rev.'+S.ver.rev,VSTATUS[S.ver.status].l],[],
-   ['Станок','Участок','Операция','Смена 1','Смена 2','Состояние'],
-   ...MACHINES.map(m=>[m.n,ZONES[m.z].n,m.j,S.asg[m.n][1]?P(S.asg[m.n][1]).n:'',S.asg[m.n][2]?P(S.asg[m.n][2]).n:'',MST[m.st].l]),[],
-   ['Работник','Должность','Участок','Смена','Маркер','Комментарий'],
-   ...PEOPLE.map(p=>[p.n,p.r,ZONES[p.z].n,p.sh,MK[marker(p.id)||'work'].l,S.mkn[p.id]||'']),[],
+  const a=A(),rows=[['Расстановка РИЦ',fmtD(S.date),'rev.'+ver().rev,VSTATUS[ver().status].l],[],
+   ['Смены','День 08:00–20:00','Ночь 20:00–08:00'],[],
+   ['Станок','Участок','Операция','День (08–20)','Ночь (20–08)','Состояние'],
+   ...MACHINES.map(m=>[m.n,ZONES[m.z].n,m.j,a[m.n][1]?P(a[m.n][1]).n:'',a[m.n][2]?P(a[m.n][2]).n:'',MST[m.st].l]),[],
+   ['Работник','Должность','Разряд','Табельный №','Участок','График','Код '+fmtD(S.date),'Маркер','Комментарий'],
+   ...PEOPLE.map(p=>[p.n,p.r,p.rz,p.tab,ZONES[p.z].n,GR[p.gr].n,CD[dayCode(p,S.date)].l,MK[marker(p.id)||'work'].l,S.mkn[p.id]||'']),[],
+   ['Табель на 14 дней','График',...Array.from({length:14},(_,i)=>fmtD(addD(S.date,i),'short'))],
+   ...PEOPLE.map(p=>[p.n,GR[p.gr].s,...Array.from({length:14},(_,i)=>CD[dayCode(p,addD(S.date,i))].m)]),[],
    ['Задание','Операция','Участок','Станок','Исполнитель','Объём','Готово','Срок','Приоритет','Статус'],
    ...S.tasks.map(t=>[t.id,t.t,ZONES[t.z].n,t.m||'',t.w?P(t.w).n:'',t.q,t.d,t.due,t.p,TST[t.s][0]]),[],
    ['Журнал: время','Автор','Роль','Действие','Объект','Было','Стало','Комментарий'],
-   ...S.audit.map(a=>[new Date(a.ts).toLocaleString('ru-RU'),a.who,ROLES[a.role]?ROLES[a.role].n:a.role,actLabel(a.act),a.obj,a.old,a.nw,a.c])];
+   ...S.audit.map(x=>[new Date(x.ts).toLocaleString('ru-RU'),x.who,ROLES[x.role]?ROLES[x.role].n:x.role,actLabel(x.act),x.obj,x.old,x.nw,x.c])];
   const csv='\uFEFF'+rows.map(r=>r.map(c=>'"'+String(c??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
-  a.download='РАССТАНОВКА РИЦ 25.09.2026 (выгрузка).csv';a.click();
+  const el=document.createElement('a');el.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+  el.download='РАССТАНОВКА РИЦ '+fmtD(S.date)+' (выгрузка).csv';el.click();
   log('status','Экспорт CSV','—',rows.length+' строк','');save();toast('Файл выгружен','dl');
 }
 function sync(){
@@ -1546,7 +1799,7 @@ function sync(){
   save();render();toast(n+' изменений синхронизировано','sync');
 }
 
-/* ==================== РОДЫ / СОБЫТИЯ ==================== */
+/* ==================== РОУТЕР ==================== */
 function render(){
   renderNav();renderTopbar();renderTabbar();
   const V={overview:vOverview,plan:vPlan,people:vPeople,machines:vMachines,schedule:vSchedule,tasks:vTasks,log:vLog,profile:vProfile};
@@ -1554,42 +1807,54 @@ function render(){
   bindSegs();animBars();
   if(S.view==='people'){const qi=$('#q');if(qi){qi.oninput=e=>{S.q=e.target.value;
     const p=e.target.selectionStart;$('#view').innerHTML=vPeople();bindSegs();
-    const n=$('#q');n.focus();n.setSelectionRange(p,p);n.oninput=qi.oninput;}}}
+    const n=$('#q');n.focus();n.setSelectionRange(p,p);n.oninput=qi.oninput}}}
+  if(sheetOpen&&document.querySelector('.cal-d')){}
 }
 document.addEventListener('click',e=>{
   const el=e.target.closest('[data-act]');if(!el)return;
   const a=el.dataset.act;
-  if(a!=='close'&&e.target.closest('#sheet')===null&&el.closest('#ov'))return;
   switch(a){
     case 'go':{const v=el.dataset.v;if(v==='more'){sheetMore();return}
       S.view=v;closeSheet();render();$('#scroll').scrollTo({top:0,behavior:'smooth'});break}
     case 'more':sheetMore();break;
-    case 'shift':S.shift=+el.dataset.s;render();break;
+    case 'shift':S.shift=+el.dataset.s;if(S.view!=='schedule')render();else render();break;
+    case 'gs':S.gshift=el.dataset.k==='0'?0:(el.dataset.k==='off'?'off':+el.dataset.k);render();break;
+    case 'span':S.span=+el.dataset.k;render();break;
     case 'mf':S.mfilter=el.dataset.k;render();break;
     case 'mmf':S.mmf=el.dataset.k;render();break;
     case 'tf':S.tfilter=el.dataset.k;render();break;
+    case 'date':sheetCalendar();break;
+    case 'cal-prev':S.mon=iso(new Date(parts(S.mon).y,parts(S.mon).m-2,1));sheetCalendar();break;
+    case 'cal-next':S.mon=iso(new Date(parts(S.mon).y,parts(S.mon).m,1));sheetCalendar();break;
+    case 'cal-pick':{const d=el.dataset.d;S.date=d;S.mon=d;S.asgBy[d]=S.asgBy[d];A(d);save();render();closeSheet();
+      toast('Версия на '+fmtD(d,'short'),'cal');break}
+    case 'cal-doc':S.date=DOC_DATE;S.mon=DOC_DATE;save();render();closeSheet();toast('Версия из файла: '+fmtD(DOC_DATE),'doc');break;
+    case 'pick-date':{const d=el.dataset.d;S.date=d;S.mon=d;save();render();closeSheet();
+      setTimeout(()=>sheetAssignAny(el.closest('.opt')?S.__lastPerson:''),0);break}
     case 'theme':{const d=document.documentElement.dataset.theme==='dark';
       document.documentElement.dataset.theme=d?'light':'dark';try{localStorage.setItem('ric-theme',d?'light':'dark')}catch(x){}
       render();if(sheetOpen)closeSheet();break}
-    case 'offline':S.offline=!S.offline;save();render();
+    case 'offline':S.offline=!S.offline;save();render();if(sheetOpen)closeSheet();
       toast(S.offline?'Офлайн-режим: правки уходят в очередь':'Онлайн: синхронизация мгновенная',S.offline?'alert':'sync');break;
     case 'sync':sync();break;
     case 'export':exportCSV();break;
     case 'reset':askConfirm('Сбросить данные','Все изменения, журнал и заявки будут удалены, расстановка вернётся к состоянию файла РАССТАНОВКА РИЦ 25.09.2026.xlsx.',()=>{
       try{localStorage.removeItem(KEY)}catch(x){}const u=S.user,th=document.documentElement.dataset.theme;load();S.user=u;
-      document.documentElement.dataset.theme=th;render();toast('Данные восстановлены из файла','sync');});break;
+      document.documentElement.dataset.theme=th;initState();render();toast('Данные восстановлены из файла','sync')});break;
     case 'publish':actPublish();break;
     case 'todraft':if(!can('plan.publish'))return deny('plan.publish');
-      S.ver.status='draft';log('status',`Версия ${S.ver.date}`,'опубликован','черновик','');save();render();toast('Версия возвращена в черновик','edit');break;
+      ver().status='draft';log('status',`Версия ${fmtD(S.date)}`,'опубликован','черновик','');save();render();toast('Версия возвращена в черновик','edit');break;
     case 'cell':sheetCell(+el.dataset.m,+el.dataset.s);break;
-    case 'person':sheetPerson(el.dataset.p);break;
+    case 'person':S.__lastPerson=el.dataset.p;sheetPerson(el.dataset.p);break;
     case 'assign':actAssign(+el.dataset.m,+el.dataset.s,el.dataset.p);break;
     case 'unassign':actUnassign(+el.dataset.m,+el.dataset.s);break;
     case 'marker-open':sheetMarker(el.dataset.p);break;
-    case 'marker-set':{const c=el.dataset.mk==='cross';closeSheet();
-      if(c)setTimeout(()=>sheetCross(el.dataset.p),240);else actMarker(el.dataset.p,el.dataset.mk==='work'?null:el.dataset.mk,'');break}
+    case 'marker-set':{const isC=el.dataset.mk==='cross';closeSheet();
+      if(isC)setTimeout(()=>sheetCross(el.dataset.p),240);else actMarker(el.dataset.p,el.dataset.mk==='work'?null:el.dataset.mk,'');break}
     case 'cross-open':sheetCross(el.dataset.p);break;
-    case 'assign-any':sheetAssignAny(el.dataset.p);break;
+    case 'assign-any':S.__lastPerson=el.dataset.p;sheetAssignAny(el.dataset.p);break;
+    case 'sched':sheetSched(el.dataset.p,el.dataset.d);break;
+    case 'sched-set':actSchedOvr(el.dataset.p,el.dataset.d,el.dataset.mk);break;
     case 'hist-p':{const p=P(el.dataset.p);sheetHist(p.n,'по работнику: '+p.n);break}
     case 'task':sheetTask(el.dataset.t);break;
     case 'task-new':sheetTaskForm(null);break;
@@ -1602,61 +1867,52 @@ document.addEventListener('click',e=>{
         save();render();closeSheet();toast('Задание удалено','trash',true)});break}
     case 'fact':actFact(el.dataset.t,+el.dataset.d);break;
     case 'accept':actAccept(el.dataset.t,el.dataset.ok==='1');break;
-    case 'req-new':{closeSheet();setTimeout(()=>sheetReq(''),240);break}
+    case 'req-new':closeSheet();setTimeout(sheetReq,240);break;
     case 'rq-pick':window.__rqPick&&window.__rqPick(el.dataset.v);break;
     case 'req-ok':{const r=S.reqs.find(x=>x.id===el.dataset.id);
       askConfirm('Принять заявку',r.type+': '+r.txt+'. Правка будет внесена в черновик версии.',()=>actReqDecide(r.id,'ok',''));break}
     case 'req-no':{const r=S.reqs.find(x=>x.id===el.dataset.id);
       openSheet({t:'Отклонить заявку',s:r.id+' · '+r.type,body:`<div class="fl">Причина отказа *</div>
-        <textarea class="ta" id="rj" placeholder="Например: работник уже переназначен мастером смены 2"></textarea>`,
+        <textarea class="ta" id="rj" placeholder="Например: работник уже переназначен мастером ночной смены"></textarea>`,
         foot:`<button class="btn gray" data-act="close">Отмена</button><button class="btn red" id="rjOk">Отклонить</button>`});
       $('#rjOk').onclick=()=>{const v=$('#rj').value.trim();if(v.length<4)return toast('Укажите причину','alert');actReqDecide(r.id,'no',v)};break}
-    case 'sched':{const pid=el.dataset.p,d=+el.dataset.d,p=P(pid);
-      if(!can('marker.write',{shift:p.sh}))return deny('marker.write',{shift:p.sh});
-      const cur=S.ovr[pid+'_'+d]||(d===TODAY_IDX?(marker(pid)||'work'):BASE_SCHED[pid][d]);
-      openSheet({t:`${DAYS[d].d} ${DAYS[d].n}.09`,s:esc(p.n)+' · '+ZONES[p.z].s+' · смена '+p.sh,body:`
-        <div class="fl">Маркер на этот день</div>
-        ${Object.entries(MK).map(([k,v])=>{const hr=HR_MARKERS.includes(k),ok=hr?can('marker.hr',{shift:p.sh}):true;
-          return `<div class="opt ${cur===k?'sel':''} ${ok?'':'dis'}" ${ok?`data-act="sched-set" data-p="${pid}" data-d="${d}" data-mk="${k}"`:''}>
-            <span class="sw-mk" style="background:${v.c}"></span><span class="ot"><b>${v.l}</b><small>${hr?'только ОК / начальник участка':'мастер смены'}</small></span>
-            ${ok?'':`<span class="lk">${sv('lock',10,2.6)}</span>`}</div>`}).join('')}
-        ${d===TODAY_IDX?'<div class="note" style="background:'+hexA('#FF9500',.11)+';margin-top:8px"><span class="ic" style="color:var(--orange)">'+sv('alert',17,2.2)+'</span><p>Изменение текущего дня (25.09) обновит статус работника в расстановке и уведомит смену.</p></div>':''}`,
-        foot:`<button class="btn gray" data-act="close">Отмена</button>`});break}
-    case 'sched-set':{const pid=el.dataset.p,d=+el.dataset.d,mk=el.dataset.mk,p=P(pid);
-      snapshot();const old=S.ovr[pid+'_'+d]||(d===TODAY_IDX?(marker(pid)||'work'):BASE_SCHED[pid][d]);
-      S.ovr[pid+'_'+d]=mk;
-      if(d===TODAY_IDX){if(mk==='work'){delete S.mk[pid]}else S.mk[pid]=mk}
-      log('marker',`${p.n} · ${DAYS[d].d} ${DAYS[d].n}.09`,MK[old].l,MK[mk].l,'');
-      offlineMark();save();render();closeSheet();toast(`${p.n}: ${MK[mk].l}`,'check',true);break}
     case 'login':{S.user=USERS.find(u=>u.id===el.dataset.u);S.view='overview';save();render();closeSheet();
       toast('Вход: '+S.user.n+' · '+R().n,'person');break}
     case 'undo':undo();break;
     case 'close':closeSheet();break;
-    case 'hide-hint':try{localStorage.setItem('ric-hint','1')}catch(x){}render();break;
+    case 'hide-hint':try{localStorage.setItem('ric-hint2','1')}catch(x){}render();break;
   }
 });
 $('#ov').addEventListener('click',closeSheet);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sheetOpen)closeSheet()});
-/* drag & drop */
 let dragId=null;
 document.addEventListener('dragstart',e=>{const t=e.target.closest('[data-drag]');if(!t)return;
   dragId=t.dataset.drag;t.classList.add('drag');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',dragId)});
 document.addEventListener('dragend',e=>{const t=e.target.closest('[data-drag]');if(t)t.classList.remove('drag');
   $$('td.drop,td.drop-bad').forEach(x=>x.classList.remove('drop','drop-bad'));dragId=null});
 document.addEventListener('dragover',e=>{const c=e.target.closest('td[data-drop]');if(!c||!dragId)return;
-  e.preventDefault();const [mn,sh]=c.dataset.drop.split(':').map(Number);const v=validateAssign(dragId,mn,sh);
+  e.preventDefault();const[mn,sh]=c.dataset.drop.split(':').map(Number);const v=validateAssign(dragId,mn,sh);
   c.classList.toggle('drop',v.ok||v.warn);c.classList.toggle('drop-bad',!v.ok&&!v.warn)});
 document.addEventListener('dragleave',e=>{const c=e.target.closest('td[data-drop]');if(c)c.classList.remove('drop','drop-bad')});
 document.addEventListener('drop',e=>{const c=e.target.closest('td[data-drop]');if(!c||!dragId)return;
-  e.preventDefault();const [mn,sh]=c.dataset.drop.split(':').map(Number);
+  e.preventDefault();const[mn,sh]=c.dataset.drop.split(':').map(Number);
   c.classList.remove('drop','drop-bad');actAssign(mn,sh,dragId)});
 
 /* ==================== СТАРТ ==================== */
+function initState(){
+  S.date=DOC_DATE;S.mon=DOC_DATE;S.shift=1;S.gshift=0;S.span=7;S.q='';S.mfilter='all';S.mmf='all';S.tfilter='all';
+  S.offline=false;S.queue=[];S.asgBy={};S.vers={};
+  S.vers[DOC_DATE]={status:'draft',rev:4,published:null};
+  A(DOC_DATE);
+}
 load();
 try{const th=localStorage.getItem('ric-theme');if(th)document.documentElement.dataset.theme=th}catch(e){}
-S.view='overview';S.shift=1;S.q='';S.mfilter='all';S.mmf='all';S.tfilter='all';S.offline=false;S.queue=S.queue||[];
+S.view='overview';S.asgBy=S.asgBy||{};S.vers=S.vers||{};
+if(!S.vers[DOC_DATE])S.vers[DOC_DATE]={status:'draft',rev:4,published:null};
+S.date=S.date||DOC_DATE;S.mon=S.mon||S.date;S.shift=S.shift||1;S.gshift=0;S.span=S.span||7;
+S.q='';S.mfilter='all';S.mmf='all';S.tfilter='all';S.offline=!!S.offline;S.queue=S.queue||[];
+A(S.date);
 render();
-setInterval(()=>{if(!sheetOpen&&S.view!=='people')renderTopbar()},60000);
 </script>
 </body>
 </html>
